@@ -1,0 +1,27 @@
+.loginButton {
+  background-color: transparent;
+  font-family: cabin;
+  color: #154FE3;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.loginButton:hover {
+  background-color: #F2F2F2;
+}
+
+.loginButton:active {
+    background-color: #CCCCCC;
+    color: 3A70F3;
+
+  }
+  
+  .loginButton:disabled {
+    color: #F8F8F8;
+    cursor: not-allowed;
+  }
