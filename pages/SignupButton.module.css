@@ -1,18 +1,18 @@
 .signUpButton {
-  background-color: #154FE3; /* Adjust to match your brand or screenshot */
+  background-color: #154FE3;
   font-family: cabin;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 700;
   padding: 8px 16px;
   border: none;
-  border-radius: 7px; /* Increase for a more "pill-shaped" button */
+  border-radius: 7px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 
 .signUpButton:hover {
-  background-color: #3A70F3; /* Slightly darker for a hover effect */
+  background-color: #3A70F3;
 }
 
 .signUpButton:active {

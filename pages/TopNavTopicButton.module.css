@@ -1,0 +1,25 @@
+.allButton {
+    background: none;
+    border: none;
+    /* Reserve space for the bottom border by setting it to transparent */
+    border-bottom: 1.5px solid transparent;
+    cursor: pointer;
+    padding: 6px 10px;
+    padding-top: 6px;
+    color: #333333;
+    font-family: cabin;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: border-bottom 0.2s ease-in;
+    line-height: 21px;
+    justify-content: center;
+  }
+  
+  .allButton:hover {
+    border-bottom-color: #3A70F3;
+  }
+  
+  .allButton:active {
+    border-bottom-color: #154FE3;
+  }
+  

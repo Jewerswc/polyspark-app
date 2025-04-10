@@ -1,0 +1,47 @@
+.searchContainer {
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* default transparent background */
+    border: 1px solid #C0C0C0;
+    border-radius: 8px;
+    padding: 8px 8px 8px 16px;  /* ensure proper units for all sides */
+    width: 712px;
+    color: #fff;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition: background-color 0.25s ease, border 0.25s ease;
+  }
+  
+  /* Hover style normally applies */
+  .searchContainer:hover {
+    background-color: #E6E6E6;
+  }
+  
+  /* Active state (when the user is clicking) */
+  .searchContainer:active {
+    border: 1px solid #222222;
+    background-color: transparent;
+  }
+  
+  /* When any element inside the container is focused (e.g., the search input),
+     keep the background transparent until focus is lost */
+  .searchContainer:focus-within {
+    background-color: transparent;
+    border: 1px solid #222222;
+  }
+  
+  .searchIcon {
+    color: #606060;
+    margin-right: 8px;
+  }
+  
+  .searchInput {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: #A1A1A1;
+    flex: 1;
+    font-size: 14px;
+    font-family: cabin, sans-serif;
+  }
+  

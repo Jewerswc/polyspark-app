@@ -1,0 +1,32 @@
+.liveContainer {
+  display: inline-flex;  
+  align-items: center;
+  gap: 4px;    
+  padding: 8 10 6 10;
+        
+}
+
+.liveText {
+  color: #E82E00;         
+  font-weight: bold;
+  font-size: 0.781rem;   
+  font-family: cabin;
+}
+
+.blinkingDot {
+  display: inline-block;
+  width: 4px;           
+  height: 4px;
+  background-color: #E82E00;
+  border-radius: 50%;
+  animation: slowBlink 2.5s infinite;
+}
+
+@keyframes slowBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

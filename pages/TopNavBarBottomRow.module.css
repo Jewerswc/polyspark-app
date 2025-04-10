@@ -1,0 +1,8 @@
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  padding: 0 20 0 25;
+  justify-content: center; /* Centers children horizontally */
+  
+}

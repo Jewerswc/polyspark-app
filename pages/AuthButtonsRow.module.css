@@ -1,0 +1,8 @@
+.authRow {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 8px;               /* Space between the buttons */
+  padding: 0;
+}

@@ -1,0 +1,33 @@
+.hamburgerButton {
+    background-color: transparent; /* Default background */
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    cursor: pointer;
+  
+    border-radius: 6px;
+  
+    display: inline-flex;   /* ensure icon is centered */
+    align-items: center;
+    justify-content: center;
+  
+    /* Transition for smooth hover effect */
+    transition: background-color 0.2s ease, border 0.2s ease;
+    color: #333333; /* sets "currentColor" for the SVG bars */
+  }
+  
+  .hamburgerButton:hover {
+    background-color: #f1f1f1; /* Default background */
+    /* Optional border if you want a subtle outline: */
+    /* border: 1px solid #ccc; */
+  }
+  
+  /* The SVG icon inherits the parent color by default.
+     You can adjust size or add extra styling if needed. */
+  .hamburgerIcon {
+    display: block;
+    color: #333; /* ensures bars are visible against the background */
+  }
+  

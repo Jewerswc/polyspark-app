@@ -1,0 +1,8 @@
+.topicsRow {
+  display: flex;
+  flex-direction: row;
+  gap: 0rem; /* Space between buttons */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px;
+}

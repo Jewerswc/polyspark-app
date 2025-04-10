@@ -1,0 +1,24 @@
+import React from 'react';
+import styles from './TrendingButton.module.css';
+
+export default function TrendingButton({ onClick }) {
+  return (
+    <button className={styles.trendingButton} onClick={onClick}>
+      <svg
+        className={styles.icon}
+        width="25"
+        height="15"
+        viewBox="0 0 25 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.529999 8.25165H5.21748C5.2406 8.25165 5.26186 8.23898 5.27287 8.21866L8.96303 1.40773C8.9897 1.35851 9.06252 1.36592 9.07873 1.41951L12.7634 13.6043C12.7806 13.6612 12.8597 13.6648 12.8821 13.6098L16.5426 4.60159C16.563 4.55138 16.633 4.54865 16.6573 4.59712L18.4676 8.21683C18.4783 8.23817 18.5001 8.25165 18.5239 8.25165H24.47"
+          stroke="currentColor"
+          strokeWidth="1.26"
+        />
+      </svg>
+      <span className={styles.label}>Trending</span>
+    </button>
+  );
+}

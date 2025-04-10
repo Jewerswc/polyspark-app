@@ -1,0 +1,40 @@
+.trendingButton {
+    display: flex;
+    flex-direction: column;  /* Stack the icon over the text */
+    align-items: center;
+    gap: 2px;             /* Adjust spacing between icon and text */
+    background: none;
+    border: none;
+    padding: 4 8;
+    padding-bottom: 2.5;
+    border-radius: 4px;
+    color: #666666;
+    font-family: cabin;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+  }
+  
+  .trendingButton:hover {
+    background-color:#F2F2F2;  /* Light background on hover */
+    color: #656565;              /* Darker text/icon on hover */
+  }
+  
+  .trendingButton:active {
+    background-color: #F2F2F2;
+    color: #8D8C8C;
+    border: none;
+
+  }
+  
+  .icon {
+    /* Optionally adjust icon size if needed */
+    width: 24px;
+    height: 12.5px;
+  }
+  
+  .label {
+    font-size: 0.75rem;
+  }
+  

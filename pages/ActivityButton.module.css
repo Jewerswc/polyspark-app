@@ -1,0 +1,36 @@
+.activityButton {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    gap: 4px;         
+    background: none;
+    border: none;
+    padding: 2.5 8;
+    border-radius: 4px;
+    color: #666666;
+    font-family: cabin;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  
+  .activityButton:hover {
+    background-color:#F2F2F2;
+    color: #656565;              
+  }
+  
+  .activityButton:active {
+    background-color: #F2F2F2;
+    color: #8D8C8C;
+    border: none;
+
+  }
+  
+  .icon {
+    width: 24px;
+    height: 12.5px;
+  }
+  
+  .label {
+    font-size: 0.75rem;
+  }
