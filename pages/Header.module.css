@@ -1,26 +1,26 @@
 .header {
   display: flex;
-  flex-direction: column; /* Stack topRow over bottomRow */
+  flex-direction: column;
   background-color: #d9121200;
   border-bottom: 1px solid #ddd;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-      width: 100%;
-
+  box-shadow: 0px 4px 4px 0px #0000000D;
+  width: 100%;
+  overflow: visible; /* Ensure children (like the search placeholder) can extend outside */
+  position: relative; /* If using z-index inside header, ensure proper stacking */
+  margin-bottom: 800px;
 }
 
-/* The top row: PolysparkLogo, SearchInput, ButtonRow, and AuthAndHamburgerRow */
 .topRow {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space out the four main sections */
+  justify-content: space-between;
   gap: 1rem;
-  padding: 0rem 0rem; /* Adjust as needed */
+  padding: 0rem 0rem; 
 }
 
-/* The bottom row: LIVE indicator and TopicsRow */
 .bottomRow {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0rem 0rem; /* Adjust as needed */
+  padding: 0rem 0srem;
 }

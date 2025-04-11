@@ -1,7 +1,6 @@
 .allButton {
     background: none;
     border: none;
-    /* Reserve space for the bottom border by setting it to transparent */
     border-bottom: 1.5px solid transparent;
     cursor: pointer;
     padding: 6px 10px;

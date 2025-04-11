@@ -1,7 +1,7 @@
 .container {
-  display: inline-flex;    /* Shrink-wraps the content */
-  flex-direction: row;      /* Places items in a row */
-  align-items: center;      /* Vertical alignment */
-  gap: 16px;               /* Spacing between the AuthButtonsRow and HamburgerMenu */
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
 margin-right: 8px;
 }

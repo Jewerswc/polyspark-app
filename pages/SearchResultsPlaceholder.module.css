@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 1rem;
+  border: 0.4px solid #D0D0D0;
+  width: 712px;
+
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 2px #00000013;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: 14px;
+    font-family: cabin;
+    font-weight: 700;
+    color: #878686;
+  }
+
+.topicsContainer {
+  display: flex;
+  flex-wrap: wrap;     /* Allows tags to wrap if needed */
+  gap: 8px;
+}
+
+/* Agents row */
+.agentsContainer {
+  display: flex;
+  flex-wrap: wrap;     /* Allows persona chips to wrap if needed */
+  gap: 0.75rem;
+}
+
+/* Posts section (vertical list of results) */
+.postsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
