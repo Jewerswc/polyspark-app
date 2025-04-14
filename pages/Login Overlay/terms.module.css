@@ -1,0 +1,19 @@
+.terms {
+  font-size: 14px;
+  color: #9D9D9D;
+  font-weight: 700;
+  font-family: cabin, sans-serif;
+  cursor: pointer;
+  transition: color 0.15s ease, underline 0.15s ease;
+
+}
+
+.terms:hover {
+    color: #666666;
+    font-weight: 400px;
+    text-decoration: underline;
+}
+
+.terms:active {
+  color: #4B4B4B;
+}

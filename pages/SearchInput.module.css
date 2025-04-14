@@ -1,19 +1,23 @@
 .searchContainer {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid #C0C0C0;
-    border-radius: 8px;
-    padding: 8px 8px 8px 16px;
-    width: 712px;
-    color: #fff;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    transition: background-color 0.25s ease, border 0.25s ease;
-  }
+  display: flex; /* Changed from inline-block */
+  box-sizing: border-box; /* Ensures padding/border don't add extra width */
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #C0C0C0;
+  border-radius: 8px;
+  padding: 8px 8px 8px 16px;
+  width: 100%;
+  max-width: 800px;
+  color: #fff;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  transition: background-color 0.25s ease, border 0.25s ease;
+}
+
+
 
   .searchWrapper {
-    position: relative; /* Allows the placeholder to be positioned in relation to the search input */
+    position: relative;
   }
 
   .placeholderWrapper {
@@ -21,7 +25,7 @@
     top: calc(100% + 4px);
     left: 0;
     width: 100%;
-    z-index: 1000; /* Increase this value if necessary */
+    z-index: 1000;
   }
   
   
@@ -48,7 +52,7 @@
     border: none;
     background-color: transparent;
     outline: none;
-    color: #A1A1A1;
+    color: #1e1c1c;
     flex: 1;
     font-size: 14px;
     font-family: cabin;

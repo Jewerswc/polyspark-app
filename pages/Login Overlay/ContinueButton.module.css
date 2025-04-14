@@ -1,0 +1,28 @@
+.continueButton {
+  background: none;
+  border-left: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border: 1px solid white; 
+  color: #434343;
+  font-family: cabin;;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.45s ease, border 0.45s ease, color 0.15s ease;
+
+}
+
+.continueButton:hover {
+  background-color: #E6E6E6;
+  border: 1px solid #E6E6E6;
+}
+
+.continueButton:active {
+    background-color: #CCCCCC;
+    border: 1px solid #CCCCCC;
+
+
+}

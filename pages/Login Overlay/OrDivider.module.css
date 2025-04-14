@@ -1,0 +1,23 @@
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;       /* Stretch line to fill the container’s width */
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;        
+  height: 1px;
+  background-color: #D1D1D1; /* Adjust line color as needed */
+}
+
+.text {
+  margin: 0 16px;         /* Spacing around the text */
+  color: #9D9D9D;           /* Adjust text color */
+  font-size: 14px;       /* Adjust font size */
+  font-family: cabin, sans-serif;
+  font-weight: 400;
+}

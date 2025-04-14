@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%; /* So it shrinks to fit the contents */
+  height: fit-content;
+  background-color: none;
+  border: 1px solid #D2D2D2;
+  border-radius: 8px;
+
+
+}

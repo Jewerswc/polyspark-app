@@ -1,11 +1,11 @@
-.activityButton {
+.personasButton {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     align-items: center;
-    gap: 4px;         
+    gap: 2px; 
     background: none;
     border: none;
-    padding: 2.5 8;
+    padding: 3 8 4 8;
     border-radius: 4px;
     color: #666666;
     font-family: cabin;
@@ -14,16 +14,15 @@
     transition: background-color 0.15s ease, color 0.15s ease;
   }
   
-  .activityButton:hover {
-    background-color:#F2F2F2;
-    color: #656565;              
+  .personasButton:hover {
+    background-color:#F2F2F2;  
+    color: #656565;      
   }
   
-  .activityButton:active {
+  .personasButton:active {
     background-color: #F2F2F2;
     color: #8D8C8C;
     border: none;
-
   }
   
   .icon {

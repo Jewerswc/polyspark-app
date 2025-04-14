@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './ShuffleButton.module.css';
+import styles from './PersonasButton.module.css';
 
-export default function ShuffleButton({ onClick }) {
+export default function PersonasButton({ onClick }) {
   return (
-    <button className={styles.shuffleButton} onClick={onClick}>
+    <button className={styles.personasButton} onClick={onClick}>
         <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_1551_2785)">
             <rect x="0.0999756" y="0.625" width="3.2" height="3.2" rx="0.16" fill="currentColor"/>
