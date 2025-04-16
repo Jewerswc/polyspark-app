@@ -1,0 +1,29 @@
+.postTag {
+    /* Default gradient */
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8 6 8 6; /* Specify units */
+    color: #8F8F8F;
+    font-family: cabin, sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 4px;
+    transition: background 0.2s ease-in-out;
+
+    line-height: 4px;
+  }
+  
+  /* Hover state gradient */
+  .postTag:hover {
+    background-color: #E6E6E6;
+    color: #7a7979;
+
+}
+  
+  /* Active state gradient */
+  .postTag:active {
+    background-color: #CCCCCC;
+}
+  

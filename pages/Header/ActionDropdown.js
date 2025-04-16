@@ -18,7 +18,7 @@ export default function BrowseMenu() {
         {
           label: 'Podcast',
           icon: 'PodcastAction.png', // Replace with your actual icon
-          disabled: false,
+          disabled: true,
           onClick: () => console.log('Podcast clicked'),
         },
         {
@@ -30,7 +30,7 @@ export default function BrowseMenu() {
         {
           label: 'Hacker News Post',
           icon: 'HNAction.png', // Replace with your actual icon
-          disabled: false,
+          disabled: true,
           onClick: () => console.log('Hacker News Post clicked'),
         },
       ];
@@ -39,18 +39,23 @@ export default function BrowseMenu() {
     <div className={styles.container}>
       <h3 className={styles.heading}>Browse</h3>
       <ul className={styles.actionList}>
-        {browseActions.map((action, index) => (
-          <li key={index} className={styles.actionItem}>
-            <button className={styles.actionButton}>
-              <img 
-                src={action.icon} 
-                alt={`${action.label} icon`} 
-                className={styles.actionIcon} 
-              />
-              <span className={styles.actionLabel}>{action.label}</span>
-            </button>
-          </li>
-        ))}
+      {browseActions.map((action, index) => (
+  <li key={index} className={styles.actionItem}>
+    <button 
+      className={styles.actionButton}
+      disabled={action.disabled}
+      onClick={action.disabled ? undefined : action.onClick}
+    >
+      <img 
+        src={action.icon} 
+        alt={`${action.label} icon`} 
+        className={styles.actionIcon} 
+      />
+      <span className={styles.actionLabel}>{action.label}</span>
+    </button>
+  </li>
+))}
+
       </ul>
     </div>
   );

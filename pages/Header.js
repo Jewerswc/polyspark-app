@@ -4,9 +4,9 @@ import ChatOverlay from './ChatOverlay';
 import styles from './Header.module.css';
 import PolysparkLogo from './PolysparkLogo';
 import SearchInput from './SearchInput';
-import ButtonRow from './FiveWidgets';         
-import AuthAndHamburgerRow from './AuthAndHamburger';
-import TopNavbarBottomRow from './TopNavbarBottomRow';
+import ButtonRow from './Header/FiveWidgets';         
+import AuthAndHamburgerRow from './Header/AuthAndHamburger';
+import TopNavbarBottomRow from './Header/TopNavbarBottomRow';
 import PersonaCardsRow from './PersonaCardRow';
 
 export default function Header() {
@@ -42,26 +42,24 @@ export default function Header() {
             onSignupClick={openOverlay} 
             onLoginClick={openOverlay}
           />
-
-          {isOverlayVisible && (
-            <SignupOverlay 
-              onGoogleContinue={() => console.log("Google Continue")}
-              onEmailContinue={(email) => console.log("Email submitted:", email)}
-              onClose={closeOverlay}
-            />
-          )}
         </div>
-
         <div className={styles.bottomRow}>
           <TopNavbarBottomRow />
         </div>
       </header>
-      
 
-      {/* Render ChatOverlay when its state is true */}
+      {/* Conditionally render the SignupOverlay */}
+      {isOverlayVisible && (
+        <SignupOverlay 
+          onGoogleContinue={() => console.log("Google Continue")}
+          onEmailContinue={(email) => console.log("Email submitted:", email)}
+          onClose={closeOverlay}
+        />
+      )}
+
+      {/* Similarly, if needed, conditionally render the ChatOverlay */}
       {isChatOverlayVisible && (
         <ChatOverlay 
-          apiKey="YOUR_API_KEY_HERE"
           onClose={closeChatOverlay}
         />
       )}

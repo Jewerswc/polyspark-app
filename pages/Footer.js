@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
-import IconButtonRow from './IconButtonRow';
-import ActionsDropdownWrapper from './ActionsDropdownWrapper';
+import IconButtonRow from './Footer/IconButtonRow';
+import ActionsDropdownWrapper from './Header/ActionsDropdownWrapper';
 
 export default function Footer() {
   const infoItems = [

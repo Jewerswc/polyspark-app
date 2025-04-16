@@ -1,5 +1,0 @@
-.actionsRow {
-  display: flex;
-  align-items: center;  /* Vertically center them in a row */
-  gap: 8px;             /* Spacing between the button and tags */
-}

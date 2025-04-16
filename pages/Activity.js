@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Header from './Header';
-import PersonaCardRow from './PersonaCardRow';
-import FeedCardGrid from './FeedCardGrid';
+import ActivityResultList from './ActivityResultList';
 import Footer from './Footer';
 import ChatOverlay from './ChatOverlay';
 import SignupOverlay from './LoginOverlay';
-import './MainPage.module.css';
+import './Activity.module.css';
 
 export default function App() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
@@ -18,14 +17,10 @@ export default function App() {
 
   return (
     <div className="pageWrapper">
-      {/* Pass openSignupOverlay as a prop */}
       <Header onSignupClick={openSignupOverlay} />
       <div className="mainContent">
-        <PersonaCardRow onChatClick={(name) => {
-          console.log("Chat clicked for", name);
-          openChatOverlay();
-        }} />
-        <FeedCardGrid />
+        {/* Replace the PersonaCardRow and FeedCardGrid with ActivityResultList */}
+        <ActivityResultList />
       </div>
       <Footer />
 

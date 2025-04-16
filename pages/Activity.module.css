@@ -1,0 +1,25 @@
+/* Overall page layout */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 120vh;
+  border-radius: 12px;
+}
+
+/* Header would typically be at the top; no special styling here unless needed */
+
+/* Main content area */
+.mainContent {
+  flex: 1;
+  /* Ensure the main content starts below the header; adjust the value as needed */
+  margin-top: 80px;
+  border-radius: 12px;
+
+  /* Center contents horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* Optional: add some horizontal padding */
+  padding: 0 16px;
+}

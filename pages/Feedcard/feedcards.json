@@ -1,65 +1,89 @@
 [
   {
     "title": "Can you really write an entire operating system in 1,000 lines of python?",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions",
+    "description": "Join Alex Doe and Jessica Beam in Episode One of Python Deepdive as they explore the recent Hacker News story of whether you can write an entire operating language in 1,000 lines of code.",
     "image": "template.png",
-    "tags": ["James Ryu", "Supply", "Logistics", "+2 more"]
+    "tags": ["Python", "OS", "Minimalism"]
   },
   {
     "title": "Trainning A Large Language Model With Python",
     "description": "With the growing interest in Large Language Models (LLMs) and their wide range of applications, training an LLM from scratch has become an exciting project for both developers and researchers. Using Python's powerful ecosystem, this guide aims to simplify the process of building, training, and deploying an LLM tailored to specific tasks or datasets.",
     "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-2da4-5230-a4d5-04efd4b86e31/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=e2d1fd66-53ab-5639-8665-6efa58cab910&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-16T06%3A51%3A06Z&ske=2025-04-17T06%3A51%3A06Z&sks=b&skv=2024-08-04&sig=tQHO591i%2BI4WFsWrEZMbuqxZy/mr6avUOFsPjQZQG8I%3D",
-    "tags": ["Innovation", "Trends", "Tech"]
+    "tags": ["LLM", "Python", "ML/AI"]
   }, 
 
   {
     "title": "Building a Python-Based Telemetry System for a Model Rocket",
     "description": "Model rocketry captures the imagination of hobbyists and professionals alike—there’s something inherently compelling about building your own rocket.", 
     "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-91dc-5230-b2c5-d669e4d7fe27/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=0042e62b-a33b-5925-a8cb-3e767b682ee5&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-16T06%3A42%3A37Z&ske=2025-04-17T06%3A42%3A37Z&sks=b&skv=2024-08-04&sig=doRP8R5FV3SqejQdzojUQNbzWnRwWYrwvhNf9akrWDc%3D", 
-    "tags": ["python", "telemetery", "rocketry"]
+    "tags": ["Python", "Telemetery", "Rocketry"]
   },
 
   {
     "title": "Developing a near real-time text to speech application",
     "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
     "image": "https://sdmntpreastus2.oaiusercontent.com/files/00000000-8e8c-51f6-8289-afaa870fcc4b/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=f83f0d2d-89f4-51a4-b131-199603de7c9a&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-16T04%3A48%3A59Z&ske=2025-04-17T04%3A48%3A59Z&sks=b&skv=2024-08-04&sig=0sFM7/b1Q1d2hHhK%2BpuaepXmzcyZQidXHqaDcHBctbo%3D", 
-    "tags": ["python", "text", "speech"]
+    "tags": ["Python", "Text-To-Speech"]
   }, 
 
   {
     "title": "Summarized how the CIA writes Python",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
+    "description": "The Central Intelligence Agency (CIA) is renowned for its clandestine operations and intelligence gathering. However, behind the veil of secrecy lies a sophisticated approach to software development, particularly with the Python programming language. A recent exploration through Wikileaks has shed light on how the CIA utilises Python, revealing their coding standards, testing methodologies, and adaptation to secure, disconnected environments. This article delves into these findings, offering a glimpse into the agency's unique software development practices. Python has long been heralded for its simplicity and versatility, making it a favourite among developers worldwide. Its adoption spans from web development to artificial", 
     "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
-    "tags": ["python", "text", "speech"]
+    "tags": ["CIA", "Python", "Security"]
   },
   {
     "title": "Beyond Virality: How Community-Driven Marketing is Redefining Startup Growth",
     "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
-    "image": "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-d798-6246-837b-cb687a0d33a1/raw?se=2025-04-16T08%3A34%3A53Z&sp=r&sv=2024-08-04&sr=b&scid=16c94ddf-33c3-55e3-9ed4-8ba3d6efec53&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-16T06%3A38%3A00Z&ske=2025-04-17T06%3A38%3A00Z&sks=b&skv=2024-08-04&sig=1EH41jdfyyuWDWpoRRovRXSzm6Mh6uCzdsP6RBHcZvI%3D", 
-    "tags": ["python", "text", "speech"]
+    "image": "beyondvirality.png", 
+    "tags": ["Startups", "Virality", "Marketing"]
   },
-  {
-    "title": "Beyond Geography: How Blockchain Tech is Empowering Digital Nomads",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
-    "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
-    "tags": ["python", "text", "speech"]
-  },
-
   {
     "title": "From Side Hustle to Startup Success: How AI-Driven Tools Are Transforming Indie Hacking",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
-    "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
-    "tags": ["python", "text", "speech"]
+    "description": "Just a few weeks ago, I stumbled across a captivating story on Indie Hackers. Kushank Aggarwal described how he transformed his curiosity and love for experimentation with Arduino and systems engineering into a flourishing business venture, now earning over $35k a month. But the most fascinating part of Kushank’s story wasn’t merely the numbers—it was the strategy behind them: content came first, product came second", 
+    "image": "side-hustle.png", 
+    "tags": ["Indie-Hacking", "Startup", "Growth"]
   },
   {
-    "title": "From Side Project to $10K MRR",
+    "title": "How Blockchain Tech is Empowering Digital Nomads",
     "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
-    "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
-    "tags": ["python", "text", "speech"]
+    "image": "beyondgeography.png", 
+    "tags": ["Blockchain", "Digital Nomad"]
+  },
+  {
+    "title": "Kemi Badenoch and the Conservative Rebuild: A Stepping Stones Revival",
+    "description": "In the wake of the Conservative Party's historic defeat in the 2024 general election, Kemi Badenoch's ascension to party leadership marked a pivotal moment. As the first Black woman to lead a major UK political party, Badenoch faces the formidable task of revitalizing a party grappling with internal divisions and a shifting political landscape.​", 
+    "image": "badenoch.png", 
+    "tags": ["Politics", "Kemi", "Conservatives"]
   },
   {
     "title": "Implementing Custom Encryption in SQLAlchemy for Backend Developers",
     "description": "Recently, while reflecting on backend security, I recalled one impactful afternoon when I stumbled upon Miguel Grinberg’s exceptional guide on encryption at rest with SQLAlchemy. That experience nudged me toward a fundamental shift in how I approach data security—I began to see encryption not simply as a bolt-on enhancement, but as a transparent and integral part of backend application design.", 
+    "image": "datasecurity.png", 
+    "tags": ["SQLAlchemy", "Backend"]
+  },
+  {
+    "title": "SubQuery's Vision for Decentralized AI",
+    "description": "When I first stumbled across SubQuery's vision for decentralized AI architectures blending physical infrastructure, agentic AI, and blockchain data, I felt a familiar, electric excitement. This was more than just another headline about software interfaces or network protocols—this felt genuinely transformative. It reminded me of the early days reading about ventures like Minima partnering with Siemens, where real blockchain tech stepped into vibrant industries—automotive, healthcare, energy—providing something practical, tangible, immediately understandable. Innovation with clear purpose.", 
+    "image": "subquery.png", 
+    "tags": ["Subquery", "Decentralized AI"]
+  },
+  {
+    "title": "The Woke Waste Wars: How Britain Fell into a Bureaucratic Black Hole",
+    "description": "In the age of austerity, one might expect the British government to exercise fiscal prudence. Yet, recent revelations suggest a different narrative—one where taxpayer money funds projects that, at best, raise eyebrows, and at worst, exemplify a disconnect between governance and public sentiment.​", 
+    "image": "wokewaste.png", 
+    "tags": ["Bureaucracy", "Waste", "UK Politics"]
+  },
+  {
+    "title": "How AI-Powered Validation Tools are Reinventing Market Testing for Startup Founders",
+    "description": "For years, startup founders have been advised to quickly spin up a simple landing page as their go-to market validation experiment. The recipe was straightforward: craft clear, concise messaging; collect leads or signups; and measure user interest. I've encountered countless stories celebrating how minimalistic landing pages have helped founders sidestep expensive mistakes by quickly testing product hypotheses—just last month, I came across a memorable Indie Hackers profile of an entrepreneur who used this simple landing page approach and quickly shifted from ad-driven revenue to subscriptions, scaling his AI product to $12k MRR in only 11 months.", 
+    "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
+    "tags": ["python", "text", "speech"]
+  },
+
+  {
+    "title": "How Blockchain Tech is Empowering Digital Nomads",
+    "description": "It wasn't long ago when becoming a digital nomad felt like a trade-off between freedom and career stability. Sure, you could work from a café overlooking Bali’s rice paddies or from a cozy co-working space in Lisbon, but managing international payments and employment contracts were usually messy affairs. Traditional banking systems took their pound of flesh in fees and red tape, making something that should have been simple feel dauntingly complex.", 
     "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
     "tags": ["python", "text", "speech"]
   },
@@ -75,16 +99,17 @@
     "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
     "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
     "tags": ["python", "text", "speech"]
-  },
+  }, 
   {
-    "title": "Beyond Virality: How Community-Driven Marketing is Redefining Startup Growth",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
+    "title": "How AI-Powered Validation Tools are Reinventing Market Testing for Startup Founders",
+    "description": "For years, startup founders have been advised to quickly spin up a simple landing page as their go-to market validation experiment. The recipe was straightforward: craft clear, concise messaging; collect leads or signups; and measure user interest. I've encountered countless stories celebrating how minimalistic landing pages have helped founders sidestep expensive mistakes by quickly testing product hypotheses—just last month, I came across a memorable Indie Hackers profile of an entrepreneur who used this simple landing page approach and quickly shifted from ad-driven revenue to subscriptions, scaling his AI product to $12k MRR in only 11 months.", 
     "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
     "tags": ["python", "text", "speech"]
   },
+
   {
-    "title": "Beyond Geography: How Blockchain Tech is Empowering Digital Nomads",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
+    "title": "How Blockchain Tech is Empowering Digital Nomads",
+    "description": "It wasn't long ago when becoming a digital nomad felt like a trade-off between freedom and career stability. Sure, you could work from a café overlooking Bali’s rice paddies or from a cozy co-working space in Lisbon, but managing international payments and employment contracts were usually messy affairs. Traditional banking systems took their pound of flesh in fees and red tape, making something that should have been simple feel dauntingly complex.", 
     "image": "https://sdmntprwestus.oaiusercontent.com/files/00000000-11cc-5230-bb48-6f4de211c87d/raw?se=2025-04-16T09%3A03%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=893b9799-36d5-5b62-9928-9dfe75fda548&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-15T23%3A52%3A59Z&ske=2025-04-16T23%3A52%3A59Z&sks=b&skv=2024-08-04&sig=J2dHx3oq3/dr0n6gl72SSrxNro/CHhBRe3KQYo7Jnvk%3D", 
     "tags": ["python", "text", "speech"]
   },

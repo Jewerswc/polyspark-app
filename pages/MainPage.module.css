@@ -47,8 +47,8 @@ html, body, #root {
 /* Note: header (100px) + footer (60px) = 160px total */
 .mainContent {
   margin-top: 100px;            /* same as header height */
-  margin-bottom: 60px;          /* same as footer height */
-  height: calc(100vh - 160px);   /* remaining viewport height */
+  margin-bottom: 160px;          /* same as footer height */
+  height: calc(100vh - 180px);   /* remaining viewport height */
   overflow-y: auto;
   padding-top: 10px; 
   background-color: #f9f9f9;
