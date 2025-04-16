@@ -1,0 +1,13 @@
+/* DropdownMenu.module.css */
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    min-width: 150px;
+  }
+  

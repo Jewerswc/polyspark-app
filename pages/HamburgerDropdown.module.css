@@ -1,0 +1,22 @@
+/* HamburgerDropdown.module.css */
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* Styling for the menu list inside the dropdown */
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling for each menu item */
+.menuItem {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: #f1f1f1;
+}

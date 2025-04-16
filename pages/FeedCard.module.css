@@ -1,0 +1,13 @@
+.feedCardLayout {
+  display: flex;
+  flex-direction: column; /* Stack components vertically */
+  gap: 8px;               /* 8px gap between the main container and the tags row */
+  padding: 16px;
+  border: 0.5px solid #EDECEC;
+  width: 350px;
+  height: 176px;
+  box-shadow: 0px 2px 4px 2px #ABABAB1A;
+  margin-top: 0px;
+
+  border-radius: 8px;
+}

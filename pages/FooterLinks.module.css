@@ -1,0 +1,22 @@
+.allButton {
+    border: none;
+    background-color: transparent;
+    border-radius: none;
+    cursor: pointer;
+    padding: none;
+    color: #848282;
+    font-family: cabin;
+    font-weight: 400;
+    font-size: 12px;
+    box-shadow: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .allButton:hover {
+    color: #666666;
+  }
+  
+  .allButton:active {
+    color: #4B4B4B;
+  }
+  

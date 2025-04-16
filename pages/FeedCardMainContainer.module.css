@@ -1,0 +1,27 @@
+.feedCardContainer {
+  display: flex;             /* Place the image on the left, text on the right */
+  flex-direction: row;       /* Horizontal alignment */
+  align-items: flex-start;   /* Top-align the items */
+  gap: 8px;                 /* Space between the image and the text block */
+  height: 115px;
+}
+
+/* Image Container (optional, can be used for advanced styling) */
+.imageContainer {
+  /* If you need fixed sizing or special styling, do it here */
+}
+
+/* Example styles for the image */
+.feedImage {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Text Container (title on top, description below) */
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                  /* Title and description are separated by 8px */
+}

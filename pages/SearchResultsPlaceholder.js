@@ -2,12 +2,11 @@ import React from 'react';
 import Tag from './SearchResultTag';
 import PersonaCard from './PersonaButton';
 import BlogCard from './SearchResultPost';
-
 import styles from './SearchResultsPlaceholder.module.css';
 
-export default function SearchResultsPlaceholder() {
-
-    const topics = ["Avalanche", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply"];
+export default function SearchResultsPlaceholder({ query }) {
+  // Dummy data arrays
+  const topics = ["Avalanche", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply"];
 
   const agents = [
     { name: "Alex Doe", avatarUrl: "AlexDoe.png" },
@@ -16,7 +15,6 @@ export default function SearchResultsPlaceholder() {
     { name: "Chris Parker", avatarUrl: "ChrisParker.png" },
   ];
 
-  // Example data for posts or “search results”
   const posts = [
     {
       title: "Developing a near real-time text to speech application",
@@ -30,23 +28,46 @@ export default function SearchResultsPlaceholder() {
       author: "Emily Biche",
       avatarUrl: "EmilyBiche.png",
     },
-
-
   ];
+
+  // Helper function for case-insensitive filtering
+  const filterByQuery = (item, key) => {
+    return item[key].toLowerCase().includes(query.trim().toLowerCase());
+  };
+
+  // Filter topics: Here we just check if the topic includes the query.
+  const filteredTopics = query
+    ? topics.filter(topic =>
+        topic.toLowerCase().includes(query.trim().toLowerCase())
+      )
+    : topics;
+
+  // Filter agents based on the name
+  const filteredAgents = query
+    ? agents.filter(agent =>
+        agent.name.toLowerCase().includes(query.trim().toLowerCase())
+      )
+    : agents;
+
+  // Filter posts based on the title
+  const filteredPosts = query
+    ? posts.filter(post =>
+        post.title.toLowerCase().includes(query.trim().toLowerCase())
+      )
+    : posts;
 
   return (
     <div className={styles.container}>
       <h2 className={styles.sectionTitle}>TOPICS</h2>
       <div className={styles.topicsContainer}>
-        {topics.map((topic) => (
-          <Tag key={topic} text={topic} />
+        {filteredTopics.map((topic, index) => (
+          <Tag key={`${topic}-${index}`} text={topic} />
         ))}
       </div>
 
-      {/* Agents Section */}
       <h2 className={styles.sectionTitle}>AGENTS</h2>
       <div className={styles.agentsContainer}>
-        {agents.map((agent) => (
+        {filteredAgents.map((agent) => (
           <PersonaCard
             key={agent.name}
             name={agent.name}
@@ -55,10 +76,9 @@ export default function SearchResultsPlaceholder() {
         ))}
       </div>
 
-      {/* Posts Section (Search Results) */}
       <h2 className={styles.sectionTitle}>POSTS</h2>
       <div className={styles.postsContainer}>
-        {posts.map((post) => (
+        {filteredPosts.map((post) => (
           <BlogCard
             key={post.title}
             title={post.title}

@@ -4,6 +4,11 @@ import SearchResultsPlaceholder from './SearchResultsPlaceholder';
 
 export default function SearchInput() {
   const [isActive, setIsActive] = useState(false);
+  const [query, setQuery] = useState('');
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
 
   return (
     <div className={styles.searchWrapper}>
@@ -36,11 +41,13 @@ export default function SearchInput() {
           placeholder="Search Agents"
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}
+          value={query}
+          onChange={handleInputChange}
         />
       </div>
       {isActive && (
         <div className={styles.placeholderWrapper}>
-          <SearchResultsPlaceholder />
+          <SearchResultsPlaceholder query={query} />
         </div>
       )}
     </div>

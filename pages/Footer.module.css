@@ -1,0 +1,54 @@
+.footer {
+  position: fixed;        /* Make the footer fixed */
+  bottom: 0;              /* Stick it to the bottom of the viewport */
+  left: 0;                /* Stretch from left */
+  right: 0;               /* Stretch to right */
+  display: flex;
+  justify-content: space-between; /* Space between left and right sections */
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #ffffff;
+  border-top: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  z-index: 100;           /* Ensure it appears above scrolling content */
+}
+
+/* Left section */
+.infoSection {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust gap between items and bullets as desired */
+  color: #848282;
+  font-family: cabin;
+  font-size: 12px;
+}
+
+/* Style each info text item */
+.infoItem {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  padding: 0;
+}
+
+/* Hover effect for the info items */
+.infoItem:hover {
+  color: #666666;
+}
+
+.infoItem:active {
+  color: #4B4B4B;
+}
+
+/* Bullet container: separate from the info text */
+.bullet {
+  padding: 0;
+  color: #BBB5B5;
+}
+
+/* Right section */
+.actionsSection {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Space between IconButtonRow and ActionsDropdown */
+}

@@ -1,0 +1,30 @@
+.iconButton {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #838383; 
+  transition: color 0.2s ease-in-out;
+}
+
+.iconButton:hover {
+  color: #666666;  
+}
+
+.iconButton:active {
+    color: #4B4B4B;  /* Hover state changes the text and icon color */
+  }
+
+.icon {
+  width: auto;
+  height: auto;
+  transition: fill 0.2s ease-in-out;
+}
+
+.label {
+  margin-left: 6px;
+  font-size: 16px;
+  color: inherit;  /* Use current button color */
+}

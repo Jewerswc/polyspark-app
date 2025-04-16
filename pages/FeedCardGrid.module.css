@@ -1,0 +1,6 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 16px;                           /* 16px gap between grid items */
+  padding: 0 31px;                     /* Left and right padding of 31px */
+}

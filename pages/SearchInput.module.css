@@ -22,7 +22,7 @@
 
   .placeholderWrapper {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 64px);
     left: 0;
     width: 100%;
     z-index: 1000;

@@ -1,0 +1,77 @@
+.container {
+  width: 220px; /* Adjust as you see fit */
+  background-color: transparent;
+  border: 1px solid #EFEFEF;
+  border-radius: 16px;
+  padding: 16px;
+  padding-bottom: 8px;
+  font-family: sans-serif;
+}
+
+/* The "Browse" heading */
+.heading {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-family: cabin;
+  font-weight: 700;
+  color: #333;
+}
+
+/* The list of actions */
+.actionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each list item simply wraps the button */
+.actionItem {
+  margin-bottom: 8px; /* Space between items */
+}
+
+/* The button styling */
+.actionButton {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #DFDFDF;
+  border-radius: 12px;
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  text-align: left; /* So text is aligned to the left inside the button */
+}
+
+/* For the icons on the left */
+.actionIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* Text label styling */
+.actionLabel {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: cabin;
+  color: #131313;
+  white-space: nowrap;
+}
+
+/* Hover and active states for the button */
+.actionButton:hover {
+  background-color: #E6E6E6;
+}
+
+.actionButton:active {
+  background-color: #CCCCCC;
+}
+
+
+.actionButton:disabled {
+    background-color: #dd1414;
+    cursor: not-allowed;
+  }
+  

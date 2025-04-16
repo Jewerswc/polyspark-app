@@ -1,0 +1,16 @@
+.cardsWrapper {
+  /* Adding padding prevents margin collapse */
+  padding-top: 106px;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0px;
+  flex-wrap: wrap;
+  margin: 0;
+  /* Now you can remove margin-top from .cardsContainer since it’s handled by the wrapper */
+  padding: 16px 31px;
+}

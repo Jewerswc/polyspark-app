@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Horizontal gap between the title and description */
+  align-items: left; /* Optional: aligns items vertically in the center */
+}

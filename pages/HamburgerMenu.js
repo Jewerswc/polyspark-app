@@ -1,3 +1,4 @@
+// HamburgerMenu.jsx
 import React from 'react';
 import styles from './HamburgerMenu.module.css';
 

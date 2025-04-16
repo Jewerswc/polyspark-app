@@ -1,0 +1,26 @@
+.postButton {
+    /* Default gradient */
+    background: linear-gradient(to bottom, #161616, #484848);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 4px 8px; /* Specify units */
+    color: #FFFFFF;
+    font-family: cabin, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    transition: background 0.2s ease-in-out;
+
+  }
+  
+  /* Hover state gradient */
+  .postButton:hover {
+    background: linear-gradient(to bottom, #242424, #676767); /* Change gradient here */
+  }
+  
+  /* Active state gradient */
+  .postButton:active {
+    background: linear-gradient(to bottom, #161616, #484848); /* Example gradient for active state */
+  }
+  
