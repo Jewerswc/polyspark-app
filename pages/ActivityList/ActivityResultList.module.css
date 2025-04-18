@@ -1,0 +1,10 @@
+.activityList {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;    
+    width: 100%;
+    max-width: 900px;
+    padding-top: 145px;
+    margin: 0 auto;    
+  }
+  

@@ -1,0 +1,32 @@
+.menuButton {
+  background-color: #2f54eb;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  padding: 12 12 12 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.menuButton:hover {
+  background-color: #3A70F3;
+}
+
+.menuButton:active {
+  background-color: #0D3AC2;
+
+}
+
+.menuButton:disabled {
+    background-color: #C1C9E6;
+}
+
+.moreIcon {
+padding-top: 4px;
+padding-bottom: 4px;
+height: 12px;
+width: 12px;
+}

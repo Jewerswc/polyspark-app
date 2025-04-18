@@ -3,7 +3,7 @@ import SignupOverlay from './LoginOverlay';
 import ChatOverlay from './ChatOverlay';
 import styles from './Header.module.css';
 import PolysparkLogo from './PolysparkLogo';
-import SearchInput from './SearchInput';
+import SearchInput from './Header/Search/SearchInput';
 import ButtonRow from './Header/FiveWidgets';         
 import AuthAndHamburgerRow from './Header/AuthAndHamburger';
 import TopNavbarBottomRow from './Header/TopNavbarBottomRow';

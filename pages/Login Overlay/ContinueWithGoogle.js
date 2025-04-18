@@ -5,7 +5,7 @@ export default function ContinueWithGoogleButton({ onClick }) {
   return (
     <button className={styles.ContinueWithGoogleButton} onClick={onClick}>
       <img 
-        src="/GoogleVector.svg" 
+        src="./Icons/GoogleVector.svg" 
         alt="Google icon" 
         className={styles.googleIcon}
       />

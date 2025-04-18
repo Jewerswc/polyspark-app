@@ -1,0 +1,25 @@
+.postTag {
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+    outline: none;
+    cursor: pointer;
+    color: #666666;
+    font-family: cabin, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    transition: background 0.2s ease-in-out;
+    max-width: 721px;
+    height: auto;
+    text-align: left;
+  }
+  
+  .postTag:hover {
+    color: #222222;
+}
+  
+  .postTag:active {
+    color: #0f0f0f;
+}
+  

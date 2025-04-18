@@ -1,0 +1,30 @@
+.tag {
+  display: inline-block;
+  padding: 4 8 4 8; 
+  border: 0.5px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: cabin;
+  font-weight: 700;
+  line-height: 18px;
+  color: #474545;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s, color 0.2s;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.tag:hover {
+  border-color: #CCCCCC;
+  background-color: #E6E6E6;
+}
+
+.tag:active {
+    border-color: #CCCCCC;
+    background-color: #CCCCCC; 
+}
+
+.tag:disabled {
+    background-color: #F8F8F8;
+
+}

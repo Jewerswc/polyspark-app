@@ -11,4 +11,3 @@ export default function ChatNowButton({onClick, }) {
     </button>
   );
 }
-T

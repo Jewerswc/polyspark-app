@@ -1,5 +1,4 @@
 .postTag {
-    /* Default gradient */
     background-color: transparent;
     border: none;
     border-radius: none;
@@ -11,18 +10,15 @@
     font-size: 18px;
     line-height: 24px;
     transition: background 0.2s ease-in-out;
-
     max-width: 262px;
     height: auto;
     text-align: left;
   }
   
-  /* Hover state gradient */
   .postTag:hover {
     color: #222222;
 }
-  
-  /* Active state gradient */
+
   .postTag:active {
     color: #0f0f0f;
 }

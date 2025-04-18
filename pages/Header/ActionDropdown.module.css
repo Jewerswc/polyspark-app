@@ -8,7 +8,6 @@
   font-family: sans-serif;
 }
 
-/* The "Browse" heading */
 .heading {
   margin: 0 0 16px 0;
   font-size: 20px;
@@ -17,19 +16,16 @@
   color: #333;
 }
 
-/* The list of actions */
 .actionList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Each list item simply wraps the button */
 .actionItem {
-  margin-bottom: 8px; /* Space between items */
+  margin-bottom: 8px;
 }
 
-/* The button styling */
 .actionButton {
   display: flex;
   align-items: center;
@@ -40,18 +36,16 @@
   width: 100%;
   cursor: pointer;
   transition: background-color 0.15s ease-in-out;
-  text-align: left; /* So text is aligned to the left inside the button */
+  text-align: left;
 }
 
-/* For the icons on the left */
 .actionIcon {
   width: 40px;
   height: 40px;
   margin-right: 8px;
-  flex-shrink: 0; /* Prevent icon from shrinking */
+  flex-shrink: 0;
 }
 
-/* Text label styling */
 .actionLabel {
   font-size: 14px;
   font-weight: 700;
@@ -60,7 +54,6 @@
   white-space: nowrap;
 }
 
-/* Hover and active states for the button */
 .actionButton:hover {
   background-color: #E6E6E6;
 }
@@ -68,7 +61,6 @@
 .actionButton:active {
   background-color: #CCCCCC;
 }
-
 
 .actionButton:disabled {
     background-color: #eeeeee;

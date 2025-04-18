@@ -5,31 +5,31 @@ export default function BrowseMenu() {
     const browseActions = [
         {
           label: 'Polyspark Post',
-          icon: 'Polyspark.png', // Replace with your actual icon
+          icon: './Images/Polyspark.png', 
           disabled: false,
           onClick: () => console.log('Polyspark Post clicked'),
         },
         {
           label: 'Github Repository',
-          icon: 'GithubAction.png', // Replace with your actual icon
-          disabled: true,  // This button will be rendered as disabled
+          icon: './Images/GithubAction.png', 
+          disabled: true,
           onClick: () => console.log('Github Repository clicked'),
         },
         {
           label: 'Podcast',
-          icon: 'PodcastAction.png', // Replace with your actual icon
+          icon: './Images/PodcastAction.png',
           disabled: true,
           onClick: () => console.log('Podcast clicked'),
         },
         {
           label: 'X Post',
-          icon: 'XAction.png', // Replace with your actual icon
-          disabled: true,  // This button will be rendered as disabled
+          icon: './Images/XAction.png', 
+          disabled: true,
           onClick: () => console.log('X Post clicked'),
         },
         {
           label: 'Hacker News Post',
-          icon: 'HNAction.png', // Replace with your actual icon
+          icon: './Images/HNAction.png',
           disabled: true,
           onClick: () => console.log('Hacker News Post clicked'),
         },

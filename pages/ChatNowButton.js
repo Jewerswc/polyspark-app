@@ -4,9 +4,8 @@ import styles from './ChatNowButton.module.css';
 export default function ChatNowButton({ label, onClick, buttonColor }) {
   return (
     <button 
-      className={styles.allButton} 
+      className={styles.chatnowButton} 
       onClick={onClick}
-      style={{ '--buttonColor': buttonColor }}
     >
       Chat Now
     </button>

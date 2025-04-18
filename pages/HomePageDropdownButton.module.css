@@ -1,0 +1,22 @@
+.HomePageDropdownButton {
+  background-color: white; /* Fallback color if none is provided */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 160px;
+  padding: 8 0 8 16;
+  color: #333333;
+  font-family: cabin, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+  text-align: left;
+}
+
+.HomePageDropdownButton:hover {
+  background-color: #E6E6E6;
+}
+
+.HomePageDropdownButton:active {
+  background-color: #CCCCCC;
+}

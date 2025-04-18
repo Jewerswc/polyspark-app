@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogCard from './SearchResultPost';
+import BlogCard from './Header/Search/SearchResultPost';
 
 function App() {
   const sampleData = {

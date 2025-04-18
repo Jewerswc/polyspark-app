@@ -1,0 +1,7 @@
+/* FeedCardGrid.module.css */
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;  /* <-- just one column */
+  gap: 16px;
+  padding: 0 16px;
+}

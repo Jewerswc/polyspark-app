@@ -1,0 +1,33 @@
+.homeButton {
+    all: unset;
+    display: inline-flex;
+    flex-direction: column;    /* stack children top → bottom */
+    align-items: center;
+    gap: 2px;                  /* small space between label & icon */
+    cursor: pointer;
+    padding: 12 8 12 8;
+    /* default grey color */
+    color: #828282;
+  
+    padding: 8px;              /* hit area */
+    border-radius: 4px;
+  }
+  
+  .homeButton:hover,
+  .homeButton:focus {
+    color: #000;
+    outline: none;
+  }
+  
+  .icon {
+    padding: 0px;
+  }
+  
+  .label {
+    font-size: 10px;
+    line-height: 1;
+    user-select: none;
+    font-family: cabin;
+    font-weight: 500;
+  }
+  

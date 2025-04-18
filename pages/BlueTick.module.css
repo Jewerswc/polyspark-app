@@ -1,0 +1,15 @@
+/* File: SvgContainer.module.css */
+.container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  color: #154FE3;
+}
+
+.icon {
+  display: block;
+  width: 12px;
+  height: 3px;
+  background-color: #e30f0f; /* default dot color */
+}

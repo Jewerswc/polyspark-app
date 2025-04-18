@@ -1,0 +1,27 @@
+/* PersonaCardRow.module.css */
+
+.cardsWrapper {
+    padding-top: 50px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .cardsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;       /* one long row */
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 16px;
+  }
+  
+  /* Prevent shrinking of each card */
+  .cardsContainer > * {
+    flex: 0 0 auto;
+  }
+  
+  /* Optional, hide scrollbar */
+  .cardsWrapper::-webkit-scrollbar { display: none; }
+  .cardsWrapper { -ms-overflow-style: none; scrollbar-width: none; }
+  

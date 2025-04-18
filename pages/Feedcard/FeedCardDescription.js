@@ -1,4 +1,3 @@
-// FeedCardDescription.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './FeedCardDescription.module.css';
 

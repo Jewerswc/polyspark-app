@@ -48,7 +48,7 @@ export default function ChatOverlay({ apiKey, onClose }) {
   async function getOpenAIResponse(userMessage) {
     const url = 'https://api.openai.com/v1/chat/completions';
     const payload = {
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4.1',
       messages: [
         { role: 'system', content: 'You are a helpful assistant.' },
         { role: 'user', content: userMessage },

@@ -1,0 +1,55 @@
+.likeButton {
+    all: unset;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    padding: 4px 16px;
+    background-color: #F2F2F2;
+    /* so that currentColor can drive the heart */
+    color: #333;
+    transition: background-color 0.2s ease;
+  }
+  
+  .likeButton:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .heart {
+    width: 13px;
+    height: 12px;
+    /* empty by default: no fill, just a stroke */
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 0;
+    transition:
+      transform 0.2s ease,
+      fill 0.2s ease,
+      stroke 0.2s ease;
+    transform-origin: center;
+  }
+  
+  /* hover: soft pop + fill */
+  .likeButton:hover .heart {
+    fill: #e0245e;
+    stroke: #e0245e;
+    transform: scale(1.2);
+  }
+  
+  /* clicked: full pop + stay filled */
+  .liked .heart {
+    fill: #e0245e;
+    stroke: #e0245e;
+    transform: scale(1.4);
+  }
+  
+  .count {
+    margin-left: 6px;
+    font-family: cabin, sans-serif;
+    font-size: 14px;
+    /* keep the text darker */
+    color: #333;
+    min-width: 1ch;
+    text-align: right;
+  }
+  

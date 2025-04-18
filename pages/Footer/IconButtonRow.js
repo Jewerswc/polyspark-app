@@ -12,12 +12,13 @@ export default function IconButtonRow() {
         onClick={() => console.log('Icon 2 clicked')}
       />
             <XLink 
-        onClick={() => console.log('Icon 1 clicked')}
-       
+        onClick={() => console.log('Icon 1 clicked')} 
       />
+
       <GithubLink
         onClick={() => console.log('Icon 3 clicked')}
       />
+      
     </div>
   );
 }

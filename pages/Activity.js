@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Header from './Header';
-import ActivityResultList from './ActivityResultList';
+import ActivityResultList from './ActivityList/ActivityResultList';
 import Footer from './Footer';
 import ChatOverlay from './ChatOverlay';
 import SignupOverlay from './LoginOverlay';
 import './Activity.module.css';
 
-export default function App() {
+export default function Activity() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const openSignupOverlay = () => setSignupOverlayVisible(true);
   const closeSignupOverlay = () => setSignupOverlayVisible(false);

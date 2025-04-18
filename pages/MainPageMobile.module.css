@@ -1,0 +1,19 @@
+/* in global.css (or your reset) */
+html, body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+.pageWrapper {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+}
+
+.mainContent {
+
+    -webkit-overflow-scrolling: touch;
+  }

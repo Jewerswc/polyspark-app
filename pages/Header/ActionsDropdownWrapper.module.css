@@ -4,7 +4,6 @@
   display: inline-block;
 }
 
-/* The dropdown menu is positioned below the button */
 .dropdownMenu {
   position: absolute;
   top: 100%;    /* directly below the button */

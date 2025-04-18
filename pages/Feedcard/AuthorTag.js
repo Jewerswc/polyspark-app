@@ -2,10 +2,10 @@
 import React from 'react';
 import styles from './AuthorTag.module.css';
 
-export default function PostTag({ text, onClick }) {
+export default function AuthorTag({ onClick }) {
   return (
     <button 
-      className={styles.postTag} 
+      className={styles.authorTag} 
       onClick={onClick}
     >
       Alex Doe

@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 24px; /* Adjust spacing between icons as desired */
-  justify-content: center; /* Center the icons horizontally if needed */
+  gap: 24px;
+  justify-content: center;
   padding: 0px;
   height: 16.5px
 }

@@ -17,10 +17,7 @@ export default function FeedCardContainer({ title, description, image }) {
           alt="Example"
           className={styles.feedImage} 
         />
-      </div>
-      
-      {/* Right side: Title and Description */}
-      
+      </div>      
     </div>
   );
 }

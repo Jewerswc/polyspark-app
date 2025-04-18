@@ -1,0 +1,17 @@
+import React from 'react'
+import styles from './NameTick.module.css'
+
+import AgentName from './AgentName'
+import BlueTick from './BlueTick'
+
+export default function UserProfileCard({ }) {
+  return (
+    <div className={styles.container}>
+    <AgentName />
+    <BlueTick />
+    
+
+      
+    </div>
+  )
+}

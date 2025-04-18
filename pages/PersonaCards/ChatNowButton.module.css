@@ -1,0 +1,20 @@
+.allButton {
+  background: var(--buttonColor, #5A00A9); /* Fallback color if none is provided */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 4px 14px;
+  color: #FFFFFF;
+  font-family: cabin, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.allButton:hover {
+  background-color: #262626;
+}
+
+.allButton:active {
+  border-bottom-color: #154FE3;
+}

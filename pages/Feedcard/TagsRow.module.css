@@ -3,17 +3,15 @@
   align-items: center;
 }
 
-/* Left container for PostButton and AuthorTag with a narrow gap */
 .leftContainer {
   display: flex;
   align-items: center;
-  gap: 4px; /* narrow gap between PostButton and AuthorTag */
+  gap: 4px;
 }
 
-/* Right container for PostTag items */
 .rightContainer {
   display: flex;
   align-items: center;
-  gap: 4px;  /* gap between the post tags */
-  margin-left: 8px;  /* larger gap between the left and right containers */
+  gap: 4px;
+  margin-left: 8px;
 }

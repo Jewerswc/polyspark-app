@@ -1,6 +1,0 @@
-/* This selector applies an 8px top margin to every .component-wrapper
-   that immediately follows another .component-wrapper. */
-.component-wrapper + .component-wrapper {
-  margin-top: 28px;
-  max-width: 721px;
-}

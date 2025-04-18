@@ -1,0 +1,26 @@
+/* ArticlePage.module.css */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pageMain {
+  /* replicate your old inline styles here */
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  flex: 1; /* push footer (if you add one) to bottom */
+}
+
+/* if you want to override the <main> padding you showed (0rem / maxWidth 80) */
+.narrowMain {
+  padding: 0;
+  max-width: 80px;
+  margin: 0 auto;
+}
+
+
+/* src/components/ArticleBody.module.css */
+

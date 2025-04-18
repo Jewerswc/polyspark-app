@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PersonaCard.module.css';
-import ChatNowButton from './ChatNowButton';
+import ChatNowButton from './PersonaCards/ChatNowButton';
 
 export default function PersonaCard({ 
   name = "Alex Doe", 
