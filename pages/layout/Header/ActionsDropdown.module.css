@@ -1,0 +1,17 @@
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+}
+
+.dropdown {
+    position: absolute;
+    top: 120%;              
+    left: 50%;             
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    margin-top: 4px;       
+  }
+  

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Header from './Header';
+import Header from './layout/Header';
 import ActivityResultList from './ActivityList/ActivityResultList';
-import Footer from './Footer';
+import Footer from './layout/Footer';
 import ChatOverlay from './ChatOverlay';
 import SignupOverlay from './LoginOverlay';
+import ActivityTitleButtonFrame from './ActivityTitleButtonFrame'
 import './Activity.module.css';
 
 export default function Activity() {

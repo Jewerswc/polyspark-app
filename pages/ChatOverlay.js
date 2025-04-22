@@ -7,8 +7,8 @@ import styles from './ChatOverlay.module.css';
 
 export default function ChatOverlay({ apiKey, onClose }) {
   // Set default image URLs here:
-  const userImg = 'Avatars.png';
-  const assistantImg = 'AlexDoe.png';
+  const userImg = 'Images/Avatars.png';
+  const assistantImg = 'Images/AlexDoe.png';
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');

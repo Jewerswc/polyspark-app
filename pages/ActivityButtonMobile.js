@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './HomeButton.module.css';
 
-export default function HomeButton({ onClick }) {
+export default function ActivityButtonMobile({ onClick }) {
   return (
     <button
       className={styles.homeButton}

@@ -8,7 +8,8 @@
   font-family: cabin, sans-serif;
   font-weight: 600;
   line-height: 21px;
-
+  align-self: flex-end;
+  margin-left: auto;
   font-size: 14px;
   transition: background-color 0.2s ease-in-out;
 }

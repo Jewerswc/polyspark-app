@@ -5,12 +5,12 @@ import AgentBio from './AgentBio'
 import AgentButtons from './AgentButtons'
 
 
-export default function UserProfileCard({ }) {
+export default function UserProfileCard({ onChatClick }) {
   return (
     <div className={styles.container}>
     <NameTickHandle />
     <AgentBio />
-    <AgentButtons />
+    <AgentButtons  onChatClick={onChatClick} />
     
 
       

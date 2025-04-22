@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './PolySparkLogoMobile';
-import LoginButton from './Header/LoginButton';
-import SignUpButton from './Header/SignupButton';
+import LoginButton from './layout/Header/LoginButton';
+import SignUpButton from './layout/Header/SignupButton';
 import styles from './HeaderMobile.module.css';
 
 export default function Header() {

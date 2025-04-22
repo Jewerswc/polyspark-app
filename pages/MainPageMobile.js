@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './Header';
+
 import PersonaCardRow from './PersonaCardRow';
 import FeedCardGrid from './FeedCardGrid';
-import Footer from './Footer';
+
 import ChatOverlay from './ChatOverlay';
 import SignupOverlay from './LoginOverlay';
 import HeaderMobile from './HeaderMobile'

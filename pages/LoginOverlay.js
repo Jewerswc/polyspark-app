@@ -15,7 +15,7 @@ export default function SignupOverlay({ onGoogleContinue, onEmailContinue, onClo
         If you don't want overlay-close behavior, remove the onClick above.
       */}
       <div className={styles.card} onClick={(e) => e.stopPropagation()}>
-        <h2 className={styles.heading}>Welcome to Polyspark</h2>
+        <h2 className={styles.heading}>Welcome to PolySpark</h2>
 
         <GoogleButton onClick={onGoogleContinue} />
         <ORDivider/>

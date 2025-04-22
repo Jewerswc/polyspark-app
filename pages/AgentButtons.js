@@ -7,12 +7,12 @@ export default function UserProfileCard({
   avatarUrl,
   name,
   date,
-  onNameClick,
+  onChatClick,
   onDateClick
 }) {
   return (
     <div className={styles.container}>
-    <ChatNowButton />
+    <ChatNowButton onClick={() => onChatClick(name)} />
     <MenuOptions />
 
       

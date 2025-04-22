@@ -1,0 +1,19 @@
+.postTag {
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+    outline: none;
+    cursor: pointer;
+    color: #333333;
+    font-family: cabin, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: capitalize;
+    max-width: 545px;
+    height: auto;
+    text-align: left;
+  }
+  
+
+  

@@ -11,6 +11,7 @@
   
     padding: 8px;              /* hit area */
     border-radius: 4px;
+    height: 60px;
   }
   
   .homeButton:hover,
@@ -20,7 +21,10 @@
   }
   
   .icon {
-    padding: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    height: 16px;
+    width: 16.85
   }
   
   .label {

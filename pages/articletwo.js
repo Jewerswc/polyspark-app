@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Header             from './ArticleHeader';
-import UserProfileCard    from './ArticleHead';
-import ArticleBody        from './ArticleBody';
+import Header             from './articles/ArticleHeader';
+import UserProfileCard    from './articles/ArticleHead';
+import ArticleBody        from './articles/ArticleBody';
 import styles             from './article.module.css';
 import SignupOverlay from './LoginOverlay';
 

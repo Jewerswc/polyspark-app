@@ -1,5 +1,6 @@
 import React from 'react';
 import ActivityResultRow from './ActivityResult';
+import ActivityTitleButtonFrame from './../ActivityTitleButtonFrame';
 import styles from './ActivityResultList.module.css';
 
 const ActivityResultList = () => {
@@ -9,6 +10,8 @@ const ActivityResultList = () => {
   
   return (
     <div className={styles.activityList}>
+          <ActivityTitleButtonFrame />
+
       {rows}
     </div>
   );

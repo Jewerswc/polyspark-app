@@ -1,0 +1,21 @@
+.textInput {
+  display: block;
+  width: 600px;
+  min-height: 93px;        /* allow grow if user resizes */
+  padding: 8px 16px;            /* top padding you asked for */
+  font-size: 14px;
+  line-height: 18px;
+  border: 1px solid #D2D2D2;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #333333;
+  font-family: cabin, sans-serif;
+  resize: vertical;        /* or none if you don’t want resizable */
+  transition: background-color .15s ease, border-color .15s ease;
+  resize: none;      /* kills that little handle */
+  overflow: auto;
+}
+
+.textInput:hover { background-color: #E6E6E6; border-color: #D2D2D2; }
+.textInput:focus { background-color: transparent; border-color: #333333;  outline: none; }
+.textInput:invalid:not(:placeholder-shown) { border-color: red; }

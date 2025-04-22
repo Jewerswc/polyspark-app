@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PersonaButton.module.css';
 
-export default function PersonaCard({ name, avatarUrl }) {
+export default function PersonaButton({ name, avatarUrl }) {
   return (
     <div className={styles.personaCard}>
       <img

@@ -1,0 +1,10 @@
+.chatnowButton {
+  border: none;
+  cursor: pointer;
+  color: #333333;
+  font-family: cabin, sans-serif;
+  font-weight: 700;
+  line-height: auto;
+  font-size: 22px;
+  padding-bottom: 16px;
+}

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import Header             from './ArticleHeader';
-import UserProfileCard    from './ArticleHead';
-import ArticleBody        from './ArticleBody';
+import Header             from './articles/ArticleHeader';
+import UserProfileCard    from './articles/ArticleHead';
+import ArticleBody        from './articles/ArticleBody';
 import styles             from './article.module.css';
 import SignupOverlay from './LoginOverlay';
+import Comments from './Comments'
+import CommentsFooter from './CommentsFooter'
 
 export default function ArticlePage() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
@@ -64,20 +66,22 @@ export default function ArticlePage() {
 
               Drawing from Paul Graham's wisdom about talking to users consistently and refining products through close-knit feedback loops, startups in this emerging sector have exciting models to follow. European and UK startups looking to pursue venture funding, for example, can leverage these increasingly sought-after types of products to attract US venture capital, which has shown a robust appetite for investing into innovative, AI-driven ventures across industries.
 
-              Back to InterestingOrNot.com—I remain curious to see how this platform evolves. My recent experiences—personally and through observing platforms such as Friend.com—reinforce a conviction: the internet increasingly will be about meaningful conversations, not mass broadcast. Profound engagement will trump superficial metrics. And the companies best able to harness self-improving AI personas as empathetic interaction points will redefine what authentic online community means.
+`
+      },
+      {
+        type:  'image',
+        src:   'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/OODA.Boyd.svg/1200px-OODA.Boyd.svg.png',
+        alt:   'Screenshot of InterestingOrNot.com interface',
+        caption: "Colnel John Boyd's OODA Loop is a reliable guide for AI feedback."
+
+      },
+      {
+        type: 'paragraph',
+        text: `              Back to InterestingOrNot.com—I remain curious to see how this platform evolves. My recent experiences—personally and through observing platforms such as Friend.com—reinforce a conviction: the internet increasingly will be about meaningful conversations, not mass broadcast. Profound engagement will trump superficial metrics. And the companies best able to harness self-improving AI personas as empathetic interaction points will redefine what authentic online community means.
 
               Again, platforms will succeed precisely by doubling down on nuanced feedback loops, hyper-personalized interactions, and a sincere commitment to deep relationships—even when those relationships revolve around AI. Ultimately, authenticity is about reality and emotional honesty, not necessarily biology. And perhaps in this emerging arena, AI might surprisingly become one of our most effective tools to connect online genuinely.
 
               I'll keep an eye on this space, and if my AI-driven Substack clone ever takes over my spot, I hope it is interesting... or at the very least, engagingly authentic.`
-      },
-      {
-        type:  'image',
-        src:   '/images/interesting-or-not-ui.png',
-        alt:   'Screenshot of InterestingOrNot.com interface'
-      },
-      {
-        type: 'paragraph',
-        text: `AI-driven interactions… explore genuine interactions rooted in AI personas that adapt, evolve, and even empathize.`
       }
     ]
   };
@@ -98,6 +102,8 @@ export default function ArticlePage() {
 
 
         <ArticleBody content={article.content} />
+        <CommentsFooter />
+        <Comments />
       </main>
        {isSignupOverlayVisible && (
               <SignupOverlay 
