@@ -1,12 +1,13 @@
-.postTag {
+.resultTimeAgo {
+    /* Default gradient */
     background-color: transparent;
     border: none;
     border-radius: none;
     outline: none;
     cursor: pointer;
-    color: #666666;
+    color: #333333;
     font-family: cabin, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     line-height: 16px;
     transition: background 0.2s ease-in-out;
@@ -15,11 +16,13 @@
     text-align: left;
   }
   
-  .postTag:hover {
+  /* Hover state gradient */
+  .resultTimeAgo:hover {
     color: #222222;
 }
   
-  .postTag:active {
+  /* Active state gradient */
+  .resultTimeAgo:active {
     color: #0f0f0f;
 }
   

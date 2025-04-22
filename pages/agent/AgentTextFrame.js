@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './AgentTextFrame.module.css'
 import NameTickHandle from '../NameTickHandle'
 import AgentBio from './AgentBio'
-import AgentButtons from '../AgentButtons'
+import AgentButtons from './AgentButtons'
 
 
 export default function UserProfileCard({ onChatClick }) {

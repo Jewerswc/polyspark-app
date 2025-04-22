@@ -1,14 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import ActivityResultRow from './ActivityResult';
+import ActivityResultRow from './Result';
 import ActivityTitleButtonFrame from './ActivityTitleButtonFrame';
 import styles from './ActivityResultList.module.css';
 import activities from './activities.json';
 
 export default function ActivityResultList() {
-  // track filter selection
   const [filter, setFilter] = useState('None');
 
-  // derive filtered activities
   const filteredActivities = useMemo(() => {
     switch (filter) {
       case 'Comments':

@@ -5,11 +5,7 @@ import ArticleSubtitle from './ArticleSubtitle'
 import ProfileFrame from './../ProfileFrame'
 
 export default function UserProfileCard({
-  avatarUrl,
-  name,
-  date,
-  onNameClick,
-  onDateClick
+
 }) {
   return (
     <div className={styles.container}>

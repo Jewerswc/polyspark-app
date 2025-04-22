@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './ActivityResult.module.css';
-import ActivityResultTitle from './ActivityResultTitle';
+import styles from './Result.module.css';
+import ResultTitle from './ResultTitle';
 import ActivityResultAction from './ActivityResultAction';
-import TimeAgo from './ActivityResultTime';
+import TimeAgo from './ResultTimeAgo';
 
-const ActivityResultRow = ({ imageSrc, title, actionText, timeAgo }) => (
+const Result = ({ imageSrc, title, actionText, timeAgo }) => (
     <div className={styles.activityRow}>
       <img
         className={styles.activityImage}
@@ -14,7 +14,7 @@ const ActivityResultRow = ({ imageSrc, title, actionText, timeAgo }) => (
 
       <div className={styles.activityContent}>
         <div className={styles.componentWrapper}>
-        <ActivityResultTitle title={title} />
+        <ResultTitle title={title} />
         </div>
         <div className={styles.componentWrapper}>
           <ActivityResultAction text={actionText}/>
@@ -27,4 +27,4 @@ const ActivityResultRow = ({ imageSrc, title, actionText, timeAgo }) => (
     </div>
   );
 
-export default ActivityResultRow;
+export default Result;

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './HeaderNavbarMobile.module.css'
 import NameTickHandle from './NameTickHandle'
 import AgentBio from './AgentBio'
-import AgentButtons from './AgentButtons'
+import AgentButtons from './agent/AgentButtons'
 import LiveIndicator from './layout/Header/LiveIndicator'
 import CategoryLabelMobile from './CategoryLabelMobile'
 

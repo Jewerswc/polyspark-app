@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HeaderMobile from './HeaderMobile'
+import HeaderMobile from './layout/Header/HeaderMobile'
 import PersonaCardRowMobile from './PersonaCardRowMobile'
 import './MainPage.module.css';
 import styles from './MainPageMobile.module.css'

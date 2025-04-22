@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './AgentButtons.module.css'
-import ChatNowButton from './ChatNowButton'
-import MenuOptions from './MenuOptions'
+import ChatNowButton from '../ChatNowButton'
+import MenuOptions from '../MenuOptions'
 
 export default function UserProfileCard({
   avatarUrl,

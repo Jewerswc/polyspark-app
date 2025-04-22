@@ -1,6 +1,5 @@
-/* ActivityCategoryButton.jsx */
 import React, { useState, useRef, useEffect } from 'react';
-import styles from './ActivityCategoryButton.module.css';
+import styles from './FilterButton.module.css';
 import { ChevronDown } from 'react-bootstrap-icons';
 
 const options = ['None', 'Comments', 'Created By', 'Likes'];

@@ -24,10 +24,9 @@
   .articleImage {
     display: block;
     max-width: 100%;
-    margin: 2em auto; /* space above/below image */
+    margin: 2em auto;
     border-radius: 4px;
   }
-  
   
   .articleBody p {
     background-color: transparent;
@@ -54,8 +53,7 @@
     /* optionally add box-shadow, etc. */
   }
 
-
-    .h1 {
+  .h1 {
     font-size: 2.25rem;
     margin: 1.5em 0 0.75em;
     max-width: 600px;
@@ -79,7 +77,6 @@
     color: rgb(47, 47, 47)
 
   }
-
   
   /* Paragraphs */
   .paragraph {

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './ProfileSettings.module.css';
 import ProfileSettingsTitle from './ProfileSettingsTitle'
-import AvatarAndUpload from './AvatarAndUpload'
-import UserInputsAndSaveButton from './UserInputsAndSaveButton';
+import AvatarAndUpload from './user/AvatarAndUpload'
+import UserInputsAndSaveButton from './user/UserInputsAndSaveButton';
 
 
 
