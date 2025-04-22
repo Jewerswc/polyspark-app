@@ -1,0 +1,18 @@
+/* src/components/UserProfileCard/UserProfileCard.module.css */
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 393px;
+  padding: 25px 20px;
+  margin-top: 200;
+}
+
+.avatar {
+  width: 50px;        /* pick your size */
+  height: 50px;
+  border-radius: 10px; /* circle */
+  object-fit: cover;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ActivityTimeAgo.module.css';
+import styles from './../activity/ActivityTimeAgo.module.css';
 
 export default function ArticleTitle({  onClick }) {
   return (

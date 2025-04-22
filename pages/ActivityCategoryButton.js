@@ -1,15 +1,54 @@
-import React from 'react';
+/* ActivityCategoryButton.jsx */
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './ActivityCategoryButton.module.css';
 import { ChevronDown } from 'react-bootstrap-icons';
 
-export default function ActivityCategoryButton({ onClick }) {
+const options = ['None', 'Comments', 'Created By', 'Likes'];
+
+export default function ActivityCategoryButton({ onSelect }) {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState('Action');
+  const containerRef = useRef();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleSelect = (option) => {
+    setSelected(option);
+    setOpen(false);
+    if (onSelect) onSelect(option);
+  };
+
   return (
-    <button 
-      className={styles.chatnowButton} 
-      onClick={onClick}
-    >
-      <strong>Sort By:</strong> Date Published
-      <ChevronDown className={styles.icon} />
-    </button>
+    <div className={styles.dropdownContainer} ref={containerRef}>
+      <button 
+        className={styles.chatnowButton} 
+        onClick={() => setOpen(prev => !prev)}
+      >
+        <strong>Filter By:</strong> {selected}
+        <ChevronDown className={styles.icon} />
+      </button>
+
+      {open && (
+        <ul className={styles.dropdownList}>
+          {options.map(option => (
+            <li 
+              key={option} 
+              className={styles.dropdownItem} 
+              onClick={() => handleSelect(option)}
+            >
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

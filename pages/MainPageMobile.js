@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-
-import PersonaCardRow from './PersonaCardRow';
-import FeedCardGrid from './FeedCardGrid';
-
-import ChatOverlay from './ChatOverlay';
-import SignupOverlay from './LoginOverlay';
 import HeaderMobile from './HeaderMobile'
 import PersonaCardRowMobile from './PersonaCardRowMobile'
 import './MainPage.module.css';
 import styles from './MainPageMobile.module.css'
 import FeedCardsColumn from './FeedCardColumn';
 import NavbarMobile from './MobileNavbar'
+import CategoriesRowMobile from './CategoriesRowMobile'
 
 export default function App() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
@@ -27,6 +22,7 @@ export default function App() {
       <HeaderMobile />
       <div className={styles.mainContent}>
         <PersonaCardRowMobile />
+        <CategoriesRowMobile />
         <FeedCardsColumn />
         <NavbarMobile />
       </div>

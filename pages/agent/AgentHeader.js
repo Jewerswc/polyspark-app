@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './AgentProfile.module.css'
-import ProfileNameDate from './ProfileNameDate'
+import ProfileNameDate from '../ProfileNameDate'
 import AgentTextFrame from './AgentTextFrame'
 export default function UserProfileCard({
   avatarUrl,

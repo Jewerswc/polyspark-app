@@ -1,38 +1,70 @@
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+}
+
 .chatnowButton {
-    display: inline-flex;     /* ← make it a flex container */
-    align-items: center;      /* ← vertically center all children */
-    justify-content: center;  /* ← optionally center them horizontally */
-    gap: 4px;
-    align-self: flex-end;
-    margin-left: auto;
-    line-height: 1;
-    background-color: #F2F2F2;
-    border: none;
-    border-radius: 14px;
-    padding: 8px 10px;
-    cursor: pointer;
-    color: #666666;
-    font-family: cabin, sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .chatnowButton:hover {
-    background-color: #E6E6E6;
-  }
-  
-  .chatnowButton:active {
-    background-color: #CCCCCC;
-  }
-  
-  .chatnowButton:disabled {
-    background-color: #C1C9E6;
-  }
-  
-  .icon {
-    width: 16px;
-    height: 16px;
-    /* remove align-items here */
-  }
-  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  align-self: flex-end;
+  line-height: 1;
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 14px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: #666666;
+  font-family: cabin, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.chatnowButton:hover {
+  background-color: #E6E6E6;
+}
+
+.chatnowButton:active {
+  background-color: #CCCCCC;
+}
+
+.chatnowButton:disabled {
+  background-color: #C1C9E6;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.dropdownList {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #EFEFEF;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.dropdownItem {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: cabin;
+  font-size: 14px;
+  font-weight: 600;
+
+}
+
+.dropdownItem:hover {
+  background-color: #f5f5f5;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './activityTitle.module.css';
+import styles from './../activity/activityTitle.module.css';
 
 // Hardcoded prefix and suffix within the component
 export default function FeedCardTitle({ onClick }) {

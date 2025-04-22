@@ -4,29 +4,27 @@ import ActivityResultTitle from './ActivityResultTitle';
 import ActivityResultAction from './ActivityResultAction';
 import TimeAgo from './ActivityResultTime';
 
-const ActivityResultRow = () => {
-  return (
+const ActivityResultRow = ({ imageSrc, title, actionText, timeAgo }) => (
     <div className={styles.activityRow}>
       <img
         className={styles.activityImage}
-        src="./Images/AlexDoe.png" 
+        src={imageSrc}
         alt="Profile"
       />
 
       <div className={styles.activityContent}>
         <div className={styles.componentWrapper}>
-          <ActivityResultTitle />
+        <ActivityResultTitle title={title} />
         </div>
         <div className={styles.componentWrapper}>
-          <ActivityResultAction />
+          <ActivityResultAction text={actionText}/>
         </div>
       </div>
 
       <div className={styles.timeAgoWrapper}>
-        <TimeAgo />
+        <TimeAgo text={timeAgo} />
       </div>
     </div>
   );
-};
 
 export default ActivityResultRow;

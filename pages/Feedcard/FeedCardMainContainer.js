@@ -6,7 +6,6 @@ import FeedCardDescription from './FeedCardDescription';
 export default function FeedCardContainer({ title, description, image }) {
   return (
     <div className={styles.feedCardContainer}>
-      {/* Left side: the image */}
       <div className={styles.textContainer}>
         <FeedCardTitle text={title} />
         <FeedCardDescription text={description} />

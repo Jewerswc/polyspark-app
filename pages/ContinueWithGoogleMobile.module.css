@@ -1,0 +1,37 @@
+.ContinueWithGoogleButton {
+    display: inline-flex; /* Makes the button a flex container */
+    align-items: center;  /* Aligns icon and text vertically */
+    background-color: #154FE3;
+    font-family: cabin;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 75px;
+    width: 343px;
+    gap: 16px; /* Space between icon and text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  
+  .ContinueWithGoogleButton:active {
+    background-color: #0D3AC2;
+    box-shadow: 0px 2px 4px 2px #6f6e6e1a;
+
+  }
+  
+  /* Disabled state */
+  .ContinueWithGoogleButton:disabled {
+    color: #C1C9E6;
+    cursor: not-allowed;
+  }
+  
+  /* New style for the Google icon image */
+  .googleIcon {
+    width: 18px;  /* Adjust size as needed */
+    height: 18px;
+  }
+  

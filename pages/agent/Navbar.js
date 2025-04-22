@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styles from './Navbar.module.css'
 
 // Import or define your “pages” here:
-import Logistics from './FeedList'
-import Shipments from './ActivityPost'
+import Logistics from '../FeedList'
+import Shipments from '../activity/ActivityPost'
 
 export default function Navbar() {
   const tabs = [

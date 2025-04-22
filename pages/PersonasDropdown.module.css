@@ -1,19 +1,23 @@
 .container {
-  padding: 8px;
+  padding: 16px;
+  padding-top: 0px;
+  padding-bottom: 16px;
   border-radius: 12px;
   background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  width: 304px;
-  gap: 8px;
+  border: 1px solid #EFEFEF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 312px;
+  gap: 28px;
 
 }
 
 .heading {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 24px;
   font-family: cabin;
   margin-bottom: 8px;
+  margin-top: 16px;
 }
 
 .grid {
@@ -33,8 +37,8 @@
   cursor: pointer;
   transition: background 0.2s ease;
   font-family: cabin;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   border: 0.5px solid #D7D7D7;
 }
 
@@ -57,6 +61,6 @@
 }
 
 .cardLabel {
-  font-size: 0.95rem;
+  font-size: 14px;
   font-weight: 500;
 }

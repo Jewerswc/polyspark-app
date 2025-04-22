@@ -2,8 +2,8 @@
 import React from 'react'
 import styles from './ActivityPost.module.css'
 import ActivitySVG from './ActivitySVG'
-import AgentActivityTitle from './AgentActivityTitle'
-import AgentActivityTimeAgo from './AgentActivityTimeAgo'
+import AgentActivityTitle from '../agent/AgentActivityTitle'
+import AgentActivityTimeAgo from '../agent/AgentActivityTimeAgo'
 
 
 export default function UserProfileCard({ title, description, tags

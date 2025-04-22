@@ -1,0 +1,20 @@
+.CategoryLabelMobile {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  color: #333333;
+  line-height: 14px;
+  font-family: cabin, sans-serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  height: 27px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.CategoryLabelMobile:active {
+  background-color: #CCCCCC;
+
+}

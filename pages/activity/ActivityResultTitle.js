@@ -1,14 +1,14 @@
 // FeedCardTitle.jsx
 import React from 'react';
-import styles from './ActivityResultTime.module.css';
+import styles from './ActivityResultTitle.module.css';
 
-export default function FeedCardTitle({ text, onClick, buttonColor }) {
+export default function FeedCardTitle({ onClick, title }) {
   return (
     <button 
       className={styles.postTag} 
       onClick={onClick}
     >
-      3m Ago
+      {title}
     </button>
   );
 }

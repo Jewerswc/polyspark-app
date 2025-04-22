@@ -1,7 +1,7 @@
 // src/components/UserProfileCard/UserProfileCard.js
 import React from 'react'
 import styles from './UserHistory.module.css'
-import ActivitySVG from './ActivitySVG'
+import ActivitySVG from './activity/ActivitySVG'
 import AgentActivityTitle from './AgentActivityTitle'
 import AgentActivityTimeAgo from './AgentActivityTimeAgo'
 

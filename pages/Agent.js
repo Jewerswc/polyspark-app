@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from './layout/Header';
-import AgentandNavbar from './AgentandNavbar'
+import AgentandNavbar from './agent/AgentandNavbar'
 import Footer from './layout/Footer';
 import ChatOverlay from './ChatOverlay';
 import SignupOverlay from './LoginOverlay';
