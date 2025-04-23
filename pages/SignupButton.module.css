@@ -1,0 +1,20 @@
+.signupButton {
+  background-color: #154FE3;
+  border-radius: 8px;
+  border: 1px solid #E6E6E6;
+  width: 132px;
+  padding: 8px 16px;
+  width: 286px;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: cabin, sans-serif;
+  font-weight: 700;
+  line-height: 1.35;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signupButton:active {
+  background-color: #0D3AC2;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

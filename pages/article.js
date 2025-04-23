@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
-import Header             from './articles/ArticleHeader';
-import UserProfileCard    from './articles/ArticleHead';
-import ArticleBody        from './articles/ArticleBody';
-import styles             from './article.module.css';
-import SignupOverlay from './LoginOverlay';
-import Comments from './Comments'
-import CommentsFooter from './CommentsFooter'
+import React, { useState, useEffect } from 'react';
+import Header from './articles/ArticleHeader';
+import HeaderMobileSecondary from './layout/Header/HeaderMobileSecondary';  // ← your mobile header
+import UserProfileCard from './articles/ArticleHead';
+import ArticleBody from './articles/ArticleBody';
+import styles from './article.module.css';
+import LoginOverlayMobile from './LoginOverlayMobile'
+import Comments from './articles/Comments';
+import CommentsFooter from './articles/CommentsFooter';
 
 export default function ArticlePage() {
+  // overlay visibility
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const openSignupOverlay = () => setSignupOverlayVisible(true);
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
+  const [overlay, setOverlay] = useState(null);
+  const openLogin = () => setOverlay('login');
+  const closeOverlay = () => setOverlay(null);
+  // mobile detector
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    onResize();  // initial check
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   const article = {
     avatarUrl: '/images/jane-doe.jpg',
     name:      'Jane Doe',
@@ -89,7 +103,9 @@ export default function ArticlePage() {
 
   return (
     <div className={styles.page}>
-      <Header onSignupClick={openSignupOverlay} />
+      {isMobile
+        ? <HeaderMobileSecondary onLoginClick={openLogin} onSignupClick={openLogin}  />
+        : <Header             onSignupClick={openSignupOverlay} />}
 
       <main className={styles.pageMain}>
         <UserProfileCard
@@ -100,19 +116,13 @@ export default function ArticlePage() {
           onDateClick={() => {}}
         />
 
-
         <ArticleBody content={article.content} />
         <CommentsFooter />
         <Comments />
       </main>
-       {isSignupOverlayVisible && (
-              <SignupOverlay 
-                onGoogleContinue={() => console.log("Google Continue")}
-                onEmailContinue={(email) => console.log("Email submitted:", email)}
-                onClose={closeSignupOverlay}
-              />
-            )}
+
+  {overlay === 'login' && <LoginOverlayMobile   onClose={closeOverlay} />}
+
     </div>
-    
   );
 }

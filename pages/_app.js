@@ -1,9 +1,13 @@
 import Head from 'next/head';
 import "../styles/globals.css";
+import { SearchContext } from './SearchContext';
+import React, { useState } from 'react';
 
 export default function App({ Component, pageProps }) {
+   const [query, setQuery] = useState('');
   return (
     <>
+    <SearchContext.Provider value={{ query, setQuery }}>
       <Head>
         <link 
           rel="stylesheet" 
@@ -11,6 +15,7 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
+      </SearchContext.Provider>
     </>
   );
 }

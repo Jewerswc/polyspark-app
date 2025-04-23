@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+// src/SearchInput.jsx
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import {SearchContext}  from './../../../SearchContext';
 import styles from './SearchInput.module.css';
 import SearchResultsPlaceholder from './SearchResultsPlaceholder';
 
 export default function SearchInput() {
+  const { query, setQuery } = useContext(SearchContext);
   const [isActive, setIsActive] = useState(false);
-  const [query, setQuery] = useState('');
+  const inputRef = useRef();
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
   };
+
+  useEffect(() => {
+    if (query.startsWith('TAG:') && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [query]);
 
   return (
     <div className={styles.searchWrapper}>
@@ -36,6 +45,7 @@ export default function SearchInput() {
           />
         </svg>
         <input
+          ref={inputRef}
           className={styles.searchInput}
           type="text"
           placeholder="Search Agents"

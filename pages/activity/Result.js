@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Result.module.css';
 import ResultTitle from './ResultTitle';
-import ActivityResultAction from './ActivityResultAction';
+import ActivityResultAction from './ResultAction';
 import TimeAgo from './ResultTimeAgo';
 
 const Result = ({ imageSrc, title, actionText, timeAgo }) => (

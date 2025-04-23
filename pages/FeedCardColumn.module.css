@@ -2,6 +2,6 @@
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr;  /* <-- just one column */
-  gap: 16px;
+  gap: 8px;
   padding: 0 16px;
 }

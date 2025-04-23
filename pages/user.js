@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Header from './layout/Header';
-import UserProfile from './UserProfile';
+import UserProfile from './user/UserProfile';
 
 import Footer from './layout/Footer';
-import ChatOverlay from './ChatOverlay';
+import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './LoginOverlay';
 import './user.module.css';
 

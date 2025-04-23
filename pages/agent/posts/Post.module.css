@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  align-items: left;
+  gap: 16px;         
+  flex-direction: row;
+  height: auto;
+  width: 650px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 0.5px solid #CCCCCC;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 80%;
+
+
+  }
+}
+
+.feedImage {
+    height: 88px;
+    width: 88px;
+    object-fit: cover;
+    border-radius: 8px;
+}

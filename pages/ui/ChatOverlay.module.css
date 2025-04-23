@@ -1,0 +1,177 @@
+.overlayBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle dark overlay behind the card */
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .chatCard {
+    background: #ffffff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(72, 72, 72, 0.25);
+    overflow: hidden;
+    animation: fadeIn 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  .chatHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    opacity: 0.9;
+    padding: 12px 16px;
+  }
+  
+  .headerTitleGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .smallHeading {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 4px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+  }
+  
+  .mainHeading {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .chatBody {
+    flex: 1;
+    padding: 16px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: cabin;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  /* Container for each message including avatar and bubble */
+  .messageContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  /* For ChatGPT (assistant) messages, avatar on left */
+  .assistantMessageContainer {
+    flex-direction: row;
+  }
+  
+  /* For user messages, avatar on right */
+  .userMessageContainer {
+    flex-direction: row-reverse;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Message bubble styling */
+  .message {
+    max-width: 80%;
+    padding: 12px;
+    border-radius: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+  }
+  
+  .userMessage {
+    background-color: #dcf8c6;
+  }
+  
+  .assistantMessage {
+    background-color: #e9e9e9;
+  }
+  
+  /* Input area at the bottom */
+  .inputArea {
+    display: flex;
+    align-items: center;
+    padding: 0px 16 16 16px;
+    border-top: 0px solid #ddd;
+    background-color: #ffffff;
+    
+  }
+
+  .inputArea:focus-visible {
+    border: none;
+  }
+
+  
+  .inputArea input {
+    flex: 1;
+    font-size: 16px;
+    font-family: cabin;
+    padding: 16px 24 40 16;
+    border: 1px solid #e3e3e3;
+    border-radius: 24px;
+    box-shadow: 0px 4px 4px 0px #87878740;
+  }
+
+
+  .inputArea input:focus {
+
+    outline: none;
+
+  }
+  
+  .inputArea button {
+    margin-left: 8px;
+    font-size: 16px;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px 0px #65656540;
+  }
+  
+  .inputArea button:hover {
+    background-color: #2980b9;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

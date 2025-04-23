@@ -5,7 +5,7 @@ export default function ResultTitle({ onClick, title }) {
   return (
     <div 
       className={styles.resultTitle} 
-      onClick={onClick}
+
     >
       {title}
     </div>

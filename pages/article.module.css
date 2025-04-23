@@ -22,5 +22,11 @@
 }
 
 
-/* src/components/ArticleBody.module.css */
+@media (max-width: 768px) {
+  .pageMain {
+    max-width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
 
+  }
+}

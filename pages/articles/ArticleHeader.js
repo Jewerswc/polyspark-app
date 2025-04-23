@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import styles from './ArticleHeader.module.css'
-import AuthandHamburgerSecondary from './../AuthandHamburgerSecondary'
-import PolysparkLogo from './../PolysparkLogo'
+import AuthandHamburgerSecondary from '../layout/Header/AuthandHamburgerSecondary'
+import PolysparkLogo from '../layout/Header/PolysparkLogo'
 import SignupOverlay from './../LoginOverlay';
 
 export default function Header() {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
-    const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   
     const openOverlay = () => {
       setOverlayVisible(true);

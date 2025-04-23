@@ -1,0 +1,19 @@
+/* src/components/UserProfileCard/UserProfileCard.module.css */
+
+.card {
+  display: flex;
+  align-items: left;
+  gap: 8px;         
+  flex-direction: column;
+  height: auto;
+  width: 545px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+
+  }
+}

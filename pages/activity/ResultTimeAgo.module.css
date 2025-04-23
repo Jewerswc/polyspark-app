@@ -10,19 +10,5 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-    transition: background 0.2s ease-in-out;
-    max-width: 721px;
-    height: auto;
-    text-align: left;
   }
-  
-  /* Hover state gradient */
-  .resultTimeAgo:hover {
-    color: #222222;
-}
-  
-  /* Active state gradient */
-  .resultTimeAgo:active {
-    color: #0f0f0f;
-}
   

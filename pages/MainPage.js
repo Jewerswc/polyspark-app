@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Header from './layout/Header';
-import PersonaCardRow from './PersonaCardRow';
+import PersonaCardRow from './PersonaCards/PersonaCardRow';
 import FeedCardGrid from './FeedCardGrid';
 import Footer from './layout/Footer';
-import ChatOverlay from './ChatOverlay';
+import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './LoginOverlay';
 import './MainPage.module.css';
 

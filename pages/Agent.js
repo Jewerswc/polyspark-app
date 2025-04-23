@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Header from './layout/Header';
-import AgentandNavbar from './agent/AgentandNavbar'
+import AgentandNavbar from './agent/ProfileLayout'
 import Footer from './layout/Footer';
-import ChatOverlay from './ChatOverlay';
+import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './LoginOverlay';
 import './Activity.module.css';
 

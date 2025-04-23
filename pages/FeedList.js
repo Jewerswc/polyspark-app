@@ -1,6 +1,6 @@
 import React from 'react';
 import feedCards from './Feedcard/feedcards.json';
-import AgentPost from './AgentPost';
+import AgentPost from './agent/posts/Post';
 import styles from './FeedList.module.css';
 
 export default function FeedList() {

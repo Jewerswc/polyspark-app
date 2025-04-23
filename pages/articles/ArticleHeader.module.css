@@ -1,7 +1,8 @@
 /* src/components/Header/Header.module.css */
 .header {
   width: 100%;
-  padding: 16 24 16 24;            /* horizontal gutter */
+  padding: 16.5 24 16 24;            /* horizontal gutter */
+  padding-left: 16px;
   background-color: #ffffff;     /* black bar */
   display: flex;
   align-items: center;

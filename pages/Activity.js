@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './layout/Header';
-import ActivityResultList from './activity/ActivityResultList';
+import ActivityResultList from './activity/ResultList';
 import Footer from './layout/Footer';
-import ChatOverlay from './ChatOverlay';
+import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './LoginOverlay';
-import ActivityTitleButtonFrame from './activity/ActivityTitleButtonFrame'
+import HeaderMobile from './layout/Header/HeaderMobile';
+import MobileNavbar from './layout/MobileNavbar'
 import './Activity.module.css';
 
 export default function Activity() {
@@ -15,15 +16,29 @@ export default function Activity() {
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const openChatOverlay = () => setChatOverlayVisible(true);
   const closeChatOverlay = () => setChatOverlayVisible(false);
-
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    onResize();  // initial check
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
   return (
     <div className="pageWrapper">
-      <Header onSignupClick={openSignupOverlay} />
+      {isMobile
+          ? <HeaderMobile onSignupClick={openSignupOverlay} />
+          : <Header             onSignupClick={openSignupOverlay} />}
+      
+
       <div className="mainContent">
-        {/* Replace the PersonaCardRow and FeedCardGrid with ActivityResultList */}
+
         <ActivityResultList />
       </div>
-      <Footer />
+
+      {isMobile
+          ? <MobileNavbar />
+          : <Footer />}
+      
 
       {isChatOverlayVisible && (
         <ChatOverlay onClose={closeChatOverlay} />
