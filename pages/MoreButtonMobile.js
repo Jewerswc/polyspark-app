@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './MoreButton.module.css';
+import styles from './layout/Mobile Navbar/MoreButton.module.css';
 
-export default function MoreButton({ onClick }) {
+export default function MoreButtonMobile({ onClick }) {
   return (
     <button
       className={styles.moreButton}

@@ -1,29 +1,22 @@
-
-// NavigationButtonRow.jsx
 import React from 'react';
 import ChatNowButton from './NavigationButton';
 import styles from './NavigationButtonColumn.module.css';
 
-// Default labels and handlers (can be customized)
 const defaultButtons = [
-  { label: 'Trending', onClick: () => console.log('Chat Now clicked')},
-  { label: 'Latest Activity',    onClick: () => console.log('Help clicked')},
-  { label: 'Personas',    onClick: () => console.log('Info clicked')},
-  { label: 'Get Lucky',    onClick: () => console.log('Info clicked')},
-  { label: 'Privacy',    onClick: () => console.log('Info clicked')},
-  { label: 'Terms of Use',    onClick: () => console.log('Info clicked')},
-  { label: 'Report an Issue',    onClick: () => console.log('Info clicked')}
+  { label: 'Trending',      href: '/MainPageMobile' },
+  { label: 'Latest Activity', href: '/Activity' },
+  { label: 'Personas',      href: '/personas' },
+  { label: 'Get Lucky',     href: '/get-lucky' },
+  { label: 'Privacy',       href: '/privacy' },
+  { label: 'Terms of Use',  href: '/terms-of-use' },
+  { label: 'Report an Issue', href: '/report-issue' }
 ];
 
 export default function NavigationButtonRow({ buttons = defaultButtons }) {
   return (
     <div className={styles.buttonRow}>
-      {buttons.map(({ label, onClick, buttonColor }, index) => (
-        <ChatNowButton
-          key={index}
-          label={label}
-          onClick={onClick}
-        />
+      {buttons.map(({ label, href }, i) => (
+        <ChatNowButton key={i} label={label} href={href} />
       ))}
     </div>
   );

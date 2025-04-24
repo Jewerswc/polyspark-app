@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './CommentInputAndAvatar.module.css'
+import styles from './InputAndAvatar.module.css'
 import CommentsInput from './CommentsInput'
 
 export default function UserProfileCard({

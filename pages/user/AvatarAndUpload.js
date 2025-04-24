@@ -13,7 +13,7 @@ export default function UserProfileCard({
   return (
     <div className={styles.card}>
               <img
-        src="./Images/Avatars.png"
+        src="./Images/useravatar.png"
         alt={`${name} avatar`}
         className={styles.avatar}
       />

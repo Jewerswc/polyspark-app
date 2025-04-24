@@ -1,33 +1,78 @@
 import React, { useState } from 'react';
-import HeaderMobile from './layout/Header/HeaderMobile'
-import PersonaCardRowMobile from './PersonaCards/PersonaCardRowMobile'
-import './MainPage.module.css';
-import styles from './MainPageMobile.module.css'
-import FeedCardsColumn from './FeedCardColumn';
-import NavbarMobile from './layout/MobileNavbar'
-import CategoriesRowMobile from './ui/CategoriesRowMobile'
-import UserProfileCard from './LoginOverlayMobile'; 
-import MoreOverlay from './MoreOverlay'
+import HeaderMobile          from './layout/Header/HeaderMobile';
+import PersonaCardRowMobile  from './PersonaCards/PersonaCardRowMobile';
+import CategoriesRowMobile   from './ui/CategoriesRowMobile';
+import FeedCardsColumn       from './FeedCardColumn';
+import NavbarMobile          from './layout/MobileNavbar';
+import UserProfileCard       from './LoginOverlayMobile';
+import MoreOverlay           from './MoreOverlay';
+import ChatOverlayIPhone     from './ChatOverlayIphone';
+import styles                from './MainPageMobile.module.css';
 
 export default function App() {
-    // null | 'login' | 'more'
-    const [overlay, setOverlay] = useState(null);
-    const openLogin = () => setOverlay('login');
-    const openMore  = () => setOverlay('more');
-    const closeOverlay = () => setOverlay(null);
+  const [moreOpen, setMoreOpen]             = useState(false);
+  const [overlayMounted, setOverlayMounted] = useState(false);
+
+  const handleMoreClick = () => {
+    if (!moreOpen) {
+      setOverlayMounted(true);
+      setMoreOpen(true);
+    } else {
+      setMoreOpen(false);
+    }
+  };
+
+  const handleExited = () => {
+    setOverlayMounted(false);
+  };
+
+  const [loginOpen, setLoginOpen] = useState(false);
+  const openLogin  = () => setLoginOpen(true);
+  const closeLogin = () => setLoginOpen(false);
+
+  // New state for chat overlay
+  const [chatOpen, setChatOpen] = useState(false);
+  const openChat = (personaName) => {
+    // Optionally use personaName to customize the chat
+    setChatOpen(true);
+  };
+  const closeChat = () => setChatOpen(false);
 
   return (
     <div className={styles.pageWrapper}>
-      {/* Pass openSignupOverlay as a prop */}
-      <HeaderMobile onLoginClick={openLogin} onSignupClick={openLogin} />
+      <HeaderMobile
+        onLoginClick={openLogin}
+        onSignupClick={openLogin}
+      />
+
       <div className={styles.mainContent}>
-        <PersonaCardRowMobile />
+        {/* Pass openChat handler down to cards */}
+        <PersonaCardRowMobile onChatClick={openChat} />
         <CategoriesRowMobile />
         <FeedCardsColumn />
-        <NavbarMobile onMoreClick={openMore} />
+
+        <NavbarMobile
+          onMoreClick={handleMoreClick}
+          moreOpen={moreOpen}
+        />
       </div>
-      {overlay === 'login' && <UserProfileCard   onClose={closeOverlay} />}
-      {overlay === 'more' && <MoreOverlay onClose={closeOverlay} />}
+
+      {loginOpen && <UserProfileCard onClose={closeLogin} />}
+
+      {overlayMounted && (
+        <MoreOverlay
+          onClose={handleMoreClick}
+          onExited={handleExited}
+        />
+      )}
+
+      {/* Render chat overlay when chatOpen is true */}
+      {chatOpen && (
+        <ChatOverlayIPhone
+          apiKey={process.env.REACT_APP_OPENAI_API_KEY}
+          onClose={closeChat}
+        />
+      )}
     </div>
   );
 }

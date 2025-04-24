@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './CommentsFooter.module.css'
+import styles from './Footer.module.css'
 import LikeButton from './LikeButton'
 import ShareButton from './ShareButton'
 

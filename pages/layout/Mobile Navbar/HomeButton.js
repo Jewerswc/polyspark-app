@@ -1,13 +1,19 @@
 import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from './HomeButton.module.css';
 
-export default function HomeButton({ onClick }) {
+export default function HomeButton() {
+  const { pathname } = useRouter();
+  const isActive = pathname === '/MainPageMobile';
+
   return (
-    <div
-      className={styles.homeButton}
-      onClick={onClick}
-      aria-label="Home"
-      role="button"
+    <Link
+      href="/MainPageMobile"
+      aria-label="Activity"
+      className={`${styles.homeButton} ${
+        isActive ? styles.active : ''
+      }`}
     >
       <div className={styles.svgWrapper}>
         <svg
@@ -21,6 +27,6 @@ export default function HomeButton({ onClick }) {
         </svg>
       </div>
       <span className={styles.label}>Home</span>
-    </div>
+    </Link>
   );
 }

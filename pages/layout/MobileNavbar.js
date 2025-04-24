@@ -5,17 +5,25 @@ import HomeButton from './Mobile Navbar/HomeButton';
 import PersonasMobileButton from './Mobile Navbar/PersonasMobileButton';
 import SearchButtonMobile from './Mobile Navbar/SearchButtonMobile'
 import ActivityButtonMobile from './Mobile Navbar/ActivityButtonMobile';
-import MoreButtonMobile from './Mobile Navbar/MoreButtonMobile';
+import MoreButtonMobile from '../MoreButtonMobile';
+import CloseButtonMobile from './../CloseButton'
 
-export default function AuthButtonsRow({ onLoginClick, onSignupClick, onMoreClick }) {
+export default function AuthButtonsRow({
+  onMoreClick,
+  moreOpen
+}) {
   return (
     <div className={styles.authRow}>
-        <HomeButton/>
-        <PersonasMobileButton />
-        <SearchButtonMobile />
-        <ActivityButtonMobile />
-        <MoreButtonMobile onClick={onMoreClick} />
+      <HomeButton />
+      <PersonasMobileButton />
+      <SearchButtonMobile />
+      <ActivityButtonMobile />
 
+      {moreOpen ? (
+        <CloseButtonMobile onClick={onMoreClick} />
+      ) : (
+        <MoreButtonMobile onClick={onMoreClick} />
+      )}
     </div>
   );
 }

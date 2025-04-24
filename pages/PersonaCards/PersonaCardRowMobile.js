@@ -2,7 +2,7 @@ import React from 'react';
 import PersonaCard from './PersonaCardMobile';
 import styles from './PersonaCardRowMobile.module.css';
 
-export default function PersonaCardsRowMobile({ onChatClick }) {
+export default function PersonaCardRowMobile({ onChatClick }) {
   const personas = [
     {
       name: "Alex Doe",
@@ -52,6 +52,7 @@ export default function PersonaCardsRowMobile({ onChatClick }) {
               gradientStart={persona.gradientStart}
               gradientEnd={persona.gradientEnd}
               chatButtonColor={persona.chatButtonColor}
+              // Forward personaName to handler
               onChatClick={() => onChatClick(persona.name)}
               style={{ width }}
             />

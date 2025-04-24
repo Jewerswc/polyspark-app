@@ -5,8 +5,8 @@ import UserProfileCard from './articles/ArticleHead';
 import ArticleBody from './articles/ArticleBody';
 import styles from './article.module.css';
 import LoginOverlayMobile from './LoginOverlayMobile'
-import Comments from './articles/Comments';
-import CommentsFooter from './articles/CommentsFooter';
+import Comments from './articles/comments/Comments';
+import CommentsFooter from './articles/comments/Footer';
 
 export default function ArticlePage() {
   // overlay visibility

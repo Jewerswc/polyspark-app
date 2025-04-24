@@ -1,4 +1,3 @@
-// AuthButtonFrame.jsx
 import React from 'react';
 import LoginButton from './LoginButton';
 import SignUpButton from './SignupButton';
