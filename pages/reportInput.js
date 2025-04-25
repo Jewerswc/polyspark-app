@@ -8,7 +8,7 @@ export default function TextInput({ placeholder, value, onChange, ...props }) {
       pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
       required
       className={styles.textInput}
-      placeholder="Please describe the issue you encountered"
+      placeholder={placeholder}
       value={value}
       onChange={onChange}
       autoCapitalize="none"

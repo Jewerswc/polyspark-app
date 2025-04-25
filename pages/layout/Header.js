@@ -7,10 +7,12 @@ import SearchInput from './Header/Search/SearchInput';
 import ButtonRow from './Header/FiveWidgets';         
 import AuthAndHamburgerRow from './Header/AuthAndHamburger';
 import TopNavbarBottomRow from './Header/TopNavbarBottomRow';
+import ReportOverlay from './../ReportOverlay'
 
 export default function Header() {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
+  const [isReportVisible, setReportVisible] = useState(false);
 
   const openOverlay = () => {
     setOverlayVisible(true);
@@ -27,7 +29,8 @@ export default function Header() {
   const closeChatOverlay = () => {
     setChatOverlayVisible(false);
   };
-
+  const openReportOverlay = () => setReportVisible(true);
+  const closeReportOverlay = () => setReportVisible(false);
   return (
     <div>
       <header className={styles.header}>
@@ -40,6 +43,7 @@ export default function Header() {
           <AuthAndHamburgerRow 
             onSignupClick={openOverlay} 
             onLoginClick={openOverlay}
+            onReportClick={openReportOverlay}
           />
         </div>
         <div className={styles.bottomRow}>
@@ -56,12 +60,19 @@ export default function Header() {
         />
       )}
 
-      {/* Similarly, if needed, conditionally render the ChatOverlay */}
+
+      {isReportVisible && (
+        <ReportOverlay 
+          onClose={closeReportOverlay}
+        />
+      )}
+
       {isChatOverlayVisible && (
         <ChatOverlay 
           onClose={closeChatOverlay}
         />
       )}
+      
     </div>
   );
 }

@@ -7,14 +7,15 @@ import styles from './AuthAndHamburger.module.css';
 
 export default function AuthAndHamburgerRow({
   onLoginClick,
-  onSignupClick
+  onSignupClick,
+  onReportClick 
 }) {
   const items = [
     { label: 'Sign Up',           onClick: onSignupClick },
     { label: 'Log In', divider: true, onClick: onLoginClick },
     { label: 'Personas',          onClick: () => {} },
     { label: 'Actions',           onClick: () => {} },
-    { label: 'Report an Issue',   onClick: () => {} },
+    { label: 'Report an Issue',   onClick: onReportClick },
     { label: 'Privacy',           onClick: () => {} },
     { label: 'Terms of Use',      onClick: () => {} },
   ];
