@@ -82,7 +82,7 @@ export default function ChatOverlay({ apiKey, onClose }) {
       <div className={styles.chatCard}>
         <div className={styles.chatHeader}>
           <div className={styles.headerTitleGroup}>
-
+          <h1 className={styles.mainHeading}>Alex Doe</h1>
           </div>
           <button
             className={styles.closeButton}

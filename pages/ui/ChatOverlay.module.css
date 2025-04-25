@@ -33,11 +33,20 @@
     background-color: transparent;
     opacity: 0.9;
     padding: 12px 16px;
+    box-shadow: 0 4px 4px rgba(188, 187, 187, 0.25);
+
   }
   
   .headerTitleGroup {
+    position: absolute;           /* new */
+    left: 50%;                    /* new */
+    transform: translateX(-50%);  /* new: truly centre horizontally */
     display: flex;
     flex-direction: column;
+    align-items: center;          /* center small + main heading */
+    font-family: cabin;
+    color: #333333;
+    font-weight: 400;
   }
   
   .smallHeading {
@@ -51,8 +60,8 @@
   .mainHeading {
     font-size: 18px;
     margin: 0;
-    font-weight: 600;
-    color: #333;
+    font-weight: 700;
+    color: #333333;
   }
   
   .closeButton {
@@ -105,7 +114,7 @@
   .message {
     max-width: 80%;
     padding: 12px;
-    border-radius: 16px;
+    border-radius: 24px;
     line-height: 1.5;
     font-weight: 400;
     font-size: 16px;
@@ -113,7 +122,9 @@
   }
   
   .userMessage {
-    background-color: #dcf8c6;
+    background: #007aff;
+    color: #fff;
+
   }
   
   .assistantMessage {
@@ -124,10 +135,11 @@
   .inputArea {
     display: flex;
     align-items: center;
-    padding: 0px 16 16 16px;
-    border-top: 0px solid #ddd;
+    padding: 8px 16 16 16px;
+    border-top: 0px solid #d20a0a;
     background-color: #ffffff;
-    
+    box-shadow: -10px -14px -12px rgba(26, 26, 26, 0.25);
+
   }
 
   .inputArea:focus-visible {
@@ -140,9 +152,9 @@
     font-size: 16px;
     font-family: cabin;
     padding: 16px 24 40 16;
-    border: 1px solid #e3e3e3;
+    border: 1px solid #e2e2e2;
     border-radius: 24px;
-    box-shadow: 0px 4px 4px 0px #87878740;
+    box-shadow: 0 4px 4px rgba(210, 210, 210, 0.1);
   }
 
 

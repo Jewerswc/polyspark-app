@@ -30,7 +30,15 @@ export default function App() {
   const openLogin  = () => setLoginOpen(true);
   const closeLogin = () => setLoginOpen(false);
 
-  // New state for chat overlay
+   // new helper: open the login overlay, _and_ close “more”
+ const openLoginAndCloseMore = () => {
+   openLogin();
+   if (moreOpen) {
+     // immediately trigger the same “close” logic
+     setMoreOpen(false);
+   }
+ };
+
   const [chatOpen, setChatOpen] = useState(false);
   const openChat = (personaName) => {
     // Optionally use personaName to customize the chat
@@ -60,11 +68,13 @@ export default function App() {
       {loginOpen && <UserProfileCard onClose={closeLogin} />}
 
       {overlayMounted && (
-        <MoreOverlay
-          onClose={handleMoreClick}
-          onExited={handleExited}
-        />
-      )}
+          <MoreOverlay
+            onClose={handleMoreClick}
+            onExited={handleExited}
+            onLogin={openLoginAndCloseMore}
+            onSignup={openLoginAndCloseMore}
+          />
+        )}
 
       {/* Render chat overlay when chatOpen is true */}
       {chatOpen && (

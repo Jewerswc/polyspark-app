@@ -4,8 +4,8 @@ import SocialButtonsRow       from './SocialButtonsRow';
 import ButtonFrame            from './ButtonFrame';
 import styles                 from './MoreOverlay.module.css';
 
-export default function MoreOverlay({ onClose, onExited }) {
-  const [isVisible, setIsVisible] = useState(false);
+export default function MoreOverlay({ onClose, onExited, onLogin, onSignup }) {
+    const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 0);
@@ -32,7 +32,10 @@ export default function MoreOverlay({ onClose, onExited }) {
       >
         <NavigationButtonColumn />
         <SocialButtonsRow />
-        <ButtonFrame />
+        <ButtonFrame
+        onLogin={onLogin}
+         onSignup={onSignup}
+       />
       </div>
     </div>
   );

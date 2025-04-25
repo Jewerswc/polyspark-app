@@ -9,12 +9,10 @@ export default function ReportDropdownPage() {
   ];
 
   return (
-    <main style={{ padding: 20 }}>
       <ReportDropdown
         options={options}
         selected={issue}
         onSelect={setIssue}
       />
-    </main>
   );
 }
