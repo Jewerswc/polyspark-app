@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryLabelMobile from './CategoryLabelMobile';
+import CategoryLabelMobile from './Category Row Mobile/CategoryLabelMobile';
 import Top from '../Top'
 import styles from './CategoriesRowMobile.module.css';
 

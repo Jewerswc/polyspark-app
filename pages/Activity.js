@@ -3,7 +3,7 @@ import Header from './layout/Header';
 import ActivityResultList from './activity/ResultList';
 import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
-import SignupOverlay from './LoginOverlay';
+import SignupOverlay from './ui/LoginOverlay';
 import HeaderMobile from './layout/Header/HeaderMobile';
 import MobileNavbar from './layout/MobileNavbar'
 import './Activity.module.css';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './PolySparkLogoMobile';
-import LoginButton from './../../Login Overlay/LoginButtonSecondary';
+import LoginButton from '../../ui/Login Overlay/LoginButtonSecondary';
 import SignUpButton from './SignupButtonSecondary';
 import styles from './HeaderMobile.module.css';
 

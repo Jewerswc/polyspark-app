@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import NavigationButtonColumn from './NavigationButtonColumn';
-import SocialButtonsRow       from './SocialButtonsRow';
-import ButtonFrame            from './ButtonFrame';
+import NavigationButtonColumn from './More Overlay/NavigationButtonColumn';
+import SocialButtonsRow       from './More Overlay/SocialButtonsRow';
+import ButtonFrame            from './More Overlay/ButtonFrame';
 import styles                 from './MoreOverlay.module.css';
 
 export default function MoreOverlay({ onClose, onExited, onLogin, onSignup }) {

@@ -4,9 +4,9 @@ import HeaderMobile from './layout/Header/HeaderMobile'
 import AgentandNavbar from './agent/ProfileLayout'
 import Footer from './layout/Footer';
 import NavbarMobile from './layout/MobileNavbar';
-import MoreOverlay from './MoreOverlay';
+import MoreOverlay from './ui/MoreOverlay';
 import ChatOverlay from './ui/ChatOverlay';
-import SignupOverlay from './LoginOverlay';
+import SignupOverlay from './ui/LoginOverlay';
 import ProfileLayoutMobile from './ProfileLayoutMobile'
 import './Activity.module.css';
 

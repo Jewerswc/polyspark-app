@@ -4,8 +4,8 @@ import PersonaCardRowMobile  from './PersonaCards/PersonaCardRowMobile';
 import CategoriesRowMobile   from './ui/CategoriesRowMobile';
 import FeedCardsColumn       from './FeedCardColumn';
 import NavbarMobile          from './layout/MobileNavbar';
-import UserProfileCard       from './LoginOverlayMobile';
-import MoreOverlay           from './MoreOverlay';
+import UserProfileCard       from './ui/LoginOverlayMobile';
+import MoreOverlay           from './ui/MoreOverlay';
 import ChatOverlayIPhone     from './ChatOverlayIphone';
 import styles                from './MainPageMobile.module.css';
 

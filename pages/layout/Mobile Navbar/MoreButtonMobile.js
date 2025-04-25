@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './layout/Mobile Navbar/MoreButton.module.css';
+import styles from './MoreButton.module.css';
 
 export default function MoreButtonMobile({ onClick }) {
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SignupOverlay from './../LoginOverlay';
+import SignupOverlay from './../ui/LoginOverlay';
 import ChatOverlay from '../ui/ChatOverlay';
 import styles from './Header.module.css';
 import PolysparkLogo from './Header/PolysparkLogo';

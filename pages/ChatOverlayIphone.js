@@ -1,4 +1,3 @@
-// ChatOverlayIPhone.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './ChatOverlayIPhone.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';

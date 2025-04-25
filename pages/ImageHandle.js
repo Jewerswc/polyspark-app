@@ -2,9 +2,7 @@ import React from 'react'
 import styles from './ImageHandle.module.css'
 import NameTickHandle from './agent/profile header/NameTickHandle'
 
-
-
-export default function TextFrame({ onChatClick }) {
+export default function TextFrame({ }) {
   return (
     <div className={styles.container}>
     <img

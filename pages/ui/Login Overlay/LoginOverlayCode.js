@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './LoginOverlayCode.module.css';
 
 /* Import your existing components */
-import CodeInputWithButton from './Login Overlay/CodeInputWithButton'; 
-import GoogleButton from './Login Overlay/ContinueWithGoogle';
-import TermsPrivacy from './Login Overlay/TermsPrivacy';
-import Divider from './Login Overlay/Divider';
+import CodeInputWithButton from './CodeInputWithButton'; 
+import GoogleButton from './ContinueWithGoogle';
+import TermsPrivacy from './TermsPrivacy';
+import Divider from './Divider';
 
 export default function SignupOverlay({ onGoogleContinue, onEmailContinue, onClose }) {
   return (

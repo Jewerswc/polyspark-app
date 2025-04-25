@@ -7,7 +7,7 @@ export default function SubmitButton({ label, onClick, onChatClick, buttonColor 
       className={styles.submitButton} 
       onClick={onClick}
     >
-      Chat Now
+      Submit
     </button>
   );
 }

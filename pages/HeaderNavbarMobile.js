@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './HeaderNavbarMobile.module.css'
 import LiveIndicator from './layout/Header/LiveIndicator'
-import CategoryLabelMobile from './ui/CategoryLabelMobile'
+import CategoryLabelMobile from './ui/Category Row Mobile/CategoryLabelMobile'
 
 export default function UserProfileCard({ onChatClick }) {
      // list your topics here (could also come from props or a fetch)

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './ReportOverlay.module.css';
 
-import ReportTitle from './ReportTitle';
-import ReportDropdown from './ReportDropdownOne';
-import ReportInput from './reportInput';
-import TermsPrivacy from './Login Overlay/TermsPrivacy';
+import ReportTitle from './Report Overlay/ReportTitle';
+import ReportDropdown from './Report Overlay/ReportDropdown';
+import ReportInput from './Report Overlay/ReportInput';
+import TermsPrivacy from './ui/Login Overlay/TermsPrivacy';
 
 const modeOptions = [
   { value: 'issue',       label: 'Report an Issue'   },

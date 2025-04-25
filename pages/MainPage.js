@@ -4,7 +4,7 @@ import PersonaCardRow from './PersonaCards/PersonaCardRow';
 import FeedCardGrid from './FeedCardGrid';
 import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
-import SignupOverlay from './LoginOverlay';
+import SignupOverlay from './ui/LoginOverlay';
 import './MainPage.module.css';
 
 export default function App() {

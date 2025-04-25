@@ -4,7 +4,7 @@ import HeaderMobileSecondary from './layout/Header/HeaderMobileSecondary';  // â
 import UserProfileCard from './articles/ArticleHead';
 import ArticleBody from './articles/ArticleBody';
 import styles from './article.module.css';
-import LoginOverlayMobile from './LoginOverlayMobile'
+import LoginOverlayMobile from './ui/LoginOverlayMobile'
 import Comments from './articles/comments/Comments';
 import CommentsFooter from './articles/comments/Footer';
 

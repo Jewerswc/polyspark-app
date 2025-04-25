@@ -5,8 +5,8 @@ import HomeButton from './Mobile Navbar/HomeButton';
 import PersonasMobileButton from './Mobile Navbar/PersonasMobileButton';
 import SearchButtonMobile from './Mobile Navbar/SearchButtonMobile'
 import ActivityButtonMobile from './Mobile Navbar/ActivityButtonMobile';
-import MoreButtonMobile from '../MoreButtonMobile';
-import CloseButtonMobile from './../CloseButton'
+import MoreButtonMobile from './Mobile Navbar/MoreButtonMobile';
+import CloseButtonMobile from './Mobile Navbar/CloseButton'
 
 export default function AuthButtonsRow({
   onMoreClick,
