@@ -1,6 +1,6 @@
 import React from 'react';
 import FeedCardTitle from './FeedCardTitle';
-import FeedCardDescription from './Feedcard/FeedCardDescription';
+import FeedCardDescription from './FeedCardDescription';
 import styles from './FeedCardText.module.css';
 
 export default function FeedCardText() {
@@ -11,4 +11,3 @@ export default function FeedCardText() {
     </div>
   );
 }
-f

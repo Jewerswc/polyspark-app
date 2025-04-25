@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import {SearchContext}  from './../../../SearchContext';
+import {SearchContext}  from '../../../api/SearchContext';
 import styles from './SearchInput.module.css';
 import SearchResultsPlaceholder from './SearchResultsPlaceholder';
 

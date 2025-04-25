@@ -1,4 +1,3 @@
-/* ReportInput.module.css */
 .textInput {
     display: block;
     width: 361px;
@@ -17,6 +16,6 @@
   
 .active:focus {
 
-    outline: none
+    outline: none;
     border:none
   }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styles from './PostTag.module.css';
-import { SearchContext } from './../SearchContext';
+import { SearchContext } from '../api/SearchContext';
 export default function PostTag({ text }) {
     const { setQuery } = useContext(SearchContext);
   

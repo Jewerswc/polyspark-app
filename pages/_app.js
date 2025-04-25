@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import "../styles/globals.css";
-import { SearchContext } from './SearchContext';
+import { SearchContext } from './api/SearchContext';
 import React, { useState } from 'react';
 
 export default function App({ Component, pageProps }) {
