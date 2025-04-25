@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styles from './Tabs.module.css'
 
-// Import or define your “pages” here:
 import Logistics from '../FeedList'
 import Shipments from './activity/Post'
 

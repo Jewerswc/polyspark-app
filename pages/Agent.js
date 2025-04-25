@@ -3,16 +3,32 @@ import Header from './layout/Header';
 import HeaderMobile from './layout/Header/HeaderMobile'
 import AgentandNavbar from './agent/ProfileLayout'
 import Footer from './layout/Footer';
-import MobileNavbar from './layout/MobileNavbar'
+import NavbarMobile from './layout/MobileNavbar';
+import MoreOverlay from './MoreOverlay';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './LoginOverlay';
+import ProfileLayoutMobile from './ProfileLayoutMobile'
 import './Activity.module.css';
 
 export default function Activity() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const openSignupOverlay = () => setSignupOverlayVisible(true);
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
+  const [moreOpen, setMoreOpen]             = useState(false);
+  const [overlayMounted, setOverlayMounted] = useState(false);
 
+  const handleMoreClick = () => {
+    if (!moreOpen) {
+      setOverlayMounted(true);
+      setMoreOpen(true);
+    } else {
+      setMoreOpen(false);
+    }
+  };
+
+  const handleExited = () => {
+    setOverlayMounted(false);
+  };
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const openChatOverlay = () => setChatOverlayVisible(true);
   const closeChatOverlay = () => setChatOverlayVisible(false);
@@ -27,24 +43,42 @@ export default function Activity() {
     <div className="pageWrapper">
       {isMobile
           ? <HeaderMobile onSignupClick={openSignupOverlay} />
-          : <Header             onSignupClick={openSignupOverlay} />}      <div className="mainContent">
-        {/* Replace the PersonaCardRow and FeedCardGrid with ActivityResultList */}
-        <AgentandNavbar
-  agents={[{ id:1, name: 'Alex' }, { id:2, name: 'Jess' }]}
-  onChatClick={(name) => {
-    console.log("Chat clicked for", name);
-    setChatOverlayVisible(true);
-  }}
-/>
+          : <Header             onSignupClick={openSignupOverlay} />}      
+      
+      <div className="mainContent">
+
+      {isMobile
+          ? 
+          <ProfileLayoutMobile />
+      
+
+
+:         <AgentandNavbar
+            agents={[{ id:1, name: 'Alex' }, { id:2, name: 'Jess' }]}
+            onChatClick={(name) => {
+              console.log("Chat clicked for", name);
+              setChatOverlayVisible(true);
+            }}
+            />}      
+
   {isChatOverlayVisible && (
         <ChatOverlay onClose={closeChatOverlay} />
       )}
       </div>
             {isMobile
-                ? <MobileNavbar />
+                ?         <NavbarMobile
+                          onMoreClick={handleMoreClick}
+                          moreOpen={moreOpen}
+                        />
                 : <Footer />}
 
 
+    {overlayMounted && (
+        <MoreOverlay
+          onClose={handleMoreClick}
+          onExited={handleExited}
+        />
+      )}
 
       {isSignupOverlayVisible && (
         <SignupOverlay 

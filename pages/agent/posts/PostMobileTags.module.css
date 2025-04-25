@@ -1,0 +1,16 @@
+/* PostTextMobile.module.css */
+.card {
+    display: flex;              /* row by default */
+    align-items: flex-start;    /* align top of text + image */
+    flex-direction: column;
+    gap: 8px;                  /* space between textColumn and image */
+    width: 100%;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 0.5px solid #CCCCCC;
+
+  }
+  
+
+  

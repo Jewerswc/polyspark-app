@@ -5,6 +5,12 @@
   width: 650px;
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    width:100%
+  }
+}
+
 .tab {
   flex: 1;
   padding: 4px 16px;

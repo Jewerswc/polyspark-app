@@ -1,0 +1,23 @@
+/* PostTextMobile.module.css */
+.card {
+    display: flex;            
+    align-items: flex-start;  
+    gap: 8px;                  
+    width: 100%;
+
+  }
+  
+  .textColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                   /* keep title & description spaced */
+    flex: 1;                    /* let it grow if needed */
+  }
+  
+  .image {
+    width: 80px;              
+    border-radius: 8px;
+    height: 80;
+    object-fit: cover;       
+  }
+  

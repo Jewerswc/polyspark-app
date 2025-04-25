@@ -9,11 +9,3 @@
   width: 545px;
 }
 
-@media (max-width: 768px) {
-  .card {
-    width: 100%;
-    padding-right: 16px;
-    padding-left: 16px;
-
-  }
-}
