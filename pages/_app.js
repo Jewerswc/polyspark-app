@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import '../styles/reset.css';
 import "../styles/globals.css";
 import { SearchContext } from './api/SearchContext';
 import React, { useState } from 'react';

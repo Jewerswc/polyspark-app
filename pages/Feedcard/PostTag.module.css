@@ -5,7 +5,7 @@
     border-radius: 6px;
     border: 0.5px solid #959292;
     cursor: pointer;
-    padding: 8 6 8 6; /* Specify units */
+    padding: 8px 6px 8px 6px; /* Specify units */
     color: #959292;
     font-family: cabin, sans-serif;
     font-weight: 500;
