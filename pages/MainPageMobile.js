@@ -30,15 +30,13 @@ export default function App() {
   const openLogin  = () => setLoginOpen(true);
   const closeLogin = () => setLoginOpen(false);
 
-   // new helper: open the login overlay, _and_ close “more”
  const openLoginAndCloseMore = () => {
-   openLogin();
-   if (moreOpen) {
-     // immediately trigger the same “close” logic
-     setMoreOpen(false);
-   }
- };
-
+     if (moreOpen) {
+       setMoreOpen(false);
+       setOverlayMounted(false);
+     }
+     openLogin();
+    };
   const [chatOpen, setChatOpen] = useState(false);
   const openChat = (personaName) => {
     // Optionally use personaName to customize the chat

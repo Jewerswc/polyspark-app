@@ -24,7 +24,7 @@ export default function UserProfileCard({
       <ProfileNameDate
         name={name}
         date={date}
-        onNameClick={onNameClick}
+        onNameClick={handleClick}
         onDateClick={onDateClick}
       />
     </div>
