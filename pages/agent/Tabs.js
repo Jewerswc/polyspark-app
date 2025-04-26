@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import styles from './Tabs.module.css'
 
-import Logistics from '../FeedList'
-import Shipments from './activity/Post'
+import Posts from './FeedList'
+import Activity from './activity/Post'
 
 export default function Navbar() {
   const tabs = [
-    { name: 'Posts', Component: Logistics },
-    { name: 'Activity', Component: Shipments },
+    { name: 'Posts', Component: Posts },
+    { name: 'Activity', Component: Activity },
   ]
 
   const [activeIdx, setActiveIdx] = useState(0)

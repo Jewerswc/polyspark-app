@@ -1,6 +1,6 @@
 import React from 'react';
-import FeedCardTitle from './FeedCardTitle';
-import FeedCardDescription from './FeedCardDescription';
+import FeedCardTitle from './Title';
+import FeedCardDescription from './Description';
 import styles from './FeedCardText.module.css';
 
 export default function FeedCardText() {

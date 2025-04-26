@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './TagsRow.module.css';
-import PostButton from './PostButton'; 
-import PostTag from './PostTag';
-import AuthorTag from './AuthorTag';
+import ActionTag from './tags/ActionTag'; 
+import PostTag from './tags/PostTag';
+import AuthorTag from './tags/AuthorTag';
 
 export default function PostActionsRow({ tags = [] }) {
   return (
     <div className={styles.actionsRow}>
       <div className={styles.leftContainer}>
-        <PostButton />
+        <ActionTag />
         <AuthorTag />
 
       </div>

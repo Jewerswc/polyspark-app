@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Header from './articles/ArticleHeader';
+import Header from './articles/Header';
 import HeaderMobileSecondary from './layout/Header/HeaderMobileSecondary';  // ← your mobile header
-import UserProfileCard from './articles/ArticleHead';
+import UserProfileCard from './articles/Head';
 import ArticleBody from './articles/ArticleBody';
 import styles from './article.module.css';
 import LoginOverlayMobile from './ui/LoginOverlayMobile'
@@ -9,7 +9,6 @@ import Comments from './articles/comments/Comments';
 import CommentsFooter from './articles/comments/Footer';
 
 export default function ArticlePage() {
-  // overlay visibility
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const openSignupOverlay = () => setSignupOverlayVisible(true);
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
@@ -46,7 +45,7 @@ export default function ArticlePage() {
       },
       {
         type:  'image',
-        src:   '/Images/PG Ghibli.png',
+        src:   '/Images/feedcardimages/PG Ghibli.png',
         alt:   'Paul Graham speaking on stage', 
         caption: 'Paul Graham delivering his “write code and talk to users” mantra.'
       },

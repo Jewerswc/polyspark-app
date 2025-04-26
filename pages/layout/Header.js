@@ -7,7 +7,7 @@ import SearchInput from './Header/Search/SearchInput';
 import ButtonRow from './Header/FiveWidgets';         
 import AuthAndHamburgerRow from './Header/AuthAndHamburger';
 import TopNavbarBottomRow from './Header/TopNavbarBottomRow';
-import ReportOverlay from './../ReportOverlay'
+import ReportOverlay from './../ui/ReportOverlay'
 
 export default function Header() {
   const [isOverlayVisible, setOverlayVisible] = useState(false);

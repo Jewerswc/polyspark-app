@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ShareButton.module.css';
 
-export default function ChatNowButton({  onClick }) {
+export default function ShareButton({  onClick }) {
   return (
     <button 
       className={styles.shareButton} 

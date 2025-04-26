@@ -4,7 +4,7 @@
   margin-left: auto;
 }
 
-.chatnowButton {
+.filterButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -23,15 +23,15 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.chatnowButton:hover {
+.filterButton:hover {
   background-color: #E6E6E6;
 }
 
-.chatnowButton:active {
+.filterButton:active {
   background-color: #CCCCCC;
 }
 
-.chatnowButton:disabled {
+.filterButton:disabled {
   background-color: #C1C9E6;
 }
 

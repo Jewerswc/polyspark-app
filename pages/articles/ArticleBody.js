@@ -1,30 +1,5 @@
-// pages/articles/ArticleBody.js
-
 import React, { useState } from 'react'
 import styles from './ArticleBody.module.css'
-
-// <-- Replace this with your real data-loading logic
-async function fetchMyArticleContent() {
-  // Example stub data; swap in your CMS/database/file fetch here
-  return [
-    { type: 'heading', level: 1, text: 'Sample Article Title' },
-    {
-      type: 'paragraph',
-      text: 'This is a demo paragraph. Replace with your real content.',
-    },
-    {
-      type: 'image',
-      src: '/images/sample.jpg',
-      alt: 'Sample image',
-      caption: 'An illustrative example',
-    },
-    {
-      type: 'blockquote',
-      text: 'To be, or not to be…',
-      cite: 'William Shakespeare',
-    },
-  ]
-}
 
 export default function ArticleBody({ content = [] }) {
   const [lightboxSrc, setLightboxSrc] = useState(null)
@@ -94,7 +69,6 @@ export default function ArticleBody({ content = [] }) {
         })}
       </div>
 
-      {/* Lightbox overlay */}
       {lightboxSrc && (
         <div
           className={styles.lightboxOverlay}
@@ -107,10 +81,7 @@ export default function ArticleBody({ content = [] }) {
   )
 }
 
-/** 
- * This runs at build time (SSG) so that `content` is always defined
- * when Next.js prerenders the page.
- */
+
 export async function getStaticProps() {
   const content = await fetchMyArticleContent()
   return {

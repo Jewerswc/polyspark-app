@@ -7,7 +7,7 @@ import NavbarMobile from './layout/MobileNavbar';
 import MoreOverlay from './ui/MoreOverlay';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
-import ProfileLayoutMobile from './ProfileLayoutMobile'
+import ProfileLayoutMobile from './agent/ProfileLayoutMobile'
 import './Activity.module.css';
 
 export default function Activity() {

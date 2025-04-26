@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './layout/Header';
 import PersonaCardRow from './PersonaCards/PersonaCardRow';
-import FeedCardGrid from './FeedCardGrid';
+import FeedCardGrid from './layout/FeedCardGrid';
 import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
@@ -10,7 +10,6 @@ import './MainPage.module.css';
 export default function App() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
 
-const openSignupOverlay = () => setSignupOverlayVisible(true);
 const closeSignupOverlay = () => setSignupOverlayVisible(false);
 
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);

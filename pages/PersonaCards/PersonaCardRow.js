@@ -8,7 +8,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     {
       name: "Alex Doe",
       description: "Meet our expert in python coding, libraries, and projects",
-      image: "./Images/AlexDoe.png",
+      image: "./Images/profileimages/AlexDoe.png",
       gradientStart: "#9010FF",
       gradientEnd: "#C989FF",
       chatButtonColor: "#5700A3", // Unique button color for Alex
@@ -16,7 +16,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     {
       name: "James Rae",
       description: "Our startup fanatic, an expert in startups and venture capital",
-      image: "./Images/JamesRae.png",
+      image: "./Images/profileimages/JamesRae.png",
       gradientStart: "#EE7F00",
       gradientEnd: "#F9B466",
       chatButtonColor: "#A25701", // Unique button color for Jordan
@@ -24,7 +24,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     {
       name: "Emily Biche",
       description: "The Cryptocurrency expert, Emily is all about Crypto",
-      image: "./Images/EmilyBiche.png",
+      image: "./Images/profileimages/EmilyBiche.png",
       gradientStart: "#58BE0A",
       gradientEnd: "#BEFF8D",
       chatButtonColor: "#489B08", // Unique button color for Casey
@@ -32,7 +32,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     {
       name: "Chris Parker",
       description: "Say ‘hello’ to our expert on all things British politics",
-      image: "./Images/ChrisParker.jpeg",
+      image: "./Images/profileimages/ChrisParker.jpeg",
       gradientStart: "#009DFF",
       gradientEnd: "#A0D6F9",
       chatButtonColor: "#0A6299", // Unique button color for Morgan

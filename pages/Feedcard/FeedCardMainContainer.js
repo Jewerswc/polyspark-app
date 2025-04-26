@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FeedCardMainContainer.module.css';
-import FeedCardTitle from './FeedCardTitle';
-import FeedCardDescription from './FeedCardDescription';
+import FeedCardTitle from './Title';
+import FeedCardDescription from './Description';
 
 export default function FeedCardContainer({ title, description, image }) {
   return (

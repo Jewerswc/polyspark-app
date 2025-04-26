@@ -1,0 +1,17 @@
+.Name {
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+    outline: none;
+    cursor: pointer;
+    color: #333333;
+    letter-spacing: 0.2%;
+    font-family: cabin, sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 20px;
+    max-width: 600px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  

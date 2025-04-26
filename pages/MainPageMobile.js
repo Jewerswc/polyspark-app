@@ -6,7 +6,7 @@ import FeedCardsColumn       from './FeedCardColumn';
 import NavbarMobile          from './layout/MobileNavbar';
 import UserProfileCard       from './ui/LoginOverlayMobile';
 import MoreOverlay           from './ui/MoreOverlay';
-import ChatOverlayIPhone     from './ChatOverlayIphone';
+import ChatOverlayIPhone     from './ui/ChatOverlayIphone';
 import styles                from './MainPageMobile.module.css';
 
 export default function App() {

@@ -28,7 +28,7 @@ export default function ActivityCategoryButton({ onSelect }) {
   return (
     <div className={styles.dropdownContainer} ref={containerRef}>
       <button 
-        className={styles.chatnowButton} 
+        className={styles.filterButton} 
         onClick={() => setOpen(prev => !prev)}
       >
         <strong>Filter By:</strong> {selected}

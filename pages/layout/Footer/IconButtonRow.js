@@ -1,7 +1,7 @@
 import React from 'react';
-import EmailLink from './EmailLink'
-import XLink from './XLink'
-import GithubLink from './GithubLink'
+import EmailLink from './Links/Email'
+import XLink from './Links/X.js'
+import GithubLink from './Links/Github'
 import styles from './IconButtonRow.module.css';
 
 export default function IconButtonRow() {

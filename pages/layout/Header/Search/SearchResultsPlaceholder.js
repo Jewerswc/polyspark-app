@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from './SearchResultTag';
-import PersonaCard from './../../../PersonaButton';
+import PersonaCard from './PersonaButton';
 import BlogCard from './SearchResultPost';
 import styles from './SearchResultsPlaceholder.module.css';
 

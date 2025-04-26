@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './InputAndAvatar.module.css'
-import CommentsInput from './CommentsInput'
+import CommentsInput from './Input'
 
 export default function UserProfileCard({
   avatarUrl,

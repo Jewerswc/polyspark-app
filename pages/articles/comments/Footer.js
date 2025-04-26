@@ -3,7 +3,7 @@ import styles from './Footer.module.css'
 import LikeButton from './LikeButton'
 import ShareButton from './ShareButton'
 
-export default function Comments({}) {
+export default function Footer({}) {
   return (
     <div className={styles.container}>
         <LikeButton />

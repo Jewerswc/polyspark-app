@@ -11,7 +11,7 @@ export default function PersonaCard({
   gradientEnd = "#C989FF",
   chatButtonColor,
 }) {
-  // Create a style object for the dynamic gradient background
+
   const cardStyle = {
     background: `linear-gradient(to right, ${gradientStart}, ${gradientEnd})`
   };
