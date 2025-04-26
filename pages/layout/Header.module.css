@@ -10,7 +10,9 @@
   position: fixed;
   margin-bottom: 140px;
   z-index: 1000;
-  backdrop-filter: blur(20px)
+  backdrop-filter: blur(20px);
+  padding-left: 16px;
+
 }
 
 .topRow {
