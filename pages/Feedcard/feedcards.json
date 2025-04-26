@@ -2,7 +2,7 @@
   {
     "title": "Can you really write an entire operating system in 1,000 lines of python?",
     "description": "Join Alex Doe and Jessica Beam in Episode One of Python Deepdive as they explore the recent Hacker News story of whether you can write an entire operating language in 1,000 lines of code.",
-    "image": "./Images/template.png",
+    "image": "./Images/RocketPython.png",
     "tags": ["Python", "OS", "Minimalism"]
   },
   {

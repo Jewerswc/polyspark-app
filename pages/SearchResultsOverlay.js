@@ -1,70 +1,69 @@
-import React from 'react';
-import Tag from './layout/Header/Search/SearchResultTag';
-import PersonaCard from './PersonaButton';
-import BlogCard from './layout/Header/Search/SearchResultPost';
-import SearchInputMobile from './layout/Header/Search/SearchInputMobile'
-import styles from './SearchResultsOverlay.module.css';
+// src/layout/Header/Search/SearchResultsOverlay.jsx
+import React, { useContext } from 'react';
+import Tag           from './layout/Header/Search/SearchResultTag';
+import PersonaCard   from './PersonaButton';
+import BlogCard      from './layout/Header/Search/SearchResultPost';
+import SearchInput   from './layout/Header/Search/SearchInputMobile';
+import { SearchContext } from './api/SearchContext';
+import styles        from './SearchResultsOverlay.module.css';
 
-export default function SearchResultsPlaceholder({ query }) {
-  const topics = ["Avalanche", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply"];
+export default function SearchResultsOverlay() {
+  const { query } = useContext(SearchContext);
+
+  const topics = [
+    "Avalanche", "Tech", "Defender",
+    "Logistics",   "Supply", "Tech",
+    "Defender",    "Logistics", "Supply",
+    "Tech",        "Defender", "Logistics",
+    "Supply"
+  ];
 
   const agents = [
-    { name: "Alex Doe", avatarUrl: "./Images/AlexDoe.png" },
-    { name: "Emily Biche", avatarUrl: "./Images/JamesRae.png" },
-    { name: "James Rae", avatarUrl: "./Images/EmilyBiche.png" },
-    { name: "Chris Parker", avatarUrl: "./Images/ChrisParker.png" },
+    { name: "Alex Doe",    avatarUrl: "./Images/AlexDoe.png" },
+    { name: "Emily Biche", avatarUrl: "./Images/EmilyBiche.png" },
+    { name: "James Rae",   avatarUrl: "./Images/JamesRae.png" },
+    { name: "Chris Parker",avatarUrl: "./Images/ChrisParker.png" },
   ];
 
   const posts = [
     {
-      title: "Developing a near real-time text to speech application",
-      date: "3 MAR 2025",
-      author: "Alex Doe",
+      title:   "Developing a near real-time text to speech application",
+      date:    "3 MAR 2025",
+      author:  "Alex Doe",
       avatarUrl: "./Images/AlexDoe.png",
     },
     {
-      title: "Avalanche vs. Solana",
-      date: "4 APR 2025",
-      author: "Emily Biche",
+      title:   "Avalanche vs. Solana",
+      date:    "4 APR 2025",
+      author:  "Emily Biche",
       avatarUrl: "./Images/EmilyBiche.png",
     },
   ];
 
-  const filterByQuery = (item, key) => {
-    return item[key].toLowerCase().includes(query.trim().toLowerCase());
-  };
+  // if query is empty, `query` is falsy → show full arrays
+  const ft = items =>
+    query
+      ? items.filter(i =>
+          (i.name || i).toLowerCase().includes(query.trim().toLowerCase())
+        )
+      : items;
 
-  const filteredTopics = query
-    ? topics.filter(topic =>
-        topic.toLowerCase().includes(query.trim().toLowerCase())
-      )
-    : topics;
-
-  const filteredAgents = query
-    ? agents.filter(agent =>
-        agent.name.toLowerCase().includes(query.trim().toLowerCase())
-      )
-    : agents;
-
-  const filteredPosts = query
-    ? posts.filter(post =>
-        post.title.toLowerCase().includes(query.trim().toLowerCase())
-      )
-    : posts;
+  const filteredTopics = ft(topics);
+  const filteredAgents = ft(agents);
+  const filteredPosts  = ft(posts);
 
   return (
     <div className={styles.container}>
-      <SearchInputMobile />
+      <SearchInput />
+
       <h2 className={styles.sectionTitle}>TOPICS</h2>
       <div className={styles.topicsContainer}>
-        {filteredTopics.map((topic, index) => (
-          <Tag key={`${topic}-${index}`} text={topic} />
-        ))}
+        {filteredTopics.map((t,i) => <Tag key={i} text={t} />)}
       </div>
 
       <h2 className={styles.sectionTitle}>AGENTS</h2>
       <div className={styles.agentsContainer}>
-        {filteredAgents.map((agent) => (
+        {filteredAgents.map(agent => (
           <PersonaCard
             key={agent.name}
             name={agent.name}
@@ -75,7 +74,7 @@ export default function SearchResultsPlaceholder({ query }) {
 
       <h2 className={styles.sectionTitle}>POSTS</h2>
       <div className={styles.postsContainer}>
-        {filteredPosts.map((post) => (
+        {filteredPosts.map(post => (
           <BlogCard
             key={post.title}
             title={post.title}

@@ -39,7 +39,6 @@ export default function App() {
     };
   const [chatOpen, setChatOpen] = useState(false);
   const openChat = (personaName) => {
-    // Optionally use personaName to customize the chat
     setChatOpen(true);
   };
   const closeChat = () => setChatOpen(false);
@@ -52,7 +51,6 @@ export default function App() {
       />
 
       <div className={styles.mainContent}>
-        {/* Pass openChat handler down to cards */}
         <PersonaCardRowMobile onChatClick={openChat} />
         <CategoriesRowMobile />
         <FeedCardsColumn />
@@ -74,7 +72,6 @@ export default function App() {
           />
         )}
 
-      {/* Render chat overlay when chatOpen is true */}
       {chatOpen && (
         <ChatOverlayIPhone
           apiKey={process.env.REACT_APP_OPENAI_API_KEY}
