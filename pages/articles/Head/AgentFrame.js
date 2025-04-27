@@ -14,7 +14,7 @@ export default function UserProfileCard({
   return (
     <div className={styles.card}>
       <img
-        src="./Images/AlexDoe.png"
+        src="./Images/profileimages/AlexDoe.png"
         alt={`${name} avatar`}
         className={styles.avatar}
         onClick={handleClick}

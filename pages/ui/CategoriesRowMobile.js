@@ -1,20 +1,34 @@
-import React from 'react';
-import CategoryLabelMobile from './Category Row Mobile/CategoryLabelMobile';
+// CategoriesRowMobile.jsx
+import React from 'react'
 import Top from './Category Row Mobile/Top'
-import styles from './CategoriesRowMobile.module.css';
+import CategoryLabelMobile from './Category Row Mobile/CategoryLabelMobile'
+import styles from './CategoriesRowMobile.module.css'
 
-// Define your categories here
-const defaultCategories = ['New', 'Trending', 'Tech', 'Startups', 'Coding', 'Economy', 'Trump', 'Ukraine'];
+export const defaultCategories = [
+  'New',
+  'Python',
+  'ML/AI',
+  'Security',
+  'Startups',
+  'Blockchain',
+  'Politics',
+  'Rocketry'
+];
 
-export default function CategoriesRow({
-
+export default function CategoriesRowMobile({
   labels = defaultCategories,
   activeLabel,
-  onLabelClick // (label) => …
+  onLabelClick
 }) {
   return (
     <div className={styles.row}>
-      <Top />
+      {/* Top tab: */}
+      <Top
+        isActive={activeLabel === 'Top'}
+        onClick={() => onLabelClick('Top')}
+      />
+
+      {/* All the other labels: */}
       {labels.map(label => (
         <CategoryLabelMobile
           key={label}
@@ -24,5 +38,5 @@ export default function CategoriesRow({
         />
       ))}
     </div>
-  );
+  )
 }

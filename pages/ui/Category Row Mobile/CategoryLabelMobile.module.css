@@ -14,6 +14,11 @@
   transition: background-color 0.2s ease-in-out;
 }
 
+.active {
+  background-color: #154FE3;
+  color: #FFFFFF;
+}
+
 .CategoryLabelMobile:active {
   background-color: #CCCCCC;
 

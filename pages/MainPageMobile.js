@@ -12,6 +12,7 @@ import styles                from './MainPageMobile.module.css';
 export default function App() {
   const [moreOpen, setMoreOpen]             = useState(false);
   const [overlayMounted, setOverlayMounted] = useState(false);
+  const [activeLabel, setActiveLabel] = useState('Top')
 
   const handleMoreClick = () => {
     if (!moreOpen) {
@@ -52,8 +53,13 @@ export default function App() {
 
       <div className={styles.mainContent}>
         <PersonaCardRowMobile onChatClick={openChat} />
-        <CategoriesRowMobile />
-        <FeedCardsColumn />
+      <CategoriesRowMobile
+        activeLabel={activeLabel}            // ← PASS it in
+        onLabelClick={setActiveLabel}        // ← PASS the setter
+        // you can still allow defaultCategories via props if you want
+      />     
+        
+        <FeedCardsColumn activeLabel={activeLabel} />
 
         <NavbarMobile
           onMoreClick={handleMoreClick}
