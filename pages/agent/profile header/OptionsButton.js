@@ -1,14 +1,16 @@
+// OptionsButton.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import MoreDots from './MoreDots';
+import ChatNowButton from './../../Dropdown';
 import styles from './OptionsButton.module.css';
 
 export default function OptionsButton({ options = [] }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
         setOpen(false);
       }
     }
@@ -17,6 +19,7 @@ export default function OptionsButton({ options = [] }) {
   }, []);
 
   return (
+    <div className={styles.wrapper} ref={wrapperRef}>
       <button
         className={styles.menuButton}
         aria-haspopup="true"
@@ -26,5 +29,11 @@ export default function OptionsButton({ options = [] }) {
         <MoreDots className={styles.moreIcon} />
       </button>
 
+      {open && (
+        <div className={styles.dropdown}>
+          <ChatNowButton options={options} />
+        </div>
+      )}
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import ActivityButton from './Five Widgets/ActivityButton';
 import TrendingButton from './Five Widgets/TrendingButton';
 import ShuffleButton from './Five Widgets/ShuffleButton';
 import ActionsDropdown from './ActionsDropdown';
+import PersonasButton from './Five Widgets/PersonasButton';
 import PersonasDropdown from './PersonasDropdown';
 
 export default function ButtonRow() {
@@ -15,7 +16,7 @@ export default function ButtonRow() {
       <TrendingButton onClick={() => router.push('/MainPage')} />
       <ActivityButton onClick={() => router.push('/Activity')} />
       <ShuffleButton onClick={() => console.log('Shuffle button clicked')} />
-      <PersonasDropdown onClick={() => console.log('Grid button clicked')} />
+      <PersonasButton onClick={() => console.log('Personas button clicked')} />
       <ActionsDropdown />
       {/* Add more buttons as desired */}
     </div>

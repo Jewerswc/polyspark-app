@@ -30,3 +30,19 @@ padding-bottom: 4px;
 height: 12px;
 width: 12px;
 }
+
+.wrapper {
+  position: relative;       /* establish a positioning context */
+  display: inline-block;    /* shrink‐wrap to contents if you like */
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;                /* right below the button */
+  right: 0;                 /* align with the right edge */
+  margin-top: 4px;          /* tiny gap */
+  z-index: 10000;             /* above other content */
+  /* you can also set a background, border, shadow, etc */
+
+}
+

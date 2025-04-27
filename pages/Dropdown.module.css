@@ -1,0 +1,11 @@
+.container {
+    display: inline-flex;       /* ← switch to inline-flex */
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border: 0.5px solid #F5F4F4;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px #514F4F26;
+  }
+  

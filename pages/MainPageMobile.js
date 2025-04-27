@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import HeaderMobile          from './layout/Header/HeaderMobile';
 import PersonaCardRowMobile  from './PersonaCards/PersonaCardRowMobile';
 import CategoriesRowMobile   from './ui/CategoriesRowMobile';
-import FeedCardsColumn       from './FeedCardColumn';
+import FeedCardsColumn       from './layout/FeedCardColumn';
 import NavbarMobile          from './layout/MobileNavbar';
 import UserProfileCard       from './ui/LoginOverlayMobile';
 import MoreOverlay           from './ui/MoreOverlay';

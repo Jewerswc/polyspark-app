@@ -11,7 +11,7 @@ export default function UserProfileCard({
       <AgentTextFrame name={name} onChatClick={onChatClick}/>
 
         <img
-        src="./Images/AlexDoe.png"
+        src="./Images/profileimages/AlexDoe.png"
         alt={`${name} avatar`}
         className={styles.avatar}
       />

@@ -1,6 +1,27 @@
 import React, { useState } from 'react'
 import styles from './ArticleBody.module.css'
 
+async function fetchMyArticleContent() {
+  return [
+    { type: 'heading', level: 1, text: 'Sample Article Title' },
+    {
+      type: 'paragraph',
+      text: 'This is a demo paragraph. Replace with your real content.',
+    },
+    {
+      type: 'image',
+      src: '/images/sample.jpg',
+      alt: 'Sample image',
+      caption: 'An illustrative example',
+    },
+    {
+      type: 'blockquote',
+      text: 'To be, or not to be…',
+      cite: 'William Shakespeare',
+    },
+  ]
+}
+
 export default function ArticleBody({ content = [] }) {
   const [lightboxSrc, setLightboxSrc] = useState(null)
 

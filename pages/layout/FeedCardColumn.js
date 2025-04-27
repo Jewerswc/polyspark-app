@@ -1,8 +1,8 @@
 // FeedCardsGrid.jsx
 import React from 'react';
-import FeedCardLayout from './Feedcard/Feedcard';
+import FeedCardLayout from './../Feedcard/Feedcard';
 import styles from './FeedCardColumn.module.css';
-import feedCardsData from './Feedcard/feedcards.json';
+import feedCardsData from './../Feedcard/feedcards.json';
 
 export default function FeedCardsColumn() {
   return (

@@ -1,140 +1,140 @@
 [
     {
       "id": 1,
-      "image": "./Images/AlexDoe.png",
+      "image": "./Images/profileimages/AlexDoe.png",
       "title": "Can you really write an entire operating system in 1,000 lines of python?",
       "action": "Alex Doe Liked this.",
       "timeAgo": "2m Ago"
     },
     {
       "id": 2,
-      "image": "./Images/JamesRae.png",
+      "image": "./Images/profileimages/JamesRae.png",
       "title": "How I built a real-time chat app in React",
       "action": "James Rae Commented: That's great, really good idea!",
       "timeAgo": "3m Ago"
     },
     {
       "id": 3,
-      "image": "./Images/ChrisParker.png",
+      "image": "./Images/profileimages/ChrisParker.png",
       "title": "10 Tips to Optimize Your Node.js Server Performance",
       "action": "Chris Parker Created an article: 10 Tips to Optimize Your Node.js Server Performance",
       "timeAgo": "5m Ago"
     },
     {
       "id": 4,
-      "image": "./Images/EmilyBiche.png",
+      "image": "./Images/profileimages/EmilyBiche.png",
       "title": "Mastering CSS Grid: Layout Techniques You Need to Know",
       "action": "Emily Biche Liked this.",
       "timeAgo": "10m Ago"
     },
     {
       "id": 5,
-      "image": "./Images/AlexDoe.png",
+      "image": "./Images/profileimages/AlexDoe.png",
       "title": "Understanding Asynchronous JavaScript: Callbacks, Promises, and Async/Await",
       "action": "Alex Doe Commented: Nice post!",
       "timeAgo": "12m Ago"
     },
     {
       "id": 6,
-      "image": "./Images/JamesRae.png",
+      "image": "./Images/profileimages/JamesRae.png",
       "title": "Building a Scalable REST API with Express and MongoDB",
       "action": "James Rae Created an article: Building a Scalable REST API with Express and MongoDB",
       "timeAgo": "20m Ago"
     },
     {
       "id": 7,
-      "image": "./Images/ChrisParker.png",
+      "image": "./Images/profileimages/ChrisParker.png",
       "title": "A Deep Dive into React Hooks: useState, useEffect, and Beyond",
       "action": "Chris Parker Liked this.",
       "timeAgo": "30m Ago"
     },
     {
       "id": 8,
-      "image": "./Images/EmilyBiche.png",
+      "image": "./Images/profileimages/EmilyBiche.png",
       "title": "Deploying Your Web App to AWS with Docker and Kubernetes",
       "action": "Emily Biche Commented: Very informative!",
       "timeAgo": "45m Ago"
     },
     {
       "id": 9,
-      "image": "./Images/AlexDoe.png",
+      "image": "./Images/profileimages/AlexDoe.png",
       "title": "Automating Tasks with Python Scripts and Cron Jobs",
       "action": "Alex Doe Created an article: Automating Tasks with Python Scripts and Cron Jobs",
       "timeAgo": "1h Ago"
     },
     {
       "id": 10,
-      "image": "./Images/JamesRae.png",
+      "image": "./Images/profileimages/JamesRae.png",
       "title": "Design Patterns Every Developer Should Know",
       "action": "James Rae Liked this.",
       "timeAgo": "2h Ago"
     },
     {
       "id": 11,
-      "image": "./Images/ChrisParker.png",
+      "image": "./Images/profileimages/ChrisParker.png",
       "title": "Building a Mobile App with React Native and Expo",
       "action": "Chris Parker Commented: Love this!",
       "timeAgo": "3h Ago"
     },
     {
       "id": 12,
-      "image": "./Images/EmilyBiche.png",
+      "image": "./Images/profileimages/EmilyBiche.png",
       "title": "Serverless Architectures: AWS Lambda in Action",
       "action": "Emily Biche Created an article: Serverless Architectures: AWS Lambda in Action",
       "timeAgo": "5h Ago"
     },
     {
       "id": 13,
-      "image": "./Images/AlexDoe.png",
+      "image": "./Images/profileimages/AlexDoe.png",
       "title": "GraphQL vs REST: Choosing the Right API Style",
       "action": "Alex Doe Liked this.",
       "timeAgo": "6h Ago"
     },
     {
       "id": 14,
-      "image": "./Images/JamesRae.png",
+      "image": "./Images/profileimages/JamesRae.png",
       "title": "Test-Driven Development in JavaScript with Jest",
       "action": "James Rae Commented: Thanks for sharing!",
       "timeAgo": "8h Ago"
     },
     {
       "id": 15,
-      "image": "./Images/ChrisParker.png",
+      "image": "./Images/profileimages/ChrisParker.png",
       "title": "Integrating Stripe Payments into Your Web App",
       "action": "Chris Parker Created an article: Integrating Stripe Payments into Your Web App",
       "timeAgo": "10h Ago"
     },
     {
       "id": 16,
-      "image": "./Images/EmilyBiche.png",
+      "image": "./Images/profileimages/EmilyBiche.png",
       "title": "Web Accessibility: Making Your Site Usable for Everyone",
       "action": "Emily Biche Liked this.",
       "timeAgo": "12h Ago"
     },
     {
       "id": 17,
-      "image": "./Images/AlexDoe.png",
+      "image": "./Images/profileimages/AlexDoe.png",
       "title": "Implementing OAuth2 Authentication in a Web Application",
       "action": "Alex Doe Commented: Great work!",
       "timeAgo": "14h Ago"
     },
     {
       "id": 18,
-      "image": "./Images/JamesRae.png",
+      "image": "./Images/profileimages/JamesRae.png",
       "title": "Real-Time Data Visualization with D3.js",
       "action": "James Rae Created an article: Real-Time Data Visualization with D3.js",
       "timeAgo": "1d Ago"
     },
     {
       "id": 19,
-      "image": "./Images/ChrisParker.png",
+      "image": "./Images/profileimages/ChrisParker.png",
       "title": "Microservices Architecture: Advantages and Challenges",
       "action": "Chris Parker Liked this.",
       "timeAgo": "2d Ago"
     },
     {
       "id": 20,
-      "image": "./Images/EmilyBiche.png",
+      "image": "./Images/profileimages/EmilyBiche.png",
       "title": "Introduction to Machine Learning with Python and scikit-learn",
       "action": "Emily Biche Commented: That's great, really good idea!",
       "timeAgo": "3d Ago"
