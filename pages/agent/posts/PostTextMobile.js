@@ -15,6 +15,8 @@ export default function UserProfileCard({ title, description, image
       </div>
       <Image 
         src={image}
+        width={80}
+        height={80}
         alt="Post illustration"
         className={styles.image}
       />
