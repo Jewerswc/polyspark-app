@@ -6,7 +6,7 @@ export default function TextFrame({ }) {
   return (
     <div className={styles.container}>
     <img
-    src="./Images/AlexDoe.png"
+    src="./Images/profileimages/AlexDoe.png"
  
     className={styles.avatar}
   />
