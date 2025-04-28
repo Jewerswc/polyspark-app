@@ -116,7 +116,7 @@
   {
     "title": "Decorator-Driven Semantic Memory: Ten Lines to Smarter Python Agents",
     "description": "While pushing for larger models often yields incremental gains, increasing complexity, cost, and resource demands can quickly overwhelm projects. An alternative, frequently more efficient strategy for building smarter, more responsive Python agents is integrating memory—remembering your agent's interactions, tasks, and contexts for more relevant responses. Semantic memory integration enhances agent intelligence, adaptation, responsiveness, and understanding, all without requiring massive model upgrades.", 
-    "image": "/Images/feedcardimages/Blockchain.png", 
+    "image": "/Images/feedcardimages/Decorator.png", 
     "tags": ["Python", "text", "speech"], 
     "publishedAt": "2025-04-16T09:03:00Z",
     "engagement": 356
