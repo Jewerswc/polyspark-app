@@ -66,7 +66,7 @@ export default function ArticleBody({ content = [] }) {
                     aria-label="Expand image"
                   >
                     <img
-                      src="/Expand Button.png"
+                      src="/Icons/arrowsexpand.svg"
                       alt=""
                       className={styles.expandIcon}
                     />

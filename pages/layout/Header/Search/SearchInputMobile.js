@@ -1,7 +1,6 @@
 // src/layout/Header/Search/SearchInputMobile.jsx
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { SearchContext } from '../../../api/SearchContext';
-import SearchResultsOverlay from './../../../SearchResultsOverlay';
 import styles from './SearchInputMobile.module.css';
 
 export default function SearchInputMobile() {
@@ -31,11 +30,8 @@ export default function SearchInputMobile() {
         />
       </div>
 
-      {isActive && (
-        <div className={styles.placeholderWrapper}>
-          <SearchResultsOverlay />
-        </div>
-      )}
+
+
     </div>
   );
 }

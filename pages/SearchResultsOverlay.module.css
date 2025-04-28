@@ -3,11 +3,10 @@
   flex-direction: column;
   gap: 16px;
   padding: 1rem;
-  border: 0.4px solid #D0D0D0;
+  border: 1px solid #eb1616;
   width: 393px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 4px 2px #00000013;
-  margin-bottom: 20px;
+  height: 100%;
+  border-radius: 0px;
   background-color: #ffffff;
 }
 

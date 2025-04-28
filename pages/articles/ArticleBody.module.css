@@ -118,16 +118,18 @@
     right: 16px;
     background: rgba(0,0,0,0.5);
     border: none;
-    padding: 8px;
+    padding: 2px;
+    padding-top: 4px;
     border-radius: 4px;
     cursor: pointer;
   }
   .expandIcon {
     width: 24px;
     height: 16px;
+
   }
-  
-  /* Lightbox */
+
+
   .lightboxOverlay {
     position: fixed;
     top: 0;
