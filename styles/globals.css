@@ -3,10 +3,6 @@
   --foreground: #171717;
 }
 
-/* in src/global.css, or wherever you import plain CSS */
-::-webkit-scrollbar {
-  display: none;
-}
 
 
 @media (prefers-color-scheme: dark) {
