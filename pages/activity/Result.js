@@ -3,14 +3,17 @@ import styles from './Result.module.css';
 import ResultTitle from './ResultTitle';
 import ActivityResultAction from './ResultAction';
 import TimeAgo from './ResultTimeAgo';
+import Link from 'next/link';
 
 const Result = ({ imageSrc, title, actionText, timeAgo }) => (
-    <div className={styles.activityRow}>
+  <div className={styles.activityRow}>
+    <Link href="/Agent" passHref>
       <img
         className={styles.activityImage}
         src={imageSrc}
         alt="Profile"
       />
+    </Link>
 
       <div className={styles.activityContent}>
         <div className={styles.componentWrapper}>
