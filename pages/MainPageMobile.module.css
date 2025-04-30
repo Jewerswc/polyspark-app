@@ -1,7 +1,3 @@
-/* in global.css (or your reset) */
-
-
-
 .pageWrapper {
   position: relative;
   height: auto;
@@ -12,7 +8,3 @@
 
     -webkit-overflow-scrolling: touch;
   }
-
-  ::-webkit-scrollbar {
-    display: none;
-}

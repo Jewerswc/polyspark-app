@@ -23,7 +23,3 @@
   /* Optional: add some horizontal padding */
   padding: 0 16px;
 }
-
-::-webkit-scrollbar {
-  display: none;
-}
