@@ -4,6 +4,10 @@
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 /* Increase header height */
 .header {
   position: fixed;

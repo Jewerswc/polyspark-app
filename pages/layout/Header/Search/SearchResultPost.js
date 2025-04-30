@@ -1,9 +1,18 @@
 import React from 'react';
 import styles from './SearchResultPost.module.css';
 
-export default function SearchResultCard({ title, date, author, avatarUrl }) {
+export default function SearchResultCard({ title, date, author, avatarUrl, onSelect, }) {
+  const handleMouseDown = e => {
+    e.preventDefault();  
+    e.stopPropagation();
+  };
   return (
-    <div className={styles.SearchResultCard}>
+    <button 
+    onMouseDown={handleMouseDown}
+    onClick={() => onSelect?.(text)}
+    
+    className={styles.SearchResultCard}>
+
       <img
         className={styles.authorAvatar}
         src={avatarUrl}
@@ -16,6 +25,6 @@ export default function SearchResultCard({ title, date, author, avatarUrl }) {
         </div>
         <span className={styles.cardDate}>{date}</span>
       </div>
-    </div>
+    </button>
   );
 }

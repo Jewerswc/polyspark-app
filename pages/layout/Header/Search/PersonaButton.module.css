@@ -10,10 +10,7 @@
   font-family: sans-serif;
   cursor: pointer;
   user-select: none;
-
-
   transition: background-color 0.15s ease-in-out;
-
 }
 
 .personaCard:hover {
@@ -41,4 +38,5 @@ background-color: #E6E6E6;
   font-family: cabin;
   color: #333333;
   white-space: nowrap;
+  font-size: 14px;
 }

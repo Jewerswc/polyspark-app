@@ -1,10 +1,12 @@
 .toolbar {
   display: flex;
   gap: 8px;
+  margin-left: 32px;
+  margin-bottom: 8px;
 }
 
 .categoryButton {
-  padding: 8px 16px;
+  padding: 8px 8px;
   border: none;
   background-color: #f0f0f0;
   cursor: pointer;

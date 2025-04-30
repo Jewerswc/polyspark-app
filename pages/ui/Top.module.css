@@ -1,0 +1,31 @@
+.CategoryLabelMobile {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  color: #333333;
+
+  line-height: 1.25;
+  font-family: cabin, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  gap: 8px;
+}
+
+.active {
+  background-color: #154FE3;
+  color: #FFFFFF;
+
+
+
+}
+.icon {
+    margin-right: 8px; /* space between icon and text */
+  }
+  
+  .labelText {
+    /* if you need specific text styling */
+  }

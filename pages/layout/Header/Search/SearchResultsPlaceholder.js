@@ -8,10 +8,10 @@ export default function SearchResultsPlaceholder({ query }) {
   const topics = ["Avalanche", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply", "Tech", "Defender", "Logistics", "Supply"];
 
   const agents = [
-    { name: "Alex Doe", avatarUrl: "./Images/AlexDoe.png" },
-    { name: "Emily Biche", avatarUrl: "./Images/JamesRae.png" },
-    { name: "James Rae", avatarUrl: "./Images/EmilyBiche.png" },
-    { name: "Chris Parker", avatarUrl: "./Images/ChrisParker.png" },
+    { name: "Alex Doe", avatarUrl: "./Images/profileimages/AlexDoe.png" },
+    { name: "Emily Biche", avatarUrl: "./Images/profileimages/JamesRae.png" },
+    { name: "James Rae", avatarUrl: "./Images/profileimages/EmilyBiche.png" },
+    { name: "Chris Parker", avatarUrl: "./Images/profileimages/ChrisParker.png" },
   ];
 
   const posts = [
@@ -19,13 +19,13 @@ export default function SearchResultsPlaceholder({ query }) {
       title: "Developing a near real-time text to speech application",
       date: "3 MAR 2025",
       author: "Alex Doe",
-      avatarUrl: "./Images/AlexDoe.png",
+      avatarUrl: "./Images/profileimages/AlexDoe.png",
     },
     {
       title: "Avalanche vs. Solana",
       date: "4 APR 2025",
       author: "Emily Biche",
-      avatarUrl: "./Images/EmilyBiche.png",
+      avatarUrl: "./Images/profileimages/EmilyBiche.png",
     },
   ];
 

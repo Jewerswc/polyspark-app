@@ -8,6 +8,7 @@
   font-weight: 700;
   line-height: 18px;
   color: #474545;
+  background-color: transparent;
   cursor: pointer;
   user-select: none;
   transition: border-color 0.2s, color 0.2s;

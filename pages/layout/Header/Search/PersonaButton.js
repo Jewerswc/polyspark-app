@@ -1,15 +1,23 @@
 import React from 'react';
 import styles from './PersonaButton.module.css';
 
-export default function PersonaButton({ name, avatarUrl }) {
+export default function Tag({ text, onSelect, avatarUrl, name }) {
+  const handleMouseDown = e => {
+    e.preventDefault();  
+    e.stopPropagation();
+  };
   return (
-    <div className={styles.personaCard}>
+    <button 
+    onMouseDown={handleMouseDown}
+    onClick={() => onSelect?.(text)}
+    className={styles.personaCard}>
       <img
         className={styles.avatar}
         src={avatarUrl}
         alt={`${name}'s avatar`}
+
       />
       <span className={styles.name}>{name}</span>
-    </div>
+    </button>
   );
 }

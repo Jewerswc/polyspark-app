@@ -6,6 +6,7 @@ import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
 import './MainPage.module.css';
+import CategoryToolbar from './ui/CategoryToolbar';
 
 export default function App() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
@@ -23,13 +24,14 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
   };
 
   return (
-    <div className="pageWrapper">
+    <div>
       <Header />
-      <div className="mainContent">
+      <div>
         <PersonaCardRow onChatClick={(name) => {
           console.log("Chat clicked for", name);
           openChatOverlay();
         }} />
+        <CategoryToolbar />
         <FeedCardGrid />
       </div>
       <Footer />
