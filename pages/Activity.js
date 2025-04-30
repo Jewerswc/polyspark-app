@@ -27,7 +27,6 @@ export default function Activity() {
 
   const [loginOpen, setLoginOpen] = useState(false);
   const openLogin  = () => setLoginOpen(true);
-  const closeLogin = () => setLoginOpen(false);
 
 
   const openLoginAndCloseMore = () => {

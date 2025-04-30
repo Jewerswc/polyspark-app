@@ -13,7 +13,7 @@ export default function ButtonRow() {
 
   return (
     <div className={styles.buttonRow}>
-      <TrendingButton onClick={() => router.push('/MainPage')} />
+      <TrendingButton onClick={() => router.push('/')} />
       <ActivityButton onClick={() => router.push('/Activity')} />
       <ShuffleButton onClick={() => console.log('Shuffle button clicked')} />
       <PersonasButton onClick={() => console.log('Personas button clicked')} />
