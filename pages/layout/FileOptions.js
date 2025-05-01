@@ -30,7 +30,7 @@ export default function FileOptions() {
         </button>
         {open1 && (
           <ul className={styles.menu}>
-            <li onClick={() => {/* handle PDF */}}>PDF</li>
+            <li onClick={() => {/* handle PDF */}}>Date Published</li>
             <li onClick={() => {/* handle DOCX */}}>DOCX</li>
             <li onClick={() => {/* handle TXT */}}>TXT</li>
           </ul>

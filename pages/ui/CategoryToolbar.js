@@ -4,7 +4,7 @@ import SearchBar from './SearchRecent';
 import CategoryButton from './CategoryButton';
 import FidleButton from './../fidlebutton';
 import styles from './CategoryToolbar.module.css';
-import { TRENDING, FILE, CATEGORIES } from './../CategoryConstants';
+import { TRENDING, FILE, CATEGORIES } from './../constants/CategoryConstants';
 
 export default function CategoryToolbar({
   activeCategory,

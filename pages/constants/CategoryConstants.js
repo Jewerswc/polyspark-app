@@ -18,3 +18,6 @@ export const CATEGORIES = [
   'Async', 
   'Text-To-Spee'
 ];
+export default function CategoryConstantsPage() {
+  return null;  // or some placeholder UI
+}

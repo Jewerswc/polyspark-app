@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import FeedCardLayout from './../Feedcard/Feedcard';
 import styles from './FeedCardGrid.module.css';
 import feedCardsData from './../Feedcard/feedcards.json';
-import { TRENDING, FILE, CATEGORIES } from './../CategoryConstants';
+import { TRENDING, FILE, CATEGORIES } from './../constants/CategoryConstants';
 
 export default function FeedCardsGrid({ activeCategory, searchQuery }) {
   const filteredAndSorted = useMemo(() => {
@@ -39,7 +39,6 @@ export default function FeedCardsGrid({ activeCategory, searchQuery }) {
   }, [activeCategory, searchQuery]);
 
   if (filteredAndSorted.length === 0) {
-    return <div className={styles.noResults}>No posts match your filter.</div>;
   }
 
   return (

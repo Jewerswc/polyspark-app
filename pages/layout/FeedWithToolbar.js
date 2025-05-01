@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import CategoryToolbar from './../ui/CategoryToolbar';
 import FeedCardsGrid from './FeedCardGrid';
 import FileOptions from './FileOptions';
-import { TRENDING, FILE } from './../CategoryConstants';
+import { TRENDING, FILE } from './../constants/CategoryConstants';
 
 export default function FeedWithToolbar() {
   const [activeCategory, setActiveCategory] = useState(TRENDING);
