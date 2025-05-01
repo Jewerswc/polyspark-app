@@ -5,7 +5,8 @@ import FeedCardsGrid from './FeedCardGrid';
 import FileOptions from './FileOptions';
 import { TRENDING, FILE } from './../constants/CategoryConstants';
 
-export default function FeedWithToolbar() {
+export default function FeedWithToolbar({ onImageClick }) {
+  
   const [activeCategory, setActiveCategory] = useState(TRENDING);
   const [showFileOptions, setShowFileOptions] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -28,9 +29,10 @@ export default function FeedWithToolbar() {
       {showFileOptions && <FileOptions />}
 
       <FeedCardsGrid
-        activeCategory={activeCategory}
-        searchQuery={searchQuery}
-      />
+    activeCategory={activeCategory}
+    searchQuery={searchQuery}
+    onImageClick={onImageClick}
+  />
     </div>
   );
 }

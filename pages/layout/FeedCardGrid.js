@@ -5,7 +5,7 @@ import styles from './FeedCardGrid.module.css';
 import feedCardsData from './../Feedcard/feedcards.json';
 import { TRENDING, FILE, CATEGORIES } from './../constants/CategoryConstants';
 
-export default function FeedCardsGrid({ activeCategory, searchQuery }) {
+export default function FeedCardsGrid({ activeCategory, searchQuery, onImageClick  }) {
   const filteredAndSorted = useMemo(() => {
     let cards = [...feedCardsData];
 
@@ -50,6 +50,7 @@ export default function FeedCardsGrid({ activeCategory, searchQuery }) {
           description={card.description}
           tags={card.tags}
           image={card.image}
+          onImageClick={onImageClick}
         />
       ))}
     </div>

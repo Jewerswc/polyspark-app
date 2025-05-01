@@ -4,7 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function ChatOverlayIPhone({ apiKey, onClose }) {
   const userImg = 'Images/Avatars.png';
-  const assistantImg = 'Images/AlexDoe.png';
+  const assistantImg = 'Images/profileimages/AlexDoe.png';
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');

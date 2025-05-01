@@ -7,12 +7,15 @@ import NavbarMobile          from './layout/MobileNavbar';
 import UserProfileCard       from './ui/LoginOverlayMobile';
 import MoreOverlay           from './ui/MoreOverlay';
 import ChatOverlayIPhone     from './ui/ChatOverlayIphone';
+import LightboxOverlay from './LightboxOverlay';
+
 import styles                from './MainPageMobile.module.css';
 
 export default function App() {
   const [moreOpen, setMoreOpen]             = useState(false);
   const [overlayMounted, setOverlayMounted] = useState(false);
   const [activeLabel, setActiveLabel] = useState('Top')
+  const [lightboxSrc, setLightboxSrc] = useState(null);
 
   const handleMoreClick = () => {
     if (!moreOpen) {
@@ -59,7 +62,7 @@ export default function App() {
         // you can still allow defaultCategories via props if you want
       />     
         
-        <FeedCardsColumn activeLabel={activeLabel} />
+        <FeedCardsColumn activeLabel={activeLabel} onImageClick={setLightboxSrc} />
 
         <NavbarMobile
           onMoreClick={handleMoreClick}
@@ -84,6 +87,10 @@ export default function App() {
           onClose={closeChat}
         />
       )}
+           <LightboxOverlay
+             src={lightboxSrc}
+             onClose={() => setLightboxSrc(null)}
+           />
     </div>
   );
 }

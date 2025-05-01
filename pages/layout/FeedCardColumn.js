@@ -3,7 +3,7 @@ import FeedCardLayout from './../Feedcard/Feedcard';
 import styles from './FeedCardColumn.module.css';
 import feedCardsData from './../Feedcard/feedcards.json';
 
-export default function FeedCardsColumn({ activeLabel }) {
+export default function FeedCardsColumn({ activeLabel, onImageClick }) {
   // clone the array so we don't mutate the original
   let cards = [...feedCardsData];
 
@@ -39,6 +39,8 @@ export default function FeedCardsColumn({ activeLabel }) {
           description={card.description}
           tags={card.tags}
           image={card.image}
+          onImageClick={onImageClick}
+
         />
       ))}
     </div>

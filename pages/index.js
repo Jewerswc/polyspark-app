@@ -6,10 +6,11 @@ import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
 import './MainPage.module.css';
 import FeedWithToolbar from './layout/FeedWithToolbar';
+import LightboxOverlay from './LightboxOverlay';
 
 export default function App() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
-
+  const [lightboxSrc, setLightboxSrc] = useState(null);
 const closeSignupOverlay = () => setSignupOverlayVisible(false);
 
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
@@ -30,7 +31,7 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
           console.log("Chat clicked for", name);
           openChatOverlay();
         }} />
-      <FeedWithToolbar />
+  <FeedWithToolbar onImageClick={setLightboxSrc} />
       </div>
       <Footer />
 
@@ -48,6 +49,12 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
     onClose={closeSignupOverlay}
   />
 )}
+
+    {/* <<< our lightbox overlay >>> */}
+     <LightboxOverlay
+       src={lightboxSrc}
+       onClose={() => setLightboxSrc(null)}
+     />
     </div>
   );
 }
