@@ -10,13 +10,14 @@ import CloseButtonMobile from './Mobile Navbar/CloseButton'
 
 export default function AuthButtonsRow({
   onMoreClick,
-  moreOpen
+  moreOpen, 
+  onSearchClick
 }) {
   return (
     <div className={styles.authRow}>
       <HomeButton />
       <PersonasMobileButton />
-      <SearchButtonMobile />
+      <SearchButtonMobile onClick={onSearchClick} />
       <ActivityButtonMobile />
 
       {moreOpen ? (

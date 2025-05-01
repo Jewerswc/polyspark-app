@@ -91,7 +91,7 @@
     "title": "The Woke Waste Wars: How Britain Fell into a Bureaucratic Black Hole",
     "description": "In the age of austerity, one might expect the British government to exercise fiscal prudence. Yet, recent revelations suggest a different narrative—one where taxpayer money funds projects that, at best, raise eyebrows, and at worst, exemplify a disconnect between governance and public sentiment.​",
     "image": "/Images/feedcardimages/wokewaste.png",
-    "tags": ["Bureaucracy", "Waste", "UK Politics"],
+    "tags": ["Bureaucracy", "Waste", "Politics"],
     "publishedAt": "2025-04-13T09:55:00Z",
     "engagement": 198
   },
@@ -122,10 +122,10 @@
     "engagement": 356
   },
   {
-    "title": "From Side Hustle to Startup Success: How AI-Driven Tools Are Transforming Indie Hacking",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
-    "image": "/Images/feedcardimages/Blockchain.png", 
-    "tags": ["python", "async", "speech"], 
+    "title": "Nature Levy Melee: Greenwash, Guff and the Committee Circus",
+    "description": "“Produce your wellies and wave your manifesto high!” With those theatrical words—more village fete than parliamentary committee—Cheryl Knight MP kicked off a cross-party culture war in Committee Room 14. Centre stage in this Westminster soap opera, disguised thinly as the Planning and Infrastructure Bill, was the controversial 'Nature Levy', quickly morphing from noble intention into pantomime parody.", 
+    "image": "/Images/feedcardimages/thumbnail-52327.png", 
+    "tags": ["Politics", "async", "speech"], 
     "publishedAt": "2025-04-16T09:03:00Z",
     "engagement": 356
   }, 
@@ -139,26 +139,26 @@
   },
 
   {
-    "title": "How Blockchain Tech is Empowering Digital Nomads",
-    "description": "It wasn't long ago when becoming a digital nomad felt like a trade-off between freedom and career stability. Sure, you could work from a café overlooking Bali’s rice paddies or from a cozy co-working space in Lisbon, but managing international payments and employment contracts were usually messy affairs. Traditional banking systems took their pound of flesh in fees and red tape, making something that should have been simple feel dauntingly complex.", 
-    "image": "/Images/feedcardimages/Blockchain.png", 
-    "tags": ["Python", "text", "speech"], 
+    "title": "Tariff Tango: Post-Brexit Trade Bill Bust-Up",
+    "description": "In Westminster’s increasingly theatrical chamber, last night’s row over the post-Brexit trade bill delivered a fresh helping of parliamentary pantomime, complete with villains, heroes, and rhetorical jabs sharper than a customs duty spike. MPs on all sides leapt onto their favourite hobby horses, trampling sober economic reasoning under a stampede of practical ignorance masked as patriotic fervour. With Brussels now cast off as the villain duly vanquished, MPs discovered they needed new antagonists, quickly replacing trade experts and economic commentators with convenient straw men, stuffed generously with misplaced metaphor. Enter stage left, tariffs—those previously obscure levies now taking centre stage, dressed by backbenchers in symbolic flags rather than logical threads.", 
+    "image": "/Images/feedcardimages/thumbnail-51964.png", 
+    "tags": ["Politics", "Brexit", "Trade"], 
     "publishedAt": "2025-04-16T09:03:00Z",
     "engagement": 356
   },
 
   {
-    "title": "From Side Hustle to Startup Success: How AI-Driven Tools Are Transforming Indie Hacking",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
-    "image": "/Images/feedcardimages/Blockchain.png", 
-    "tags": ["Python", "text", "speech"], 
+    "title": "Self-Improving Python Backends: Patterns for Deploying Autonomous AI Agents",
+    "description": "Software systems are rarely finished—even cutting-edge production backends must be repeatedly tuned in response to new data, shifting use cases, and unforeseen bottlenecks. Traditional systems rely mostly on manual adjustments or scheduled retraining cycles, provoking crucial delays and productivity drains. However, by embedding feedback-driven AI agents into backend architectures, we can create adaptable Python services that autonomously optimize their behavior with minimal human supervision.", 
+    "image": "/Images/feedcardimages/thumbnail-48093.png", 
+    "tags": ["Python", "AI", "Agents"], 
     "publishedAt": "2025-04-16T09:03:00Z",
     "engagement": 356
   },
   {
-    "title": "From Side Hustle to Startup Success: How AI-Driven Tools Are Transforming Indie Hacking",
-    "description": "Creating a speech-to-text application that operates in near real-time can significantly enhance user interactions", 
-    "image": "/Images/feedcardimages/Blockchain.png", 
+    "title": "Horizontal Scaling in Python: Micro-Services Without the Meltdown",
+    "description": "In the world of backend architecture, resilience and scalability have long been key challenges, especially as traffic surges or business requirements steadily expand. Python has emerged as a leading choice for rapid development of backend services thanks to its ease of use, rich libraries, and growing ecosystem. However, misconceptions around Python-based backend scalability still persist. Some mistakenly suggest that Python services must be migrated entirely to stronger hardware (vertically scaled) as their demand grows. This could not be further from the truth. The reality is that Python services, designed correctly, can achieve industrial-strength resilience through horizontal scaling within a microservices architecture—even during periods of intense demand, without causing system meltdown.", 
+    "image": "/Images/feedcardimages/thumbnail-45023.png", 
     "tags": ["Python", "text", "speech"], 
     "publishedAt": "2025-04-16T09:03:00Z",
     "engagement": 356

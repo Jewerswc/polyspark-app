@@ -16,4 +16,5 @@
   max-width: 55%;
   max-height: 55%;
   border-radius: 12px;
+  object-fit: cover;
 }
