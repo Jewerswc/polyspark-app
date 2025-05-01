@@ -1,7 +1,10 @@
+// src/components/FeedCardDescription.jsx
 import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import styles from './Description.module.css';
 
-export default function FeedCardDescription({ text, onReadMore }) {
+export default function FeedCardDescription({ text }) {
+  const router = useRouter();
   const clampedRef = useRef(null);
   const fullTextRef = useRef(null);
   const [isTruncated, setIsTruncated] = useState(false);
@@ -16,16 +19,28 @@ export default function FeedCardDescription({ text, onReadMore }) {
     }
   }, [text]);
 
+  const handleReadMore = () => {
+    router.push('/article');
+  };
+
   return (
     <div className={styles.descriptionContainer}>
       <p ref={clampedRef} className={styles.descriptionText}>
         {text}
       </p>
+
       {hasMounted && isTruncated && (
-        <span className={styles.readMore} onClick={onReadMore}>
+        <span
+          className={styles.readMore}
+          role="button"
+          tabIndex={0}
+          onClick={handleReadMore}
+          onKeyPress={e => e.key === 'Enter' && handleReadMore()}
+        >
           Read More
         </span>
       )}
+
       {hasMounted && (
         <p ref={fullTextRef} className={styles.fullText} aria-hidden="true">
           {text}

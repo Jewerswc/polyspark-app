@@ -1,0 +1,30 @@
+/* ChatNowButton.module.css */
+.chatnowButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.chatnowButton:hover,
+.chatnowButton:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.chatnowButton:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  margin-right: 0px;
+  display: inline-block;
+}
+
+.label {
+  font-size: 14px;
+}

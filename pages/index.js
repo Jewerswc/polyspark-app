@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Header from './layout/Header';
 import PersonaCardRow from './PersonaCards/PersonaCardRow';
-import FeedCardGrid from './layout/FeedCardGrid';
 import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
 import './MainPage.module.css';
-import CategoryToolbar from './ui/CategoryToolbar';
+import FeedWithToolbar from './layout/FeedWithToolbar';
 
 export default function App() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
@@ -31,8 +30,7 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
           console.log("Chat clicked for", name);
           openChatOverlay();
         }} />
-        <CategoryToolbar />
-        <FeedCardGrid />
+      <FeedWithToolbar />
       </div>
       <Footer />
 

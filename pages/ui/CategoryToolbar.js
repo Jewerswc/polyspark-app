@@ -1,66 +1,50 @@
-// CategoryToolbar.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import CategoryLabelMobile from './Top';
-import SearchBar from './SearchRecent';        // <-- your SearchBar component
+import SearchBar from './SearchRecent';
 import CategoryButton from './CategoryButton';
+import FidleButton from './../fidlebutton';
 import styles from './CategoryToolbar.module.css';
+import { TRENDING, FILE, CATEGORIES } from './../CategoryConstants';
 
-export default function CategoryToolbar({ onCategorySelect }) {
-  // the rest of your categories
-  const categories = [
-    'New',
-    'OS',
-    'Minimal',
-    'Telemetry',
-    'Speech',
-    'Realtime',
-    'Indie',
-    'Growth',
-    'Marketing',
-    'Remote',
-    'Backend',
-    'Async',
-    'DecAI',
-    'Oversight'
-  ];
-
-  const [activeCategory, setActiveCategory] = useState('Trending');
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const handleClick = (cat) => {
-    setActiveCategory(cat);
-    if (onCategorySelect) onCategorySelect(cat);
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-    // you can also call onCategorySelect(e.target.value) 
-    // or otherwise filter based on search here
-  };
-
+export default function CategoryToolbar({
+  activeCategory,
+  searchQuery,
+  onCategorySelect,
+  onSearchChange
+}) {
   return (
     <div className={styles.toolbar}>
-      {/* 1) Trending */}
+      {/* Trending */}
       <CategoryLabelMobile
-        onClick={() => handleClick('Trending')}
-        isActive={activeCategory === 'Trending'}
+        onClick={() => onCategorySelect(TRENDING)}
+        isActive={activeCategory === TRENDING}
+        aria-pressed={activeCategory === TRENDING}
       />
 
-      {/* 2) Search bar */}
+      {/* Search bar */}
       <SearchBar
         placeholder="Search Recent"
         iconSrc="MGlass.svg"
         value={searchQuery}
-        onChange={handleSearchChange}
+        onChange={e => onSearchChange(e.target.value)}
       />
 
-      {/* 3) Rest of the categories */}
-      {categories.map((cat) => (
+      {/* File button */}
+      <FidleButton
+        label="Upload File"
+        onClick={() => onCategorySelect(FILE)}
+        isActive={activeCategory === FILE}
+        buttonColor={activeCategory === FILE ? '#007bff' : '#000'}
+      />
+
+      {/* Categories */}
+      {CATEGORIES.map(cat => (
         <CategoryButton
           key={cat}
           label={cat}
-          onClick={() => handleClick(cat)}
-          isActive={cat === activeCategory}
+          onClick={() => onCategorySelect(cat)}
+          isActive={activeCategory === cat}
+          aria-pressed={activeCategory === cat}
         />
       ))}
     </div>

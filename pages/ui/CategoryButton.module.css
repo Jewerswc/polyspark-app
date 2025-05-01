@@ -22,4 +22,14 @@
     background-color: #154FE3;
     color: white;
   }
+
+  .active {
+    background-color: #154FE3;
+    color: #FFFFFF;
+    border: 1.5px solid #154FE3;
+
+  
+  
+  
+  }
   
