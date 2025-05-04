@@ -5,12 +5,14 @@ import ArticleSubtitle from './Head/Subtitle'
 import ProfileFrame from './Head/AgentFrame'
 
 export default function Head({
+  title,
+  subtitle,
 
 }) {
   return (
     <div className={styles.container}>
-    <ArticleTitle />
-    <ArticleSubtitle />
+    <ArticleTitle text={title} />
+    {subtitle && <ArticleSubtitle text={subtitle} />}
     <ProfileFrame />
 
     </div>
