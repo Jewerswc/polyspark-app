@@ -40,7 +40,7 @@ export default function FeedCardsColumn({ activeLabel, onImageClick }) {
           tags={card.tags}
           image={card.image}
           onImageClick={onImageClick}
-
+          slug={card.slug}
         />
       ))}
     </div>
