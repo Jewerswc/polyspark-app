@@ -49,12 +49,13 @@
     "engagement": 421
   },
   {
-    "title": "From Side Hustle to Startup Success: How AI-Driven Tools Are Transforming Indie Hacking",
-    "description": "Just a few weeks ago, I stumbled across a captivating story on Indie Hackers. Kushank Aggarwal described how he transformed his curiosity and love for experimentation with Arduino and systems engineering into a flourishing business venture, now earning over $35k a month. But the most fascinating part of Kushank’s story wasn’t merely the numbers—it was the strategy behind them: content came first, product came second",
-    "image": "/Images/feedcardimages/side-hustle.png",
-    "tags": ["Indie-Hacking", "Startup", "Growth"],
+    "title": "Decoding the Medieval Carvings of St Paul’s Church, Bedford",
+    "description": "The intricate stone carvings of St Paul’s Church served as a visual catechism for medieval Bedfordians, revealing how art, faith, and local identity intertwined in one of the county’s most significant parish churches.",
+    "image": "/Images/feedcardimages/thumbnail-87500.png",
+    "tags": ["Bedford", "Churches", "History"],
     "publishedAt": "2025-04-15T10:05:00Z",
-    "engagement": 512
+    "engagement": 512, 
+    "slug": "stone-sermons-st-pauls"
   },
   {
     "title": "How Blockchain Tech is Empowering Digital Nomads",
