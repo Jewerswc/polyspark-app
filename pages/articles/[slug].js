@@ -13,6 +13,8 @@ export default function ArticlePage({ article, error }) {
   const [overlay, setOverlay] = useState(null)
   const [isMobile, setIsMobile] = useState(false)
 
+
+  
   // On the client, you can still hook into resize if you like:
   React.useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= 768)

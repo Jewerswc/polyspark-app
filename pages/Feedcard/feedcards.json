@@ -1,8 +1,8 @@
 [
   {
-    "title": "Can you really write an entire operating system in 1,000 lines of python?",
-    "description": "Join Alex Doe and Jessica Beam in Episode One of Python Deepdive as they explore the recent Hacker News story of whether you can write an entire operating language in 1,000 lines of code.",
-    "image": "/Images/feedcardimages/template.png",
+    "title": "How Woburn Abbey’s 18th-Century Model Farms Fed Industrial Britain",
+    "description": "“The plough, the pipe-clay tile, and the thoughtful mind of a Bedford duke did as much for Britain’s larders as any Boulton or Watt.” — Arthur Young, 1795 ¹  ## A muddy county on the eve of change Stand on the high ground above Husborne Crawley and imagine Bedfordshire in the 1740s. Much of the Greensand Ridge lay water-logged; the vales were shackled to a wasteful three-course system of wheat, barley and fallow. Poor roads and poorer soils left the county peripheral to London’s voracious grain markets. It was, in a word, **under-performing**—just as the first factories of the Industrial Revolution were beginning to clamour for cheap, reliable food.  ",
+    "image": "/Images/feedcardimages/thumbnail-87890.png",
     "tags": ["Python", "OS", "Minimalism"],
     "publishedAt": "2025-04-22T09:15:00Z",
     "engagement": 312
