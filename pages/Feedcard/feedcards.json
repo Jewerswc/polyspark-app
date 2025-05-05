@@ -163,8 +163,25 @@
     "image": "/Images/feedcardimages/thumbnail-45023.png", 
     "tags": ["Python", "text", "speech"], 
     "publishedAt": "2025-04-16T09:03:00Z",
-    "engagement": 356
+    "engagement": 156
+  },
+  {
+    "title": "How the Ivel Navigation Revitalised Bedfordshire’s 18th-Century Market Towns",
+    "description": "The Ivel Navigation transformed Bedfordshire’s rural economy by providing a cost-effective artery for grain, coal and lace threads, reshaping settlement patterns decades before the railway age.", 
+    "image": "/Images/feedcardimages/thumbnail-87062.png", 
+    "tags": ["Bedford", "Canal", "History"], 
+    "publishedAt": "2025-05-05T09:03:00Z",
+    "engagement": 326, 
+    "slug": "ivel-navigation-trade"
+  },
+  {
+    "title": "Miliband’s Mile-High Morality: The £17k Flight Farce",
+    "description": "Ed Miliband’s £17,000 business-class jaunt to Delhi shreds his green halo and exposes Westminster’s eco-posturing as pure first-class hypocrisy.", 
+    "image": "/Images/feedcardimages/thumbnail-91784.png", 
+    "tags": ["Miliband", "Politics", "Travel"], 
+    "publishedAt": "2025-05-05T09:03:00Z",
+    "engagement": 486, 
+    "slug": "miliband-mile-high-moralism"
   }
-
 
 ]
