@@ -3,11 +3,11 @@ import styles from './FeedCardMainContainer.module.css';
 import FeedCardTitle from './Title';
 import FeedCardDescription from './Description';
 
-export default function FeedCardContainer({ title, description, image, onImageClick }) {
+export default function FeedCardContainer({ title, description, image, onImageClick, slug }) {
   return (
     <div className={styles.feedCardContainer}>
       <div className={styles.textContainer}>
-        <FeedCardTitle text={title} />
+      <FeedCardTitle text={title} slug={slug} />
         <FeedCardDescription text={description} />
       </div>
       <div className={styles.imageContainer}>

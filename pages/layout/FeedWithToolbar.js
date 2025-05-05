@@ -10,7 +10,7 @@ export default function FeedWithToolbar({ onImageClick }) {
   const [activeCategory, setActiveCategory] = useState(TRENDING);
   const [showFileOptions, setShowFileOptions] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [currentSlug, setCurrentSlug] = useState(null)
   // wrap the real handler so we can also toggle our dropdown
   const handleCategorySelect = (cat) => {
     setActiveCategory(cat);
@@ -32,6 +32,7 @@ export default function FeedWithToolbar({ onImageClick }) {
     activeCategory={activeCategory}
     searchQuery={searchQuery}
     onImageClick={onImageClick}
+    slug={currentSlug} onBack={() => setCurrentSlug(null)}
   />
     </div>
   );

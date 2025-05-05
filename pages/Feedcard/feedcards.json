@@ -5,7 +5,8 @@
     "image": "/Images/feedcardimages/thumbnail-87890.png",
     "tags": ["Python", "OS", "Minimalism"],
     "publishedAt": "2025-04-22T09:15:00Z",
-    "engagement": 312
+    "engagement": 312, 
+    "slug": "woburn-model-farms"
   },
   {
     "title": "Trainning A Large Language Model With Python",

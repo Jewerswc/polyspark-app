@@ -5,8 +5,8 @@ import styles from './FeedCardGrid.module.css';
 import feedCardsData from './../Feedcard/feedcards.json';
 import { TRENDING, FILE, CATEGORIES } from './../constants/CategoryConstants';
 
-export default function FeedCardsGrid({ activeCategory, searchQuery, onImageClick  }) {
-  const filteredAndSorted = useMemo(() => {
+export default function FeedCardsGrid({ activeCategory, searchQuery, onImageClick, }) {
+    const filteredAndSorted = useMemo(() => {
     let cards = [...feedCardsData];
 
     // 1) If Trending or File: show all in original order
@@ -51,6 +51,7 @@ export default function FeedCardsGrid({ activeCategory, searchQuery, onImageClic
           tags={card.tags}
           image={card.image}
           onImageClick={onImageClick}
+          slug={card.slug}
         />
       ))}
     </div>
