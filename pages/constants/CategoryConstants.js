@@ -10,11 +10,11 @@ export const CATEGORIES = [
   'Blockchain',
   'Politics',
   'Rocketry',
+  'History',
   'Growth',
   'OS',
   'Telemetry',
   'Minimalism',
-  'Backend',
   'Async', 
   'Text-To-Spee'
 ];
