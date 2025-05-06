@@ -8,7 +8,7 @@ export default function FeedCardContainer({ title, description, image, onImageCl
     <div className={styles.feedCardContainer}>
       <div className={styles.textContainer}>
       <FeedCardTitle text={title} slug={slug} />
-        <FeedCardDescription text={description} />
+        <FeedCardDescription text={description} slug={slug} />
       </div>
       <div className={styles.imageContainer}>
              <img

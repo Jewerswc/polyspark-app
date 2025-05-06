@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './Description.module.css';
 
-export default function FeedCardDescription({ text }) {
+export default function FeedCardDescription({ text, slug }) {
   const router = useRouter();
   const clampedRef = useRef(null);
   const fullTextRef = useRef(null);
@@ -25,16 +25,19 @@ export default function FeedCardDescription({ text }) {
 
   return (
     <div className={styles.descriptionContainer}>
-      <p ref={clampedRef} className={styles.descriptionText}>
+      
+              <a
+              href={`/articles/${slug}`}
+      ref={clampedRef} className={styles.descriptionText}>
         {text}
-      </p>
+      </a>
 
       {hasMounted && isTruncated && (
         <span
           className={styles.readMore}
           role="button"
           tabIndex={0}
-          onClick={handleReadMore}
+          
           onKeyPress={e => e.key === 'Enter' && handleReadMore()}
         >
           Read More
