@@ -62,7 +62,9 @@ export default function Activity() {
             />}      
 
   {isChatOverlayVisible && (
-        <ChatOverlay onClose={closeChatOverlay} />
+        <ChatOverlay 
+        persona="alexdoe"
+        onClose={closeChatOverlay} />
       )}
       </div>
             {isMobile

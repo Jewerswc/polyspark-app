@@ -200,7 +200,53 @@
     "publishedAt": "2025-05-07T09:03:00Z",
     "engagement": 586, 
     "slug": "reformquake-tory-tremors"
+  }, 
+  {
+    "title": "Lords Lobotomy: Starmer's Plan to Saw Off the Hereditary Upholstery",
+    "description": "Starmer’s push to evict hereditary peers is the opening salvo in a constitutional cage-fight that will leave Westminster gasping as red benches morph into an elected battleground.", 
+    "image": "/Images/feedcardimages/thumbnail-11199.png", 
+    "tags": ["Reform", "Politics", "Parliament"], 
+    "publishedAt": "2025-05-07T09:03:00Z",
+    "engagement": 586, 
+    "slug": "lords-lobotomy"
+  },   
+  {
+    "title": "Python 3.13’s JIT vs. No-GIL: What Actually Moves Your Backend’s Needle?",
+    "description": "In 2025, Python’s experimental JIT (PEP 744) delivers bigger real-world performance gains for backend workloads than the headline-grabbing No-GIL mode, making it the smarter bet for engineers chasing throughput today.", 
+    "image": "/Images/feedcardimages/thumbnail-11105.png", 
+    "tags": ["Reform", "Politics", "Parliament"], 
+    "publishedAt": "2025-05-07T09:03:00Z",
+    "engagement": 586, 
+    "slug": "python-jit-crossroads"
+  }, 
+  {
+    "title": "Cummings’ Blog War-Room: Is Westminster Still Dancing to Dom’s Google Docs?",
+    "description": "Dominic Cummings’ hyper-caffeinated Substack has morphed into Westminster’s most disruptive off-site think-tank, ghost-writing rebel briefs and even nudging Labour tech policy despite his exile from No.10.", 
+    "image": "/Images/feedcardimages/thumbnail-11298.png", 
+    "tags": ["Reform", "Politics", "Parliament"], 
+    "publishedAt": "2025-05-07T09:03:00Z",
+    "engagement": 586, 
+    "slug": "cummings-blog-war-room"
+  }, 
+  {
+    "title": "When Clay Met Chimneys: The Rise and Fall of Bedfordshire’s Marston Vale Brick Empire",
+    "description": "The explosive growth—and abrupt decline—of Stewartby and the Marston Vale brickworks reshaped Bedfordshire’s economy, landscape, and social fabric more profoundly than any other industrial venture of the 20th century.", 
+    "image": "/Images/feedcardimages/thumbnail-11602.png", 
+    "tags": ["Reform", "Politics", "Parliament"], 
+    "publishedAt": "2025-05-07T09:03:00Z",
+    "engagement": 586, 
+    "slug": "marston-vale-brickworks"
+  }, 
+  {
+    "title": "Peels on the Line: How Captain Peel’s Private Railway Put Sandy on the Victorian Map",
+    "description": "Captain William Peel’s self-funded Sandy & Potton Railway transformed rural Sandy into a bustling junction, proving how a single estate owner could redirect Bedfordshire’s economic orbit before state involvement.", 
+    "image": "/Images/feedcardimages/thumbnail-11914.png", 
+    "tags": ["Reform", "Politics", "Parliament"], 
+    "publishedAt": "2025-05-07T09:03:00Z",
+    "engagement": 586, 
+    "slug": "peels-on-the-line"
   }
+
 
 ]
 
