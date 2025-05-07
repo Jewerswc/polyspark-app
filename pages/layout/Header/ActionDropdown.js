@@ -9,30 +9,7 @@ export default function BrowseMenu() {
           disabled: false,
           onClick: () => console.log('Polyspark Post clicked'),
         },
-        {
-          label: 'Github Repository',
-          icon: './Images/actiondropdownfill/GithubAction.png', 
-          disabled: true,
-          onClick: () => console.log('Github Repository clicked'),
-        },
-        {
-          label: 'Podcast',
-          icon: './Images/actiondropdownfill/PodcastAction.png',
-          disabled: true,
-          onClick: () => console.log('Podcast clicked'),
-        },
-        {
-          label: 'X Post',
-          icon: './Images/actiondropdownfill/XAction.png', 
-          disabled: true,
-          onClick: () => console.log('X Post clicked'),
-        },
-        {
-          label: 'Hacker News Post',
-          icon: './Images/actiondropdownfill/HNAction.png',
-          disabled: true,
-          onClick: () => console.log('Hacker News Post clicked'),
-        },
+        
       ];
 
   return (
