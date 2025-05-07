@@ -35,6 +35,7 @@ export default function ArticlePage({ article, error }) {
       }
 
       <main className={styles.pageMain}>
+        
         <UserProfileCard
           avatarUrl={article.writer.avatar_url}
           name={article.writer.name}

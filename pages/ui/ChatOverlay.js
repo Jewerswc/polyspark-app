@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './ChatOverlay.module.css';
 
-export default function ChatOverlay({ apiKey, onClose }) {
+export default function ChatOverlay({ persona, onClose }) {
   const userImg = 'Images/Avatars.png';
   const assistantImg = 'Images/profileimages/AlexDoe.png';
 
@@ -9,7 +9,6 @@ export default function ChatOverlay({ apiKey, onClose }) {
   const [input, setInput] = useState('');
   const chatBodyRef = useRef(null);
 
-  // Auto-scroll when messages update
   useEffect(() => {
     if (chatBodyRef.current) {
       chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
@@ -19,60 +18,40 @@ export default function ChatOverlay({ apiKey, onClose }) {
   async function handleSend() {
     const userText = input.trim();
     if (!userText) return;
-
-    // Add user's message to state
     setMessages((prev) => [...prev, { role: 'user', text: userText }]);
     setInput('');
 
-    // Query the assistant
     try {
-      const assistantReply = await getOpenAIResponse(userText);
+      const assistantReply = await getChatResponse(persona, userText);
       setMessages((prev) => [
         ...prev,
         { role: 'assistant', text: assistantReply },
       ]);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', text: 'Sorry, an error occurred.' },
+        { role: 'assistant', text: 'Sorry, something went wrong.' },
       ]);
     }
   }
 
-  async function getOpenAIResponse(userMessage) {
-    const url = 'https://api.openai.com/v1/chat/completions';
-    const payload = {
-      model: 'gpt-4.1',
-      messages: [
-        { role: 'system', content: 'You are a helpful assistant.' },
-        { role: 'user', content: userMessage },
-      ],
-      max_tokens: 1000,
-      temperature: 0.7,
-    };
-
-    const response = await fetch(url, {
+  async function getChatResponse(persona, userMessage) {
+    const resp = await fetch('http://localhost:8000/chat', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${'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'}`,
-    },
-      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ persona, message: userMessage }),
     });
-
-    if (!response.ok) {
-      throw new Error(`OpenAI API error: ${response.status}`);
+    if (!resp.ok) {
+      throw new Error(`Server error: ${resp.status}`);
     }
-
-    const data = await response.json();
-    return data.choices[0].message.content.trim();
+    const { reply } = await resp.json();
+    return reply;
   }
 
-  // Handle ENTER key press
-  function handleKeyPress(event) {
-    if (event.key === 'Enter') {
-      event.preventDefault();
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
       handleSend();
     }
   }
@@ -82,7 +61,7 @@ export default function ChatOverlay({ apiKey, onClose }) {
       <div className={styles.chatCard}>
         <div className={styles.chatHeader}>
           <div className={styles.headerTitleGroup}>
-          <h1 className={styles.mainHeading}>Alex Doe</h1>
+            <h1 className={styles.mainHeading}>{persona}</h1>
           </div>
           <button
             className={styles.closeButton}
