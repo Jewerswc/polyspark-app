@@ -14,7 +14,7 @@ export default function ProfileLayout({ handle }) {
   const [agent, setAgent] = useState(null);
 
   useEffect(() => {
-    fetch(`http://ionbackend.com/matching/api/agent/jamesparker/`)
+    fetch(`https://ionbackend.com/matching/api/agent/jamesparker/`)
       .then((res) => res.json())
       .then(setAgent);
   }, [handle]);
