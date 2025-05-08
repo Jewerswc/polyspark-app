@@ -9,7 +9,7 @@ export default function AuthorTag() {
   return (
     <button
       className={styles.authorTag}
-      onClick={() => router.push('/Agent')}
+      onClick={() => router.push('/profile/chrisparker')}
     >
       Alex Doe
     </button>

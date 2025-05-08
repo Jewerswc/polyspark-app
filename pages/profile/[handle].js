@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import Header from './layout/Header';
-import HeaderMobile from './layout/Header/HeaderMobile'
-import AgentandNavbar from './agent/ProfileLayout'
-import Footer from './layout/Footer';
-import NavbarMobile from './layout/MobileNavbar';
-import MoreOverlay from './ui/MoreOverlay';
-import ChatOverlay from './ui/ChatOverlay';
-import SignupOverlay from './ui/LoginOverlay';
-import ProfileLayoutMobile from './agent/ProfileLayoutMobile'
-import './Activity.module.css';
+import Header from './../layout/Header';
+import HeaderMobile from './../layout/Header/HeaderMobile'
+import AgentandNavbar from './../agent/ProfileLayout'
+import Footer from './../layout/Footer';
+import NavbarMobile from './../layout/MobileNavbar';
+import MoreOverlay from './../ui/MoreOverlay';
+import ChatOverlay from './../ui/ChatOverlay';
+import SignupOverlay from './../ui/LoginOverlay';
+import ProfileLayoutMobile from './../agent/ProfileLayoutMobile'
+import { useRouter } from 'next/router';
+import './../Activity.module.css';
 
-export default function ProfileLayout({ handle }) {
-  const [agent, setAgent] = useState(null);
+export default function ProfileLayout({ initialAgent }) {
+  const { query } = useRouter();
+  const { handle } = query;     
+  const [agent, setAgent] = useState(initialAgent);
 
   useEffect(() => {
-    fetch(`https://ionbackend.com/matching/api/agent/{handle}/`)
+    if (!handle || agent) return;
+    fetch(`https://ionbackend.com/matching/api/agent/${handle}/`)
       .then((res) => res.json())
-      .then(setAgent);
-  }, [handle]);
+      .then(setAgent)
+      .catch(console.error);
+  }, [handle, agent]);
 
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const openSignupOverlay = () => setSignupOverlayVisible(true);
