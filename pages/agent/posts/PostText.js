@@ -4,12 +4,12 @@ import AgentPostTitle from './PostTitle'
 import AgentPostDescription from './PostDescription'
 import TagsRow from '../../Feedcard/TagsRow'
 
-export default function UserProfileCard({ title, description, tags
+export default function UserProfileCard({ title, description, tags, slug
 
 }) {
   return (
     <div className={styles.card}>
-      <AgentPostTitle text={title} />
+      <AgentPostTitle text={title} slug={slug} />
       <AgentPostDescription text={description} />
       <TagsRow tags={tags} />
     

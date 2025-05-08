@@ -4,10 +4,10 @@ import styles from './NameTick.module.css'
 import AgentName from './Name'
 import BlueTick from '../../ui/BlueTick'
 
-export default function NameTick({ }) {
+export default function NameTick({name }) {
   return (
     <div className={styles.container}>
-    <AgentName />
+    <AgentName name={name}/>
     <BlueTick />
 
     </div>

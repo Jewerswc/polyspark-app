@@ -7,13 +7,14 @@ import ProfileFrame from './Head/AgentFrame'
 export default function Head({
   title,
   subtitle,
+  date
 
 }) {
   return (
     <div className={styles.container}>
     <ArticleTitle text={title} />
     {subtitle && <ArticleSubtitle text={subtitle} />}
-    <ProfileFrame />
+    <ProfileFrame date={date}/>
 
     </div>
   )

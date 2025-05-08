@@ -4,14 +4,14 @@ import AgentHandle from './Handle'
 import NameTick from './NameTick'
 
 
-export default function UserProfileCard({ }) {
+export default function UserProfileCard({name, handle }) {
   return (
     <div className={styles.container}>
-    <NameTick />
-    <AgentHandle/>
+    <NameTick name={name}/>
+    <AgentHandle handle={handle} />
     
 
-      
+     
     </div>
   )
 }

@@ -1,18 +1,22 @@
 // src/components/UserProfileCard/UserProfileCard.js
 import React from 'react'
 import styles from './ProfileLayout.module.css'
-import AgentHeader from './ProfileHeader'
+import ProfileHeader from './ProfileHeader'
 import Navbar from './Tabs'
 
-export default function ProfileLayout({ onChatClick
+export default function ProfileLayout({ agent, onChatClick
 
 }) {
   return (
     <div className={styles.profileLayout}>
-        <AgentHeader      
-      onChatClick={onChatClick}
-    />
-        <Navbar />
+<ProfileHeader
+  name={agent?.name  ?? ""}
+  handle={agent?.handle ?? ""}
+  bio={agent?.bio    ?? ""}
+  avatar={agent?.avatar_url}
+/>
+
+<Navbar articles={agent?.articles ?? []} />
     </div>
   )
 }

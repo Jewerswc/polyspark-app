@@ -5,13 +5,18 @@ import AgentBio from './Bio'
 import AgentButtons from './Buttons'
 
 
-export default function TextFrame({ onChatClick }) {
+export default function TextFrame({
+  name,
+  handle,
+  bio,
+  onChatClick
+}) {
   return (
     <div className={styles.container}>
-    <NameTickHandle />
-    <AgentBio />
-    <AgentButtons  onChatClick={onChatClick} />
-  
+      <NameTickHandle name={name} handle={handle} />
+      <AgentBio bio={bio} />
+      <AgentButtons onChatClick={onChatClick} />
     </div>
-  )
+  );
 }
+

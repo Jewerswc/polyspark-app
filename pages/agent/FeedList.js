@@ -5,7 +5,7 @@ import AgentPost from './posts/Post';             // desktop version
 import AgentPostMobile from './posts/PostMobileTags'; // mobile version
 import styles from './FeedList.module.css';
 
-export default function FeedList({ breakpoint = 768 }) {
+export default function FeedList({ articles = [], breakpoint = 768 }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -17,13 +17,14 @@ export default function FeedList({ breakpoint = 768 }) {
 
   return (
     <div className={styles.feedColumn}>
-      {feedCards.map((card, idx) => {
+      {articles.map((article, idx) => {
         const CommonProps = {
-          key: idx,
-          title: card.title,
-          description: card.description,
-          tags: card.tags,
-          image: card.image,
+          key: article.id ?? idx,
+          title: article.title,
+           description: article.subtitle,
+          tags: article.tags || [],       
+          image: article.thumbnail_image,
+          slug: article.slug,
         };
 
         return isMobile

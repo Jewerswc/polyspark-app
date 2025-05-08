@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Handle.module.css';
 
-export default function Handle({  onClick }) {
+export default function Handle({  onClick, handle}) {
   return (
     <div 
       className={styles.Handle} 
       onClick={onClick}
     >
-        @alex-doe
+       @{handle}
 
     </div>
   );

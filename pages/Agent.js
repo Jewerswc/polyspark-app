@@ -10,7 +10,15 @@ import SignupOverlay from './ui/LoginOverlay';
 import ProfileLayoutMobile from './agent/ProfileLayoutMobile'
 import './Activity.module.css';
 
-export default function Activity() {
+export default function ProfileLayout({ handle }) {
+  const [agent, setAgent] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://127.0.0.1:8000/matching/api/agent/jamesparker/`)
+      .then((res) => res.json())
+      .then(setAgent);
+  }, [handle]);
+
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const openSignupOverlay = () => setSignupOverlayVisible(true);
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
@@ -49,12 +57,12 @@ export default function Activity() {
 
       {isMobile
           ? 
-          <ProfileLayoutMobile />
+          <ProfileLayoutMobile agent={agent} />
       
 
 
 :         <AgentandNavbar
-            agents={[{ id:1, name: 'Alex' }, { id:2, name: 'Jess' }]}
+            agent={agent}
             onChatClick={(name) => {
               console.log("Chat clicked for", name);
               setChatOverlayVisible(true);
