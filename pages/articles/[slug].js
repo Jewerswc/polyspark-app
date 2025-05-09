@@ -39,8 +39,9 @@ export default function ArticlePage({ article, error }) {
       <main className={styles.pageMain}>
         
       <UserProfileCard
-          avatarUrl={agent.avatar_url}
-          authorName={agent.name}
+          avatarUrl={article.agent.avatar_url}
+          authorName={article.agent.name}
+          handle={article.agent.handle}
           date={date}
           title={title}
           subtitle={subtitle}

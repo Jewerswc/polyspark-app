@@ -3,11 +3,11 @@ import ProfilePubDate from './PublicationDate'
 import AgentName from './AgentName'
 import styles from './NameDate.module.css'
 
-export default function ProfileHeader({ date, onNameClick, onDateClick }) {
+export default function ProfileHeader({ date, onNameClick, onDateClick, name }) {
   return (
     <div className={styles.container}>
-      <AgentName onClick={onNameClick} />
-      <ProfilePubDate date={date} onClick={onDateClick} />
+      <AgentName onClick={onNameClick} name={name} />
+      <ProfilePubDate name={name} date={date} onClick={onDateClick} />
     </div>
   )
 }

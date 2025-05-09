@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './AgentName.module.css';
 
-export default function FeedCardTitle({ }) {
+export default function FeedCardTitle({ name}) {
   const handleClick = () => {
     window.location.href = '/Agent'
   }
@@ -11,7 +11,7 @@ export default function FeedCardTitle({ }) {
       className={styles.Name} 
       onClick={handleClick}
     >
-        Alex Doe
+        {name}
     </button>
   );
 }
