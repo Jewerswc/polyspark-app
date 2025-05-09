@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './ChatOverlay.module.css';
 
-export default function ChatOverlay({ persona, onClose }) {
-  const userImg = 'Images/Avatars.png';
-  const assistantImg = 'Images/profileimages/AlexDoe.png';
+const userImg = 'Images/Avatars.png';
+const assistantImg = 'Images/profileimages/AlexDoe.png';
 
+function renderWithBold(text) {
+  // Split on **…**, capturing the inner text
+  const parts = text.split(/\*\*(.*?)\*\*/g);
+  return parts.map((part, i) =>
+    // odd indices are the captured “inside” the **
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  );
+}
+
+export default function ChatOverlay({ persona, name, onClose }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const chatBodyRef = useRef(null);
@@ -61,7 +70,7 @@ export default function ChatOverlay({ persona, onClose }) {
       <div className={styles.chatCard}>
         <div className={styles.chatHeader}>
           <div className={styles.headerTitleGroup}>
-            <h1 className={styles.mainHeading}>{persona}</h1>
+            <h1 className={styles.mainHeading}>{name}</h1>
           </div>
           <button
             className={styles.closeButton}
@@ -94,7 +103,7 @@ export default function ChatOverlay({ persona, onClose }) {
                     : styles.assistantMessage
                 }`}
               >
-                {msg.text}
+                {renderWithBold(msg.text)}
               </div>
             </div>
           ))}
@@ -113,3 +122,4 @@ export default function ChatOverlay({ persona, onClose }) {
     </div>
   );
 }
+``

@@ -31,7 +31,8 @@ export default function ProfileLayout({ initialAgent }) {
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
   const [moreOpen, setMoreOpen]             = useState(false);
   const [overlayMounted, setOverlayMounted] = useState(false);
-
+  const [chatPersona, setChatPersona] = useState('');
+  const [chatName, setChatName] = useState('');
   const handleMoreClick = () => {
     if (!moreOpen) {
       setOverlayMounted(true);
@@ -69,20 +70,24 @@ export default function ProfileLayout({ initialAgent }) {
   />
 ) : (
   <AgentandNavbar
-    agent={agent}
-    onChatClick={(name) => {
-      console.log("Chat clicked for", name);
-      setChatOverlayVisible(true);
-    }}
-    onImageClick={setLightboxSrc}
-  />
+  agent={agent}
+  onChatClick={() => {
+    // Set persona and name based on agent data
+    setChatPersona(agent.handle);
+    setChatName(agent.name);
+    openChatOverlay();
+  }}
+  onImageClick={setLightboxSrc}
+/>
 )}
 
-  {isChatOverlayVisible && (
-        <ChatOverlay 
-        persona="alexdoe"
-        onClose={closeChatOverlay} />
-      )}
+{isChatOverlayVisible && (
+          <ChatOverlay
+            persona={chatPersona}
+            name={chatName}
+            onClose={closeChatOverlay}
+          />
+        )}
       </div>
             {isMobile
                 ?         <NavbarMobile

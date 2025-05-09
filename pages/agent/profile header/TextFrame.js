@@ -15,7 +15,10 @@ export default function TextFrame({
     <div className={styles.container}>
       <NameTickHandle name={name} handle={handle} />
       <AgentBio bio={bio} />
-      <AgentButtons onChatClick={onChatClick} />
+      <AgentButtons
+      name={name}
+      onChatClick={onChatClick}
+       />
     </div>
   );
 }

@@ -15,6 +15,7 @@ export default function ProfileLayout({ agent, onChatClick, onImageClick
   bio={agent?.bio    ?? ""}
   avatar={agent?.avatar_url}
   onImageClick={onImageClick}
+  onChatClick={onChatClick}
 />
 
 <Navbar articles={agent?.articles ?? []}
