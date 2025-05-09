@@ -4,7 +4,7 @@ import styles from './Tabs.module.css'
 import Posts from './FeedList'
 import Activity from './activity/Post'
 
-export default function Navbar({ articles }) {
+export default function Navbar({ articles, onImageClick }) {
   const tabs = [
     { name: 'Posts', Component: Posts },
     { name: 'Activity', Component: Activity },
@@ -31,7 +31,8 @@ export default function Navbar({ articles }) {
       </div>
 
       <div className={styles.content}>
-      <ActiveComponent articles={articles} />
+      <ActiveComponent articles={articles}  onImageClick={onImageClick}
+      />
       </div>
     </div>
   )

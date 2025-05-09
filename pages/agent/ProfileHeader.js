@@ -8,6 +8,7 @@ export default function ProfileHeader({
   bio,
   avatar,
   onChatClick,
+  onImageClick
 }) {
   return (
     <div className={styles.card}>
@@ -23,6 +24,7 @@ export default function ProfileHeader({
       src={avatar}
       alt={`${name} `}
       className={styles.avatar}
+      onClick={() => onImageClick(avatar)}
       />
     </div>
   );

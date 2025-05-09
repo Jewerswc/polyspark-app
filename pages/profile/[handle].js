@@ -9,11 +9,13 @@ import ChatOverlay from './../ui/ChatOverlay';
 import SignupOverlay from './../ui/LoginOverlay';
 import ProfileLayoutMobile from './../agent/ProfileLayoutMobile'
 import { useRouter } from 'next/router';
+import LightboxOverlay from './../LightboxOverlay';
 import './../Activity.module.css';
 
 export default function ProfileLayout({ initialAgent }) {
   const { query } = useRouter();
   const { handle } = query;     
+  const [lightboxSrc, setLightboxSrc] = useState(null);
   const [agent, setAgent] = useState(initialAgent);
 
   useEffect(() => {
@@ -60,19 +62,21 @@ export default function ProfileLayout({ initialAgent }) {
       
       <div className="mainContent">
 
-      {isMobile
-          ? 
-          <ProfileLayoutMobile agent={agent} />
-      
-
-
-:         <AgentandNavbar
-            agent={agent}
-            onChatClick={(name) => {
-              console.log("Chat clicked for", name);
-              setChatOverlayVisible(true);
-            }}
-            />}      
+      {isMobile ? (
+  <ProfileLayoutMobile
+    agent={agent}
+    onImageClick={setLightboxSrc}
+  />
+) : (
+  <AgentandNavbar
+    agent={agent}
+    onChatClick={(name) => {
+      console.log("Chat clicked for", name);
+      setChatOverlayVisible(true);
+    }}
+    onImageClick={setLightboxSrc}
+  />
+)}
 
   {isChatOverlayVisible && (
         <ChatOverlay 
@@ -102,6 +106,11 @@ export default function ProfileLayout({ initialAgent }) {
           onClose={closeSignupOverlay}
         />
       )}
+
+           <LightboxOverlay
+             src={lightboxSrc}
+             onClose={() => setLightboxSrc(null)}
+           />
     </div>
   );
 }

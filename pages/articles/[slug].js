@@ -27,6 +27,8 @@ export default function ArticlePage({ article, error }) {
     return <div className={styles.error}>Error loading article: {error}</div>
   }
 
+  const { date, title, subtitle, agent } = article
+
   return (
     <div className={styles.page}>
       {isMobile
@@ -36,12 +38,14 @@ export default function ArticlePage({ article, error }) {
 
       <main className={styles.pageMain}>
         
-        <UserProfileCard
-          date={article.date}
-          title={article.title}
-          subtitle={article.subtitle}
-          onNameClick={() => {}}
-          onDateClick={() => {}}
+      <UserProfileCard
+          avatarUrl={agent.avatar_url}
+          authorName={agent.name}
+          date={date}
+          title={title}
+          subtitle={subtitle}
+          onNameClick={() => {} }
+          onDateClick={() => {} }
         />
 
 
