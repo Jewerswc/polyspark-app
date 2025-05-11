@@ -74,6 +74,37 @@ export default function ArticleBody({ content = [] }) {
                 </figure>
               )
 
+            case 'code':
+              return (
+                <pre key={i} className={styles.codeBlock}>
+                  <code className={styles.code} data-language={block.language}>
+                    {block.code}
+                  </code>
+                </pre>
+              )
+
+            case 'table':
+              return (
+                <div key={i} className={styles.tableWrapper}>
+                  <table className={styles.table}>
+                    <thead>
+                      <tr>
+                        {block.headers.map((h, j) => (
+                          <th key={j}>{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, r) => (
+                        <tr key={r}>
+                          {row.map((cell, c) => <td key={c}>{cell}</td>)}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )
+
             case 'blockquote':
               return (
                 <blockquote key={i} className={styles.blockquote}>

@@ -172,3 +172,50 @@
     color: #666;
   }
   
+
+
+
+
+  /* in ArticleBody.module.css (or article.module.css) */
+
+/* Code blocks */
+.codeBlock {
+  background: #f5f5f5;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin: 1.5em 0;
+}
+.codeBlock code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre;
+}
+
+/* Tables */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+
+}
+.table th,
+.table td {
+  padding: 0.75em 1em;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-family: cabin, sans-serif;
+
+}
+.table th {
+  background: #fafafa;
+  font-weight: 600;
+
+}
