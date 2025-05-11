@@ -4,13 +4,13 @@ import styles from './PostTextMobile.module.css'
 import AgentPostTitle from './PostTitle'
 import AgentPostDescription from './PostDescription'
 
-export default function UserProfileCard({ title, description, image
+export default function UserProfileCard({ title, description, image, slug
 
   }) {
     return (
       <div className={styles.card}>
         <div className={styles.textColumn}>
-      <AgentPostTitle text={title} />
+      <AgentPostTitle text={title}  slug={slug}/>
       <AgentPostDescription text={description} />
       </div>
       <Image 

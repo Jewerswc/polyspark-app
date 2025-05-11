@@ -9,7 +9,10 @@ import AuthAndHamburgerRow from './Header/AuthAndHamburger';
 import TopNavbarBottomRow from './Header/TopNavbarBottomRow';
 import ReportOverlay from './../ui/ReportOverlay'
 
-export default function Header() {
+export default function Header({
+    activeCategory,
+    onCategorySelect
+  }) {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [isReportVisible, setReportVisible] = useState(false);
@@ -47,8 +50,11 @@ export default function Header() {
           />
         </div>
         <div className={styles.bottomRow}>
-          <TopNavbarBottomRow />
-        </div>
+               
+          <TopNavbarBottomRow
+            activeCategory={activeCategory}
+            onCategorySelect={onCategorySelect}
+          />        </div>
       </header>
 
       {/* Conditionally render the SignupOverlay */}

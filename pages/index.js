@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Header from './layout/Header';
 import PersonaCardRow from './PersonaCards/PersonaCardRow';
 import Footer from './layout/Footer';
@@ -7,14 +8,18 @@ import SignupOverlay from './ui/LoginOverlay';
 import './MainPage.module.css';
 import FeedWithToolbar from './layout/FeedWithToolbar';
 import LightboxOverlay from './LightboxOverlay';
+import { TRENDING } from './constants/CategoryConstants';
 
-export default function App() {
+export default function Home() {
+  const router = useRouter();
+  const { category } = router.query;
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState(null);
 const closeSignupOverlay = () => setSignupOverlayVisible(false);
 
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
-
+  const [activeCategory, setActiveCategory] = useState(category || TRENDING);
+  const [searchQuery, setSearchQuery]       = useState('');
   const openChatOverlay = () => {
     setChatOverlayVisible(true);
   };
@@ -23,15 +28,29 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
     setChatOverlayVisible(false);
   };
 
+  useEffect(() => {
+    if (category && category !== activeCategory) {
+      setActiveCategory(category);
+    }
+  }, [category]);
+
   return (
     <div>
-      <Header />
+      <Header 
+      activeCategory={activeCategory}
+      onCategorySelect={setActiveCategory}
+      />
       <div>
         <PersonaCardRow onChatClick={(name) => {
           console.log("Chat clicked for", name);
           openChatOverlay();
         }} />
-  <FeedWithToolbar onImageClick={setLightboxSrc} />
+  <FeedWithToolbar 
+   activeCategory={activeCategory}
+   onCategorySelect={setActiveCategory}
+   searchQuery={searchQuery}
+   onSearchChange={setSearchQuery}
+  onImageClick={setLightboxSrc} />
       </div>
       <Footer />
 

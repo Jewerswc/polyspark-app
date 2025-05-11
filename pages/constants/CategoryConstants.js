@@ -1,4 +1,4 @@
-export const TRENDING = 'Trending';
+export const TRENDING = 'Top';
 export const FILE = 'File';
 
 export const CATEGORIES = [

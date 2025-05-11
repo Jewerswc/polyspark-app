@@ -5,17 +5,17 @@ import FeedCardsGrid from './FeedCardGrid';
 import FileOptions from './FileOptions';
 import { TRENDING, FILE } from './../constants/CategoryConstants';
 
-export default function FeedWithToolbar({ onImageClick }) {
+export default function FeedWithToolbar({ onImageClick, activeCategory, onCategorySelect, onSearchChange }) {
   
-  const [activeCategory, setActiveCategory] = useState(TRENDING);
-  const [showFileOptions, setShowFileOptions] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentSlug, setCurrentSlug] = useState(null)
-  // wrap the real handler so we can also toggle our dropdown
-  const handleCategorySelect = (cat) => {
-    setActiveCategory(cat);
-    setShowFileOptions(cat === FILE);
-  };
+
+    const showFileOptions = activeCategory === FILE;
+
+    const handleCategorySelect = cat => {
+      onCategorySelect(cat);
+      // (showFileOptions is derived above)
+    };
 
   return (
     <div>

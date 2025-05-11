@@ -1,8 +1,6 @@
-// src/components/FeedList/FeedList.jsx
-import { useState, useEffect } from 'react';
-import feedCards from './../Feedcard/feedcards.json';
-import AgentPost from './posts/Post';             // desktop version
-import AgentPostMobile from './posts/PostMobileTags'; // mobile version
+import { useState, useEffect, useMemo } from 'react';
+import AgentPost from './posts/Post';
+import AgentPostMobile from './posts/PostMobileTags';
 import styles from './FeedList.module.css';
 
 export default function FeedList({ articles = [], breakpoint = 768 }) {
@@ -15,21 +13,31 @@ export default function FeedList({ articles = [], breakpoint = 768 }) {
     return () => window.removeEventListener('resize', onResize);
   }, [breakpoint]);
 
+  // Memoize sorted list so we only re-sort when `articles` changes
+  const sortedArticles = useMemo(() => {
+    return [...articles].sort((a, b) => {
+      // Parse "May 08, 2025" into a Date
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA; // descending: newest first
+    });
+  }, [articles]);
+
   return (
     <div className={styles.feedColumn}>
-      {articles.map((article, idx) => {
-        const CommonProps = {
+      {sortedArticles.map((article, idx) => {
+        const commonProps = {
           key: article.id ?? idx,
           title: article.title,
-           description: article.subtitle,
-          tags: article.tags || [],       
+          description: article.subtitle,
+          tags: article.tags || [],
           image: article.thumbnail_image,
           slug: article.slug,
         };
 
         return isMobile
-          ? <AgentPostMobile {...CommonProps} />
-          : <AgentPost       {...CommonProps} />;
+          ? <AgentPostMobile {...commonProps} />
+          : <AgentPost       {...commonProps} />;
       })}
     </div>
   );

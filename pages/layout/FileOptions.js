@@ -1,53 +1,105 @@
+// File: ./pages/layout/FileOptions.js
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './FileOptions.module.css';
 
-export default function FileOptions() {
-  const [open1, setOpen1] = useState(false);
-  const [open2, setOpen2] = useState(false);
-  const ref1 = useRef();
-  const ref2 = useRef();
+const AGENTS = [
+  { id: 'alex',  name: 'Alex Doe'   },
+  { id: 'james', name: 'James Rae'  },
+  { id: 'emily', name: 'Emily Biche'},
+  { id: 'chris', name: 'Chris Parker'},
+];
 
-  // Close dropdown if clicked outside
+export default function FileOptions({ onFilterChange = () => {} }) {
+  const [openFilter, setOpenFilter]     = useState(false);
+  const [selectedAgents, setSelectedAgents] = useState([]);       // ← no <string[]>
+  const [startDate, setStartDate]       = useState('');
+  const [endDate, setEndDate]           = useState('');
+  const refFilter                       = useRef(null);           // ← no <HTMLDivElement>
+
+  // close menu on outside click
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (open1 && ref1.current && !ref1.current.contains(e.target)) {
-        setOpen1(false);
+    const handler = (e) => {
+      if (openFilter && refFilter.current && !refFilter.current.contains(e.target)) {
+        setOpenFilter(false);
       }
-      if (open2 && ref2.current && !ref2.current.contains(e.target)) {
-        setOpen2(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [open1, open2]);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [openFilter]);
+
+  const toggleAgent = (agentId) => {
+    setSelectedAgents(prev =>
+      prev.includes(agentId)
+        ? prev.filter(id => id !== agentId)
+        : [...prev, agentId]
+    );
+  };
+
+  const applyFilters = () => {
+    onFilterChange({
+      agents: selectedAgents,
+      dateRange:
+        startDate && endDate
+          ? { start: startDate, end: endDate }
+          : null
+    });
+    setOpenFilter(false);
+  };
+
+  const clearFilters = () => {
+    setSelectedAgents([]);
+    setStartDate('');
+    setEndDate('');
+    onFilterChange({ agents: [], dateRange: null });
+  };
 
   return (
     <div className={styles.container}>
-      {/* First dropdown */}
-      <div className={styles.dropdown} ref={ref1}>
-        <button onClick={() => setOpen1(o => !o)}>
-        Sort by: Date Published ▾
-        </button>
-        {open1 && (
-          <ul className={styles.menu}>
-            <li onClick={() => {/* handle PDF */}}>Date Published</li>
-            <li onClick={() => {/* handle DOCX */}}>DOCX</li>
-            <li onClick={() => {/* handle TXT */}}>TXT</li>
-          </ul>
-        )}
-      </div>
+      {/* … your Sort‐by dropdown here … */}
 
-      {/* Second dropdown */}
-      <div className={styles.dropdown} ref={ref2}>
-        <button onClick={() => setOpen2(o => !o)}>
-          Filter By: Agent ▾
+      {/* Filter by dropdown */}
+      <div className={styles.dropdown} ref={refFilter}>
+        <button onClick={() => setOpenFilter(o => !o)}>
+          Filter by ▾
         </button>
-        {open2 && (
-          <ul className={styles.menu}>
-            <li onClick={() => {/* handle Google Drive */}}>Google Drive</li>
-            <li onClick={() => {/* handle Dropbox */}}>Dropbox</li>
-            <li onClick={() => {/* handle Local */}}>Local</li>
-          </ul>
+        {openFilter && (
+          <div className={styles.menu}>
+            <div className={styles.filterSection}>
+              <strong>Agents</strong>
+              {AGENTS.map(agent => (
+                <label key={agent.id} className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    checked={selectedAgents.includes(agent.id)}
+                    onChange={() => toggleAgent(agent.id)}
+                  />
+                  {agent.name}
+                </label>
+              ))}
+            </div>
+
+            <div className={styles.filterSection}>
+              <strong>Date Range</strong>
+              <div className={styles.dateInputs}>
+                <input
+                  type="date"
+                  value={startDate}
+                  onChange={e => setStartDate(e.target.value)}
+                />
+                <span>–</span>
+                <input
+                  type="date"
+                  value={endDate}
+                  onChange={e => setEndDate(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className={styles.filterActions}>
+              <button onClick={applyFilters}>Apply</button>
+              <button onClick={clearFilters}>Clear</button>
+            </div>
+          </div>
         )}
       </div>
     </div>
