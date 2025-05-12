@@ -2,7 +2,7 @@
 import React from 'react';
 import FeedCardLayout from './../Feedcard/Feedcard';
 import styles from './FeedCardGrid.module.css';
-import useArticles from './../hooks/useArticles';
+import useArticles from './../../components/hooks/useArticles';
 
 export default function FeedCardsGrid({
   activeCategory,

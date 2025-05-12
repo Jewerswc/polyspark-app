@@ -1,7 +1,7 @@
 import React from 'react';
 import FeedCardLayout from './../Feedcard/Feedcard';
 import styles from './FeedCardColumn.module.css';
-import useArticles from './../hooks/useArticles';
+import useArticles from './../../components/hooks/useArticles';
 
 export default function FeedCardsColumn({ activeLabel, onImageClick }) {
 
