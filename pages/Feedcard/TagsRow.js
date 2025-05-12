@@ -4,12 +4,12 @@ import ActionTag from './tags/ActionTag';
 import PostTag from './tags/PostTag';
 import AuthorTag from './tags/AuthorTag';
 
-export default function PostActionsRow({ tags = [] }) {
+export default function PostActionsRow({ tags = [], agentName, agentHandle, }) {
   return (
     <div className={styles.actionsRow}>
       <div className={styles.leftContainer}>
         <ActionTag />
-        <AuthorTag />
+        <AuthorTag name={agentName} handle={agentHandle} />
 
       </div>
       <div className={styles.rightContainer}>

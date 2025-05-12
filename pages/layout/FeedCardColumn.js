@@ -1,11 +1,25 @@
 import React from 'react';
 import FeedCardLayout from './../Feedcard/Feedcard';
 import styles from './FeedCardColumn.module.css';
-import feedCardsData from './../Feedcard/feedcards.json';
+import useArticles from './../hooks/useArticles';
 
 export default function FeedCardsColumn({ activeLabel, onImageClick }) {
-  // clone the array so we don't mutate the original
-  let cards = [...feedCardsData];
+
+  const { articles, loading } = useArticles({
+    category: activeLabel,
+    // no search in a simple column view
+  });
+
+  // 2) loading & empty states
+  if (loading) {
+    return <div>Loading…</div>;
+  }
+  if (!articles || articles.length === 0) {
+    return <div>No results found.</div>;
+  }
+
+  // 3) clone & sort/filter exactly like your old logic
+  let cards = [...articles];
 
   switch (activeLabel) {
     case 'New':
@@ -32,15 +46,17 @@ export default function FeedCardsColumn({ activeLabel, onImageClick }) {
 
   return (
     <div className={styles.gridContainer}>
-      {cards.map((card, idx) => (
+      {articles.map((card) => (
         <FeedCardLayout
-          key={idx}
+          key={card.slug}
           title={card.title}
-          description={card.description}
+          description={card.subtitle}
           tags={card.tags}
-          image={card.image}
+          image={card.thumbnail_image}
           onImageClick={onImageClick}
           slug={card.slug}
+          agentName={card.agent?.name}
+          agentHandle={card.agent?.handle}
         />
       ))}
     </div>
