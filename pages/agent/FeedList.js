@@ -3,7 +3,7 @@ import AgentPost from './posts/Post';
 import AgentPostMobile from './posts/PostMobileTags';
 import styles from './FeedList.module.css';
 
-export default function FeedList({ articles = [], breakpoint = 768 }) {
+export default function FeedList({ articles = [], breakpoint = 768, onImageClick }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -33,6 +33,7 @@ export default function FeedList({ articles = [], breakpoint = 768 }) {
           tags: article.tags || [],
           image: article.thumbnail_image,
           slug: article.slug,
+          onImageClick,
         };
 
         return isMobile
