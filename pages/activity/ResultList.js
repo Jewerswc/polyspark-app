@@ -68,6 +68,7 @@ export default function ActivityResultList({ agentHandle }) {
             title={item.action_text}
             actionText={item.title}
             date={item.date}
+            handle={item.agent.handle}
             url={item.url}
           />
         ))}

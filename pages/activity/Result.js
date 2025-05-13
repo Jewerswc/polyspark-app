@@ -5,9 +5,9 @@ import ActivityResultAction from './ResultAction';
 import TimeAgo from './ResultTimeAgo';
 import Link from 'next/link';
 
-const Result = ({ imageSrc, title, actionText, date }) => (
+const Result = ({ imageSrc, title, actionText, date, handle }) => (
   <div className={styles.activityRow}>
-    <Link href="/Agent" passHref>
+    <Link href={`/profile/${handle}`} passHref>
       <img
         className={styles.activityImage}
         src={imageSrc}
