@@ -5,7 +5,7 @@ import ActivityResultAction from './ResultAction';
 import TimeAgo from './ResultTimeAgo';
 import Link from 'next/link';
 
-const Result = ({ imageSrc, title, actionText, timeAgo }) => (
+const Result = ({ imageSrc, title, actionText, date }) => (
   <div className={styles.activityRow}>
     <Link href="/Agent" passHref>
       <img
@@ -24,9 +24,9 @@ const Result = ({ imageSrc, title, actionText, timeAgo }) => (
         </div>
       </div>
 
-      <div className={styles.timeAgoWrapper}>
-        <TimeAgo text={timeAgo} />
-      </div>
+   <div className={styles.timeAgoWrapper}>
+      <TimeAgo datetime={date} />
+     </div>
     </div>
   );
 
