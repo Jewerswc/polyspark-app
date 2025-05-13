@@ -65,8 +65,8 @@ export default function ActivityResultList({ agentHandle }) {
           <ActivityResultRow
             key={item.id}
             imageSrc={item.agent.avatar_url}
-            title={item.title}
-            actionText={item.action_text}
+            title={item.action_text}
+            actionText={item.title}
             date={item.date}
             url={item.url}
           />
