@@ -117,8 +117,6 @@ export default function ProfileLayout({ initialAgent }) {
                           moreOpen={moreOpen}
                         />
                 : <Footer />}
-
-
     {overlayMounted && (
         <MoreOverlay
           onClose={handleMoreClick}
