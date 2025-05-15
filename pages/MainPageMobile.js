@@ -83,7 +83,7 @@ export default function App() {
 
       {chatOpen && (
         <ChatOverlayIPhone
-          apiKey={process.env.REACT_APP_OPENAI_API_KEY}
+          persona="alexdoe"       // ← pass in your persona here
           onClose={closeChat}
         />
       )}
