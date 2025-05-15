@@ -17,6 +17,7 @@ export default function ProfileLayout({ initialAgent }) {
   const { handle } = query;     
   const [lightboxSrc, setLightboxSrc] = useState(null);
   const [agent, setAgent] = useState(initialAgent);
+  const [chatAvatarUrl, setChatAvatarUrl] = useState('');
 
   useEffect(() => {
     if (!handle || agent) return;
@@ -86,6 +87,7 @@ export default function ProfileLayout({ initialAgent }) {
             persona={chatPersona}
             name={chatName}
             onClose={closeChatOverlay}
+            avatarUrl={agent.avatar_url} 
           />
         )}
       </div>

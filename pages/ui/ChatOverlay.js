@@ -13,7 +13,7 @@ function renderWithBold(text) {
   );
 }
 
-export default function ChatOverlay({ persona, name, onClose }) {
+export default function ChatOverlay({ persona, name, onClose, avatarUrl }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const chatBodyRef = useRef(null);
@@ -46,7 +46,7 @@ export default function ChatOverlay({ persona, name, onClose }) {
   }
 
   async function getChatResponse(persona, userMessage) {
-    const resp = await fetch('http://localhost:8000/chat', {
+    const resp = await fetch('https://renewalbackend.com/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ persona, message: userMessage }),
@@ -92,7 +92,7 @@ export default function ChatOverlay({ persona, name, onClose }) {
               }`}
             >
               <img
-                src={msg.role === 'user' ? userImg : assistantImg}
+                src={msg.role === 'user' ? userImg : avatarUrl} 
                 alt={`${msg.role} avatar`}
                 className={styles.avatar}
               />
