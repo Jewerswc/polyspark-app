@@ -10,7 +10,7 @@ export default function TextFrame({ onChatClick, agent }) {
     <div className={styles.container}>
     <ImageHandle avatar={agent?.avatar_url} name={agent?.name  ?? ""} handle={agent?.handle  ?? ""}/>
     <Bio bio={agent?.bio    ?? ""}/>
-    <AgentButtons  onChatClick={onChatClick} />
+    <AgentButtons onChatClick={onChatClick} />
     <Tabs articles={agent?.articles ?? []}/>
 
 

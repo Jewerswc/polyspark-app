@@ -8,16 +8,25 @@ import MoreOverlay from './../ui/MoreOverlay';
 import ChatOverlay from './../ui/ChatOverlay';
 import SignupOverlay from './../ui/LoginOverlay';
 import ProfileLayoutMobile from './../agent/ProfileLayoutMobile'
+import ChatOverlayIPhone from '../ui/ChatOverlayIphone';
 import { useRouter } from 'next/router';
 import LightboxOverlay from './../LightboxOverlay';
 import './../Activity.module.css';
 
 export default function ProfileLayout({ initialAgent }) {
+  const [isChatOpen, setIsChatOpen] = useState(false)
   const { query } = useRouter();
   const { handle } = query;     
   const [lightboxSrc, setLightboxSrc] = useState(null);
   const [agent, setAgent] = useState(initialAgent);
   const [chatAvatarUrl, setChatAvatarUrl] = useState('');
+   const openChatOverlayMobile = () => {
+       // grab the current agent and open
+       setChatPersona(agent.handle)
+       setChatName(agent.name)
+       setIsChatOpen(true)
+     }
+  const closeChatOverlayMobile = () => setIsChatOpen(false)
 
   useEffect(() => {
     if (!handle || agent) return;
@@ -65,9 +74,12 @@ export default function ProfileLayout({ initialAgent }) {
       <div className="mainContent">
 
       {isMobile ? (
-  <ProfileLayoutMobile
+   <ProfileLayoutMobile
+              onChatClick={openChatOverlayMobile}
+ 
     agent={agent}
     onImageClick={setLightboxSrc}
+    
   />
 ) : (
   <AgentandNavbar
@@ -82,6 +94,12 @@ export default function ProfileLayout({ initialAgent }) {
 />
 )}
 
+{isChatOpen && (
+        <ChatOverlayIPhone
+          onClose={closeChatOverlayMobile}
+          /* any other props your overlay needs */
+        />
+      )}
 {isChatOverlayVisible && (
           <ChatOverlay
             persona={chatPersona}
@@ -97,6 +115,9 @@ export default function ProfileLayout({ initialAgent }) {
                           moreOpen={moreOpen}
                         />
                 : <Footer />}
+
+
+
 
 
     {overlayMounted && (
