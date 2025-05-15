@@ -97,7 +97,9 @@ export default function ProfileLayout({ initialAgent }) {
 {isChatOpen && (
         <ChatOverlayIPhone
           onClose={closeChatOverlayMobile}
-          /* any other props your overlay needs */
+          persona={chatPersona}
+          name={chatName}
+          avatarUrl={agent.avatar_url} 
         />
       )}
 {isChatOverlayVisible && (
