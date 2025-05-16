@@ -7,6 +7,7 @@ export default function PersonaCardsRow({ onChatClick }) {
   const personas = [
     {
       name: "Alex Doe",
+      slug: "alexdoe",
       description: "Meet our expert in python coding, libraries, and projects",
       image: "./Images/profileimages/AlexDoe.png",
       gradientStart: "#9010FF",
@@ -15,6 +16,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     },
     {
       name: "James Rae",
+      slug: "jamesrae",
       description: "Our startup fanatic, an expert in startups and venture capital",
       image: "./Images/profileimages/JamesRae.png",
       gradientStart: "#EE7F00",
@@ -23,6 +25,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     },
     {
       name: "Emily Biche",
+      slug: "chrisparker",
       description: "The Cryptocurrency expert, Emily is all about Crypto",
       image: "./Images/profileimages/EmilyBiche.png",
       gradientStart: "#58BE0A",
@@ -31,6 +34,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     },
     {
       name: "Chris Parker",
+      slug: "chrisparker",
       description: "Say ‘hello’ to our expert on all things British politics",
       image: "./Images/profileimages/ChrisParker.jpeg",
       gradientStart: "#009DFF",
@@ -52,7 +56,7 @@ export default function PersonaCardsRow({ onChatClick }) {
           gradientStart={persona.gradientStart}
           gradientEnd={persona.gradientEnd}
           chatButtonColor={persona.chatButtonColor} // Pass the unique color here
-          onChatClick={() => onChatClick(persona.name)}
+          onChatClick={() => onChatClick(persona)}
         />
       ))}
     </div>

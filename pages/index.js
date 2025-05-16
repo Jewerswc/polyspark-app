@@ -15,9 +15,10 @@ export default function Home() {
   const { category } = router.query;
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState(null);
-const closeSignupOverlay = () => setSignupOverlayVisible(false);
+  const closeSignupOverlay = () => setSignupOverlayVisible(false);
 
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
+  const [selectedPersona, setSelectedPersona] = useState(null);
   const [activeCategory, setActiveCategory] = useState(category || TRENDING);
   const [searchQuery, setSearchQuery]       = useState('');
   const openChatOverlay = () => {
@@ -41,10 +42,15 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
       onCategorySelect={setActiveCategory}
       />
       <div>
-        <PersonaCardRow onChatClick={(name) => {
-          console.log("Chat clicked for", name);
-          openChatOverlay();
-        }} />
+            <PersonaCardRow
+        onChatClick={(persona) => {
+          console.log("Chat clicked for", persona.name);
+          setSelectedPersona(persona);
+          setChatOverlayVisible(true);
+        }}
+      />
+
+
   <FeedWithToolbar 
    activeCategory={activeCategory}
    onCategorySelect={setActiveCategory}
@@ -56,10 +62,12 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
 
 
 
-      {isChatOverlayVisible && (
-        <ChatOverlay 
-        persona="jamesbarker"
-        onClose={closeChatOverlay}
+            {isChatOverlayVisible && selectedPersona && (
+        <ChatOverlay
+          persona={selectedPersona.slug}
+          name={selectedPersona.name}
+          avatarUrl={selectedPersona.image}
+          onClose={closeChatOverlay}
         />
       )}
 
