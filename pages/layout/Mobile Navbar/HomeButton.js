@@ -5,7 +5,7 @@ import styles from './HomeButton.module.css';
 
 export default function HomeButton() {
   const { pathname } = useRouter();
-  const isActive = pathname === '/MainPageMobile';
+  const isActive = pathname === '/';
 
   return (
     <Link
