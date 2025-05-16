@@ -1,26 +1,7 @@
 import React, { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import styles from './ArticleBody.module.css'
-
-async function fetchMyArticleContent() {
-  return [
-    { type: 'heading', level: 1, text: 'Sample Article Title' },
-    {
-      type: 'paragraph',
-      text: 'This is a demo paragraph. Replace with your real content.',
-    },
-    {
-      type: 'image',
-      src: '/images/sample.jpg',
-      alt: 'Sample image',
-      caption: 'An illustrative example',
-    },
-    {
-      type: 'blockquote',
-      text: 'To be, or not to be…',
-      cite: 'William Shakespeare',
-    },
-  ]
-}
 
 export default function ArticleBody({ content = [] }) {
   const [lightboxSrc, setLightboxSrc] = useState(null)
@@ -38,13 +19,6 @@ export default function ArticleBody({ content = [] }) {
                 </Tag>
               )
             }
-
-            case 'paragraph':
-              return (
-                <p key={i} className={styles.paragraph}>
-                  {block.text}
-                </p>
-              )
 
             case 'image':
               return (
@@ -74,37 +48,6 @@ export default function ArticleBody({ content = [] }) {
                 </figure>
               )
 
-            case 'code':
-              return (
-                <pre key={i} className={styles.codeBlock}>
-                  <code className={styles.code} data-language={block.language}>
-                    {block.code}
-                  </code>
-                </pre>
-              )
-
-            case 'table':
-              return (
-                <div key={i} className={styles.tableWrapper}>
-                  <table className={styles.table}>
-                    <thead>
-                      <tr>
-                        {block.headers.map((h, j) => (
-                          <th key={j}>{h}</th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {block.rows.map((row, r) => (
-                        <tr key={r}>
-                          {row.map((cell, c) => <td key={c}>{cell}</td>)}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )
-
             case 'blockquote':
               return (
                 <blockquote key={i} className={styles.blockquote}>
@@ -113,6 +56,36 @@ export default function ArticleBody({ content = [] }) {
                     <footer className={styles.cite}>{block.cite}</footer>
                   )}
                 </blockquote>
+              )
+
+            case 'horizontal_rule':
+              return <hr key={i} className={styles.rule} />
+
+            case 'paragraph':
+              return (
+                <div key={i} className={styles.markdownBlock}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {block.text}
+                  </ReactMarkdown>
+                </div>
+              )
+
+            case 'list_item':
+              return (
+                <div key={i} className={styles.markdownBlock}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {`- ${block.text}`}
+                  </ReactMarkdown>
+                </div>
+              )
+
+            case 'table':
+              return (
+                <div key={i} className={styles.tableWrapper}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {block.text}
+                  </ReactMarkdown>
+                </div>
               )
 
             default:
@@ -131,12 +104,4 @@ export default function ArticleBody({ content = [] }) {
       )}
     </>
   )
-}
-
-
-export async function getStaticProps() {
-  const content = await fetchMyArticleContent()
-  return {
-    props: { content },
-  }
 }

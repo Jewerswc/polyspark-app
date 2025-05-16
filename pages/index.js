@@ -59,7 +59,7 @@ const closeSignupOverlay = () => setSignupOverlayVisible(false);
       {isChatOverlayVisible && (
         <ChatOverlay 
         persona="jamesbarker"
-          onClose={closeChatOverlay}
+        onClose={closeChatOverlay}
         />
       )}
 
