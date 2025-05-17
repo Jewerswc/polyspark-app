@@ -25,7 +25,7 @@ export default function PersonaCardsRow({ onChatClick }) {
     },
     {
       name: "Emily Biche",
-      slug: "chrisparker",
+      slug: "emilybiche",
       description: "The Cryptocurrency expert, Emily is all about Crypto",
       image: "./Images/profileimages/EmilyBiche.png",
       gradientStart: "#58BE0A",
