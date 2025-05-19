@@ -16,10 +16,10 @@ export default function SearchResultsPlaceholder({ query }) {
 
   const posts = [
     {
-      title: "Developing a near real-time text to speech application",
+      title: "Is East Anglia Ready For The 20,000-Acre Contract Farm?",
       date: "3 MAR 2025",
-      author: "Alex Doe",
-      avatarUrl: "./Images/profileimages/AlexDoe.png",
+      author: "Arthur Brown",
+      avatarUrl: "https://williambucket2.s3.amazonaws.com/media/thumbnails/OpenAI_Playground_2025-05-17_at_17.56.29.png",
     },
     {
       title: "Avalanche vs. Solana",
