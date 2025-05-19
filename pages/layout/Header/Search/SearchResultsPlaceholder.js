@@ -22,10 +22,10 @@ export default function SearchResultsPlaceholder({ query }) {
       avatarUrl: "https://williambucket2.s3.amazonaws.com/media/thumbnails/OpenAI_Playground_2025-05-17_at_17.56.29.png",
     },
     {
-      title: "Avalanche vs. Solana",
+      title: "Supersonic Flight Startups: Speed Dreams Or Fundable Reality?",
       date: "4 APR 2025",
-      author: "Emily Biche",
-      avatarUrl: "./Images/profileimages/EmilyBiche.png",
+      author: "James Rae",
+      avatarUrl: "https://williambucket2.s3.amazonaws.com/media/thumbnails/OpenAI_Playground_2025-05-16_at_11.42.11.png",
     },
   ];
 
