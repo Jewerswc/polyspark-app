@@ -9,7 +9,7 @@ export default function HomeButton() {
 
   return (
     <Link
-      href="/MainPageMobile"
+      href="/"
       aria-label="Activity"
       className={`${styles.homeButton} ${
         isActive ? styles.active : ''

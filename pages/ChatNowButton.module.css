@@ -1,0 +1,32 @@
+.chatnowButton {
+  background-color: #154FE3;
+  align-self: flex-end;
+  border: none;
+  border-radius: 12px;
+  padding: 4px 14px;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: cabin, sans-serif;
+  font-weight: 700;
+  line-height: 16px;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .chatnowButton {
+    width:100%
+  }
+}
+
+.chatnowButton:hover {
+  background-color: #3A70F3;
+}
+
+.chatnowButton:active {
+  background-color: #0D3AC2;
+}
+
+.chatnowButton:disabled {
+  background-color: #C1C9E6;
+}

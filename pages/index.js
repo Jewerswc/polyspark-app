@@ -7,13 +7,14 @@ import FeedCardGrid from './layout/FeedCardGrid';
 import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
+import SearchResultsOverlay from './SearchResultsOverlay';
 
 // Mobile imports
 import HeaderMobile from './layout/Header/HeaderMobile';
 import PersonaCardRowMobile from './PersonaCards/PersonaCardRowMobile';
 import CategoriesRowMobile from './ui/CategoriesRowMobile';
 import FeedCardsColumn from './layout/FeedCardColumn';
-import NavbarMobile from './layout/MobileNavbar';
+import MobileNavbar from './layout/MobileNavbar';
 import UserProfileCardMobile from './ui/LoginOverlayMobile';
 import MoreOverlay from './ui/MoreOverlay';
 import ChatOverlayIPhone from './ui/ChatOverlayIphone';
@@ -39,6 +40,19 @@ export default function MainPage() {
   const router = useRouter();
   const { category } = router.query;
   const isMobile = useIsMobile();
+
+  const [searchOpen, setSearchOpen] = useState(false);
+  const handleSearchClick = () => {
+      // if “more” is open, close it first (optional)
+      if (moreOpen) {
+      setMoreOpen(false);
+        setOverlayMounted(false);
+      }
+      setSearchOpen(open => !open);
+    };
+  const closeSearch = () => setSearchOpen(false);
+
+    
 
   // Desktop state
   const [activeCategory, setActiveCategory] = useState(category || TRENDING);
@@ -105,7 +119,11 @@ export default function MainPage() {
               activeLabel={activeLabel}
               onImageClick={setLightboxSrc}
             />
-            <NavbarMobile onMoreClick={handleMoreClick} moreOpen={moreOpen} />
+            <MobileNavbar
+            onMoreClick={handleMoreClick} 
+            moreOpen={moreOpen} 
+            onSearchClick={handleSearchClick}
+            />
           </div>
 
           {loginOpen && <UserProfileCardMobile onClose={closeLogin} />}
@@ -123,6 +141,8 @@ export default function MainPage() {
               onClose={closeMobileChat}
             />
           )}
+       
+       {searchOpen && <SearchResultsOverlay onClose={closeSearch} />}
         </>
       ) : (
         <> {/* Desktop Layout */}

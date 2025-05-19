@@ -60,17 +60,7 @@ export default function SearchResultsPlaceholder({ query }) {
         ))}
       </div>
 
-      <h2 className={styles.sectionTitle}>AGENTS</h2>
-      <div className={styles.agentsContainer}>
-        {filteredAgents.map((agent) => (
-          <PersonaCard
-            key={agent.name}
-            name={agent.name}
-            avatarUrl={agent.avatarUrl}
-          />
-        ))}
-      </div>
-
+s
       <h2 className={styles.sectionTitle}>POSTS</h2>
       <div className={styles.postsContainer}>
         {filteredPosts.map((post) => (

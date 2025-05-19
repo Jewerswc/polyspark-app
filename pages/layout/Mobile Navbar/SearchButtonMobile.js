@@ -3,9 +3,9 @@ import styles from './SearchButton.module.css';
 
 export default function HomeButton({ onClick }) {
   return (
-    <div
+    <button
       className={styles.homeButton}
-      onClick={onClick}
+      onClick={onClick} 
       aria-label="Personas"
       role="button"
     >
@@ -21,6 +21,6 @@ export default function HomeButton({ onClick }) {
         </svg>
       </div>
       <span className={styles.label}>Search</span>
-    </div>
+    </button>
   );
 }

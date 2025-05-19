@@ -7,6 +7,7 @@ import SignupOverlay from './ui/LoginOverlay';
 import HeaderMobile from './layout/Header/HeaderMobile';
 import MobileNavbar from './layout/MobileNavbar'
 import MoreOverlay from './ui/MoreOverlay';
+import SearchResultsOverlay from './SearchResultsOverlay';
 import './Activity.module.css';
 
 export default function Activity() {
@@ -16,6 +17,18 @@ export default function Activity() {
   const [overlayMounted, setOverlayMounted] = useState(false);
   const [moreOpen, setMoreOpen]             = useState(false);
   
+  const [searchOpen, setSearchOpen] = useState(false);
+  const handleSearchClick = () => {
+      // if “more” is open, close it first (optional)
+      if (moreOpen) {
+      setMoreOpen(false);
+        setOverlayMounted(false);
+      }
+      setSearchOpen(open => !open);
+    };
+  const closeSearch = () => setSearchOpen(false);
+
+
   const handleMoreClick = () => {
     if (!moreOpen) {
       setOverlayMounted(true);
@@ -68,9 +81,12 @@ export default function Activity() {
           ? <MobileNavbar 
           onMoreClick={handleMoreClick}
           moreOpen={moreOpen}
+          onSearchClick={handleSearchClick}
+
           />
           : <Footer />}
       
+       {searchOpen && <SearchResultsOverlay onClose={closeSearch} />}
 
       {isChatOverlayVisible && (
         <ChatOverlay onClose={closeChatOverlay} />

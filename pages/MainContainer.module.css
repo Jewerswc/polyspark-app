@@ -1,0 +1,8 @@
+/* ChatContainer.module.css */
+.chatContainer {
+  display: flex;
+  flex-direction: column; /* or row */
+  gap: 20px;
+  border-radius: 8px;
+  max-width: 390px;
+}

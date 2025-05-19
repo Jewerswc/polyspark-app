@@ -1,9 +1,11 @@
   .SearchResultCard {
       display: flex;
       align-items: left;
-      gap: 1rem;
+      gap: 8px;
       width: 100%;
-      padding: 8px;
+      padding-left: 0px;
+      padding-top: 8px;
+      padding-bottom: 8px;
       border: none;
       border-radius: 8px;
       background-color: #fff;
@@ -11,11 +13,11 @@
     }
 
   .SearchResultCard:hover {
-    background-color: #F2F2F2;
+    background-color: none;
   }
 
   .SearchResultCard:active {
-    background-color: #CCCCCC;
+    background-color: none;
   }
   
   .authorAvatar {
@@ -39,9 +41,11 @@
   
   .cardTitle {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 14px;
     font-weight: bold;
-    line-height: 24px;
+    line-height: 18px;
+    text-align: left;
+    color: #333333
   }
   
   .cardAuthor {

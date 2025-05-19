@@ -44,7 +44,7 @@
 .dropdownList {
   position: absolute;
   top: calc(100% + 12px);
-  right: 0;
+  right: 0; 
   background-color: #fff;
   border: 1px solid #EFEFEF;
   border-radius: 4px;

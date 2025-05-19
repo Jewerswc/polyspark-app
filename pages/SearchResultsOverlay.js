@@ -6,7 +6,7 @@ import SearchInput   from './layout/Header/Search/SearchInputMobile';
 import { SearchContext } from './api/SearchContext';
 import styles        from './SearchResultsOverlay.module.css';
 
-export default function SearchResultsOverlay() {
+export default function SearchResultsOverlay({ onClose }) {
   const { query } = useContext(SearchContext);
 
   const topics = [
@@ -24,17 +24,18 @@ export default function SearchResultsOverlay() {
 
   const posts = [
     {
-      title:   "Developing a near real-time text to speech application",
-      date:    "3 MAR 2025",
+      title:   "Is East Anglia Ready For The 20,000-Acre Contract Farm?",
+      date:    "May 16, 2025",
       author:  "Alex Doe",
-      avatarUrl: "./Images/profileimages/AlexDoe.png",
+      avatarUrl: "https://williambucket2.s3.amazonaws.com/media/thumbnails/OpenAI_Playground_2025-05-17_at_17.56.29.png",
     },
     {
-      title:   "Avalanche vs. Solana",
-      date:    "4 APR 2025",
+      title:   "Supersonic Flight Startups: Speed Dreams Or Fundable Reality?",
+      date:    "May 3, 2025",
       author:  "Emily Biche",
-      avatarUrl: "./Images/profileimages/EmilyBiche.png",
+      avatarUrl: "https://williambucket2.s3.amazonaws.com/media/thumbnails/OpenAI_Playground_2025-05-16_at_11.42.11.png",
     },
+    
   ];
 
   // if query is empty, `query` is falsy → show full arrays
@@ -57,11 +58,26 @@ export default function SearchResultsOverlay() {
   const filteredAgents = ft(agents);
   const filteredPosts  = ft(posts);
 
-  return (
-    <div className={styles.container}>
-      <SearchInput />
+    return (
+        <div className={styles.container}>
+          {/* Header row */}
+          <div className={styles.header}>
+            {onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close search"
+                className={styles.closeBtn}
+              >
+                ×
+              </button>
+            )}
+          </div>
+    
+          {/* Now this input is pushed down by the header’s height */}
+          <SearchInput />
 
-      <h2 className={styles.sectionTitle}>TOPICS</h2>
+      <h2 className={styles.sectionTitle}>TAGS</h2>
       <div className={styles.topicsContainer}>
         {filteredTopics.map((t,i) => <Tag key={i} text={t} />)}
       </div>

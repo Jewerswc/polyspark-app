@@ -1,0 +1,27 @@
+/* ChatContainer.module.css */
+.chatContainer {
+  display: flex;
+  flex-direction: row;   /* stack side-by-side; use column if you want vertical */
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  width: 550px; 
+  border: solid 1px #EDECEC;
+}
+
+.imageWrapper {
+  flex-shrink: 0;        /* don’t let the image shrink when container is narrow */
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* crop/scale centrally */
+  display: block;
+}

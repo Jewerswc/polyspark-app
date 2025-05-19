@@ -4,7 +4,7 @@ import styles from './ProfileLayout.module.css'
 import ProfileHeader from './ProfileHeader'
 import Navbar from './Tabs'
 
-export default function ProfileLayout({ agent, onChatClick, onImageClick
+export default function ProfileLayout({ agent, onChatClick, onImageClick, handle
 
 }) {
   return (
@@ -18,8 +18,8 @@ export default function ProfileLayout({ agent, onChatClick, onImageClick
   onChatClick={onChatClick}
 />
 
-<Navbar articles={agent?.articles ?? []}
-
+<Navbar articles={agent?.articles ?? [] } 
+handle={agent?.handle}
 onImageClick={onImageClick}
 />
     </div>
