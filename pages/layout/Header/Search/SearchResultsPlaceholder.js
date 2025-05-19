@@ -60,7 +60,7 @@ export default function SearchResultsPlaceholder({ query }) {
         ))}
       </div>
 
-s
+
       <h2 className={styles.sectionTitle}>POSTS</h2>
       <div className={styles.postsContainer}>
         {filteredPosts.map((post) => (
