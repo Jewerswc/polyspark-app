@@ -79,6 +79,8 @@
 .markdownBlock ol {
   margin: 0 0 1em 0;
   padding-inline-start: 1.5em;    /* 1.5em indent for level-1 */
+  font-family: cabin, serif;
+
 }
 
 /* Second-level lists get an extra indent */
