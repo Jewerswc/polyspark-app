@@ -10,6 +10,11 @@
 .h2 { font-size: 22px; margin: 1.25em 0 0.5em; font-weight: 700; font-family: cabin; color: rgb(47,47,47); }
 .h3 { font-size: 18px; margin: 1.25em 0 0.5em; font-weight: 700; font-family: cabin; color: rgb(47,47,47); }
 
+
+.list.level-1 { padding-inline-start: 1.5em; }
+.list.level-2 { padding-inline-start: 2.5em; }
+.list.level-3 { padding-inline-start: 3.5em; }
+
 /* Markdown container */
 .markdownBlock p { margin-bottom: 1.25em; line-height: 1.6; font-family: cabin; }
 .markdownBlock ul { margin: 0 0 1.25em 1.25em; font-family: cabin; }
@@ -49,6 +54,46 @@
   font-weight: 600;
   /* no vertical borders in header */
 }
+
+/* Style bullets */
+.markdownBlock ul li::marker {
+  font-family: cabin;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+  padding-left: 20px;
+
+}
+
+/* Style numbers */
+.markdownBlock ol li::marker {
+  font-family: cabin, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  padding-left: 20px;
+}
+
+/* Base indent for first‐level lists */
+.markdownBlock ul,
+.markdownBlock ol {
+  margin: 0 0 1em 0;
+  padding-inline-start: 1.5em;    /* 1.5em indent for level-1 */
+}
+
+/* Second-level lists get an extra indent */
+.markdownBlock ul ul,
+.markdownBlock ol ol {
+  padding-inline-start: 2.5em;    /* 2.5em total for level-2 */
+}
+
+/* Third-level lists */
+.markdownBlock ul ul ul,
+.markdownBlock ol ol ol {
+  padding-inline-start: 3.5em;    /* 3.5em total for level-3 */
+}
+
+/* And so on… bump the number for deeper levels */
 
 /* Round outer corners */
 .tableWrapper tr:first-child th:first-child {

@@ -20,6 +20,28 @@ export default function ArticleBody({ content = [] }) {
               )
             }
 
+            case 'list': {
+              const md = block.text.replace(/^•\s+/gm, '- ')
+              return (
+                <div key={i} className={styles.markdownBlock}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {md}
+                  </ReactMarkdown>
+                </div>
+              )
+            }
+        
+            // you can remove the old 'list_item' case once you're handling 'list'
+            case 'list_item':
+              return (
+                <div key={i} className={styles.markdownBlock}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {`- ${block.text}`}
+                  </ReactMarkdown>
+                </div>
+              )
+
+
             case 'image':
               return (
                 <figure key={i} className={styles.figure}>
