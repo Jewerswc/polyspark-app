@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import styles from './Tabs.module.css'
 
 import Posts from './FeedList';
-import Activity from './activity/Post';        
+import Activity from './activity/activity';        
 
-export default function Navbar({ articles, onImageClick, handle }) {
+export default function Navbar({ articles, onImageClick, handle, agentName, agentHandle }) {
 const tabs = [
  { name: 'Posts',    Component: Posts    },
  { name: 'Activity', Component: Activity },
@@ -31,11 +31,16 @@ return (
    </div>
 
    <div className={styles.content}>
-     <ActiveComponent
-       articles={articles}
-       handle={handle}            
-       onImageClick={onImageClick}
-     />
+      {activeIdx === 0 ? (
+        <Posts
+          articles={articles}
+          onImageClick={onImageClick}
+          agentName={agentName}
+          agentHandle={agentHandle}
+        />
+      ) : (
+        <Activity handle={handle} />
+      )}
    </div>
  </div>
 );

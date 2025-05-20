@@ -2,9 +2,9 @@
 import React from 'react'
 import styles from './ProfileLayout.module.css'
 import ProfileHeader from './ProfileHeader'
-import Navbar from './Tabs'
+import Tabs from './Tabs'
 
-export default function ProfileLayout({ agent, onChatClick, onImageClick, handle
+export default function ProfileLayout({ agent, onChatClick, onImageClick, handle, agentName,
 
 }) {
   return (
@@ -18,9 +18,11 @@ export default function ProfileLayout({ agent, onChatClick, onImageClick, handle
   onChatClick={onChatClick}
 />
 
-<Navbar articles={agent?.articles ?? [] } 
+<Tabs articles={agent?.articles ?? [] } 
 handle={agent?.handle}
 onImageClick={onImageClick}
+agentName={agentName}
+agentHandle={agent?.handle}
 />
     </div>
   )

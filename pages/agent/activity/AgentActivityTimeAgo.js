@@ -1,13 +1,19 @@
-import React from 'react';
-import styles from './timeago.module.css';
+// src/components/UserProfileCard/activity/AgentActivityTimeAgo.js
+import React from 'react'
+import TimeAgo from 'javascript-time-ago'
+// English locale data:
+import en from 'javascript-time-ago/locale/en'
 
-export default function ArticleTitle({  onClick }) {
+import styles from './timeago.module.css'
+
+// register the locale once
+TimeAgo.addDefaultLocale(en)
+
+export default function AgentActivityTimeAgo({ date }) {
+  const timeAgo = new TimeAgo('en-GB')  // or 'en-US', whichever you prefer
   return (
-    <button 
-      className={styles.activityTitle} 
-      onClick={onClick}
-    >
-      3m Ago
-    </button>
-  );
+    <span className={styles.activityTimeAgo}>
+      {timeAgo.format(new Date(date))}
+    </span>
+  )
 }

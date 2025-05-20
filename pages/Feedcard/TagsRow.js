@@ -9,7 +9,7 @@ export default function PostActionsRow({ tags = [], agentName, agentHandle, }) {
     <div className={styles.actionsRow}>
       <div className={styles.leftContainer}>
         <ActionTag />
-        <AuthorTag name={agentName} handle={agentHandle} />
+        <AuthorTag name={agentName} handle={agentHandle}/>
 
       </div>
       <div className={styles.rightContainer}>

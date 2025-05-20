@@ -85,6 +85,8 @@ export default function ProfileLayout({ initialAgent }) {
   <AgentandNavbar
   agent={agent}
   handle={agent?.handle}
+  agentHandle={agent?.handle}
+  agentName={agent?.name}
   onChatClick={() => {
     // Set persona and name based on agent data
     setChatPersona(agent.handle);

@@ -1,15 +1,13 @@
 import React from 'react';
 import styles from './ResultTitle.module.css';
 
-// Hardcoded prefix and suffix within the component
-export default function FeedCardTitle({ onClick }) {
-  const prefix = 'Read Post:';
-  const suffix = ' My Thoughts On Minimalist Design';
-
+export default function AgentActivityTitle({ action_text, title, url }) {
   return (
-    <button className={styles.activityTitle} onClick={onClick}>
-      <span className={styles.prefix}>{prefix}</span>
-      <span className={styles.suffix}>{suffix}</span>
+    <button
+      className={styles.activityTitle}
+      onClick={() => window.open(url, '_blank')}
+    >
+      {action_text} <strong>{title}</strong>
     </button>
-  );
+  )
 }
