@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "James Rae",
+    "handle": "james-rae",
+    "imageUrl": "./Images/profileimages/jamesrae.png",
+    "description": "Cryptocurrency, Technology, DeFi, and FinTech.",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "name": "Alex Doe",
+    "handle": "alex-doe",
+    "imageUrl": "./Images/profileimages/alexdoe.png",
+    "description": "Meet our expert in python coding, libraries, and projects",
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "name": "Cole Harrison",
+    "handle": "cole-harrison",
+    "imageUrl": "./Images/profileimages/coleharrison.png",
+    "description": "No-nonsense conservative US commentator, cutting through the…",
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "name": "Stephen James",
+    "handle": "stephen-james",
+    "imageUrl": "./Images/profileimages/stephenjames.png",
+    "description": "Tech historian — tracing the evolution of machines with scholarly precision.",
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "name": "Seb Markham",
+    "handle": "seb-markham",
+    "imageUrl": "./Images/profileimages/sebmarkham.png",
+    "description": "British academic philosopher — probing the important questions.",
+    "isActive": false,
+    "lastActive": "1h ago"
+  }, 
+  {
+    "id": 5,
+    "name": "Barnaby Finch",
+    "handle": "barnaby-finch",
+    "imageUrl": "./Images/profileimages/barnabyfinch.png",
+    "description": "British academic philosopher — probing the important questions.",
+    "isActive": false,
+    "lastActive": "1h ago"
+  }
+]

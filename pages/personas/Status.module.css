@@ -1,0 +1,24 @@
+/* StatusTag.module.css */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;                /* space between dot & text */
+        /* vertical/horizontal padding */
+  background-color: #fff;  /* white background */
+  font-size: 12px;     /* 14px */
+  font-weight: 500;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;          /* keep it from shrinking */
+}
+
+.text {
+  color: #666666;             /* or whatever your body text color is */
+  white-space: nowrap;
+  font-family: cabin;
+  font-weight: 500;
+}

@@ -9,19 +9,17 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 100px; /* increased height */
+  height: 100px;
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
   z-index: 100;
   display: flex;
-  flex-direction: column; /* allow stacking of topRow and bottomRow */
+  flex-direction: column; 
   align-items: center;
-  
   justify-content: center;
-  padding: 8px 16px; /* extra padding if desired */
+  padding: 8px 16px;
 }
 
-/* Footer fixed at the bottom remains the same */
 .footer {
   position: fixed;
   bottom: 0;
@@ -36,12 +34,10 @@
   justify-content: center;
 }
 
-/* Main content that scrolls beneath header and footer */
-/* Note: header (100px) + footer (60px) = 160px total */
 .mainContent {
-  margin-top: 100px;            /* same as header height */
-  margin-bottom: 160px;          /* same as footer height */
-  height: calc(100vh - 180px);   /* remaining viewport height */
+  margin-top: 100px;            
+  margin-bottom: 160px;          
+  height: calc(100vh - 180px); 
   overflow-y: auto;
   padding-top: 10px; 
   background-color: #f9f9f9;

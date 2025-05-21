@@ -10,7 +10,7 @@ import SignupOverlay from './../ui/LoginOverlay';
 import ProfileLayoutMobile from './../agent/ProfileLayoutMobile'
 import ChatOverlayIPhone from '../ui/ChatOverlayIphone';
 import { useRouter } from 'next/router';
-import LightboxOverlay from './../LightboxOverlay';
+import LightboxOverlay from '../ui/LightboxOverlay';
 import './../Activity.module.css';
 
 export default function ProfileLayout({ initialAgent }) {

@@ -3,13 +3,10 @@ import { useRouter } from 'next/router';
 import Header from './layout/Header';
 import PersonaCardRow from './PersonaCards/PersonaCardRow';
 import FeedWithToolbar from './layout/FeedWithToolbar';
-import FeedCardGrid from './layout/FeedCardGrid';
 import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
 import SearchResultsOverlay from './SearchResultsOverlay';
-
-// Mobile imports
 import HeaderMobile from './layout/Header/HeaderMobile';
 import PersonaCardRowMobile from './PersonaCards/PersonaCardRowMobile';
 import CategoriesRowMobile from './ui/CategoriesRowMobile';
@@ -18,13 +15,9 @@ import MobileNavbar from './layout/MobileNavbar';
 import UserProfileCardMobile from './ui/LoginOverlayMobile';
 import MoreOverlay from './ui/MoreOverlay';
 import ChatOverlayIPhone from './ui/ChatOverlayIphone';
-
-import LightboxOverlay from './LightboxOverlay';
-import './MainPage.module.css';
-import './MainPageMobile.module.css';
+import LightboxOverlay from './ui/LightboxOverlay';
 import { TRENDING } from './constants/CategoryConstants';
 
-// Hook to detect mobile viewport
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -43,7 +36,6 @@ export default function MainPage() {
 
   const [searchOpen, setSearchOpen] = useState(false);
   const handleSearchClick = () => {
-      // if “more” is open, close it first (optional)
       if (moreOpen) {
       setMoreOpen(false);
         setOverlayMounted(false);
@@ -53,18 +45,14 @@ export default function MainPage() {
   const closeSearch = () => setSearchOpen(false);
 
     
-
-  // Desktop state
   const [activeCategory, setActiveCategory] = useState(category || TRENDING);
   const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
     if (category && category !== activeCategory) setActiveCategory(category);
   }, [category]);
 
-  // Shared overlay state
   const [lightboxSrc, setLightboxSrc] = useState(null);
 
-  // Desktop overlays
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [selectedPersona, setSelectedPersona] = useState(null);
@@ -75,8 +63,6 @@ export default function MainPage() {
   };
   const closeChatOverlay = () => setChatOverlayVisible(false);
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
-
-  // Mobile state & overlays
   const [activeLabel, setActiveLabel] = useState('Top');
   const [moreOpen, setMoreOpen] = useState(false);
   const [overlayMounted, setOverlayMounted] = useState(false);

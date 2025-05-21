@@ -1,0 +1,20 @@
+/* NameContainer.module.css */
+.container {
+  display: flex;
+  align-items: top;    /* vertically center image + text block */
+  gap: 8px;              /* space between image & details */
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;     /* make it round */
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column; /* stack symbol + handle */
+  gap: 4px;               /* vertical spacing between them */
+  /* align-items: flex-start;  default is stretch, so text lines up left */
+}

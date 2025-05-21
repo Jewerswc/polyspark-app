@@ -1,0 +1,28 @@
+.Name {
+  color: #333333;
+  border: none;
+  cursor: pointer;
+  font-family: cabin, sans-serif;
+  font-weight: 500;
+  line-height: 15px;
+  font-size: 12px;
+  max-width: 201px;
+}
+
+@media (max-width: 768px) {
+  .chatnowButton {
+    width:100%
+  }
+}
+
+.chatnowButton:hover {
+  background-color: #3A70F3;
+}
+
+.chatnowButton:active {
+  background-color: #0D3AC2;
+}
+
+.chatnowButton:disabled {
+  background-color: #C1C9E6;
+}

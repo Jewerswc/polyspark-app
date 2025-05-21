@@ -1,0 +1,8 @@
+/* NameContainer.module.css */
+.container {
+  display: flex;
+  align-items: top;    /* vertically center image + text block */
+    width: 100%;           /* space between image & details */
+    justify-content: space-between;
+}
+
