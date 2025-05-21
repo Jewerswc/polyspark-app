@@ -1,6 +1,6 @@
 // ChatContainer.jsx
 import React from 'react';
-import MainContainer from './personas/MainContainer';
+import MainContainer from './MainContainer';
 import styles from './MainCard.module.css';
 
 export default function ChatContainer({
