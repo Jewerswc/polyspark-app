@@ -14,7 +14,6 @@ export default function AuthAndHamburgerRow({
     { label: 'Sign Up',           onClick: onSignupClick },
     { label: 'Log In', divider: true, onClick: onLoginClick },
     { label: 'Personas',          onClick: () => {} },
-    { label: 'Actions',           onClick: () => {} },
     { label: 'Report an Issue',   onClick: onReportClick },
     { label: 'Privacy',           onClick: () => {} },
     { label: 'Terms of Use',      onClick: () => {} },

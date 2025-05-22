@@ -5,7 +5,7 @@ import styles from './NavigationButtonColumn.module.css';
 const defaultButtons = [
   { label: 'Trending',      href: '/MainPageMobile' },
   { label: 'Latest Activity', href: '/Activity' },
-  { label: 'Personas',      href: '/personas' },
+  { label: 'Personas',      href: '/persona' },
   { label: 'Get Lucky',     href: '/get-lucky' },
   { label: 'Privacy',       href: '/privacy' },
   { label: 'Terms of Use',  href: '/terms-of-use' },
