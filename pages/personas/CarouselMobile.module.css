@@ -14,7 +14,7 @@
   .track {
     display: flex;
     overflow-x: auto;
-    padding: 0 16px;
+    padding: 0 0px;
     gap: 8px;
   
     /* smooth snapping */
