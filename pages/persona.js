@@ -32,7 +32,14 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
-export default function PersonaPage() {
+export default function persona({
+    label,
+    personas = [],
+    onHeaderClick,
+    onChatClick,
+    actionType,            // "chat" or "profile"
+    profileUrlFn           // optional: (persona) => string
+  }) {
   const router = useRouter();
   const { category } = router.query;
   const isMobile = useIsMobile();
@@ -93,6 +100,8 @@ export default function PersonaPage() {
   const openMobileChat = (persona) => setChatOpen(true);
   const closeMobileChat = () => setChatOpen(false);
 
+
+
   return (
     <div className={isMobile ? styles.pageWrapperMobile : styles.pageWrapper}>
       {isMobile ? (
@@ -150,8 +159,13 @@ export default function PersonaPage() {
             <PersonaCardsRow onChatClick={openChatOverlay} />
              <Carousel label="(12) Popular" personas={popular} />
              <Carousel label="(12) New" personas={newPersonas} />
-             <Carousel label="(12) Most Active" personas={active} />
-             <Carousel label="(12) Rising" personas={active} />
+             <Carousel
+  label="Popular"
+  personas={popular}
+  actionType="profile"
+  profileUrlFn={p => `/profile/${p.handle}`}    // ← this is critical!
+  onChatClick={openChatOverlay}
+/>             <Carousel label="(12) Rising" personas={active} />
 
           </div>
           <Footer />

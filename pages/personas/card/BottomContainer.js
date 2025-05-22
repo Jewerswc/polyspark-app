@@ -2,27 +2,33 @@
 import React from 'react';
 import Status from './Status'
 import ChatButton from './ChatButton'
+import Link from 'next/link';
 import styles from './BottomContainer.module.css';
+import { useRouter } from 'next/router';
 
-export default function Name({   isActive, lastActive, actionType, profileUrl, onChatClick}) {
+export default function Name({
+  isActive,
+  lastActive,
+  actionType,
+  profileUrl,
+  onChatClick
+}) {
+  const router = useRouter();
   return (
     <div className={styles.container}>
-        <Status
-        isActive={isActive}
-        lastActive={lastActive}
-      />
-             {actionType === 'profile' ? (
-        <Link href={profileUrl}>
-          <a className={styles.viewProfileButton}>View Profile</a>
-        </Link>
+      <Status isActive={isActive} lastActive={lastActive} />
+
+            {actionType === 'profile' && profileUrl ? (
+        <ChatButton
+          label="View Profile"
+          onClick={() => router.push(profileUrl)}
+        />
       ) : (
         <ChatButton
           label="Chat Now"
           onClick={onChatClick}
         />
       )}
-
-      </div>
-   
+    </div>
   );
 }
