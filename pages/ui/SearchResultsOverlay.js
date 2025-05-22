@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import Tag           from './layout/Header/Search/SearchResultTag';
-import PersonaCard   from './layout/Header/Search/PersonaButton';
-import BlogCard      from './layout/Header/Search/SearchResultPost';
-import SearchInput   from './layout/Header/Search/SearchInputMobile';
-import { SearchContext } from './api/SearchContext';
+import Tag           from '../layout/Header/Search/SearchResultTag';
+import PersonaCard   from '../layout/Header/Search/PersonaButton';
+import BlogCard      from '../layout/Header/Search/SearchResultPost';
+import SearchInput   from '../layout/Header/Search/SearchInputMobile';
+import { SearchContext } from '../api/SearchContext';
 import styles        from './SearchResultsOverlay.module.css';
 
 export default function SearchResultsOverlay({ onClose }) {

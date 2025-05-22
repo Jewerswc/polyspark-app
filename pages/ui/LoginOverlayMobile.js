@@ -2,7 +2,7 @@
 import React from 'react';
 import { X } from 'react-bootstrap-icons';
 import styles from './LoginOverlayMobile.module.css';
-import Welcome from './Welcome';
+import Welcome from './Login Overlay/Welcome';
 import ContinueWithGoogleButton from './Login Overlay/ContinueWithGoogleMobile';
 import ORDivider from './Login Overlay/OrDivider';
 import EmailInputWithButton from './Login Overlay/EmailInput';

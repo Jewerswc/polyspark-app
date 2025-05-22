@@ -1,7 +1,7 @@
 // HamburgerDropdown.jsx
 import React, { useState } from 'react';
 import HamburgerMenu from './HamburgerMenu';
-import DropdownMenu from './../../DropdownMenu';
+import DropdownMenu from '../../ui/DropdownMenu';
 import styles from './HamburgerDropdown.module.css';
 
 export default function HamburgerDropdown() {

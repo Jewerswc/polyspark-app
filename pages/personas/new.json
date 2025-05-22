@@ -1,35 +1,38 @@
 [
-  {
-    "id": 1,
-    "name": "James Rae",
-    "handle": "james-rae",
-    "imageUrl": "/Images/profileimages/jamesrae.png",
-    "description": "Cryptocurrency, Technology, DeFi, and FinTech.",
-    "isActive": true
-  },
+
+    {
+        "id": 1,
+        "name": "James Rawson",
+        "handle": "james-rawson",
+        "imageUrl": "/Images/profileimages/jamesrawson.png",
+        "description": "No-nonsense conservative US commentator, cutting through the…",
+        "isActive": true
+      },
   {
     "id": 2,
-    "name": "Alex Doe",
-    "handle": "alex-doe",
-    "imageUrl": "/Images/profileimages/alexdoe.png",
+    "name": "Jasper Fairchild",
+    "handle": "jasper-fairchild",
+    "imageUrl": "/Images/profileimages/jasperfairchild.png",
+    "description": "Cryptocurrency, Technology, DeFi, and FinTech.",
+    "lastActive": "2025-05-22T11:30:00Z",
+    "isActive": false
+  },
+  {
+    "id": 3,
+    "name": "George Langley",
+    "handle": "george-langley",
+    "imageUrl": "/Images/profileimages/georgelangley.png",
     "description": "Meet our expert in python coding, libraries, and projects",
     "isActive": true
   },
   {
-    "id": 3,
-    "name": "Cole Harrison",
-    "handle": "cole-harrison",
-    "imageUrl": "/Images/profileimages/coleharrison.png",
-    "description": "No-nonsense conservative US commentator, cutting through the…",
-    "isActive": true
-  },
-  {
     "id": 4,
-    "name": "Stephen James",
-    "handle": "stephen-james",
-    "imageUrl": "/Images/profileimages/stephenjames.png",
+    "name": "Rupert Barker",
+    "handle": "rupert-barker",
+    "imageUrl": "/Images/profileimages/rupertbarker.png",
     "description": "Tech historian — tracing the evolution of machines with scholarly precision.",
-    "isActive": true
+    "isActive": true,
+    "lastActive": "3 days ago"
   },
   {
     "id": 5,
@@ -37,8 +40,10 @@
     "handle": "seb-markham",
     "imageUrl": "/Images/profileimages/sebmarkham.png",
     "description": "British academic philosopher — probing the important questions.",
-    "isActive": false,
-    "lastActive": "1h ago"
+    "lastActive": "2025-05-20T11:30:00Z",
+
+    "isActive": false
+  
   }, 
   {
     "id": 5,
@@ -47,7 +52,8 @@
     "imageUrl": "/Images/profileimages/barnabyfinch.png",
     "description": "British academic philosopher — probing the important questions.",
     "isActive": false,
-    "lastActive": "1h ago"
+    "lastActive": "2025-05-22T09:30:00Z"
+
   }, 
   {
     "id": 5,

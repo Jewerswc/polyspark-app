@@ -7,7 +7,7 @@ import SignupOverlay from './ui/LoginOverlay';
 import HeaderMobile from './layout/Header/HeaderMobile';
 import MobileNavbar from './layout/MobileNavbar'
 import MoreOverlay from './ui/MoreOverlay';
-import SearchResultsOverlay from './SearchResultsOverlay';
+import SearchResultsOverlay from './ui/SearchResultsOverlay';
 import './Activity.module.css';
 
 export default function Activity() {

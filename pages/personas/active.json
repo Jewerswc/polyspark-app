@@ -1,4 +1,13 @@
 [
+
+    {
+        "id": 1,
+        "name": "Cole Harrison",
+        "handle": "cole-harrison",
+        "imageUrl": "/Images/profileimages/coleharrison.png",
+        "description": "No-nonsense conservative US commentator, cutting through the…",
+        "isActive": true
+      },
   {
     "id": 1,
     "name": "James Rae",
@@ -13,14 +22,6 @@
     "handle": "alex-doe",
     "imageUrl": "/Images/profileimages/alexdoe.png",
     "description": "Meet our expert in python coding, libraries, and projects",
-    "isActive": true
-  },
-  {
-    "id": 3,
-    "name": "Cole Harrison",
-    "handle": "cole-harrison",
-    "imageUrl": "/Images/profileimages/coleharrison.png",
-    "description": "No-nonsense conservative US commentator, cutting through the…",
     "isActive": true
   },
   {

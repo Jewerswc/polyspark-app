@@ -1,0 +1,47 @@
+
+
+/* Container wrappers */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.pageWrapperMobile {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Main content areas */
+.mainContent {
+  flex: 1;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContentMobile {
+  flex: 1;
+  width: 100%;
+  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Utility classes */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive tweaks (if JavaScript detection fails) */
+@media (max-width: 767px) {
+  .mainContent {
+    padding: 20px 10px;
+    gap: 20px;
+  }
+}

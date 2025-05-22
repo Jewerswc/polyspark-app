@@ -1,10 +1,14 @@
-// src/components/PersonaRow.js
 import React from 'react';
 import styles from './PersonaRow.module.css';
-import personas from './personas.json';
-import Name     from './Card';
+import Name from '../Card';
 
-export default function PersonaRow() {
+/**
+ * Renders a row of persona cards.
+ *
+ * Props:
+ * - personas: Array of persona objects (id, name, imageUrl, description, isActive, lastActive, etc.)
+ */
+export default function PersonaRow({ personas = [] }) {
   return (
     <div className={styles.row}>
       {personas.map(person => (

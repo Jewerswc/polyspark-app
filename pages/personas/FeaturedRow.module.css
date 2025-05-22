@@ -1,0 +1,19 @@
+.cardsWrapper {
+  /* Adding padding prevents margin collapse */
+  padding-top: 106px;
+  padding-left: 40px;
+  padding-right: 40px;  
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.cardsContainer {
+  display: flex;              /* horizontal flex */
+  flex-direction: row;        /* default, but explicit */
+  justify-content: center;/* pack from the left, no space-between magic */
+  align-items: flex-start;    /* align top edges */
+  flex-wrap: nowrap;          /* prevent wrapping onto two lines */
+  gap: 8px;                   /* exactly 8px between each card */
+  margin: 0;                  /* remove any extra margins */
+  padding: 0;                 /* we’re handling offset via the wrapper now */
+}

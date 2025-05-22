@@ -1,0 +1,27 @@
+.wrapper {
+  width: 100%;
+  max-width: 1432px;
+  margin: 0 auto;   /* ← center the wrapper itself */
+  padding-top: 0px;
+  margin-bottom: 8px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.track {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .track::-webkit-scrollbar { display: none; }
+  .track { scrollbar-width: none; }
+  

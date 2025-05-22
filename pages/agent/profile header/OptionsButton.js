@@ -1,7 +1,7 @@
 // OptionsButton.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import MoreDots from './MoreDots';
-import ChatNowButton from './../../Dropdown';
+import ChatNowButton from '../../ui/Dropdown';
 import styles from './OptionsButton.module.css';
 
 export default function OptionsButton({ options = [] }) {

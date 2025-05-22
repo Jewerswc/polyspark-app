@@ -5,7 +5,6 @@ import styles from './PersonaNameSymbol.module.css';
 export default function Name({ imageUrl, name }) {
   return (
     <div className={styles.container}>
-      {/* SVG icon */}
       <div className={styles.text}>{name}</div>
       <svg
         className={styles.icon}
@@ -25,7 +24,6 @@ export default function Name({ imageUrl, name }) {
         />
       </svg>
 
-      {/* Text */}
       
     </div>
   );

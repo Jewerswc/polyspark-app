@@ -1,8 +1,7 @@
 // Name.js
 import React from 'react';
-import Container from './Container'
-import BottomContainer from './BottomContainer'
-import PersonaDescription from './PersonaDescription'
+import Container from './Card/Container'
+import BottomContainer from './Card/BottomContainer'
 import styles from './Card.module.css';
 
 export default function Name({
@@ -21,7 +20,10 @@ export default function Name({
         imageUrl={imageUrl}
         description={description}
       />
-    <BottomContainer />
+      <BottomContainer
+        isActive={isActive}
+        lastActive={lastActive} 
+      />
       
     </div>
   );

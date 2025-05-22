@@ -1,13 +1,18 @@
 import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from './HomeButton.module.css';
 
 export default function HomeButton({ onClick }) {
+    const { pathname } = useRouter();
+    const isActive = pathname === '/';
   return (
-    <div
-      className={styles.homeButton}
-      onClick={onClick}
-      aria-label="Personas"
-      role="button"
+    <Link
+      href="/persona"
+      aria-label="Activity"
+      className={`${styles.homeButton} ${
+        isActive ? styles.active : ''
+      }`}
     >
       <div className={styles.svgWrapper}>
         <svg
@@ -36,6 +41,6 @@ export default function HomeButton({ onClick }) {
         </svg>
       </div>
       <span className={styles.label}>Personas</span>
-    </div>
+    </Link>
   );
 }

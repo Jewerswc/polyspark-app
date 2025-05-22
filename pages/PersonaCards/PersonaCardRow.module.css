@@ -10,9 +10,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 0px;
+  gap: 8px;
   flex-wrap: wrap;
   margin: 0;
   /* Now you can remove margin-top from .cardsContainer since it’s handled by the wrapper */
-  padding: 8px 31px;
+  padding: 8px 40px;
 }

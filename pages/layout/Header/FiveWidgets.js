@@ -15,7 +15,7 @@ export default function ButtonRow() {
       <TrendingButton onClick={() => router.push('/')} />
       <ActivityButton onClick={() => router.push('/Activity')} />
       <ShuffleButton onClick={() => console.log('Shuffle button clicked')} />
-      <PersonasButton onClick={() => console.log('Personas button clicked')} />
+      <PersonasButton onClick={() => router.push('/persona')} />
       <ActionsDropdown />
       {/* Add more buttons as desired */}
     </div>

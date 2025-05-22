@@ -2,7 +2,7 @@ import React from 'react';
 import CategoryLabelMobile from './Top';
 import SearchBar from './SearchRecent';
 import CategoryButton from './CategoryButton';
-import FidleButton from './../fidlebutton';
+import FidleButton from './fidlebutton';
 import styles from './CategoryToolbar.module.css';
 import { TRENDING, FILE, CATEGORIES } from './../constants/CategoryConstants';
 

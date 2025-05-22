@@ -16,6 +16,19 @@
 .button:hover {
   background-color: #E6E6E6;
 }
+.button:disabled,
+.disabled {
+  background-color: transparent;
+
+  cursor: default;
+}
+
+.button:active {
+  background-color: #CCCCCC
+  ;
+}
+
+
 
 /* Make the SVG fill currentColor and scale to 60% of the button */
 .icon-button svg {

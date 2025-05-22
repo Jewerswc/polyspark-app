@@ -1,0 +1,38 @@
+/* personas/FeaturedRowMobile.module.css */
+.wrapper {
+    margin: 0;
+    margin-left: 16px;
+  }
+  
+  .label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 8px 0px;
+    font-family: cabin;
+  }
+  
+  .track {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 16px;
+    gap: 8px;
+  
+    /* smooth snapping */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  
+    /* hide native scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .cardWrapper {
+    /* match container width exactly */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  

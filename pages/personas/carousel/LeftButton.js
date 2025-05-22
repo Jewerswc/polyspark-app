@@ -1,10 +1,14 @@
-// src/components/IconButton.js
-import React from 'react'
-import styles from './Button.module.css'
+// src/components/LeftButton.js (and similarly for RightButton.js)
+import React from 'react';
+import styles from './Button.module.css';
 
-export default function IconButton({ onClick }) {
+export default function IconButton({ onClick, disabled }) {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button
+      className={`${styles.button} ${disabled ? styles.disabled : ''}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       <svg
         width="8"
         height="12"
@@ -20,5 +24,5 @@ export default function IconButton({ onClick }) {
         />
       </svg>
     </button>
-  )
+  );
 }

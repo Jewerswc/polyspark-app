@@ -2,7 +2,7 @@
 import React from 'react';
 import TopContainer from './TopContainer'
 import PersonaDescription from './PersonaDescription'
-import styles from './NameContainer.module.css';
+import styles from './Container.module.css';
 
 export default function Container({ name, handle, imageUrl, description }) {
   return (

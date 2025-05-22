@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Header from './layout/Header';
-import PersonaCardRow from './PersonaCards/PersonaCardRow';
-import FeedWithToolbar from './layout/FeedWithToolbar';
 import Footer from './layout/Footer';
 import ChatOverlay from './ui/ChatOverlay';
 import SignupOverlay from './ui/LoginOverlay';
 import SearchResultsOverlay from './ui/SearchResultsOverlay';
 import HeaderMobile from './layout/Header/HeaderMobile';
-import PersonaCardRowMobile from './PersonaCards/PersonaCardRowMobile';
-import CategoriesRowMobile from './ui/CategoriesRowMobile';
-import FeedCardsColumn from './layout/FeedCardColumn';
-import MobileNavbar from './layout/MobileNavbar';
 import UserProfileCardMobile from './ui/LoginOverlayMobile';
 import MoreOverlay from './ui/MoreOverlay';
 import ChatOverlayIPhone from './ui/ChatOverlayIphone';
 import LightboxOverlay from './ui/LightboxOverlay';
 import { TRENDING } from './constants/CategoryConstants';
+import Carousel from './personas/Carousel'
+import popular from './personas/personas.json';
+import active from './personas/active.json';
+import newPersonas  from './personas/new.json';
+import PersonaCardsRow from './personas/FeaturedRow';
+import styles from './persona.module.css'
+import CarouselMobile from './personas/CarouselMobile'
 
+import FeaturedRowMobile from './personas/FeaturedRowMobile'
+import MobileNavbar from './layout/MobileNavbar'
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -29,7 +32,7 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
-export default function MainPage() {
+export default function PersonaPage() {
   const router = useRouter();
   const { category } = router.query;
   const isMobile = useIsMobile();
@@ -91,25 +94,32 @@ export default function MainPage() {
   const closeMobileChat = () => setChatOpen(false);
 
   return (
-    <div className={isMobile ? 'pageWrapperMobile' : 'pageWrapper'}>
+    <div className={isMobile ? styles.pageWrapperMobile : styles.pageWrapper}>
       {isMobile ? (
         <> {/* Mobile Layout */}
           <HeaderMobile onLoginClick={openLogin} onSignupClick={openLogin} />
-          <div className="mainContentMobile">
-            <PersonaCardRowMobile onChatClick={openMobileChat} />
-            <CategoriesRowMobile
-              activeLabel={activeLabel}
-              onLabelClick={setActiveLabel}
-            />
-            <FeedCardsColumn
-              activeLabel={activeLabel}
-              onImageClick={setLightboxSrc}
-            />
-            <MobileNavbar
-            onMoreClick={handleMoreClick} 
-            moreOpen={moreOpen} 
-            onSearchClick={handleSearchClick}
-            />
+          <div className={styles.mainContentMobile}>
+                     <FeaturedRowMobile onChatClick={openMobileChat} />
+                     <CarouselMobile 
+                     label="New"
+                     personas={newPersonas}
+                     onPersonaClick={openMobileChat}
+                     />
+                                          <CarouselMobile 
+                     label="Most Active"
+                     personas={active}
+                     onPersonaClick={openMobileChat}
+                     />
+                                                              <CarouselMobile 
+                     label="Popular"
+                     personas={popular}
+                     onPersonaClick={openMobileChat}
+                     />
+                     <MobileNavbar
+                     onMoreClick={handleMoreClick} 
+                     moreOpen={moreOpen} 
+                     onSearchClick={handleSearchClick}
+                     />
           </div>
 
           {loginOpen && <UserProfileCardMobile onClose={closeLogin} />}
@@ -136,15 +146,13 @@ export default function MainPage() {
             activeCategory={activeCategory}
             onCategorySelect={setActiveCategory}
           />
-          <div className="mainContent">
-            <PersonaCardRow onChatClick={openChatOverlay} />
-            <FeedWithToolbar
-              activeCategory={activeCategory}
-              onCategorySelect={setActiveCategory}
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              onImageClick={setLightboxSrc}
-            />
+          <div className={styles.mainContent}>
+            <PersonaCardsRow onChatClick={openChatOverlay} />
+             <Carousel label="(12) Popular" personas={popular} />
+             <Carousel label="(12) New" personas={newPersonas} />
+             <Carousel label="(12) Most Active" personas={active} />
+             <Carousel label="(12) Rising" personas={active} />
+
           </div>
           <Footer />
 
