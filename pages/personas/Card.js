@@ -1,7 +1,7 @@
 // Name.js
 import React from 'react';
-import Container from './Card/Container'
-import BottomContainer from './Card/BottomContainer'
+import Container from './card/Container'
+import BottomContainer from './card/BottomContainer'
 import styles from './Card.module.css';
 
 export default function Name({
