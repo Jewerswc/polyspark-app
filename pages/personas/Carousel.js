@@ -7,7 +7,7 @@ import PersonaRow from './carousel/PersonaRow';
 import LeftButton from './carousel/LeftButton';
 import RightButton from './carousel/Button';
 
-export default function Carousel({ label, personas = [], onHeaderClick }) {
+export default function Carousel({ label, personas = [], onHeaderClick ,onChatClick, actionType, profileUrlFn }) {
   const trackRef = useRef(null);
   const SCROLL_AMOUNT = 239;
 
@@ -57,7 +57,12 @@ export default function Carousel({ label, personas = [], onHeaderClick }) {
       </div>
 
       <div className={styles.track} ref={trackRef}>
-        <PersonaRow personas={personas} />
+             <PersonaRow
+         personas={personas}
+         onChatClick={onChatClick}
+         actionType={actionType}
+         profileUrlFn={profileUrlFn}
+       />
       </div>
     </div>
   );
