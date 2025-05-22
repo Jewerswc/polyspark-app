@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useRouter } from 'next/router'
 import AuthButtonsRow from './AuthButtonsRow';
 import HamburgerMenu from './HamburgerMenu';
 import HoverDropdown from './HoverDropdown';
@@ -10,10 +11,13 @@ export default function AuthAndHamburgerRow({
   onSignupClick,
   onReportClick 
 }) {
+  const router = useRouter()
   const items = [
     { label: 'Sign Up',           onClick: onSignupClick },
     { label: 'Log In', divider: true, onClick: onLoginClick },
-    { label: 'Personas',          onClick: () => {} },
+    { label: 'Personas',        onClick: () => router.push('/persona') },  
+    { label: 'Activity',        onClick: () => router.push('/activity') },  
+
     { label: 'Report an Issue',   onClick: onReportClick },
     { label: 'Privacy',           onClick: () => {} },
     { label: 'Terms of Use',      onClick: () => {} },
