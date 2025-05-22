@@ -10,7 +10,9 @@ export default function Name({
   imageUrl,
   description,
   isActive,
-  lastActive
+  lastActive,
+  actionType,
+  profileUrl,
 }) {
   return (
     <div className={styles.container}>
@@ -23,6 +25,8 @@ export default function Name({
       <BottomContainer
         isActive={isActive}
         lastActive={lastActive} 
+        actionType={actionType}
+        profileUrl={profileUrl}
       />
       
     </div>

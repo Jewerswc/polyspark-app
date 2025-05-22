@@ -8,13 +8,21 @@ import Name from '../Card';
  * Props:
  * - personas: Array of persona objects (id, name, imageUrl, description, isActive, lastActive, etc.)
  */
-export default function PersonaRow({ personas = [] }) {
+export default function PersonaRow({
+    personas = [],
+    onChatClick,
+    actionType,
+    profileUrlFn
+    }) {
   return (
     <div className={styles.row}>
       {personas.map(person => (
         <Name
           key={person.id}
           {...person}
+          actionType={actionType}
+          profileUrl={ actionType === 'profile' ? profileUrlFn(person) : undefined }
+          onChatClick={() => onChatClick(person)}
         />
       ))}
     </div>
