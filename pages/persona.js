@@ -19,6 +19,7 @@ import PersonaCardsRow from './personas/FeaturedRow';
 import styles from './Persona.module.css'
 import CarouselMobile from './personas/CarouselMobile'
 
+
 import FeaturedRowMobile from './personas/FeaturedRowMobile'
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar'
 function useIsMobile(breakpoint = 768) {
