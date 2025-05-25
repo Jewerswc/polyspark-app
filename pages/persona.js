@@ -16,7 +16,7 @@ import popular from './personas/personas.json';
 import active from './personas/active.json';
 import newPersonas  from './personas/new.json';
 import PersonaCardsRow from './personas/FeaturedRow';
-import styles from './Persona.module.css'
+import styles from './persona.module.css'
 import CarouselMobile from './personas/CarouselMobile'
 
 
