@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Header from './layout/Header';
-import Footer from './layout/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import ChatOverlay from './ui/ChatOverlay';
-import SignupOverlay from './ui/LoginOverlay';
-import SearchResultsOverlay from './ui/SearchResultsOverlay';
-import HeaderMobile from './layout/Header/HeaderMobile';
-import UserProfileCardMobile from './ui/LoginOverlayMobile';
-import MoreOverlay from './ui/MoreOverlay';
+import SignupOverlay from '../components/LoginOverlay/components/LoginOverlay';
+import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
+import HeaderMobile from '../components/Header/HeaderMobile';
+import UserProfileCardMobile from '../components/LoginOverlay/components/LoginOverlayMobile';
+import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
 import ChatOverlayIPhone from './ui/ChatOverlayIphone';
 import LightboxOverlay from './ui/LightboxOverlay';
 import { TRENDING } from './constants/CategoryConstants';
@@ -16,11 +16,11 @@ import popular from './personas/personas.json';
 import active from './personas/active.json';
 import newPersonas  from './personas/new.json';
 import PersonaCardsRow from './personas/FeaturedRow';
-import styles from './persona.module.css'
+import styles from './Persona.module.css'
 import CarouselMobile from './personas/CarouselMobile'
 
 import FeaturedRowMobile from './personas/FeaturedRowMobile'
-import MobileNavbar from './layout/MobileNavbar'
+import MobileNavbar from '../components/MobileNavbar/MobileNavbar'
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -32,7 +32,7 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
-export default function persona({
+export default function Persona({
     label,
     personas = [],
     onHeaderClick,

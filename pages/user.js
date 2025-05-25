@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Header from './layout/Header';
-import UserProfile from './user/UserProfile';
+import Header from './../components/Header/Header';
+import UserProfile from './../components/User/UserProfile';
 
-import Footer from './layout/Footer';
+import Footer from '../components/Footer/Footer';
 import ChatOverlay from './ui/ChatOverlay';
-import SignupOverlay from './ui/LoginOverlay';
+import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
 import './user.module.css';
 
 export default function App() {

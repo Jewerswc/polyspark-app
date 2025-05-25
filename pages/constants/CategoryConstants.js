@@ -1,5 +1,6 @@
 export const TRENDING = 'Top';
 export const FILE = 'File';
+export const NEW = 'New'
 
 export const CATEGORIES = [
   'New',

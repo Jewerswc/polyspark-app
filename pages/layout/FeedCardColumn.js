@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedCardLayout from './../Feedcard/Feedcard';
+import FeedCardLayout from '../../components/FeedCard/Feedcard';
 import styles from './FeedCardColumn.module.css';
 import useArticles from './../../components/hooks/useArticles';
 

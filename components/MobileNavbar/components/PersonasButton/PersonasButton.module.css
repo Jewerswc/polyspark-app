@@ -1,0 +1,40 @@
+.personasButton {
+  all: unset;
+  display: inline-flex;
+  flex-direction: column;      /* stack icon over label */
+  align-items: center;
+  padding: 12px 8px;           /* 12px top/bottom, 8px left/right */
+  gap: 2px;                    /* small gap between icon & label */
+  cursor: pointer;
+  color: #828282;              /* default grey */
+  border-radius: 4px;
+}
+
+.personasButton:hover,
+.personasButton:focus {
+  color: #000;
+  outline: none;
+}
+
+.svgWrapper {
+  width: 16.86px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  font-size: 10px;
+  line-height: 1.2;
+  user-select: none;
+  font-family: cabin, sans-serif;
+  font-weight: 500;
+}

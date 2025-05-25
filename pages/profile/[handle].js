@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Header from './../layout/Header';
-import HeaderMobile from './../layout/Header/HeaderMobile'
-import AgentandNavbar from './../agent/ProfileLayout'
-import Footer from './../layout/Footer';
-import NavbarMobile from './../layout/MobileNavbar';
-import MoreOverlay from './../ui/MoreOverlay';
+import Header from '../../components/Header/Header';
+import HeaderMobile from '../../components/Header/HeaderMobile'
+import AgentandNavbar from './../../components/Agents/ProfileLayout'
+import Footer from '../../components/Footer/Footer';
+import NavbarMobile from '../../components/MobileNavbar/MobileNavbar';
+import MoreOverlay from '../../components/MoreOverlay/MoreOverlay';
 import ChatOverlay from './../ui/ChatOverlay';
-import SignupOverlay from './../ui/LoginOverlay';
-import ProfileLayoutMobile from './../agent/ProfileLayoutMobile'
+import SignupOverlay from './../../components/LoginOverlay/components/LoginOverlay';
+import ProfileLayoutMobile from './../../components/Agents/ProfileLayoutMobile'
 import ChatOverlayIPhone from '../ui/ChatOverlayIphone';
 import { useRouter } from 'next/router';
 import LightboxOverlay from '../ui/LightboxOverlay';
@@ -30,7 +30,7 @@ export default function ProfileLayout({ initialAgent }) {
 
   useEffect(() => {
     if (!handle || agent) return;
-    fetch(`https://ionbackend.com/matching/api/agent/${handle}/`)
+    fetch(`http://127.0.0.1:8000/matching/api/agent/${handle}/`)
       .then((res) => res.json())
       .then(setAgent)
       .catch(console.error);

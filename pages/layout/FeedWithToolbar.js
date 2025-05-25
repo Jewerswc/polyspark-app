@@ -1,6 +1,6 @@
 // src/components/FeedWithToolbar.jsx
 import React, { useState } from 'react';
-import CategoryToolbar from './../ui/CategoryToolbar';
+import CategoryToolbar from '../../components/CategoryToolbar/CategoryToolbar';
 import FeedCardsGrid from './FeedCardGrid';
 import FileOptions from './FileOptions';
 import { TRENDING, FILE } from './../constants/CategoryConstants';

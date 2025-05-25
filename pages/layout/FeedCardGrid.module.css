@@ -5,3 +5,73 @@
   padding: 0 40px;                     /* Left and right pfadding of 31px */
   margin-bottom: 41px;
 }
+
+/* A grey block for the image */
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: red;
+
+}
+.skeletonImage {
+  width: 100%;
+  padding-top: 56%;     /* 16:9 aspect ratio */
+  background: #e2e2e2;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+/* short line (e.g. title) */
+.skeletonLineShort {
+  width: 60%;
+  height: 12px;
+  background: #e2e2e2;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+/* longer line (e.g. subtitle) */
+.skeletonLineLong {
+  width: 90%;
+  height: 12px;
+  background: #e2e2e2;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Use the same padding, border, shadow, etc, as .feedCard */
+.feedCard__main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #921919;
+
+}
+
+.feedCard__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* gray pulsing rectangle */
+.skeletonRect {
+  background: #921919;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+/* pill-shaped tag */
+.skeletonTag {
+  display: inline-block;
+  width: 4em;
+  height: 1.5em;
+  background: #e2e2e2;
+  border-radius: 999px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}

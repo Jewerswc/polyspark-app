@@ -1,6 +1,6 @@
 import React from 'react';
-import PersonaCard from './../PersonaCards/PersonaCardMobile';
-import styles from './../PersonaCards/PersonaCardRowMobile.module.css';
+import PersonaCard from '../../components/PersonaCards/PersonaCardMobile';
+import styles from './../../components/PersonaCards/PersonaCardRowMobile.module.css';
 
 export default function PersonaCardRowMobile({ onChatClick }) {
   const personas = [

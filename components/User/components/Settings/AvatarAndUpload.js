@@ -1,0 +1,26 @@
+import React from 'react'
+import styles from './AvatarAndUpload.module.css'
+import UploadProfileImage from './../../../../pages/ui/UploadProfileImage'
+
+export default function UserProfileCard({
+  avatarUrl,
+  name,
+
+  onChatClick,
+  onNameClick,
+  onDateClick
+}) {
+  return (
+    <div className={styles.card}>
+              <img
+        src="./Images/useravatar.png"
+        alt={`${name} avatar`}
+        className={styles.avatar}
+      />
+      <UploadProfileImage/>
+
+        
+
+    </div>
+  )
+}

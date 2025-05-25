@@ -1,13 +1,13 @@
 // pages/articles/[slug].js
 import React, { useState } from 'react'
-import Header from './Header'
-import HeaderMobileSecondary from './../layout/Header/HeaderMobileSecondary'
-import UserProfileCard from './Head'
-import ArticleBody from './ArticleBody'
+import Header from '../../components/Articles/Header'
+import HeaderMobileSecondary from './../../components/Header/HeaderMobileSecondary'
+import UserProfileCard from './../../components/Articles/components/Head/Head'
+import ArticleBody from './../../components/Articles/components/Body/Body'
 import styles from './[slug].module.css'
-import LoginOverlayMobile from './../ui/LoginOverlayMobile'
-import Comments from './comments/Comments'
-import CommentsFooter from './comments/Footer'
+import LoginOverlayMobile from './../../components/LoginOverlay/components/LoginOverlayMobile'
+import Comments from './../../components/Articles/components/Comments/Comments'
+import CommentsFooter from './../../components/Articles/components/Comments/components/Footer/Footer'
 
 export default function ArticlePage({ article, error }) {
   const [overlay, setOverlay] = useState(null)

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Header from './layout/Header';
-import ActivityResultList from './activity/ResultList';
-import Footer from './layout/Footer';
+import Header from '../components/Header/Header';
+import ActivityResultList from './../components/Activity/components/ResultList';
+import Footer from '../components/Footer/Footer';
 import ChatOverlay from './ui/ChatOverlay';
-import SignupOverlay from './ui/LoginOverlay';
-import HeaderMobile from './layout/Header/HeaderMobile';
-import MobileNavbar from './layout/MobileNavbar'
-import MoreOverlay from './ui/MoreOverlay';
-import SearchResultsOverlay from './ui/SearchResultsOverlay';
+import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
+import HeaderMobile from '../components/Header/HeaderMobile';
+import MobileNavbar from '../components/MobileNavbar/MobileNavbar'
+import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
+import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
 import './Activity.module.css';
 
 export default function Activity() {
