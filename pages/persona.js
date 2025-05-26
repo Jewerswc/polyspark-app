@@ -9,7 +9,7 @@ import HeaderMobile from '../components/Header/HeaderMobile';
 import UserProfileCardMobile from '../components/LoginOverlay/components/LoginOverlayMobile';
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
 import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayIphone';
-import LightboxOverlay from './ui/LightboxOverlay';
+import LightboxOverlay from './../components/Articles/LightboxOverlay';
 import { TRENDING } from './constants/CategoryConstants';
 import Carousel from './personas/Carousel'
 import popular from './personas/personas.json';
