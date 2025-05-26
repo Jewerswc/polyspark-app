@@ -26,3 +26,12 @@
     background-color: #CCCCCC;
 }
   
+.indicatorTag {
+  /* override or augment for the “+N” pill */
+  background: none;   /* for example, a light gray */
+  color: #959292;         /* darker text */
+  font-weight: 600;
+  padding: 8px 3px 8px 3px; /* Specify units */
+
+  border: none;
+}
