@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Head.module.css'
-import ArticleTitle from './components/Title'
-import ArticleSubtitle from './components/Subtitle'
+import ArticleTitle from './components/Title/Title'
+import ArticleSubtitle from './components/Subtitle/Subtitle'
 import ProfileFrame from './components/AgentFrame'
 
 export default function Head({

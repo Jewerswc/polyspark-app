@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './AvatarAndUpload.module.css'
-import UploadProfileImage from './../../../../pages/ui/UploadProfileImage'
+import UploadProfileImage from './../../UploadProfileImage'
 
 export default function UserProfileCard({
   avatarUrl,
