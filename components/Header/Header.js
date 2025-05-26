@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SignupOverlay from './../LoginOverlay/components/LoginOverlay';
-import ChatOverlay from '../../pages/ui/ChatOverlay';
+import ChatOverlay from '../ChatOverlay/ChatOverlay';
 import styles from './Header.module.css';
 import PolysparkLogo from './components/Logo/Logo.module';
 import SearchInput from './components/Search/components/SearchInput/SearchInput';

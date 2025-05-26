@@ -1,7 +1,7 @@
 // CategoriesRowMobile.jsx
 import React from 'react'
-import Top from '../../components/Category Row Mobile/Top'
-import CategoryLabelMobile from '../../components/Category Row Mobile/CategoryLabelMobile'
+import Top from '../Category Row Mobile/Top'
+import CategoryLabelMobile from '../Category Row Mobile/CategoryLabelMobile'
 import styles from './CategoriesRowMobile.module.css'
 
 export const defaultCategories = [

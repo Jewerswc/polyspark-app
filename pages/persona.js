@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import ChatOverlay from './ui/ChatOverlay';
+import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from '../components/LoginOverlay/components/LoginOverlay';
 import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
 import HeaderMobile from '../components/Header/HeaderMobile';
 import UserProfileCardMobile from '../components/LoginOverlay/components/LoginOverlayMobile';
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
-import ChatOverlayIPhone from './ui/ChatOverlayIphone';
-import LightboxOverlay from './ui/LightboxOverlay';
+import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayIphone';
+import LightboxOverlay from '../components/Articles/LightboxOverlay';
 import { TRENDING } from './constants/CategoryConstants';
 import Carousel from './personas/Carousel'
 import popular from './personas/personas.json';

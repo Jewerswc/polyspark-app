@@ -5,7 +5,7 @@ import AgentandNavbar from './../components/Agents/ProfileLayout'
 import Footer from '../components/Footer/Footer';
 import NavbarMobile from '../components/MobileNavbar/MobileNavbar';
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
-import ChatOverlay from './ui/ChatOverlay';
+import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
 import ProfileLayoutMobile from './../components/Agents/ProfileLayoutMobile'
 import './Activity.module.css';

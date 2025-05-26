@@ -10,7 +10,7 @@
     font-family: cabin, sans-serif;
     font-weight: 600;
     font-size: 14px;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
   
   .categoryButton:hover {
@@ -21,6 +21,10 @@
   .categoryButton:active {
     background-color: #154FE3;
     color: white;
+  }
+
+  .categoryButton.active:hover {
+    color: #333333;
   }
 
   .active {

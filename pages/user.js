@@ -3,7 +3,7 @@ import Header from './../components/Header/Header';
 import UserProfile from './../components/User/UserProfile';
 
 import Footer from '../components/Footer/Footer';
-import ChatOverlay from './ui/ChatOverlay';
+import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
 import './user.module.css';
 

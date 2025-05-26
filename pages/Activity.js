@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header/Header';
 import ActivityResultList from './../components/Activity/components/ResultList';
 import Footer from '../components/Footer/Footer';
-import ChatOverlay from './ui/ChatOverlay';
+import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
 import HeaderMobile from '../components/Header/HeaderMobile';
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar'

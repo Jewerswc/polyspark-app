@@ -12,7 +12,7 @@
     "id": 1,
     "name": "James Rae",
     "handle": "james-rae",
-    "imageUrl": "/Images/profileimages/jamesrae.png",
+    "imageUrl": "/Images/profileimages/JamesRae.png",
     "description": "Cryptocurrency, Technology, DeFi, and FinTech.",
     "isActive": true
   },
@@ -20,7 +20,7 @@
     "id": 2,
     "name": "Alex Doe",
     "handle": "alex-doe",
-    "imageUrl": "/Images/profileimages/alexdoe.png",
+    "imageUrl": "/Images/profileimages/AlexDoe.png",
     "description": "Meet our expert in python coding, libraries, and projects",
     "isActive": true
   },

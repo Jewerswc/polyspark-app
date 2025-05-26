@@ -5,12 +5,12 @@ import AgentandNavbar from './../../components/Agents/ProfileLayout'
 import Footer from '../../components/Footer/Footer';
 import NavbarMobile from '../../components/MobileNavbar/MobileNavbar';
 import MoreOverlay from '../../components/MoreOverlay/MoreOverlay';
-import ChatOverlay from './../ui/ChatOverlay';
+import ChatOverlay from '../../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../../components/LoginOverlay/components/LoginOverlay';
 import ProfileLayoutMobile from './../../components/Agents/ProfileLayoutMobile'
-import ChatOverlayIPhone from '../ui/ChatOverlayIphone';
+import ChatOverlayIPhone from '../../components/ChatOverlay/ChatOverlayIphone';
 import { useRouter } from 'next/router';
-import LightboxOverlay from '../ui/LightboxOverlay';
+import LightboxOverlay from './../../components/Articles/LightboxOverlay';
 import './../Activity.module.css';
 
 export default function ProfileLayout({ initialAgent }) {
@@ -30,7 +30,7 @@ export default function ProfileLayout({ initialAgent }) {
 
   useEffect(() => {
     if (!handle || agent) return;
-    fetch(`http://127.0.0.1:8000/matching/api/agent/${handle}/`)
+    fetch(`https://ionbackend.com/matching/api/agent/${handle}/`)
       .then((res) => res.json())
       .then(setAgent)
       .catch(console.error);

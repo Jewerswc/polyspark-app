@@ -4,18 +4,18 @@ import Header from '../components/Header/Header';
 import PersonaCardRow from '../components/PersonaCards/PersonaCardRow';
 import FeedWithToolbar from './layout/FeedWithToolbar';
 import Footer from '../components/Footer/Footer';
-import ChatOverlay from './ui/ChatOverlay';
+import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
 import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
 import HeaderMobile from '../components/Header/HeaderMobile';
 import PersonaCardRowMobile from '../components/PersonaCards/PersonaCardRowMobile';
-import CategoriesRowMobile from './ui/CategoriesRowMobile';
+import CategoriesRowMobile from '../components/CategoryToolbar/CategoriesRowMobile';
 import FeedCardsColumn from './layout/FeedCardColumn';
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import UserProfileCardMobile from './../components/LoginOverlay/components/LoginOverlayMobile';
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
-import ChatOverlayIPhone from './ui/ChatOverlayIphone';
-import LightboxOverlay from './ui/LightboxOverlay';
+import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayIphone';
+import LightboxOverlay from './../components/Articles/LightboxOverlay';
 import { TRENDING } from './constants/CategoryConstants';
 
 function useIsMobile(breakpoint = 768) {
