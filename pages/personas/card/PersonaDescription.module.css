@@ -7,6 +7,10 @@
   line-height: 15px;
   font-size: 12px;
   max-width: 201px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
 }
 
 @media (max-width: 768px) {

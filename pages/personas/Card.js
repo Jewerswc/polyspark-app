@@ -10,7 +10,7 @@ export default function Name({
   imageUrl,
   description,
   isActive,
-  lastActive,
+  lastPosted,
   actionType,
   profileUrl,
 }) {
@@ -24,7 +24,7 @@ export default function Name({
       />
       <BottomContainer
         isActive={isActive}
-        lastActive={lastActive} 
+        lastPosted={lastPosted} 
         actionType={actionType}
         profileUrl={profileUrl}
       />

@@ -12,11 +12,10 @@ import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayIphone';
 import LightboxOverlay from './../components/Articles/LightboxOverlay';
 import { TRENDING } from './constants/CategoryConstants';
 import Carousel from './personas/Carousel'
-import popular from './personas/personas.json';
-import active from './personas/active.json';
 import newPersonas  from './personas/new.json';
 import PersonaCardsRow from './personas/FeaturedRow';
 import styles from './persona.module.css'
+import FetchCarousel from './personas/FetchCarousel';
 import CarouselMobile from './personas/CarouselMobile'
 
 
@@ -37,14 +36,15 @@ export default function Persona({
 
   initialAgent,
     label,
-    personas = [],
+  
     onHeaderClick,
     onChatClick,
     actionType,            // "chat" or "profile"
     profileUrlFn           // optional: (persona) => string
   }) {
   const router = useRouter();
-  const { category } = router.query;
+  const category = router.query.category || 'popular';
+
   const isMobile = useIsMobile();
 
   const [searchOpen, setSearchOpen] = useState(false);
@@ -119,8 +119,14 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
         setChatOpen(true);
       };
   const closeMobileChat = () => setChatOpen(false);
-
-
+  const [personas, setPersonas] = useState([]);
+  useEffect(() => {
+    // normalize to “popular” | “new” | “active” | “rising”
+    const cat = category.toLowerCase().replace(/\W/g, '') || 'popular';
+    fetch(`http://127.0.0.1:8000/matching/personas/?category=${cat}`)
+      .then(r => r.json())
+      .then(data => setPersonas(data));
+  }, [category]);
 
   return (
     <div className={isMobile ? styles.pageWrapperMobile : styles.pageWrapper}>
@@ -186,16 +192,26 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
           />
           <div className={styles.mainContent}>
             <PersonaCardsRow onChatClick={openChatOverlay} />
-             <Carousel label="(12) Popular" personas={popular} />
-             <Carousel label="(12) New" personas={newPersonas} />
-             <Carousel
-              label="Popular"
-              personas={popular}
-              actionType="profile"
-              profileUrlFn={p => `/profile/${p.handle}`}    // ← this is critical!
+                        <FetchCarousel
+              label="(12) Popular"
+              categoryKey="popular"
               onChatClick={openChatOverlay}
-            />            
-            <Carousel label="(12) Rising" personas={active} />
+            />
+                                   <FetchCarousel
+              label="(12) New"
+              categoryKey="new"
+              onChatClick={openChatOverlay}
+            />
+                                               <FetchCarousel
+              label="(12) Rising"
+              categoryKey="rising"
+              onChatClick={openChatOverlay}
+            />
+            <FetchCarousel
+  label="Most Active"
+  categoryKey="most_active"
+  onChatClick={openChatOverlay}
+/>
 
           </div>
           <Footer />

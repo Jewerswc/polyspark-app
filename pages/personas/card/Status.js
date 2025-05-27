@@ -4,30 +4,32 @@ import StatusTag from './StatusTag';
 /**
  * Props:
  *  - isActive: boolean
- *  - lastActive: Date|string (ISO timestamp or Date instance)
+ *  - lastPosted: string (ISO) or Date
  */
-export default function Status({ isActive, lastActive }) {
-  const now = new Date();
+export default function Status({ isActive, lastPosted }) {
+  const now = Date.now();
   let text = 'Unknown';
   let dotColor = '#808080';
 
   if (isActive) {
-    // user is currently active
     text = 'Active now';
-    dotColor = '#04E81B';            // green
-  } else if (lastActive) {
-    // compute time difference
-    const last = new Date(lastActive);
+    dotColor = '#04E81B';
+  } else if (lastPosted) {
+    const last = new Date(lastPosted).getTime();
     const diffMs = now - last;
     const diffHrs = diffMs / (1000 * 60 * 60);
-    if (diffHrs < 24) {
-      const hours = Math.max(1, Math.floor(diffHrs));
-      text = `Active ${hours}h ago`;
-      dotColor = '#FFA500';          // orange
+
+    if (diffHrs < 1) {
+      text = 'Active just now';
+      dotColor = '#04E81B';
+    } else if (diffHrs < 24) {
+      const hrs = Math.floor(diffHrs);
+      text = `Active ${hrs}h ago`;
+      dotColor = '#FFA500';
     } else {
       const days = Math.floor(diffHrs / 24);
       text = `Active ${days}d ago`;
-      dotColor = '#B0B0B0';          // grey
+      dotColor = '#B0B0B0';
     }
   }
 

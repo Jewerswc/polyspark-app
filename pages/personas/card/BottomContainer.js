@@ -8,15 +8,15 @@ import { useRouter } from 'next/router';
 
 export default function Name({
   isActive,
-  lastActive,
+  lastPosted,
   actionType,
   profileUrl,
-  onChatClick
+  onChatClick, 
 }) {
   const router = useRouter();
   return (
     <div className={styles.container}>
-      <Status isActive={isActive} lastActive={lastActive} />
+      <Status isActive={isActive} lastPosted={lastPosted} />
 
             {actionType === 'profile' && profileUrl ? (
         <ChatButton
