@@ -16,7 +16,7 @@ export default function AuthAndHamburgerRow({
     { label: 'Sign Up',           onClick: onSignupClick },
     { label: 'Log In', divider: true, onClick: onLoginClick },
     { label: 'Personas',        onClick: () => router.push('/persona') },  
-    { label: 'Activity',        onClick: () => router.push('/activity') },  
+    { label: 'Activity',        onClick: () => router.push('/Activity') },  
 
     { label: 'Report an Issue',   onClick: onReportClick },
     { label: 'Privacy',           onClick: () => {} },
