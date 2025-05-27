@@ -3,7 +3,7 @@ import ChatNowButton from './NavigationButton/NavigationButton';
 import styles from './NavigationButtonColumn.module.css';
 
 const defaultButtons = [
-  { label: 'Trending',      href: '/MainPageMobile' },
+  { label: 'Trending',      href: '/' },
   { label: 'Latest Activity', href: '/Activity' },
   { label: 'Personas',      href: '/persona' },
   { label: 'Get Lucky',     href: '/get-lucky' },
