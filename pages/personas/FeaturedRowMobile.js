@@ -58,7 +58,7 @@ export default function PersonaCardRowMobile({ onChatClick }) {
               gradientEnd={persona.gradientEnd}
               chatButtonColor={persona.chatButtonColor}
               // Forward personaName to handler
-              onChatClick={() => onChatClick(persona.name)}
+              onChatClick={() => onChatClick(persona)}
               style={{ width }}
             />
           );

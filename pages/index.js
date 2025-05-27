@@ -36,15 +36,14 @@ export default function MainPage() {
 
   const [searchOpen, setSearchOpen] = useState(false);
   const handleSearchClick = () => {
-      if (moreOpen) {
+    if (moreOpen) {
       setMoreOpen(false);
-        setOverlayMounted(false);
-      }
-      setSearchOpen(open => !open);
-    };
+      setOverlayMounted(false);
+    }
+    setSearchOpen(open => !open);
+  };
   const closeSearch = () => setSearchOpen(false);
 
-    
   const [activeCategory, setActiveCategory] = useState(category || TRENDING);
   const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
@@ -63,6 +62,7 @@ export default function MainPage() {
   };
   const closeChatOverlay = () => setChatOverlayVisible(false);
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
+
   const [activeLabel, setActiveLabel] = useState('Top');
   const [moreOpen, setMoreOpen] = useState(false);
   const [overlayMounted, setOverlayMounted] = useState(false);
@@ -87,7 +87,12 @@ export default function MainPage() {
     }
     openLogin();
   };
-  const openMobileChat = (persona) => setChatOpen(true);
+
+  // Updated: ensure mobile chat also sets selected persona
+  const openMobileChat = (persona) => {
+    setSelectedPersona(persona);
+    setChatOpen(true);
+  };
   const closeMobileChat = () => setChatOpen(false);
 
   return (
@@ -106,9 +111,9 @@ export default function MainPage() {
               onImageClick={setLightboxSrc}
             />
             <MobileNavbar
-            onMoreClick={handleMoreClick} 
-            moreOpen={moreOpen} 
-            onSearchClick={handleSearchClick}
+              onMoreClick={handleMoreClick}
+              moreOpen={moreOpen}
+              onSearchClick={handleSearchClick}
             />
           </div>
 
@@ -121,14 +126,15 @@ export default function MainPage() {
               onSignup={openLoginAndCloseMore}
             />
           )}
-          {chatOpen && (
+          {chatOpen && selectedPersona && (
             <ChatOverlayIPhone
-              persona={selectedPersona?.slug}
+              persona={selectedPersona.slug}
+              name={selectedPersona.name}
               onClose={closeMobileChat}
             />
           )}
-       
-       {searchOpen && <SearchResultsOverlay onClose={closeSearch} />}
+
+          {searchOpen && <SearchResultsOverlay onClose={closeSearch} />}
         </>
       ) : (
         <> {/* Desktop Layout */}
