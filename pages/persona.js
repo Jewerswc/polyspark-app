@@ -139,8 +139,13 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
                      personas={active}
                      onPersonaClick={openMobileChat}
                      />
-                                                              <CarouselMobile 
+                    <CarouselMobile 
                      label="Popular"
+                     personas={popular}
+                     onPersonaClick={openMobileChat}
+                     />
+                                         <CarouselMobile 
+                     label="Rising"
                      personas={popular}
                      onPersonaClick={openMobileChat}
                      />
@@ -183,12 +188,13 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
              <Carousel label="(12) Popular" personas={popular} />
              <Carousel label="(12) New" personas={newPersonas} />
              <Carousel
-  label="Popular"
-  personas={popular}
-  actionType="profile"
-  profileUrlFn={p => `/profile/${p.handle}`}    // ← this is critical!
-  onChatClick={openChatOverlay}
-/>             <Carousel label="(12) Rising" personas={active} />
+              label="Popular"
+              personas={popular}
+              actionType="profile"
+              profileUrlFn={p => `/profile/${p.handle}`}    // ← this is critical!
+              onChatClick={openChatOverlay}
+            />            
+            <Carousel label="(12) Rising" personas={active} />
 
           </div>
           <Footer />
