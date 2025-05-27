@@ -16,7 +16,7 @@ export default function UserProfileCard({ onClose }) {
       </div>
       <div className={styles.card}>
         <img
-          src="./Images/Frame 224.png"
+          src="/Images/Frame 224.png"
           className={styles.avatar}
           style={{ cursor: 'pointer' }}
         />
