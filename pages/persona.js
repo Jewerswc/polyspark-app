@@ -34,6 +34,8 @@ function useIsMobile(breakpoint = 768) {
 }
 
 export default function Persona({
+
+  initialAgent,
     label,
     personas = [],
     onHeaderClick,
@@ -54,8 +56,11 @@ export default function Persona({
       setSearchOpen(open => !open);
     };
   const closeSearch = () => setSearchOpen(false);
+  const [agent, setAgent] = useState(initialAgent);
 
-    
+  const [chatPersona, setChatPersona] = useState('');
+  const [chatName, setChatName] = useState('');
+  const [chatAvatarUrl, setChatAvatarUrl] = useState('');
   const [activeCategory, setActiveCategory] = useState(category || TRENDING);
   const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
@@ -67,6 +72,14 @@ export default function Persona({
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [selectedPersona, setSelectedPersona] = useState(null);
+  const openChatOverlayMobile = () => {
+    // grab the current agent and open
+    setChatPersona(agent.handle)
+    setChatName(agent.name)
+    setIsChatOpen(true)
+  }
+const closeChatOverlayMobile = () => setIsChatOpen(false)
+
 
   const openChatOverlay = (persona) => {
     setSelectedPersona(persona);
@@ -98,7 +111,13 @@ export default function Persona({
     }
     openLogin();
   };
-  const openMobileChat = (persona) => setChatOpen(true);
+    const openMobileChat = (persona) => {
+        setSelectedPersona(persona);
+        setChatPersona(persona.handle);
+        setChatName(persona.name);
+        setChatAvatarUrl(persona.image);
+        setChatOpen(true);
+      };
   const closeMobileChat = () => setChatOpen(false);
 
 
@@ -143,8 +162,11 @@ export default function Persona({
           )}
           {chatOpen && (
             <ChatOverlayIPhone
-              persona={selectedPersona?.slug}
+              persona={selectedPersona.slug}
+              name={selectedPersona.name}
               onClose={closeMobileChat}
+              onChatClick={openChatOverlayMobile}
+              
             />
           )}
        
