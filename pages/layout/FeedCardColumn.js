@@ -1,5 +1,6 @@
 import React from 'react';
 import FeedCardLayout from '../../components/FeedCard/Feedcard';
+import SkeletonFeedCard from '../../components/FeedCard/SkeletonFeedCard';
 import styles from './FeedCardColumn.module.css';
 import useArticles from './../../components/hooks/useArticles';
 
@@ -11,9 +12,16 @@ export default function FeedCardsColumn({ activeLabel, onImageClick }) {
   });
 
   // 2) loading & empty states
-  if (loading) {
-    return <div>Loading…</div>;
-  }
+    if (loading) {
+        // show 6 skeleton cards (or however many you'd like)
+        return (
+          <div className={styles.gridContainer}>
+            {Array.from({ length: 6 }).map((_, i) => (
+              <SkeletonFeedCard key={i} />
+            ))}
+          </div>
+        );
+      }
   if (!articles || articles.length === 0) {
     return <div>No results found.</div>;
   }

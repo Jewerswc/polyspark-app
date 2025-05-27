@@ -1,0 +1,81 @@
+/* pulse shimmer */
+@keyframes pulse {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+  
+  .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    height: 176px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;              /* take up all space except the thumbnail */
+    gap: 8px;
+  }
+  
+  .title {
+    width: 60%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .description {
+    width: 100%;
+    height: 14px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .descriptionShort {
+    width: 80%;
+    height: 14px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .metaRow {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;   /* push to bottom of the content column */
+  }
+  
+  .metaItemWide,
+  .metaItem {
+    height: 16px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .metaItemWide {
+    width: 50px;      /* e.g. like the “Post” pill */
+  }
+  
+  .metaItem {
+    width: 30px;      /* like a tag or author pill */
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin-left: 16px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
