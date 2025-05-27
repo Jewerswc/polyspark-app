@@ -131,6 +131,7 @@ export default function MainPage() {
               persona={selectedPersona.slug}
               name={selectedPersona.name}
               onClose={closeMobileChat}
+              avatarUrl={selectedPersona.image}
             />
           )}
 

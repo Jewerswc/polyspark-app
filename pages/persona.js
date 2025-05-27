@@ -168,6 +168,7 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
           {chatOpen && (
             <ChatOverlayIPhone
               persona={selectedPersona.slug}
+              avatarUrl={selectedPersona.image}
               name={selectedPersona.name}
               onClose={closeMobileChat}
               onChatClick={openChatOverlayMobile}

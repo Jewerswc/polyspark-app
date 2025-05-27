@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './ChatOverlayIPhone.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-export default function ChatOverlayIPhone({ persona, onClose }) {
+export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl }) {
   const userImg = 'Images/Avatars.png';
   const assistantImg = 'Images/profileimages/AlexDoe.png';
 
@@ -89,7 +89,7 @@ export default function ChatOverlayIPhone({ persona, onClose }) {
         <div className={styles.chatHeader}>
           <div className={styles.headerTitleGroup}>
             <img src="/Images/Polyspark.png" alt="Assistant avatar" />
-            <h2>Alex Doe</h2>
+            <h2>{name}</h2>
           </div>
           <button
             className={styles.closeButton}
@@ -111,7 +111,7 @@ export default function ChatOverlayIPhone({ persona, onClose }) {
               }`}
             >
               <img
-                src={msg.role === 'user' ? userImg : assistantImg}
+                src={msg.role === 'user' ? userImg : avatarUrl}
                 alt={`${msg.role} avatar`}
                 className={styles.avatar}
               />
