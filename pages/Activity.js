@@ -7,6 +7,7 @@ import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay'
 import HeaderMobile from '../components/Header/HeaderMobile';
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar'
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
+import LoginOverlayMobile from './../components/LoginOverlay/components/LoginOverlayMobile';
 import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
 import './Activity.module.css';
 
@@ -40,6 +41,7 @@ export default function Activity() {
 
   const [loginOpen, setLoginOpen] = useState(false);
   const openLogin  = () => setLoginOpen(true);
+  const closeLogin = () => setLoginOpen(false);
 
 
   const openLoginAndCloseMore = () => {
@@ -68,7 +70,15 @@ export default function Activity() {
   return (
     <div className="pageWrapper">
       {isMobile
-          ? <HeaderMobile onSignupClick={openSignupOverlay} />
+          ?            <HeaderMobile 
+                        onMoreClick={handleMoreClick}
+                        moreOpen={moreOpen}
+                        onSearchClick={handleSearchClick}
+                        // make the mobile “signup” button actually open the mobile login overlay:
+                        onSignupClick={openLogin}
+                        // if you have a separate login button, wire that too:
+                        onLoginClick={openLogin}
+                      />
           : <Header             onSignupClick={openSignupOverlay} />}
       
 
@@ -99,10 +109,22 @@ export default function Activity() {
             onSignup={openLoginAndCloseMore}
           />
         )}
-      {isSignupOverlayVisible && (
-        <SignupOverlay 
+      {/* Mobile-login vs Desktop-signup */}
+      {loginOpen && (
+        isMobile
+          ? <LoginOverlayMobile onClose={closeLogin} />
+          : <SignupOverlay
+              onGoogleContinue={() => console.log("Google Continue")}
+              onEmailContinue={email => console.log("Email submitted:", email)}
+              onClose={closeLogin}
+            />
+      )}
+
+      {/* if you still want a separate desktop-only “signup” flow */}
+      {isSignupOverlayVisible && !isMobile && (
+        <SignupOverlay
           onGoogleContinue={() => console.log("Google Continue")}
-          onEmailContinue={(email) => console.log("Email submitted:", email)}
+          onEmailContinue={email => console.log("Email submitted:", email)}
           onClose={closeSignupOverlay}
         />
       )}

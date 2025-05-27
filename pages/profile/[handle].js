@@ -10,6 +10,7 @@ import SignupOverlay from './../../components/LoginOverlay/components/LoginOverl
 import ProfileLayoutMobile from './../../components/Agents/ProfileLayoutMobile'
 import ChatOverlayIPhone from '../../components/ChatOverlay/ChatOverlayIphone';
 import { useRouter } from 'next/router';
+import LoginOverlayMobile from './../../components/LoginOverlay/components/LoginOverlayMobile';
 import LightboxOverlay from './../../components/Articles/LightboxOverlay';
 import './../Activity.module.css';
 
@@ -43,6 +44,17 @@ export default function ProfileLayout({ initialAgent }) {
   const [overlayMounted, setOverlayMounted] = useState(false);
   const [chatPersona, setChatPersona] = useState('');
   const [chatName, setChatName] = useState('');
+  const openLogin = () => setLoginOpen(true);
+  const [loginOpen, setLoginOpen] = useState(false);
+  
+  const closeLogin = () => setLoginOpen(false);
+  const openLoginAndCloseMore = () => {
+    if (moreOpen) {
+      setMoreOpen(false);
+      setOverlayMounted(false);
+    }
+    openLogin();
+  };
   const handleMoreClick = () => {
     if (!moreOpen) {
       setOverlayMounted(true);
@@ -68,9 +80,21 @@ export default function ProfileLayout({ initialAgent }) {
   return (
     <div className="pageWrapper">
       {isMobile
-          ? <HeaderMobile onSignupClick={openSignupOverlay} />
+          ? <HeaderMobile onLoginClick={openLogin} onSignupClick={openLogin} />
           : <Header             onSignupClick={openSignupOverlay} />}      
       
+            {/* Mobile vs Desktop login/signup */}
+      {loginOpen && (
+        isMobile
+          ? <LoginOverlayMobile onClose={closeLogin} />
+          : <SignupOverlay
+              onGoogleContinue={() => console.log("Google Continue")}
+              onEmailContinue={email => console.log("Email submitted:", email)}
+              onClose={closeLogin}
+            />
+      )}
+
+
       <div className="mainContent">
 
       {isMobile ? (
