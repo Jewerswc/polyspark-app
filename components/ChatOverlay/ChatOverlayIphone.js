@@ -88,7 +88,7 @@ export default function ChatOverlayIPhone({ persona, onClose }) {
       <div className={styles.chatCard}>
         <div className={styles.chatHeader}>
           <div className={styles.headerTitleGroup}>
-            <img src="./Images/Polyspark.png" alt="Assistant avatar" />
+            <img src="/Images/Polyspark.png" alt="Assistant avatar" />
             <h2>Alex Doe</h2>
           </div>
           <button
