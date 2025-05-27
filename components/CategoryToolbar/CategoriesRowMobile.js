@@ -47,8 +47,6 @@ export default function CategoriesRowMobile({
               onClick={() => onLabelClick('New')}
             />
 
-      {loading && <span className={styles.loading}>Loading…</span>}
-      {error && <span className={styles.error}>{error}</span>}
 
       {/* Dynamic tags (or fallback) */}
       {displayLabels.map(label => (
