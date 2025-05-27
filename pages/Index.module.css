@@ -1,45 +1,59 @@
+/* Base (desktop) */
 .pageWrapper {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  display: grid;
+  grid-template-rows: 100px 1fr 60px;
 }
 
 .header {
-  position: fixed;
+  grid-row: 1;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   height: 100px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
-  z-index: 100;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: #ffffff;
-  border-top: 1px solid #ddd;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* …your existing header styles… */
 }
 
 .mainContent {
-  margin-top: 100px;            
-  margin-bottom: 160px;          
-  height: calc(100vh - 180px); 
+  grid-row: 2;
+  margin: 0;               /* remove manual margins */
+  height: auto;            /* let grid size it */
   overflow-y: auto;
-  padding-top: 10px; 
-  background-color: #f9f9f9;
   padding: 20px;
+  background: #f9f9f9;
+}
+
+.footer {
+  grid-row: 3;
+  position: sticky;
+  bottom: 0;
+  height: 60px;
+  /* …your existing footer styles… */
+}
+
+/* Mobile overrides */
+@media (max-width: 767px) {
+  .pageWrapper {
+    /* allow full scroll, don’t lock viewport */
+    height: auto;
+    overflow: visible;
+    grid-template-rows: 60px 1fr 50px;
+  }
+
+  .header {
+    height: 60px;
+    flex-direction: row;    /* if you want a slimmer header row */
+    padding: 8px;
+  }
+
+  .mainContent {
+    /* respect the new header/footer heights */
+    padding: 10px;
+    overflow-y: auto;
+  }
+
+  .footer {
+    height: 50px;
+  }
 }
