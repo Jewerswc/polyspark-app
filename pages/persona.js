@@ -135,26 +135,26 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
           <HeaderMobile onLoginClick={openLogin} onSignupClick={openLogin} />
           <div className={styles.mainContentMobile}>
                      <FeaturedRowMobile onChatClick={openMobileChat} />
-                     <CarouselMobile 
-                     label="New"
-                     personas={newPersonas}
-                     onPersonaClick={openMobileChat}
-                     />
-                                          <CarouselMobile 
-                     label="Most Active"
-                     personas={active}
-                     onPersonaClick={openMobileChat}
-                     />
-                    <CarouselMobile 
-                     label="Popular"
-                     personas={popular}
-                     onPersonaClick={openMobileChat}
-                     />
-                                         <CarouselMobile 
-                     label="Rising"
-                     personas={popular}
-                     onPersonaClick={openMobileChat}
-                     />
+                     <CarouselMobile
+                      label="New"
+                      categoryKey="new"
+                      onPersonaClick={openMobileChat}
+                    />
+                    <CarouselMobile
+                      label="Popular"
+                      categoryKey="popular"
+                      onPersonaClick={openMobileChat}
+                    />
+                    <CarouselMobile
+                      label="Rising"
+                      categoryKey="rising"
+                      onPersonaClick={openMobileChat}
+                    />
+                                        <CarouselMobile
+                      label="Most Active"
+                      categoryKey="most active"
+                      onPersonaClick={openMobileChat}
+                    />
                      <MobileNavbar
                      onMoreClick={handleMoreClick} 
                      moreOpen={moreOpen} 

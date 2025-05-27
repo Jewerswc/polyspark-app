@@ -4,12 +4,12 @@ import GoogleButton from './ContinueWithGoogle/ContinueWithGoogle';
 import ORDivider from './Divider/OrDivider';
 import EmailInputWithButton from './EmailInput/EmailInput';
 import TermsPrivacy from './TermsPrivacy';
-import API from '../../../pages/api/api';
+import API from './../../../pages/api/api';
 
 export default function SignupOverlay({ onLoginSuccess, onClose }) {
   const [error, setError] = useState('');
 
-  // callback when Google returns an ID token
+  // 1️⃣ Handles the credential once Google returns it
   const handleCredentialResponse = async ({ credential }) => {
     try {
       const res = await API.post('google_auth/', { credential });
@@ -24,22 +24,26 @@ export default function SignupOverlay({ onLoginSuccess, onClose }) {
     }
   };
 
-  // initialize the Google Identity SDK once
+  // 2️⃣ Initialize *once* on mount
   useEffect(() => {
-    if (window.google && window.google.accounts && !window._gsiInitialized) {
+    if (
+      typeof window !== 'undefined' &&
+      window.google &&
+      window.google.accounts &&
+      !window._gsiInitialized
+    ) {
       window.google.accounts.id.initialize({
         client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
         callback: handleCredentialResponse,
       });
-      // flag so we don't re-init on every render
       window._gsiInitialized = true;
     }
   }, []);
 
-  // your custom button simply fires the prompt
+  // 3️⃣ Your custom button simply fires the GSI prompt
   const handleGoogleContinue = () => {
     if (window.google && window.google.accounts) {
-      window.google.accounts.id.prompt();  
+      window.google.accounts.id.prompt(); // this will pop up the Google chooser / One-Tap
     } else {
       setError('Google SDK not loaded yet.');
     }
@@ -50,7 +54,6 @@ export default function SignupOverlay({ onLoginSuccess, onClose }) {
       <div className={styles.card} onClick={e => e.stopPropagation()}>
         <h2 className={styles.heading}>Welcome to PolySpark</h2>
 
-        {/* keep your own button */}
         <GoogleButton onClick={handleGoogleContinue} />
         {error && <p className={styles.error}>{error}</p>}
 
