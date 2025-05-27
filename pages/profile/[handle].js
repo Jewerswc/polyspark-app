@@ -100,7 +100,10 @@ export default function ProfileLayout({ initialAgent }) {
       {isMobile ? (
    <ProfileLayoutMobile
               onChatClick={openChatOverlayMobile}
- 
+              handle={agent?.handle}
+              agentHandle={agent?.handle}
+              agentName={agent?.name}
+
     agent={agent}
     onImageClick={setLightboxSrc}
     
