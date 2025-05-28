@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
-import SignupOverlay from '../components/LoginOverlay/LoginOverlay';
+import SignupOverlay from './../components/LoginOverlay/LoginOverlay';
 import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
 import HeaderMobile from '../components/Header/HeaderMobile';
 import UserProfileCardMobile from '../components/LoginOverlay/components/LoginOverlayMobile';
