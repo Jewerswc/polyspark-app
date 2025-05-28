@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import PersonasButton from './Five Widgets/PersonasButton';
 import BrowseMenu from './PersonasDropdown/PersonasDropdown';
-import styles from './ActionsDropdown.module.css';
+import styles from './..ActionsDropdown.module.css';
 
 export default function ActionsDropdown() {
   const [isVisible, setIsVisible] = useState(false);

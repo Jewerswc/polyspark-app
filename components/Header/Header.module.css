@@ -48,6 +48,8 @@
 .loggedIn {
   grid-area: auth;
   justify-self: end;
+
+
 }
 
 /* hide it but still take up the measured space */

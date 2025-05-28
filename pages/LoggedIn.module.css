@@ -2,11 +2,10 @@
     display: inline-flex;               /* hug content width */
     align-items: center;
     gap: 16px;
-    padding: 4px 8px 4px 4px;
+    padding: 4px 16px 4px 4px;
     border-radius: 22px;
     color: #666;      
     margin-right: 24px;                  /* arrow colour via currentColor */
-
   }
   
   .image:hover {

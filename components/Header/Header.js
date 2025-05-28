@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import LoginOverlay from './../LoginOverlay/LoginOverlay';
 import ChatOverlay from '../ChatOverlay/ChatOverlay';
@@ -9,7 +9,7 @@ import ButtonRow from './components/PrimaryNav/PrimaryNav';
 import AuthAndHamburgerRow from './components/AuthControls/AuthControls';
 import TopNavbarBottomRow from './components/CategoryNav/CategoryNav';
 import ReportOverlay from '../ReportOverlay/ReportOverlay'
-import LoggedIn from './../../pages/Loggedin';
+import AvatarMenu from './AvatarMenu';
 
 export default function Header({
     activeCategory,
@@ -19,7 +19,13 @@ export default function Header({
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [isReportVisible, setReportVisible] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
-  const [isLoggedIn,         setLoggedIn]         = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false)
+  // on mount, seed from your real token store
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken')
+    setLoggedIn(!!token)
+  }, [])
+  
   const router = useRouter();
   const openOverlay = () => {
     setOverlayVisible(true);
@@ -59,7 +65,9 @@ export default function Header({
 
       {/* the “logged-in” avatar arrow */}
       <div className={`${styles.loggedIn} ${isLoggedIn ? '' : styles.hidden}`}>
-        <LoggedIn />
+        <AvatarMenu
+      
+        />
       </div>
     </div>
   </div>
