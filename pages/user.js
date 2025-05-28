@@ -4,7 +4,7 @@ import UserProfile from './../components/User/UserProfile';
 
 import Footer from '../components/Footer/Footer';
 import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
-import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
+import SignupOverlay from './../components/LoginOverlay/LoginOverlay';
 import './user.module.css';
 
 export default function App() {
