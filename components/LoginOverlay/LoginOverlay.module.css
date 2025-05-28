@@ -75,6 +75,12 @@
   font-size: 14px;
 }
 
+.error {
+  font-family: cabin;
+  font-size: 14px;
+  color: #666666;
+}
+
 /* Terms & Privacy area */
 .footerLinks {
   margin-top: 16px;

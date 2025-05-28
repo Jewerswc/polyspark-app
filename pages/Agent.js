@@ -6,7 +6,7 @@ import Footer from '../components/Footer/Footer';
 import NavbarMobile from '../components/MobileNavbar/MobileNavbar';
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
 import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
-import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
+import SignupOverlay from './../components/LoginOverlay/LoginOverlay';
 import ProfileLayoutMobile from './../components/Agents/ProfileLayoutMobile'
 import './Activity.module.css';
 

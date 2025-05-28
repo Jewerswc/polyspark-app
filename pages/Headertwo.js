@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import LoginOverlay from './../LoginOverlay/LoginOverlay';
-import ChatOverlay from '../ChatOverlay/ChatOverlay';
-import styles from './Header.module.css';
-import PolysparkLogo from './components/Logo/Logo.module';
-import SearchInput from './components/Search/components/SearchInput/SearchInput';
-import ButtonRow from './components/PrimaryNav/PrimaryNav';         
-import AuthAndHamburgerRow from './components/AuthControls/AuthControls';
-import TopNavbarBottomRow from './components/CategoryNav/CategoryNav';
-import ReportOverlay from '../ReportOverlay/ReportOverlay'
-import LoggedIn from './../../pages/Loggedin';
+import LoginOverlay from './../components/LoginOverlay/LoginOverlay';
+import ChatOverlay from './../components/ChatOverlay/ChatOverlay';
+import styles from './../components/Header/Header.module.css';
+import PolysparkLogo from './../components/Header/components/Logo/Logo.module';
+import SearchInput from './../components/Header/components/Search/components/SearchInput/SearchInput';
+import ButtonRow from './../components/Header/components/PrimaryNav/PrimaryNav';         
+import Loggedin from './Loggedin'
+import TopNavbarBottomRow from './../components/Header/components/CategoryNav/CategoryNav';
+import ReportOverlay from './../components/ReportOverlay/ReportOverlay'
 
 export default function Header({
     activeCategory,
@@ -19,7 +18,6 @@ export default function Header({
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [isReportVisible, setReportVisible] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
-  const [isLoggedIn,         setLoggedIn]         = useState(false);
   const router = useRouter();
   const openOverlay = () => {
     setOverlayVisible(true);
@@ -47,22 +45,8 @@ export default function Header({
             <SearchInput />
           </div>
           <ButtonRow />
-          <div className={styles.authWrapper}>
-      {/* the “not-logged-in” controls */}
-      <div className={`${styles.authControls} ${isLoggedIn ? styles.hidden : ''}`}>
-        <AuthAndHamburgerRow 
-          onSignupClick={openOverlay} 
-          onLoginClick={openOverlay}
-          onReportClick={openReportOverlay}
-        />
-      </div>
-
-      {/* the “logged-in” avatar arrow */}
-      <div className={`${styles.loggedIn} ${isLoggedIn ? '' : styles.hidden}`}>
-        <LoggedIn />
-      </div>
-    </div>
-  </div>
+          <Loggedin />
+        </div>
         <div className={styles.bottomRow}>
                
           <TopNavbarBottomRow
@@ -77,7 +61,6 @@ export default function Header({
           onClose={closeOverlay}
           onLoginSuccess={() => {
             setOverlayVisible(false);           // 👈 hide the modal
-            setLoggedIn(true); 
           }}
         />
       

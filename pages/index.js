@@ -5,7 +5,7 @@ import PersonaCardRow from '../components/PersonaCards/PersonaCardRow';
 import FeedWithToolbar from './layout/FeedWithToolbar';
 import Footer from '../components/Footer/Footer';
 import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
-import SignupOverlay from './../components/LoginOverlay/components/LoginOverlay';
+import LoginOverlay from './../components/LoginOverlay/LoginOverlay';
 import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
 import HeaderMobile from '../components/Header/HeaderMobile';
 import PersonaCardRowMobile from '../components/PersonaCards/PersonaCardRowMobile';
@@ -52,7 +52,6 @@ export default function MainPage() {
 
   const [lightboxSrc, setLightboxSrc] = useState(null);
 
-  const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [selectedPersona, setSelectedPersona] = useState(null);
 
@@ -61,7 +60,6 @@ export default function MainPage() {
     setChatOverlayVisible(true);
   };
   const closeChatOverlay = () => setChatOverlayVisible(false);
-  const closeSignupOverlay = () => setSignupOverlayVisible(false);
 
   const [activeLabel, setActiveLabel] = useState('Top');
   const [moreOpen, setMoreOpen] = useState(false);
@@ -117,7 +115,15 @@ export default function MainPage() {
             />
           </div>
 
-          {loginOpen && <UserProfileCardMobile onClose={closeLogin} />}
+          {loginOpen && (
+            <UserProfileCardMobile
+                onLoginSuccess={() => {
+                    setLoginOpen(false); 
+            }}
+              onClose={closeLogin}
+            />
+          )}
+
           {overlayMounted && (
             <MoreOverlay
               onClose={handleMoreClick}
@@ -163,12 +169,13 @@ export default function MainPage() {
               onClose={closeChatOverlay}
             />
           )}
-          {isSignupOverlayVisible && (
-            <SignupOverlay
-              onGoogleContinue={() => console.log('Google Continue')}
-              onEmailContinue={(email) => console.log('Email submitted:', email)}
-              onClose={closeSignupOverlay}
-            />
+          {loginOpen && (
+            <LoginOverlay
+            onLoginSuccess={() => {
+              setOverlayVisible(false);          
+            }}
+            onClose={closeLogin}
+          />
           )}
         </>
       )}

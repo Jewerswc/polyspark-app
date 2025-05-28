@@ -32,3 +32,26 @@
   gap: 1rem;
   padding: 0rem 0rem;
 }
+
+.authWrapper {
+  /* stack both children on top of each other, size to the larger */
+  display: grid;
+  grid-template-areas: "auth";
+  /* keep it from flex-growing or shrinking under space-between */
+  flex: 0 0 auto;
+}
+
+.authControls {
+  grid-area: auth;
+}
+
+.loggedIn {
+  grid-area: auth;
+  justify-self: end;
+}
+
+/* hide it but still take up the measured space */
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}

@@ -1,0 +1,123 @@
+/* components/LoginOverlay/OTPInput/OTPInput.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%; /* So it shrinks to fit the contents */
+  height: fit-content;
+  background-color: none;
+  border: 1px solid #D2D2D2;
+  border-radius: 8px;
+
+
+}
+
+.textInput {
+  display: block;
+  width: 100%;
+  padding: 12px 12px;
+  font-size: 16px;
+  border-right: none; /* So it merges neatly with the button */
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 6px;
+  border: 1px solid white;
+  outline: none;
+  background-color: #fff;
+  color: #585656;
+  font-family: cabin;
+  font-feature-settings: "calt" 0, "dlig" 0;
+  font-variant-alternates: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  text-transform: none;
+}
+.textInput:hover {
+  background-color: #F2F2F2;
+  /* Using border-color here since we have a transition on border-color */
+  border-color: #F2F2F2;
+}
+
+.textInput:focus {
+  background-color: #ffffff;
+  border: 1px solid #222222;
+}
+
+.instruction {
+  font-size: 0.95rem;
+  color: #333;
+  text-align: center;
+  font-family: cabin;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.input {
+  width: 6rem;            /* fixed width for 6 digits */
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #0070f3;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  background-color: #005bb5;
+}
+
+.back {
+  background: none;
+  border: none;
+  color: #0070f3;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: cabin;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.back:hover {
+  color: #005bb5;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  text-align: center;
+  font-family: cabin;
+}
