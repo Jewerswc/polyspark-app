@@ -1,7 +1,13 @@
+'use client'
+console.log('GSI client_id:', process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID)
+
+
 import React, { useEffect } from 'react'
 import styles from './ContinueWithGoogle.module.css'
 import API from './../../../../lib/api'
 import { setTokens } from './../../../../pages/api/auth'
+
+
 
 export default function ContinueWithGoogleButton({ onLoginSuccess }) {
   useEffect(() => {
