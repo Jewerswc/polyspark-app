@@ -1,32 +1,87 @@
+/* LoggedIn.module.css */
+
 .image {
-    display: inline-flex;               /* hug content width */
-    align-items: center;
-    gap: 16px;
-    padding: 4px 16px 4px 4px;
-    border-radius: 22px;
-    color: #666;      
-    margin-right: 24px;                  /* arrow colour via currentColor */
-  }
-  
-  .image:hover {
-    background-color: #f2f2f2;
-  }
-  
-  /* Avatar */
-  .image img {
-    object-fit: contain;
-    border-radius: 1rem;
-  }
-  
-  /* Arrow */
-  .svg {
-    transform: rotate(90deg);
-    transition: transform 0.4s ease;
-    color: #666666
-  }
-  
-  .image:hover .svg {
-    transform: rotate(-90deg);          /* 180° flip */
-    color: #333333
-  }
-  
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;       
+  margin-right: 16px;             /* space between bell/divider/user */
+  padding: 4px 16px 4px 4px;
+  border-radius: 22px;
+  color: #666;                  /* currentColor for bell & arrow */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+
+.bellWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+ .bellWrapper:hover {
+  background-color: #E6E6E6;
+}
+
+.bellWrapper:active {
+  background-color: #CCCCCC;
+}
+
+/* Bell icon itself */
+.bell {
+  font-size: 24px;
+  line-height: 1;
+  color: #666666
+}
+
+/* Divider line */
+.divider {
+  width: 1px;
+  height: 1.5rem;
+  background-color: #E6E6E6;
+}
+
+/* User + arrow wrapper */
+.userWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6 16 6 6;
+  border-radius: 22px;
+  margin-left: 4px;
+}
+
+.userWrapper:hover {
+  background-color: #E6E6E6;
+
+}
+
+/* Avatar image */
+.avatar {
+  width: var(--avatar-size, 32px);
+  height: var(--avatar-size, 32px);
+  border-radius: 1rem;
+  object-fit: contain;
+}
+
+/* Dropdown arrow */
+.svg {
+  transform: rotate(90deg);
+  transition: transform 0.4s ease, color 0.2s ease;
+  color: #666;
+  line-height: 0;
+}
+
+.userWrapper:hover .svg {
+  transform: rotate(-90deg);
+  color: #333;
+}
+
+.trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

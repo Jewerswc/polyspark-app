@@ -34,11 +34,12 @@
 }
 
 .authWrapper {
-  /* stack both children on top of each other, size to the larger */
   display: grid;
   grid-template-areas: "auth";
-  /* keep it from flex-growing or shrinking under space-between */
   flex: 0 0 auto;
+
+  /* vertically center the grid item */
+  align-items: center;
 }
 
 .authControls {

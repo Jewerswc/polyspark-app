@@ -97,8 +97,7 @@ export default function LoginOverlay({ onLoginSuccess, onClose }) {
 
         {stage === 'choose' && (
           <>
-            <GoogleButton onClick={handleGoogleContinue} />
-
+            <GoogleButton onClick={handleGoogleContinue} onLoginSuccess={onLoginSuccess}  />
             <ORDivider />
 
             <EmailInputWithButton
