@@ -86,7 +86,7 @@ export default function CategoryToolbar({
           isActive={activeCategory === NEW}
         />
         {loading ? (
-          <span className={styles.loading}>Loading…</span>
+          <span className={styles.loading}></span>
         ) : (
           tags.map(tag => (
             <CategoryButton
