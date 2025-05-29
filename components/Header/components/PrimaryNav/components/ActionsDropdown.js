@@ -1,7 +1,7 @@
 // ActionsDropdown.jsx
 import React, { useState } from 'react';
 import ActionsButton from './ActionsDropdown/components/ActionsButton';
-import BrowseMenu from './ActionsDropdown/ActionsDropdown';
+import BrowseMenu from './ActionsDropdown/components/BrowseDropdown/BrowseDropdown';
 import styles from './ActionsDropdown/ActionsDropdown.module.css';
 
 export default function ActionsDropdown() {

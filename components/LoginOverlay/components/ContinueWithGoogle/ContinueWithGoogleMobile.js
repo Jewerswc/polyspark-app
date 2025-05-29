@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import API from './../../../../lib/api'
 import { setTokens } from './../../../../pages/api/auth'
 import styles from './ContinueWithGoogleMobile.module.css';
