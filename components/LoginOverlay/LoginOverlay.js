@@ -43,7 +43,7 @@ export default function LoginOverlay({ onLoginSuccess, onClose }) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.card} onClick={e => e.stopPropagation()}>
-        <h2 className={styles.heading}>Welcome to PolySpark</h2>
+        <h2 className={styles.heading}>Welcome to Polyspark</h2>
 
         {stage === 'choose' && (
           <>

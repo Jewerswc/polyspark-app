@@ -3,11 +3,9 @@ import styles from './ContinueWithGoogle.module.css'
 import API from './../../../../lib/api'
 import { setTokens } from './../../../../pages/api/auth'
 
-
-
 export default function ContinueWithGoogleButton({ onLoginSuccess }) {
   useEffect(() => {
-    // Initialize the OAuth2 Code client once
+    // only initialize once, after the GSI script has loaded
     if (
       typeof window !== 'undefined' &&
       window.google &&
@@ -19,18 +17,21 @@ export default function ContinueWithGoogleButton({ onLoginSuccess }) {
         scope: 'openid email profile',
         ux_mode: 'popup',
         callback: async (resp) => {
+          if (!resp.code) {
+            console.error('No code returned from Google', resp)
+            return
+          }
           try {
-            // 1️⃣ send code to your backend
-            const { data } = await API.post('google_auth/', {
+            // 1️⃣ send the authorization code to your backend
+            const { data } = await API.post('/google_auth', {
               code: resp.code,
             })
-            // 2️⃣ store tokens
+            // 2️⃣ save whatever tokens your server returned
             setTokens(data)
-            // 3️⃣ signal success
+            // 3️⃣ let the parent know we’re logged in now
             onLoginSuccess()
           } catch (err) {
             console.error('Google code-flow error', err)
-            // handle/display error as you like
           }
         },
       })
