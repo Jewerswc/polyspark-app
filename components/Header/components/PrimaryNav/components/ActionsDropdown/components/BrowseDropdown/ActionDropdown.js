@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BrowseDropdown.module.css';
+import styles from './ActionDropdown.module.css';
 
 export default function BrowseMenu() {
     const browseActions = [

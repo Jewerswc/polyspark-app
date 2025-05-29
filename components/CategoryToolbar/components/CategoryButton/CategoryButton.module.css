@@ -1,18 +1,26 @@
 .categoryButton {
-    border: 1.5px solid #F2F2F2;
-    outline: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 4px 8px 4px 8px;
-    background-color: #F2F2F2;
-    
-    color: #333333;
-    font-family: cabin, sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-  
+  /* prevent shrinking: */
+  flex: 0 0 auto;
+
+  /* keep centering contents: */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+    height: 32px;
+  /* your existing styles */
+  border: 1.5px solid #F2F2F2;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  background-color: #F2F2F2;
+  color: #333;
+  font-family: cabin, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
   .categoryButton:hover {
     background-color: #E6E6E6;
     border: 1.5px solid #154FE3;

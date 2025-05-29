@@ -3,17 +3,17 @@ import styles from './PersonasDropdown.module.css';
 
 export default function BrowseMenu() {
   const browseItems = [
-    { label: 'Alex Doe', icon: './Images/AlexDoe.png', disabled: false },
-    { label: 'James Rae', icon: './Images/JamesRae.png', disabled: false },
-    { label: 'Chris Parker', icon: './Images/ChrisParker.png', disabled: false },
-    { label: 'Emily Biche', icon: './Images/EmilyBiche.png', disabled: false },
+    { label: 'Alex Doe', icon: './Images/profileimages/AlexDoe.png', disabled: false },
+    { label: 'James Rae', icon: './Images/profileimages/JamesRae.png', disabled: false },
+    { label: 'Chris Parker', icon: './Images/profileimages/ChrisParker.png', disabled: false },
+    { label: 'Emily Biche', icon: './Images/profileimages/EmilyBiche.png', disabled: false },
   ];
 
   const expertiseItems = [
-    { label: 'Bitcoin', icon: './Images/Bitcoin.png', disabled: false },
-    { label: 'Politics', icon: './Images/Politics.png', disabled: false },
-    { label: 'Coding', icon: './Images/Coding.png', disabled: false },
-    { label: 'Startups', icon: './Images/Startups.png', disabled: false },
+    { label: 'Bitcoin', icon: '/Images/personadropdownfill/Bitcoin.png', disabled: false },
+    { label: 'Politics', icon: '/Images/personadropdownfill/Politics.png', disabled: false },
+    { label: 'Coding', icon: './Images/personadropdownfill/Coding.png', disabled: false },
+    { label: 'Startups', icon: '/Images/personadropdownfill/Startups.png', disabled: false },
   ];
 
   const renderSection = (title, items) => (

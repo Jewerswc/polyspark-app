@@ -1,0 +1,46 @@
+/* src/components/IconButton.css */
+.wrapper {
+
+
+  }
+
+.button {
+  width: 24px;
+  height: 24px;
+  background-color: #E6E6E6;
+
+  border: 0.5px solid #E6E6E6;
+  border-radius: 50%;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+
+.button:hover {
+  background-color: #F2F2F2;
+}
+.button:disabled,
+.disabled {
+  background-color: transparent;
+
+  cursor: default;
+}
+
+.button:active {
+  background-color: #CCCCCC
+  ;
+}
+
+
+
+/* Make the SVG fill currentColor and scale to 60% of the button */
+.icon-button svg {
+  width: 60%;
+  height: 60%;
+  fill: currentColor;
+  display: block;
+}

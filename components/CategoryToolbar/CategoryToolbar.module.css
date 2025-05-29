@@ -1,26 +1,77 @@
-.toolbar {
+.toolbarWrapper {
   display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px 8px;
+}
+
+/* NEW: container that holds the scrolling row */
+.scrollWrapper {
+  position: relative;   /* for the pseudo-elements */
+  flex: 1;
+  /* clip any overflow so the fade doesn’t show outside */
+  overflow: hidden;
+}
+
+/* your existing scroll area */
+.scrollContainer {
+  display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
-  margin-left: 40px;
-  margin-bottom: 8px;
-  width: 100%
-  
+  /* allow horizontal scroll */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  /* prevent inner shrinking */
+  min-width: 0;
+  /* hide the native scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollContainer::-webkit-scrollbar {
+  display: none;
 }
 
-.categoryButton {
-  padding: 8px 8px;
-  border: none;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+/* LEFT FADE */
+.scrollWrapper::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 40px;            /* adjust how wide the fade is */
+  pointer-events: none;   /* clicks go through */
+
+  z-index: 1;
 }
 
-.categoryButton:hover {
-  background-color: #e0e0e0;
+/* RIGHT FADE */
+.scrollWrapper::after {
+  content: "";
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 20px;
+  pointer-events: none;
+  background: linear-gradient(
+    to left,
+    #ffffff,
+    rgba(255,255,255,0)
+  );
+  z-index: 1;
 }
 
-.active {
-  background-color: #0070f3;
-  color: #fff;
+/* …and keep your .categoryButton, .active, .navButton etc. unchanged… */
+.hasLeftFade::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 40px;             /* how wide your fade is */
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    rgba(255,255,255,0)
+  );
+  z-index: 1;
+}
+
+.flipped svg {
+  transform: rotate(180deg);
 }
