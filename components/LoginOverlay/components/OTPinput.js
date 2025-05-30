@@ -25,6 +25,7 @@ export default function OTPInputWithButton({ email, onContinue, onBack, error })
       inputMode="numeric"
       maxLength={6}
       required
+      placeholder="Enter Code"
       className={styles.textInput}
       autoCapitalize="none"
       autoCorrect="off"

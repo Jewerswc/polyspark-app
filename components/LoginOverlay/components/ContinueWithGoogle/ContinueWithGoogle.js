@@ -23,7 +23,7 @@ export default function ContinueWithGoogleButton({ onLoginSuccess }) {
           }
           try {
             // 1️⃣ send the authorization code to your backend
-            const { data } = await API.post('/google_auth', {
+            const { data } = await API.post('/google_auth/', {
               code: resp.code,
             })
             // 2️⃣ save whatever tokens your server returned
