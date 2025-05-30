@@ -28,7 +28,6 @@ export default function CarouselMobile({
           <div
             key={person.id}
             className={styles.cardWrapper}
-            onClick={() => onPersonaClick(person)}
           >
             <Name {...person} />
           </div>
