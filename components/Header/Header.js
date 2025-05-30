@@ -66,6 +66,8 @@ export default function Header({
       {/* the “logged-in” avatar arrow */}
       <div className={`${styles.loggedIn} ${isLoggedIn ? '' : styles.hidden}`}>
         <AvatarMenu
+                  onReportClick={openReportOverlay}
+
        
         />
       </div>

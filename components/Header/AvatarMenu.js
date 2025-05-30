@@ -13,6 +13,8 @@ export default function AvatarMenu({
   alt = '',
   size = 32,
   className = '',
+  onReportClick
+  
 }) {
   const router = useRouter();
 
@@ -32,7 +34,6 @@ export default function AvatarMenu({
     {
       label: 'Report an Issue',
       divider: true,
-      onClick: () => console.log('Report an issue…'),
     },
     {
       label: 'Logout',
@@ -52,6 +53,8 @@ export default function AvatarMenu({
             alt={alt}
             size={size}
             className={className}
+            onReportClick={onReportClick}
+
           />
         
        

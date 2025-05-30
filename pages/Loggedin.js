@@ -10,6 +10,7 @@ function ArrowWithImage({
   alt = '',
   size = 32,
   className = '',
+  onReportClick,
   ...props
 }) {
   const router = useRouter();
@@ -30,7 +31,8 @@ function ArrowWithImage({
       {
         label: 'Report an Issue',
         divider: true,
-        onClick: () => console.log('Report an issue…'),
+        onClick: onReportClick,
+
       },
       {
         label: 'Logout',
