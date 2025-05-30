@@ -1,11 +1,13 @@
 // src/components/PersonasDropdown/PersonasDropdown.jsx
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import PersonasButton from './PersonasButton/PersonasButton';
 import BrowseMenu from './ActionsDropdown/components/PersonasDropdown/PersonasDropdown';    // this is your existing BrowseMenu
 import styles from './PersonasDropdown.module.css';
 
 export default function PersonasDropdown() {
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
 
   return (
     <div
@@ -14,7 +16,9 @@ export default function PersonasDropdown() {
       onMouseLeave={() => setIsVisible(false)}
     >
       {/* always-visible button */}
-      <PersonasButton onClick={() => console.log('Personas clicked')} />
+      <PersonasButton onClick={() => router.push('/persona')} />
+
+
 
       {/* hover menu */}
       {isVisible && (
