@@ -1,4 +1,3 @@
-// Name.js
 import React from 'react';
 import Container from './card/Container'
 import BottomContainer from './card/BottomContainer'
@@ -13,6 +12,7 @@ export default function Name({
   lastPosted,
   actionType,
   profileUrl,
+  onChatClick
 }) {
   return (
     <div className={styles.container}>
@@ -27,6 +27,7 @@ export default function Name({
         lastPosted={lastPosted} 
         actionType={actionType}
         profileUrl={profileUrl}
+        onChatClick={onChatClick} 
       />
       
     </div>

@@ -29,7 +29,9 @@ export default function CarouselMobile({
             key={person.id}
             className={styles.cardWrapper}
           >
-            <Name {...person} />
+            <Name {...person} 
+            onChatClick={() => onPersonaClick(person)}
+            />
           </div>
         ))}
       </div>
