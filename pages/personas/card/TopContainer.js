@@ -6,10 +6,8 @@ import styles from './TopContainer.module.css';
 export default function Name({ imageUrl, handle, name, alt = 'Avatar' }) {
   return (
     <div className={styles.container}>
-      {/* Left‐side image */}
       <img src={imageUrl} alt={alt} className={styles.avatar} />
 
-      {/* Right‐side: symbol + handle stacked */}
       <div className={styles.details}>
         <NameContainer name={name} handle={handle} />
 

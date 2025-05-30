@@ -12,6 +12,7 @@ export default function Name({
   actionType,
   profileUrl,
   onChatClick, 
+  
 }) {
   const router = useRouter();
   return (
