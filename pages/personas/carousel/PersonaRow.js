@@ -1,17 +1,7 @@
-// src/components/carousel/PersonaRow.js
 import React from 'react';
 import styles from './PersonaRow.module.css';
 import Name from '../Card';
 
-/**
- * Renders a row of persona cards.
- *
- * Props:
- * - personas: Array of persona objects
- * - onChatClick: function(persona) to open chat
- * - actionType: "chat" or "profile"
- * - profileUrlFn: (persona) => string   // only used if actionType === 'profile'
- */
 export default function PersonaRow({
   personas = [],
   onChatClick,

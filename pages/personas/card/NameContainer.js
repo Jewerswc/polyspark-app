@@ -7,7 +7,7 @@ import styles from './NameContainer.module.css';
 export default function Name({ imageUrl, name, handle }) {
   return (
     <div className={styles.container}>
-    <PersonaNameSymbol name={name}/>
+    <PersonaNameSymbol name={name} handle={handle}/>
     <PersonaHandle handle={handle}/>
       
     </div>

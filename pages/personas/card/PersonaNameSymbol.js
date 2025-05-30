@@ -1,10 +1,12 @@
-// Name.js
+
 import React from 'react';
+import Link from 'next/link';
 import styles from './PersonaNameSymbol.module.css';
 
-export default function Name({ imageUrl, name }) {
+export default function Name({ name, handle }) {
   return (
-    <div className={styles.container}>
+    
+    <Link href={`/profile/${handle}`} className={styles.container}>
       <div className={styles.text}>{name}</div>
       <svg
         className={styles.icon}
@@ -24,7 +26,6 @@ export default function Name({ imageUrl, name }) {
         />
       </svg>
 
-      
-    </div>
+      </Link>
   );
 }
