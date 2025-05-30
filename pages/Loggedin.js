@@ -6,7 +6,7 @@ import HoverDropdown from './../components/Header/components/AuthControls/HoverM
 import { useRouter } from 'next/router';
 
 function ArrowWithImage({
-  src = 'Images/useravatar.png',
+  src = 'https://polyspark-app.vercel.app/Images/useravatar.png',
   alt = '',
   size = 32,
   className = '',

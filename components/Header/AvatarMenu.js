@@ -1,10 +1,8 @@
 // AvatarMenu.jsx
 import React from 'react';
 import ArrowWithImage from './../../pages/Loggedin';
-import HoverDropdown from './components/AuthControls/HoverMenu/HoverMenu';
 import { useRouter } from 'next/router';
 
-// components/AvatarMenu/AvatarMenu.jsx
 
 import styles from './AvatarMenu.module.css';
 export default function AvatarMenu({

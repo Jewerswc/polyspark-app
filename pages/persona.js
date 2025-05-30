@@ -172,7 +172,7 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
           {chatOpen && (
             <ChatOverlayIPhone
               persona={selectedPersona.slug}
-              avatarUrl={selectedPersona.image}
+              avatarUrl={selectedPersona.imageUrl}
               name={selectedPersona.name}
               onClose={closeMobileChat}
               onChatClick={openChatOverlayMobile}
@@ -218,7 +218,7 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
             <ChatOverlay
               persona={selectedPersona.slug}
               name={selectedPersona.name}
-              avatarUrl={selectedPersona.image}
+              avatarUrl={selectedPersona.imageUrl}
               onClose={closeChatOverlay}
             />
           )}
