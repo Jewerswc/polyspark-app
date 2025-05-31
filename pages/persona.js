@@ -8,14 +8,14 @@ import SearchResultsOverlay from '../components/Header/components/Search/compone
 import HeaderMobile from '../components/Header/HeaderMobile';
 import UserProfileCardMobile from '../components/LoginOverlay/components/LoginOverlayMobile';
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
-import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayIphone';
+import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayMobile';
 import LightboxOverlay from './../components/Articles/LightboxOverlay';
-import { TRENDING } from './constants/CategoryConstants';
 import PersonaCardsRow from './personas/FeaturedRow';
 import styles from './persona.module.css'
 import FetchCarousel from './personas/FetchCarousel';
 import CarouselMobile from './personas/CarouselMobile'
 
+const TRENDING     = 'Trending';
 
 import FeaturedRowMobile from './personas/FeaturedRowMobile'
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar'

@@ -14,9 +14,10 @@ import FeedCardsColumn from './layout/FeedCardColumn';
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import UserProfileCardMobile from './../components/LoginOverlay/components/LoginOverlayMobile';
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
-import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayIphone';
+import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayMobile';
 import LightboxOverlay from './../components/Articles/LightboxOverlay';
-import { TRENDING } from './constants/CategoryConstants';
+
+const TRENDING = 'Trending';
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);

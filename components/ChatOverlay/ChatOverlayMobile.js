@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './ChatOverlayIPhone.module.css';
+import styles from './ChatOverlayMobile.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl }) {
@@ -10,14 +10,12 @@ export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl })
   const [input, setInput] = useState('');
   const chatBodyRef = useRef(null);
 
-  // Auto-scroll on new messages
   useEffect(() => {
     if (chatBodyRef.current) {
       chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
     }
   }, [messages]);
 
-  // Monitor visual viewport to detect keyboard height (mobile)
   useEffect(() => {
     function onViewportResize() {
       const offset = window.innerHeight - window.visualViewport.height;

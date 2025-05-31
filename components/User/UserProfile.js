@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './UserProfile.module.css';
-import ProfileTabs from './components/Tabs/ProfileTabs';
+import ProfileTabs from './components/Tabs/Tabs';
 import ProfileSettings from './components/Settings/ProfileSettings';
 import HistoryContent from './components/History/History';
 

@@ -1,13 +1,13 @@
 import React from 'react'
-import styles from './CopyLink.module.css'
+import styles from './Linkedin.module.css'
 import { Linkedin } from 'react-bootstrap-icons'
 
-export default function ChatNowButton({
+export default function LinkedinLink({
 
 }) {
   return (
     <button
-      className={styles.chatnowButton}
+      className={styles.Linkedin}
     >
       <Linkedin className={styles.icon} />
      Share to LinkedIn

@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './Dropdown.module.css'
-import XLink from './XLink'
-import EnvelopeLink from './EnvelopeLink'
-import CopyLink from './CopyLink'
-import LinkedInLink from './LinkedInLink'
-import FacebookLink from './FacebookLink'
+import X from './components/X/X'
+import Email from './components/Email/Email'
+import Copy from './components/Copy/Copy'
+import Linkedin from './components/Linkedin/Linkedin'
+import Facebook from './components/Facebook/Facebook'
 
 export default function ChatNowButton({
 
@@ -13,11 +13,11 @@ export default function ChatNowButton({
     <div
       className={styles.container}
     >
-    <CopyLink />
-    <EnvelopeLink />
-    <LinkedInLink />
-    <FacebookLink />
-    <XLink/>
+    <Copy />
+    <Email />
+    <Linkedin />
+    <Facebook />
+    <X/>
 
     </div>
   )

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
 import Header from './../components/Header/Header';
 import HeaderMobile from './../components/Header/HeaderMobile'
 import UserProfile from './../components/User/UserProfile';
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import Footer from '../components/Footer/Footer';
-import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../components/LoginOverlay/LoginOverlay';
 import './user.module.css';
 
@@ -34,20 +32,16 @@ export default function App() {
         <div className={isMobile ? 'pageWrapperMobile' : 'pageWrapper'}>
           {isMobile ? (
             <>
-              {/* Mobile header could be a slimmer version, if you have one */}
               <HeaderMobile onSignupClick={openSignupOverlay} mobile />
               <main className="mainContentMobile">
-                {/* maybe a mobile-friendly profile card */}
                 <UserProfile mobile />
               </main>
                           <MobileNavbar
              
                           />
-              {/* mobile nav / overlays */}
             </>
           ) : (
             <>
-              {/* DESKTOP LAYOUT */}
               <Header onSignupClick={openSignupOverlay} />
               <main className="mainContent">
                 <UserProfile />

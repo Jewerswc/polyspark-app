@@ -1,9 +1,10 @@
-// src/ui/TopicRow.jsx
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './TopicRow.module.css';
 import TopicButton from './components/TopicButton';
-import { TRENDING, NEW } from '../../../../../../pages/constants/CategoryConstants';
+
+const TRENDING = 'Trending';
+const NEW      = 'New';
 
 export default function TopicsRow({ activeCategory, onCategorySelect }) {
   const router = useRouter();
@@ -40,7 +41,6 @@ export default function TopicsRow({ activeCategory, onCategorySelect }) {
     });
   };
 
-  // Show loading placeholder
   if (loading) {
     return (
       <div className={styles.topicsRow}>
@@ -49,7 +49,6 @@ export default function TopicsRow({ activeCategory, onCategorySelect }) {
     );
   }
 
-  // combine “Trending” + fetched tags, cap at 12
   const topics = [TRENDING, NEW, ...tags].slice(0, 9);
 
   return (

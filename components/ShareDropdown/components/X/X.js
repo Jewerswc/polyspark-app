@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './CopyLink.module.css'
+import styles from './X.module.css'
 import { Twitter, TwitterX } from 'react-bootstrap-icons'
 
 export default function ChatNowButton({
@@ -7,7 +7,7 @@ export default function ChatNowButton({
 }) {
   return (
     <button
-      className={styles.chatnowButton}
+      className={styles.Xlink}
     >
       <TwitterX className={styles.icon} />
      Share to X

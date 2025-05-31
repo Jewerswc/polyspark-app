@@ -8,7 +8,7 @@ import MoreOverlay from '../../components/MoreOverlay/MoreOverlay';
 import ChatOverlay from '../../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../../components/LoginOverlay/LoginOverlay';
 import ProfileLayoutMobile from './../../components/Agents/ProfileLayoutMobile'
-import ChatOverlayIPhone from '../../components/ChatOverlay/ChatOverlayIphone';
+import ChatOverlayIPhone from '../../components/ChatOverlay/ChatOverlayMobile';
 import { useRouter } from 'next/router';
 import LoginOverlayMobile from './../../components/LoginOverlay/components/LoginOverlayMobile';
 import LightboxOverlay from './../../components/Articles/LightboxOverlay';

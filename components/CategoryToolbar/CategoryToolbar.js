@@ -4,7 +4,9 @@ import CategoryButton from './components/CategoryButton/CategoryButton';
 import RightButton from './RightButton';
 import LeftButton from './LeftButton'
 import styles from './CategoryToolbar.module.css';
-import { TRENDING, NEW } from '../../pages/constants/CategoryConstants';
+
+const TRENDING = 'Trending';
+const NEW      = 'New';
 
 export default function CategoryToolbar({
   activeCategory,

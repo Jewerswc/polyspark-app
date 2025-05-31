@@ -5,10 +5,8 @@ const userImg = 'Images/Avatars.png';
 const assistantImg = 'Images/profileimages/AlexDoe.png';
 
 function renderWithBold(text) {
-  // Split on **…**, capturing the inner text
   const parts = text.split(/\*\*(.*?)\*\*/g);
   return parts.map((part, i) =>
-    // odd indices are the captured “inside” the **
     i % 2 === 1 ? <strong key={i}>{part}</strong> : part
   );
 }
@@ -122,4 +120,3 @@ export default function ChatOverlay({ persona, name, onClose, avatarUrl }) {
     </div>
   );
 }
-``

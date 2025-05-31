@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ProfileTabs.module.css';
+import styles from './Tabs.module.css';
 
 export default function ProfileTabs({ activeTab, onTabClick }) {
   return (

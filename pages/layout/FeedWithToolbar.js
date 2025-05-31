@@ -1,9 +1,9 @@
-// src/components/FeedWithToolbar.jsx
 import React, { useState } from 'react';
 import CategoryToolbar from '../../components/CategoryToolbar/CategoryToolbar';
 import FeedCardsGrid from './FeedCardGrid';
 import FileOptions from './FileOptions';
-import { TRENDING, FILE } from './../constants/CategoryConstants';
+
+const FILE     = 'File';
 
 export default function FeedWithToolbar({ onImageClick, activeCategory, onCategorySelect, onSearchChange }) {
   
@@ -14,7 +14,6 @@ export default function FeedWithToolbar({ onImageClick, activeCategory, onCatego
 
     const handleCategorySelect = cat => {
       onCategorySelect(cat);
-      // (showFileOptions is derived above)
     };
 
   return (
