@@ -17,7 +17,7 @@ import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
 import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayMobile';
 import LightboxOverlay from './../components/Articles/LightboxOverlay';
 
-const TRENDING = 'Trending';
+const TRENDING = 'Top';
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
