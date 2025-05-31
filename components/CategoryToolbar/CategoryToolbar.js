@@ -5,7 +5,7 @@ import RightButton from './RightButton';
 import LeftButton from './LeftButton'
 import styles from './CategoryToolbar.module.css';
 
-const TRENDING = 'Trending';
+const TRENDING = 'Top';
 const NEW      = 'New';
 
 export default function CategoryToolbar({
