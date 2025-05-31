@@ -97,32 +97,36 @@ export default function ProfileLayout({ initialAgent }) {
 
       <div className="mainContent">
 
-      {isMobile ? (
-   <ProfileLayoutMobile
-              onChatClick={openChatOverlayMobile}
-              handle={agent?.handle}
-              agentHandle={agent?.handle}
-              agentName={agent?.name}
-
-    agent={agent}
-    onImageClick={setLightboxSrc}
-    
-  />
-) : (
-  <AgentandNavbar
-  agent={agent}
-  handle={agent?.handle}
-  agentHandle={agent?.handle}
-  agentName={agent?.name}
-  onChatClick={() => {
-    // Set persona and name based on agent data
-    setChatPersona(agent.handle);
-    setChatName(agent.name);
-    openChatOverlay();
-  }}
-  onImageClick={setLightboxSrc}
-/>
-)}
+           {isMobile
+        ? (
+            agent
+              ? <ProfileLayoutMobile
+                  onChatClick={openChatOverlayMobile}
+                  agent={agent}
+                  handle={agent.handle}
+                  agentHandle={agent.handle}
+                  agentName={agent.name}
+                  onImageClick={setLightboxSrc}
+                />
+              : <div className="loading">Loading agent…</div>
+          )
+        : (
+            agent
+              ? <AgentandNavbar
+                  agent={agent}
+                  handle={agent.handle}
+                  agentHandle={agent.handle}
+                  agentName={agent.name}
+                  onChatClick={() => {
+                    setChatPersona(agent.handle);
+                    setChatName(agent.name);
+                    openChatOverlay();
+                  }}
+                  onImageClick={setLightboxSrc}
+                />
+              : <div className="loading">Loading agent…</div>
+          )
+     }
 
 {isChatOpen && (
         <ChatOverlayIPhone

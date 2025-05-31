@@ -5,7 +5,7 @@ import FileOptions from './FileOptions';
 
 const FILE     = 'File';
 
-export default function FeedWithToolbar({ onImageClick, activeCategory, onCategorySelect, onSearchChange }) {
+export default function FeedWithToolbar({ onImageClick, activeCategory, onCategorySelect }) {
   
   const [searchQuery, setSearchQuery] = useState('');
   const [currentSlug, setCurrentSlug] = useState(null)
