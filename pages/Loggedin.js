@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from './LoggedIn.module.css';
-import HoverDropdown from './../components/Header/components/AuthControls/HoverMenu/HoverMenu'
+import HoverDropdown from './../components/Header/components/AuthControls/HoverMenu/Dropdown'
 import { useRouter } from 'next/router';
 
 function ArrowWithImage({
@@ -21,6 +21,10 @@ function ArrowWithImage({
         onClick: () => router.push('/user'),
       },
       {
+        label: 'Trending',
+        onClick: () => router.push('/'),
+      },
+      {
         label: 'Personas',
         onClick: () => router.push('/persona'),
       },
@@ -30,6 +34,13 @@ function ArrowWithImage({
       },
       {
         label: 'Report an Issue',
+        divider: false,
+        onClick: onReportClick,
+
+      },
+ 
+      {
+        label: 'Terms of Use',
         divider: true,
         onClick: onReportClick,
 

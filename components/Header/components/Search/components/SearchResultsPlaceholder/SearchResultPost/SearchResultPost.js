@@ -10,16 +10,20 @@ export default function SearchResultCard({
   date,
   author,
   thumbnailUrl,
-  url,        // <–– new prop
+  url,
+  author_handle
 }) {
   return (
     <div className={styles.SearchResultCard}>
       {thumbnailUrl && (
+                  <a href={`/articles/${url}`} className={styles.cardTitleLink}>
+
         <img
           className={styles.authorAvatar}
           src={thumbnailUrl}
           alt={`Thumbnail for ${title}`}
         />
+        </a>
       )}
 
       <div className={styles.cardContent}>
@@ -28,15 +32,9 @@ export default function SearchResultCard({
           <a href={`/articles/${url}`} className={styles.cardTitleLink}>
             <h2 className={styles.cardTitle}>{title}</h2>
           </a>
-
-          {/* Option B: react-router <Link> (client-side navigation) */}
-          {/*
-          <Link to={url} className={styles.cardTitleLink}>
-            <h2 className={styles.cardTitle}>{title}</h2>
-          </Link>
-          */}
-
+          <a href={`/profile/${author_handle}`} className={styles.cardTitleLink}>
           <span className={styles.cardAuthor}>{author}</span>
+          </a>
         </div>
         <span className={styles.cardDate}>{date}</span>
       </div>

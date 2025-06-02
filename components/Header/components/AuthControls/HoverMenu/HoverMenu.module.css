@@ -65,3 +65,33 @@
   background-color: #ececec;
   margin: 4px 0;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 4px;
+}
+
+.header:hover {
+ background-color: #E6E6E6;
+}
+
+.header:active {
+  background-color: #CCCCCC;
+}
+
+
+.avatarLarge {
+  width: 33px;
+  height: 33px
+}
+
+.username {
+  font-family: cabin;
+  font-size: 14px;
+  color: #333333;
+  font-weight: 700
+}

@@ -74,9 +74,11 @@ export default function SearchResultsPlaceholder({ query, type = 'all' }) {
         <>
           <h2 className={styles.sectionTitle}>TAGS</h2>
           <div className={styles.tagsContainer}>
-            {rawTags.map(({ tag, count }) => (
-              <Tag key={tag} text={tag} />
-            ))}
+                   {rawTags
+           .slice(0, 10)           // ← only take the first 5 tags
+           .map(({ tag, count }) => (
+             <Tag key={tag} text={tag} />
+           ))}
           </div>
         </>
       )}
@@ -91,6 +93,7 @@ export default function SearchResultsPlaceholder({ query, type = 'all' }) {
                 title={a.title}
                 date={a.date}
                 author={a.author_name}
+                author_handle={a.author_handle}
                 url={a.slug}
                 thumbnailUrl={a.thumbnail_url}
               />

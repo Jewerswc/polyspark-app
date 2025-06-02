@@ -10,7 +10,7 @@ export default function PostActionsRow({
   agentName,
   agentHandle,
   // total cap on characters across all tags
-  maxTotalChars = 27,
+  maxTotalChars = 23,
 }) {
   const visible = [];
   let usedChars = 0;
