@@ -48,6 +48,7 @@ export default function AvatarMenu({
 
           <ArrowWithImage
             src={src}
+            username={username}
             alt={alt}
             size={size}
             className={className}

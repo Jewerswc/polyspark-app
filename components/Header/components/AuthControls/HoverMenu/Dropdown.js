@@ -6,6 +6,7 @@ export default function HoverDropdown({
   items = [],
   username = '',
   avatarSrc = '',
+  src
 }) {
   // Only clone if it's a valid React element
   const clonedTrigger = React.isValidElement(trigger)
@@ -22,11 +23,11 @@ export default function HoverDropdown({
         {/* ──── HEADER: large avatar + username ──── */}
         <div className={styles.header}>
           <img
-            src="Images/Avatars.png"
+            src={src}
             alt={`${username}’s avatar`}
             className={styles.avatarLarge}
           />
-          <span className={styles.username}>William</span>
+          <span className={styles.username}>{username}</span>
         </div>
 
         {/* Divider between header and items */}

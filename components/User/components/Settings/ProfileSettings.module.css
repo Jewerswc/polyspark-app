@@ -4,3 +4,14 @@
     align-items: left;
     gap: 16px;
   }
+
+  @media (max-width: 868px) {
+   
+   
+   .container {
+    width: 100%;
+    padding-top: 72px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  }

@@ -1,7 +1,8 @@
-import styles from './ProfileSettings.module.css';
-import ProfileSettingsTitle from './components/ProfileSettingsTitle'
-import AvatarAndUpload from './components/AvatarAndUpload'
-import UserInputsAndSaveButton from './components/UserInputsAndSaveButton';
+
+import styles from './components/Settings/ProfileSettings.module.css';
+import ProfileSettingsTitle from './components/Settings/components/ProfileSettingsTitle'
+import AvatarAndUpload from './components/Settings/components/AvatarAndUpload'
+import UserInputsAndSaveButton from './components/Settings/components/UserInputsAndSaveButton';
 
 
 
@@ -9,12 +10,12 @@ import UserInputsAndSaveButton from './components/UserInputsAndSaveButton';
 
 import React, { useState, useEffect } from 'react';
 
-import API from './../../../../lib/api';
+import API from './../../lib/api';
 import {
   getAccessToken,
   refreshAccessToken,
   clearTokens
-} from './../../../../pages/api/auth';
+} from './../../pages/api/auth';
 import { useRouter } from 'next/router';
 
 export default function ProfileSettings() {

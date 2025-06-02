@@ -19,3 +19,13 @@
 .textInput:hover { background-color: #E6E6E6; border-color: #D2D2D2; }
 .textInput:focus { background-color: transparent; border-color: #333333;  outline: none; }
 .textInput:invalid:not(:placeholder-shown) { border-color: red; }
+
+@media (max-width: 768px) {
+   
+   
+
+.textInput {
+  width: 100%;
+
+}
+}

@@ -34,3 +34,9 @@
     border-color: red;
   }
   
+  @media (max-width: 768px) {
+   .textInput{
+    width: 100%
+   }
+
+  }

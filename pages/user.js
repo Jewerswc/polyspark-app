@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './../components/Header/Header';
 import HeaderMobile from './../components/Header/HeaderMobile'
 import UserProfile from './../components/User/UserProfile';
+import UserProfileMobile from './../components/User/UserProfileMobile'
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import Footer from '../components/Footer/Footer';
 import SignupOverlay from './../components/LoginOverlay/LoginOverlay';
@@ -34,7 +35,7 @@ export default function App() {
             <>
               <HeaderMobile onSignupClick={openSignupOverlay} mobile />
               <main className="mainContentMobile">
-                <UserProfile mobile />
+                <UserProfileMobile />
               </main>
                           <MobileNavbar
              

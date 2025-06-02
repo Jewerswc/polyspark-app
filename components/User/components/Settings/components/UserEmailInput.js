@@ -2,15 +2,16 @@ import React from 'react';
 import styles from './UserUsernameInput.module.css';
 
 export default function UserBioInput({
-  placeholder, value, onChange, ...props
+  placeholder, email, value, onChange, ...props
 }) {
   return (
     <input
-      type="text"
+      type="email"
       className={styles.textInput}
-      placeholder="william.jewers@gmail.com"
-      value={value}
-      onChange={onChange}
+      
+      value={email}
+      onChange={(e) => onChange(e.target.value)}
+      required
       autoCapitalize="none"
       autoCorrect="off"
       {...props}

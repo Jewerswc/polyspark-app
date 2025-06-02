@@ -6,8 +6,9 @@ import HoverDropdown from './../components/Header/components/AuthControls/HoverM
 import { useRouter } from 'next/router';
 
 function ArrowWithImage({
-  src = 'https://polyspark-app.vercel.app/Images/useravatar.png',
+  src,
   alt = '',
+  username,
   size = 32,
   className = '',
   onReportClick,
@@ -81,6 +82,8 @@ function ArrowWithImage({
       {/* User + arrow wrapper */}
           <HoverDropdown
               items={items}
+              src={src}
+              username={username}
             trigger={
               <button className={styles.trigger}>
       <div className={styles.userWrapper}>
