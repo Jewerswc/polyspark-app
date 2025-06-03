@@ -4,6 +4,9 @@ import styles from './HoverMenu.module.css'
 export default function HoverDropdown({
   trigger = null,
   items = [],
+  username = '',
+  avatarSrc = '',
+  src
 }) {
   // Only clone if it's a valid React element
   const clonedTrigger = React.isValidElement(trigger)
@@ -12,10 +15,25 @@ export default function HoverDropdown({
 
   return (
     <div className={styles.dropdown}>
-      {/* render your hamburger (or any trigger) */}
+      {/* Render your trigger (e.g. the small avatar + caret button) */}
       {clonedTrigger}
 
+      {/* ──── DROPDOWN MENU ──── */}
       <div className={styles.menu}>
+        {/* ──── HEADER: large avatar + username ──── */}
+        <div className={styles.header}>
+          <img
+            src={src}
+            alt={`${username}’s avatar`}
+            className={styles.avatarLarge}
+          />
+          <span className={styles.username}>{username}</span>
+        </div>
+
+        {/* Divider between header and items */}
+        <div className={styles.divider} />
+
+        {/* ──── MENU ITEMS ──── */}
         {Array.isArray(items) &&
           items.map((item, i) => (
             <React.Fragment key={i}>

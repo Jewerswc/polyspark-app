@@ -13,7 +13,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border: 0.5px solid #E6E6E6;
   border-radius: 8px;
-  min-width: 160px;
+  min-width: 180px;
   margin-top: 15px;
   z-index: 100;
   overflow: hidden;
@@ -37,7 +37,7 @@
 
 .item {
   display: block;
-  width: 160px;
+  width: 100%;
   text-align: left;
   padding: 10px 12px;
   border: none;
