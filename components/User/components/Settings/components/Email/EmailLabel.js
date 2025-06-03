@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BioLabel.module.css';
+import styles from './Header.module.css';
 
 export default function ChatNowButton({ }) {
   return (
@@ -7,7 +7,7 @@ export default function ChatNowButton({ }) {
       className={styles.chatnowButton} 
    
     >
-      Username
+      Email
     </div>
   );
 }

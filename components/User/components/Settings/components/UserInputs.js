@@ -2,9 +2,9 @@
 
 import React from 'react';
 import styles from './UserInputs.module.css';
-import UserEmail from './UserEmail'
-import UserUsername from './UserUsername'
-import UserBio from './UserBio'
+import UserEmail from './Email/UserEmail'
+import UserUsername from './Username/UserUsername'
+import UserBio from './Bio/UserBio'
 
 export default function UserInputs({
   email,

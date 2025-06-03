@@ -31,7 +31,7 @@ export default function Comments() {
       if (!token) {
         // no token → redirect to login
         clearTokens();
-        router.push('/login');
+        router.push('/');
         return;
       }
       // ensure axios has the header
@@ -55,13 +55,13 @@ export default function Comments() {
             setAvatarUrl(retry.data.avatar_url);
           } catch {
             clearTokens();
-            router.push('/login');
+            router.push('/');
             return;
           }
         } else {
           console.error('Failed to load profile in Comments:', err.response || err);
           clearTokens();
-          router.push('/login');
+          router.push('/');
           return;
         }
       } finally {

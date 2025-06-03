@@ -82,14 +82,14 @@ export default function Header({
               setLoggedIn(false);
               // optional: clear the cached avatar on logout
               window.localStorage.removeItem('cachedAvatarUrl');
-              router.push('/login');
+              router.push('/');
             }
           } else {
             console.error('Failed to load profile in Header:', err.response || err);
             clearTokens();
             setLoggedIn(false);
             window.localStorage.removeItem('cachedAvatarUrl');
-            router.push('/login');
+            router.push('/');
           }
         }
       }

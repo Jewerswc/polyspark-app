@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './UserUsernameInput.module.css';
+import styles from './UserEmailInput.module.css';
 
 export default function UserBioInput({
   placeholder, email, value, onChange, ...props

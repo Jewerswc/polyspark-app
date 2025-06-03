@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './UserBio.module.css';
+import styles from './UserEmail.module.css';
 import EmailLabel from './EmailLabel'
 import UserEmailInput from './UserEmailInput';
 

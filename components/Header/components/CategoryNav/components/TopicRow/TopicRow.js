@@ -44,7 +44,6 @@ export default function TopicsRow({ activeCategory, onCategorySelect }) {
   if (loading) {
     return (
       <div className={styles.topicsRow}>
-        <span className={styles.loading}>Loading…</span>
       </div>
     );
   }

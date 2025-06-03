@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './UserBio.module.css';
+import styles from './UserUsername.module.css';
 import UsernameLabel from './UsernameLabel'
 import UserUsernameInput from './UserUsernameInput';
 

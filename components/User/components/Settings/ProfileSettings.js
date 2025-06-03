@@ -1,5 +1,5 @@
 import styles from './ProfileSettings.module.css';
-import ProfileSettingsTitle from './components/ProfileSettingsTitle'
+import ProfileSettingsTitle from './components/Title/ProfileSettingsTitle'
 import AvatarAndUpload from './components/AvatarAndUpload'
 import UserInputsAndSaveButton from './components/UserInputsAndSaveButton';
 

@@ -4,7 +4,6 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;       
-  margin-right: 0px;             /* space between bell/divider/user */
   padding: 4px 16px 4px 4px;
   border-radius: 22px;
   color: #666;                  /* currentColor for bell & arrow */
