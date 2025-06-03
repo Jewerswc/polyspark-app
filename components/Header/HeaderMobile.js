@@ -25,16 +25,21 @@ export default function HeaderMobile({ onReportClick }) {
 
   const router = useRouter();
 
-  // on mount, check for accessToken
   useEffect(() => {
+    // 1) Immediately pull the last‐known avatar URL from localStorage (if any)
+    const cached = window.localStorage.getItem('cachedAvatarUrl');
+    if (cached) {
+      setAvatarUrl(cached);
+    }
+
+    // 2) Check for an access token, then fetch /me/ to get the freshest data:
     const token = getAccessToken();
     if (token) {
       setLoggedIn(true);
 
-      // Attempt to fetch /me/ immediately to get avatar_url + username
       async function fetchProfile() {
         try {
-          // Ensure axios (or your API wrapper) has the Authorization header
+          // Ensure your API client has the header set
           if (!API.defaults.headers.common['Authorization']) {
             API.setAuthToken(token);
           }
@@ -43,6 +48,9 @@ export default function HeaderMobile({ onReportClick }) {
           // res.data = { id, username, email, bio, avatar_url, ... }
           setAvatarUrl(res.data.avatar_url);
           setUsername(res.data.username);
+
+          // ☆ Write the “fresh” avatar URL back into localStorage:
+          window.localStorage.setItem('cachedAvatarUrl', res.data.avatar_url);
         } catch (err) {
           const status = err.response?.status;
           const code = err.response?.data?.code;
@@ -54,25 +62,31 @@ export default function HeaderMobile({ onReportClick }) {
               const retryRes = await API.get('me/');
               setAvatarUrl(retryRes.data.avatar_url);
               setUsername(retryRes.data.username);
+              window.localStorage.setItem(
+                'cachedAvatarUrl',
+                retryRes.data.avatar_url
+              );
             } catch {
               // refresh failed → logout
               clearTokens();
               setLoggedIn(false);
-              router.push('/login');
+              // optional: clear the cached avatar on logout
+              window.localStorage.removeItem('cachedAvatarUrl');
+              router.push('/');
             }
           } else {
             console.error('Failed to load profile in Header:', err.response || err);
             clearTokens();
             setLoggedIn(false);
-            router.push('/login');
+            window.localStorage.removeItem('cachedAvatarUrl');
+            router.push('/');
           }
         }
       }
 
       fetchProfile();
     }
-  }, [router]);
-  const openLogin  = () => setLoginOpen(true);
+  }, [router]);  const openLogin  = () => setLoginOpen(true);
   const closeLogin = () => setLoginOpen(false);
 
 
