@@ -1,4 +1,3 @@
-// src/components/Header/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import LoginOverlay from './../LoginOverlay/LoginOverlay';
@@ -30,22 +29,27 @@ export default function Header({
   const [loginOpen, setLoginOpen] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-  // FIXED: add avatarUrl AND username to state
+  // now we hydrate avatarUrl from localStorage if it exists
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [username, setUsername] = useState(null);
 
   const router = useRouter();
 
-  // on mount, check for accessToken
   useEffect(() => {
+    // 1) Immediately pull the last‐known avatar URL from localStorage (if any)
+    const cached = window.localStorage.getItem('cachedAvatarUrl');
+    if (cached) {
+      setAvatarUrl(cached);
+    }
+
+    // 2) Check for an access token, then fetch /me/ to get the freshest data:
     const token = getAccessToken();
     if (token) {
       setLoggedIn(true);
 
-      // Attempt to fetch /me/ immediately to get avatar_url + username
       async function fetchProfile() {
         try {
-          // Ensure axios (or your API wrapper) has the Authorization header
+          // Ensure your API client has the header set
           if (!API.defaults.headers.common['Authorization']) {
             API.setAuthToken(token);
           }
@@ -54,6 +58,9 @@ export default function Header({
           // res.data = { id, username, email, bio, avatar_url, ... }
           setAvatarUrl(res.data.avatar_url);
           setUsername(res.data.username);
+
+          // ☆ Write the “fresh” avatar URL back into localStorage:
+          window.localStorage.setItem('cachedAvatarUrl', res.data.avatar_url);
         } catch (err) {
           const status = err.response?.status;
           const code = err.response?.data?.code;
@@ -65,16 +72,23 @@ export default function Header({
               const retryRes = await API.get('me/');
               setAvatarUrl(retryRes.data.avatar_url);
               setUsername(retryRes.data.username);
+              window.localStorage.setItem(
+                'cachedAvatarUrl',
+                retryRes.data.avatar_url
+              );
             } catch {
               // refresh failed → logout
               clearTokens();
               setLoggedIn(false);
+              // optional: clear the cached avatar on logout
+              window.localStorage.removeItem('cachedAvatarUrl');
               router.push('/login');
             }
           } else {
             console.error('Failed to load profile in Header:', err.response || err);
             clearTokens();
             setLoggedIn(false);
+            window.localStorage.removeItem('cachedAvatarUrl');
             router.push('/login');
           }
         }
@@ -84,7 +98,7 @@ export default function Header({
     }
   }, [router]);
 
-  // Overlay toggles
+  // Overlay toggles (unchanged)
   const openOverlay = () => setOverlayVisible(true);
   const closeOverlay = () => setOverlayVisible(false);
   const openChatOverlay = () => setChatOverlayVisible(true);
@@ -115,9 +129,8 @@ export default function Header({
             {/* “Logged in” avatar menu */}
             <div className={`${styles.loggedIn} ${isLoggedIn ? '' : styles.hidden}`}>
               <AvatarMenu
-                // Pass the fetched avatarUrl (or a placeholder if null)
+                // If avatarUrl is null (first ever load), it falls back to default.
                 src={avatarUrl || '/default-avatar.png'}
-                // Pass the fetched username (or fallback text)
                 username={username || 'User'}
                 alt="User Avatar"
                 size={32}
@@ -143,7 +156,7 @@ export default function Header({
           onLoginSuccess={() => {
             setOverlayVisible(false);
             setLoggedIn(true);
-            // Once logged in, re‐fetch the profile to get avatarUrl + username
+            // Once logged in, re‐fetch the profile to get avatarUrl + username:
             (async () => {
               const token = getAccessToken();
               if (token) {
@@ -152,6 +165,7 @@ export default function Header({
                   const res = await API.get('me/');
                   setAvatarUrl(res.data.avatar_url);
                   setUsername(res.data.username);
+                  window.localStorage.setItem('cachedAvatarUrl', res.data.avatar_url);
                 } catch {
                   /* ignore */
                 }
