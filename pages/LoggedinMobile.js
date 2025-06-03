@@ -11,6 +11,7 @@ function ArrowWithImage({
   size = 32,
   className = '',
   onReportClick,
+  username,
   ...props
 }) {
   const router = useRouter();
@@ -52,6 +53,8 @@ function ArrowWithImage({
       {/* User + arrow wrapper */}
           <HoverDropdown
               items={items}
+              src={src}
+              username={username}
             trigger={
               <button className={styles.trigger}>
       <div className={styles.userWrapper}>
