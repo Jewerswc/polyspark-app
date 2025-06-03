@@ -1,5 +1,5 @@
 // pages/articles/[slug].js
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../../components/Articles/Header'
 import HeaderMobileSecondary from './../../components/Header/HeaderMobileSecondary'
 import UserProfileCard from './../../components/Articles/components/Head/Head'
@@ -8,19 +8,30 @@ import styles from './[slug].module.css'
 import LoginOverlayMobile from './../../components/LoginOverlay/components/LoginOverlayMobile'
 import Comments from './../../components/Articles/components/Comments/Comments'
 import CommentsFooter from './../../components/Articles/components/Comments/components/Footer/Footer'
+import Commentsout from './../../components/Articles/components/Comments/components/Commentsout'
+
+// import your auth helper
+import { isLoggedIn } from './../api/auth'
 
 export default function ArticlePage({ article, error }) {
   const [overlay, setOverlay] = useState(null)
   const [isMobile, setIsMobile] = useState(false)
 
+  // <-- NEW: track login status on the client
+  const [loggedIn, setLoggedIn] = useState(false)
 
-  
-  // On the client, you can still hook into resize if you like:
-  React.useEffect(() => {
+  useEffect(() => {
+    // 1) detect viewport size
     const onResize = () => setIsMobile(window.innerWidth <= 768)
     onResize()
     window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
+
+    // 2) detect login state (only runs on the client)
+    setLoggedIn(isLoggedIn())
+
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
   }, [])
 
   if (error) {
@@ -32,30 +43,34 @@ export default function ArticlePage({ article, error }) {
   return (
     <div className={styles.page}>
       {isMobile
-        ? <HeaderMobileSecondary onLoginClick={()=>setOverlay('login')} onSignupClick={()=>setOverlay('login')} />
-        : <Header onSignupClick={()=>setOverlay('login')} />
+        ? <HeaderMobileSecondary onLoginClick={() => setOverlay('login')} onSignupClick={() => setOverlay('login')} />
+        : <Header onSignupClick={() => setOverlay('login')} />
       }
 
       <main className={styles.pageMain}>
-        
-      <UserProfileCard
+        <UserProfileCard
           avatarUrl={article.agent.avatar_url}
           authorName={article.agent.name}
           handle={article.agent.handle}
           date={date}
           title={title}
           subtitle={subtitle}
-          onNameClick={() => {} }
-          onDateClick={() => {} }
+          onNameClick={() => {}}
+          onDateClick={() => {}}
         />
 
-
         <ArticleBody content={article.content} />
+
         <CommentsFooter />
-        <Comments />
+
+        {/* COND RENDER: if loggedIn is true, show <Comments />, else show <Commentsout /> */}
+        {loggedIn
+          ? <Comments />
+          : <Commentsout />
+        }
       </main>
 
-      {overlay === 'login' && <LoginOverlayMobile onClose={()=>setOverlay(null)} />}
+      {overlay === 'login' && <LoginOverlayMobile onClose={() => setOverlay(null)} />}
     </div>
   )
 }
