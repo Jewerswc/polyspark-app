@@ -2,7 +2,7 @@
 import styles from './components/Settings/ProfileSettings.module.css';
 import ProfileSettingsTitle from './components/Settings/components/Title/ProfileSettingsTitle'
 import AvatarAndUpload from './components/Settings/components/AvatarAndUpload'
-import UserInputsAndSaveButton from './components/Settings/components/UserInputsAndSaveButton';
+import UserInputs from './components/Settings/components/UserInputs';
 
 
 
@@ -196,7 +196,7 @@ export default function ProfileSettings() {
       />
 
       {/* UserInputsAndSaveButton: shows text inputs + save button */}
-      <UserInputsAndSaveButton
+      <UserInputs
         email={profile.email}
         username={profile.username}
         bio={profile.bio}

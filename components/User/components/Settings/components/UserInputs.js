@@ -1,35 +1,40 @@
-// src/components/User/components/Settings/UserInputs.jsx
-
+// UserInputs.jsx
 import React from 'react';
 import styles from './UserInputs.module.css';
-import UserEmail from './Email/UserEmail'
-import UserUsername from './Username/UserUsername'
-import UserBio from './Bio/UserBio'
+import UserField from './UserField';
+import SaveChangesButton from './SaveChangesButton'
 
 export default function UserInputs({
-  email,
-  username,
-  bio,
-  onFieldChange,
-  onSave
+  email, username, bio,
+  onFieldChange, onSave
 }) {
   return (
     <div className={styles.container}>
-      <UserEmail
-        email={email}
-        onFieldChange={onFieldChange}   // not used inside UserEmail
-        onChange={(val) => onFieldChange('email', val)}
+      <UserField
+        label="Email"
+        type="email"
+        name="email"
+        value={email}
+        placeholder="yogosfgfdu@example.com"
+        onChange={onFieldChange}
       />
-      <UserUsername
-        username={username}
-        onFieldChange={onFieldChange}   // not used inside UserUsername
-        onChange={(val) => onFieldChange('username', val)}
+      <UserField
+        label="Username"
+        type="text"
+        name="username"
+        value={username}
+        placeholder="YourUsername"
+        onChange={onFieldChange}
       />
-      <UserBio
-        bio={bio}
-        onFieldChange={onFieldChange}   // not used inside UserBio
-        onChange={(val) => onFieldChange('bio', val)}
+      <UserField
+        label="Bio"
+        type="textarea"
+        name="bio"
+        value={bio}
+        placeholder="Tell us about yourself"
+        onChange={onFieldChange}
       />
+      <SaveChangesButton onSave={onSave} />
     </div>
   );
 }

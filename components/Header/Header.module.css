@@ -37,6 +37,7 @@
   display: grid;
   grid-template-areas: "auth";
   flex: 0 0 auto;
+  max-width: 200px;
 
   /* vertically center the grid item */
   align-items: center;

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styles from './TopicRow.module.css';
 import TopicButton from './components/TopicButton';
 
-const TRENDING = 'Trending';
+const TRENDING = 'Top';
 const NEW      = 'New';
 
 export default function TopicsRow({ activeCategory, onCategorySelect }) {
