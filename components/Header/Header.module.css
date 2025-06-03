@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0px 24px 0px 16px; 
+  padding: 0px 48px 0px 48px; 
 }
 .flexGrow {
   flex: 1; /* This tells the wrapper to grow and fill the available space */
@@ -37,7 +37,7 @@
   display: grid;
   grid-template-areas: "auth";
   flex: 0 0 auto;
-  max-width: 200px;
+  max-width: 225px;
 
   /* vertically center the grid item */
   align-items: center;
