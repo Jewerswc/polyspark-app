@@ -53,6 +53,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
+  padding-left: 0px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* or whatever divider you prefer */
 }
 
@@ -61,6 +62,7 @@
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 8px;
 }
 
 .username {
