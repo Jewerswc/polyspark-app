@@ -5,19 +5,9 @@ import UserProfile from './../components/User/UserProfile';
 import UserProfileMobile from './../components/User/UserProfileMobile'
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import Footer from '../components/Footer/Footer';
+import useIsMobile from '../components/hooks/useIsMobile';
 import SignupOverlay from './../components/LoginOverlay/LoginOverlay';
 import './user.module.css';
-
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth < breakpoint);
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [breakpoint]);
-  return isMobile;
-}
 
 export default function App() {
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);

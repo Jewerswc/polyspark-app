@@ -14,21 +14,13 @@ import PersonaCardsRow from './personas/FeaturedRow';
 import styles from './persona.module.css'
 import FetchCarousel from './personas/FetchCarousel';
 import CarouselMobile from './personas/CarouselMobile'
+import useIsMobile from '../components/hooks/useIsMobile';
+import FeaturedRowMobile from './personas/FeaturedRowMobile'
+import MobileNavbar from '../components/MobileNavbar/MobileNavbar'
 
 const TRENDING     = 'Trending';
 
-import FeaturedRowMobile from './personas/FeaturedRowMobile'
-import MobileNavbar from '../components/MobileNavbar/MobileNavbar'
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth < breakpoint);
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [breakpoint]);
-  return isMobile;
-}
+
 
 export default function Persona({
 

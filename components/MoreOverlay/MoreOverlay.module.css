@@ -24,3 +24,49 @@
 .visible {
   transform: translateX(0);
 }
+
+
+.LogoutButton {
+  background-color: #F2F2F2;
+  border-radius: 8px;
+  border: 1px solid #E6E6E6;
+  width: 132px;
+  padding: 8px 16px;
+  margin-top: 16px;
+  width: 286px;
+  cursor: pointer;
+  color: #333333;
+  font-family: cabin, sans-serif;
+  font-weight: 700;
+  line-height: 1.35;
+  font-size: 14px;
+  text-align: center;
+}
+
+.LogoutButton:active {
+  background-color: #0D3AC2;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profileBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* or whatever divider you prefer */
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: cabin;
+  color: #333333; /* or your text color */
+}

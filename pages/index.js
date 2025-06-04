@@ -16,19 +16,8 @@ import UserProfileCardMobile from './../components/LoginOverlay/components/Login
 import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
 import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayMobile';
 import LightboxOverlay from './../components/Articles/LightboxOverlay';
-
+import useIsMobile from '../components/hooks/useIsMobile';
 const TRENDING = 'Top';
-
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth < breakpoint);
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [breakpoint]);
-  return isMobile;
-}
 
 export default function MainPage() {
   const router = useRouter();
@@ -172,9 +161,7 @@ export default function MainPage() {
           )}
           {loginOpen && (
             <LoginOverlay
-            onLoginSuccess={() => {
-              setOverlayVisible(false);          
-            }}
+            onLoginSuccess={closeLogin}
             onClose={closeLogin}
           />
           )}

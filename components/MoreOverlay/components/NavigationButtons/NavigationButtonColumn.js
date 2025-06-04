@@ -1,23 +1,38 @@
-import React from 'react';
-import ChatNowButton from './NavigationButton/NavigationButton';
-import styles from './NavigationButtonColumn.module.css';
+// src/components/NavigationButtons/NavigationButtonColumn.jsx
+import React from 'react'
+import ChatNowButton from './NavigationButton/NavigationButton'
+import styles from './NavigationButtonColumn.module.css'
 
+// (Same default list as before)
 const defaultButtons = [
-  { label: 'Trending',      href: '/' },
+  { label: 'Trending',        href: '/' },
   { label: 'Latest Activity', href: '/Activity' },
-  { label: 'Personas',      href: '/persona' },
-  { label: 'Get Lucky',     href: '/get-lucky' },
-  { label: 'Privacy',       href: '/privacy' },
-  { label: 'Terms of Use',  href: '/terms-of-use' },
-  { label: 'Report an Issue', href: '/report-issue' }
-];
+  { label: 'Personas',        href: '/persona' },
+  { label: 'Get Lucky',       href: '/get-lucky' },
+  { label: 'Privacy',         href: '/privacy' },
+  { label: 'Terms of Use',    href: '/terms-of-use' },
+  { label: 'Report an Issue', href: '/report-issue' },
+]
 
-export default function NavigationButtonRow({ buttons = defaultButtons }) {
+// Import your auth helper:
+import { isLoggedIn } from '../../../../pages/api/auth'
+
+export default function NavigationButtonColumn({
+  buttons = defaultButtons,
+}) {
+  // Check if the user is logged in:
+  const logged = isLoggedIn()
+
+  // If logged in, prepend a “Profile” button; otherwise just render whatever was passed in
+  const toRender = logged
+    ? [{ label: 'Profile', href: '/user' }, ...buttons]
+    : buttons
+
   return (
     <div className={styles.buttonRow}>
-      {buttons.map(({ label, href }, i) => (
-        <ChatNowButton key={i} label={label} href={href} />
+      {toRender.map(({ label, href }, idx) => (
+        <ChatNowButton key={idx} label={label} href={href} />
       ))}
     </div>
-  );
+  )
 }
