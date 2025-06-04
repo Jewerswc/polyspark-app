@@ -13,15 +13,12 @@ import {
 } from '../../pages/api/auth'
 
 
-function LogoutButton({ onLogout }) {
+// A simple “Log out” button that calls the onClick handler in its parent.
+function LogoutButton({ onClick }) {
   return (
     <button
       className={styles.LogoutButton}
-      onClick={() => {
-        // Clear tokens and invoke parent callback
-        logout()
-        onLogout?.()
-      }}
+      onClick={onClick}
     >
       Log out
     </button>
@@ -29,17 +26,17 @@ function LogoutButton({ onLogout }) {
 }
 
 export default function MoreOverlay({
-  onClose,
+  onClose,      // <-- parent should set its “showOverlay” state to false
   onExited,
   onLogin,
   onSignup,
-  onLogout,
+  onLogout,     // optional callback if the parent wants to know
   navigationButtons,
 }) {
   const [isVisible, setIsVisible] = useState(false)
   const [loggedIn, setLoggedIn] = useState(isLoggedIn())
 
-  // New state for profile info:
+  // Profile info
   const [avatarUrl, setAvatarUrl] = useState(null)
   const [username, setUsername] = useState('')
 
@@ -47,15 +44,13 @@ export default function MoreOverlay({
     // Fade‐in
     const timer = setTimeout(() => setIsVisible(true), 0)
 
-    // Re‐check login status when overlay mounts
+    // Re‐check login status
     const currentlyLoggedIn = isLoggedIn()
     setLoggedIn(currentlyLoggedIn)
 
-    // If they are logged in, attempt to fetch their profile
     if (currentlyLoggedIn) {
       const token = getAccessToken()
       if (token) {
-        // Ensure our API client has the Authorization header
         if (!API.defaults.headers.common['Authorization']) {
           API.setAuthToken(token)
         }
@@ -63,10 +58,8 @@ export default function MoreOverlay({
         async function fetchProfile() {
           try {
             const res = await API.get('me/')
-            // Expecting res.data = { username, avatar_url, … }
             setAvatarUrl(res.data.avatar_url)
             setUsername(res.data.username)
-            // Cache avatar for next time:
             window.localStorage.setItem(
               'cachedAvatarUrl',
               res.data.avatar_url
@@ -75,7 +68,6 @@ export default function MoreOverlay({
             const status = err.response?.status
             const code = err.response?.data?.code
 
-            // Handle expired token → try refresh
             if (status === 401 && code === 'token_not_valid') {
               try {
                 const newAccess = await refreshAccessToken()
@@ -88,14 +80,13 @@ export default function MoreOverlay({
                   retry.data.avatar_url
                 )
               } catch {
-                // Refresh failed → force logout
+                // If refresh fails, force logout
                 clearTokens()
                 setLoggedIn(false)
                 window.localStorage.removeItem('cachedAvatarUrl')
                 onLogout?.()
               }
             } else {
-              // Other error → also force logout/cleanup
               console.error('Failed to load profile in MoreOverlay:', err)
               clearTokens()
               setLoggedIn(false)
@@ -105,7 +96,7 @@ export default function MoreOverlay({
           }
         }
 
-        // First try to load any cached avatar immediately:
+        // Immediately show any cached avatar (if present)
         const cached = window.localStorage.getItem('cachedAvatarUrl')
         if (cached) {
           setAvatarUrl(cached)
@@ -118,11 +109,26 @@ export default function MoreOverlay({
     return () => clearTimeout(timer)
   }, [onLogout])
 
+  // This is called when the user clicks “Log out”
   const handleLogout = () => {
+    // 1) Clear tokens
+    logout()
+
+    // 2) Clear local state
     setLoggedIn(false)
     setAvatarUrl(null)
     setUsername('')
+
+    // 3) Immediately call the parent’s onClose() so that it un‐mounts this overlay
+    onClose()
+    setIsVisible(false)
+
+    // 4) Notify parent (if it cares)
     onLogout?.()
+
+    // 5) Force a full reload so that Header (and any other component)
+    //    picks up “no token” and re‐renders without the old avatar
+    window.location.reload()
   }
 
   const initiateClose = () => {
@@ -159,7 +165,7 @@ export default function MoreOverlay({
         <SocialButtonsRow />
 
         {loggedIn ? (
-          <LogoutButton onLogout={handleLogout} />
+          <LogoutButton onClick={handleLogout} />
         ) : (
           <ButtonFrame
             onLogin={() => {
