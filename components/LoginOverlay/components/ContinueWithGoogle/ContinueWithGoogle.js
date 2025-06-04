@@ -5,7 +5,6 @@ import { setTokens } from './../../../../pages/api/auth'
 
 export default function ContinueWithGoogleButton({ onLoginSuccess }) {
   useEffect(() => {
-    // only initialize once, after the GSI script has loaded
     if (
       typeof window !== 'undefined' &&
       window.google &&
@@ -22,14 +21,22 @@ export default function ContinueWithGoogleButton({ onLoginSuccess }) {
             return
           }
           try {
-            // 1️⃣ send the authorization code to your backend
+            // 1) send Google code to backend
             const { data } = await API.post('/google_auth/', {
               code: resp.code,
             })
-            // 2️⃣ save whatever tokens your server returned
+
+            // data = { access, refresh, is_new_user }
+            // 2) save tokens locally
             setTokens(data)
-            // 3️⃣ let the parent know we’re logged in now
-            onLoginSuccess()
+
+            // 3) if new user, bubble that up
+            if (data.is_new_user) {
+              onLoginSuccess({ is_new_user: true });
+            } else {
+              onLoginSuccess({ is_new_user: false });
+            }
+            
           } catch (err) {
             console.error('Google code-flow error', err)
           }
@@ -46,7 +53,6 @@ export default function ContinueWithGoogleButton({ onLoginSuccess }) {
       console.error('Google Identity SDK not loaded')
     }
   }
-
   return (
     <button
       className={styles.ContinueWithGoogleButton}

@@ -11,7 +11,6 @@ import TopNavbarBottomRow from './components/CategoryNav/CategoryNav';
 import ReportOverlay from '../ReportOverlay/ReportOverlay';
 import AvatarMenu from './AvatarMenu';
 
-// IMPORT these helpers and your API instance:
 import API from '../../lib/api';
 import {
   getAccessToken,
@@ -26,10 +25,8 @@ export default function Header({
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [isReportVisible, setReportVisible] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-  // now we hydrate avatarUrl from localStorage if it exists
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [username, setUsername] = useState(null);
 

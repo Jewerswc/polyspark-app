@@ -113,6 +113,29 @@
   font-family: cabin;
 }
 
+
+.inputWithPrefix {
+  width: 100%;
+  padding: 12px 12px;
+  padding-left: 24px;
+    font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  outline: none;
+  color: #585656;
+  font-weight: 450;
+
+  transition: border-color 0.2s ease;
+  font-family: cabin;
+}
+
+
+.inputWithPrefix:hover {
+  background-color: #F2F2F2;
+  /* Using border-color here since we have a transition on border-color */
+  border-color: #F2F2F2;
+}
+
 /* Focused input (no status yet) */
 .inputWithPrefix:focus {
   border-color: #0070f3;
