@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
 import styles from './HeaderMobile.module.css';
 import Logo from './components/Logo/LogoMobile';
 import LoginButton from './components/AuthControls/AuthButtons/LoginButton/LoginButton';
@@ -86,7 +85,8 @@ export default function HeaderMobile({ onReportClick }) {
 
       fetchProfile();
     }
-  }, [router]);  const openLogin  = () => setLoginOpen(true);
+  }, 
+  [router]);  const openLogin  = () => setLoginOpen(true);
   const closeLogin = () => setLoginOpen(false);
 
 

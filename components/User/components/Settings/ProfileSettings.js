@@ -1,13 +1,7 @@
-import styles from './ProfileSettings.module.css';
-import ProfileSettingsTitle from './components/Title/ProfileSettingsTitle'
-import AvatarAndUpload from './components/AvatarAndUpload'
-import UserInputs from './components/UserInputs';
-
-
-
 // src/components/User/components/Settings/ProfileSettings.jsx
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import API from './../../../../lib/api';
 import {
@@ -15,13 +9,18 @@ import {
   refreshAccessToken,
   clearTokens
 } from './../../../../pages/api/auth';
-import { useRouter } from 'next/router';
+
+import styles from './ProfileSettings.module.css';
+import ProfileSettingsTitle from './components/Title/ProfileSettingsTitle';
+import AvatarAndUpload from './components/AvatarAndUpload';
+import UserInputs from './components/UserInputs';
 
 export default function ProfileSettings() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
-  // Profile state: email, username, bio, avatar_url
+  // ------------- Profile state -------------
+  // The “live” form values:
   const [profile, setProfile] = useState({
     email: '',
     username: '',
@@ -29,10 +28,29 @@ export default function ProfileSettings() {
     avatar_url: null
   });
 
-  // Keep track of newly selected avatar file
+  // A copy of what came back from the server on first load.
+  // We’ll compare against this to see if anything actually changed.
+  const [originalProfile, setOriginalProfile] = useState({
+    email: '',
+    username: '',
+    bio: '',
+    avatar_url: null
+  });
+
+  // Since “username” comparison should ignore trailing spaces,
+  // we also keep the raw “originalUsername” for trimming logic.
+  const [originalUsername, setOriginalUsername] = useState('');
+
+  // If the user picks a NEW avatar file, we store it here.
+  // Until they click “Save,” avatarFile !== null ⇒ dirty.
   const [avatarFile, setAvatarFile] = useState(null);
 
-  // 1) On mount, load profile from /me/
+  // ------------- Username availability state -------------
+  const [isChecking, setIsChecking] = useState(false);
+  const [isAvailable, setIsAvailable] = useState(null); // null = not checked yet
+  const [checkError, setCheckError] = useState('');
+
+  // 1) On mount, load “me/” and initialize both profile & originalProfile:
   useEffect(() => {
     let isMounted = true;
 
@@ -43,37 +61,49 @@ export default function ProfileSettings() {
         router.push('/login');
         return;
       }
-      // Ensure Axios has the header:
       if (!API.defaults.headers.common['Authorization']) {
-        console.warn('Axios missing Authorization header');
         clearTokens();
         router.push('/login');
         return;
       }
+
       try {
-        const res = await API.get('me/'); // → GET http://.../matching/api/me/
+        const res = await API.get('me/');
         if (!isMounted) return;
-        setProfile({
+
+        // Build an object that matches our `profile` shape:
+        const fetched = {
           email: res.data.email,
           username: res.data.username,
           bio: res.data.bio || '',
           avatar_url: res.data.avatar_url
-        });
+        };
+
+        setProfile(fetched);
+        setOriginalProfile(fetched);
+        setOriginalUsername(res.data.username);
+        setIsAvailable(true); // original username is “available” by definition
+
       } catch (err) {
         const status = err.response?.status;
         const code = err.response?.data?.code;
         if (status === 401 && code === 'token_not_valid') {
           try {
-            const newAccess = await refreshAccessToken();
-            // retry with new token
+            await refreshAccessToken();
             const retryRes = await API.get('me/');
             if (!isMounted) return;
-            setProfile({
+
+            const fetched = {
               email: retryRes.data.email,
               username: retryRes.data.username,
               bio: retryRes.data.bio || '',
               avatar_url: retryRes.data.avatar_url
-            });
+            };
+
+            setProfile(fetched);
+            setOriginalProfile(fetched);
+            setOriginalUsername(retryRes.data.username);
+            setIsAvailable(true);
           } catch {
             clearTokens();
             router.push('/login');
@@ -96,26 +126,68 @@ export default function ProfileSettings() {
     };
   }, [router]);
 
-  // 2) Handler to update any text field in profile (email, username, bio)
+  // 2) Handler to update any text field in profile (email, username, bio).
+  // We no longer set “isDirty” here; instead, we’ll compute `hasChanges` below.
   function handleFieldChange(fieldName, newValue) {
+    if (fieldName === 'username') {
+      setIsAvailable(null);
+      setCheckError('');
+    }
+
     setProfile((prev) => ({
       ...prev,
       [fieldName]: newValue
     }));
   }
 
-  // 3) Handler to capture new avatarFile
+  // 3) Handler to capture new avatarFile from the file‐picker component:
   function handleAvatarFileChange(file) {
     setAvatarFile(file);
-    // Preview immediately (optional):
+    // Immediately show a preview:
     setProfile((prev) => ({
       ...prev,
       avatar_url: URL.createObjectURL(file)
     }));
   }
 
-  // 4) Save button handler → assemble FormData and patch
+  // 4) When the username input “blurs,” fire off a check‐username call:
+  async function checkUsername() {
+    const candidate = profile.username.trim();
+    if (!candidate) {
+      setIsAvailable(null);
+      return;
+    }
+    if (candidate === originalUsername) {
+      // If they erased back to exactly what it was originally (no net change):
+      setIsAvailable(true);
+      setCheckError('');
+      return;
+    }
+
+    setIsChecking(true);
+    setCheckError('');
+    try {
+      const res = await API.get('check-username/', {
+        params: { username: candidate }
+      });
+      setIsAvailable(res.data.available);
+    } catch (err) {
+      console.error('Error checking username:', err);
+      setCheckError('Unable to verify availability.');
+      setIsAvailable(null);
+    } finally {
+      setIsChecking(false);
+    }
+  }
+
+  // 5) Save button handler: patch “me/” (plus avatar if present).
   async function handleSave() {
+    // Don’t let them save if username is explicitly taken:
+    if (isAvailable === false) {
+      alert('That username is already taken. Please choose another one.');
+      return;
+    }
+
     const token = getAccessToken();
     if (!token) {
       clearTokens();
@@ -125,53 +197,67 @@ export default function ProfileSettings() {
       clearTokens();
       return router.push('/login');
     }
-  
+
     try {
-      // 1) If no avatarFile was selected, send a JSON patch:
+      // If user didn’t pick a new avatar file, just do a JSON patch:
       if (!avatarFile) {
-        await API.patch(
-          'me/',
-          {
-            email: profile.email,
-            username: profile.username,
-            bio: profile.bio
-          }
-        );
+        await API.patch('me/', {
+          email: profile.email,
+          username: profile.username.trim(),
+          bio: profile.bio
+        });
         alert('Profile updated successfully!');
+
+        // Reset our “originalProfile” to match the newly saved values:
+        const updated = {
+          email: profile.email,
+          username: profile.username.trim(),
+          bio: profile.bio,
+          avatar_url: profile.avatar_url
+        };
+        setOriginalProfile(updated);
+        setOriginalUsername(profile.username.trim());
+        // avatarFile is still null, so “hasChanges” will recalc to false
         return;
       }
-  
-      // 2) If there _is_ an avatarFile, do two requests:
-      //    a) First, update email/username/bio via JSON
-      await API.patch(
-        'me/',
-        {
-          email: profile.email,
-          username: profile.username,
-          bio: profile.bio
-        }
-      );
-  
-      //    b) Then upload the avatar via FormData to a separate endpoint
-      //       (e.g. /matching/api/me/avatar/ or however your backend expects it)
+
+      // Otherwise, user picked a new avatarFile → do two requests:
+      // a) JSON patch for email/username/bio
+      await API.patch('me/', {
+        email: profile.email,
+        username: profile.username.trim(),
+        bio: profile.bio
+      });
+
+      // b) Then upload avatar via multipart/form-data:
       const uploadData = new FormData();
       uploadData.append('avatar', avatarFile);
-  
-      // If your DRF view for avatar is at /matching/api/me/avatar/, for instance:
+
       await API.patch('me/avatar/', uploadData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+        headers: { 'Content-Type': 'multipart/form-data' }
       });
-  
+
       alert('Profile and avatar updated successfully!');
+
+      // Reset originalProfile to match what’s now on the server:
+      const updated = {
+        email: profile.email,
+        username: profile.username.trim(),
+        bio: profile.bio,
+        avatar_url: profile.avatar_url
+      };
+      setOriginalProfile(updated);
+      setOriginalUsername(profile.username.trim());
+      // Clear avatarFile (so hasChanges will ignore it)
+      setAvatarFile(null);
+
     } catch (err) {
       const status = err.response?.status;
       const code = err.response?.data?.code;
       if (status === 401 && code === 'token_not_valid') {
         try {
           await refreshAccessToken();
-          return handleSave(); // retry
+          return handleSave(); // retry once
         } catch {
           clearTokens();
           return router.push('/login');
@@ -182,25 +268,49 @@ export default function ProfileSettings() {
       }
     }
   }
-  
+
   if (loading) return <div>Loading profile…</div>;
+
+  //
+  // ─── COMPUTE “HAS CHANGES?” ───────────────────────────────────────────────
+  //
+  // If ANY of these conditions are true, we consider the form “dirty,” i.e. ENABLE Save.
+  const hasChanges =
+    avatarFile !== null ||
+    profile.email !== originalProfile.email ||
+    profile.username.trim() !== originalProfile.username ||
+    profile.bio !== originalProfile.bio;
 
   return (
     <div className={styles.container}>
-      <ProfileSettingsTitle/>
-      {/* AvatarAndUpload: shows current avatar_url and lets user pick a new file */}
+      <ProfileSettingsTitle />
+
+      {/* Avatar & upload */}
       <AvatarAndUpload
         avatarUrl={profile.avatar_url}
         onFileChange={handleAvatarFileChange}
       />
 
-      {/* UserInputsAndSaveButton: shows text inputs + save button */}
+      {/*
+        Pass down all the props required for:
+          1) “username availability” UI
+          2) “hasChanges” → disables/enables SaveChangesButton
+      */}
       <UserInputs
         email={profile.email}
         username={profile.username}
         bio={profile.bio}
         onFieldChange={handleFieldChange}
         onSave={handleSave}
+
+        // Username availability:
+        onUsernameBlur={checkUsername}
+        isChecking={isChecking}
+        isAvailable={isAvailable}
+        checkError={checkError}
+
+        // Derived “form is dirty” flag:
+        isDirty={hasChanges}
       />
     </div>
   );

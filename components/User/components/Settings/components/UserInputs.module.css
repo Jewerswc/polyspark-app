@@ -4,3 +4,87 @@
     align-items: left;
     gap: 24px;
   }
+
+
+
+/* ——— For the username field specifically ——— */
+/* We want the same “position: relative” that .usernameContainer had in the overlay */
+.usernameContainer {
+  position: relative;
+}
+
+/* 
+  .inputAvailable  (when backend returns available:true)
+  turns the border green, just like in your overlay.
+*/
+.inputAvailable {
+  border-color: #28a745; /* green */
+}
+
+/* 
+  .inputTaken  (when backend returns available:false) 
+  turns the border a red/orange, just like in your overlay. 
+*/
+.inputTaken {
+  border-color: #e55353; /* red/orange */
+}
+
+/* 
+  .statusIcon  is positioned exactly inside the input, 
+  in the same spot where your overlay’s checkmark/spinner lives.
+*/
+.statusIcon {
+  position: absolute;
+  right: 0.75rem;   /* align with input’s right padding */
+  top: 56%;
+  transform: translateY(-0%);
+  pointer-events: none;
+  display: flex;
+  color: #e55353;  /* default to the “taken” color; we’ll override for the check icon inline */
+  font-size: 12px;
+  font-family: cabin, sans-serif;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* 
+  If you want to show the word “Taken” instead of an X, use this:
+  <span className={styles.statusText}>Taken</span>
+  Positioned exactly the same as the icon.
+*/
+.statusText {
+  font-size: 12px;
+  color: #e55353;
+  font-family: cabin, sans-serif;
+}
+
+/* 
+  .spinner  is exactly the same animation you had in the overlay:
+  a rotating circle inside the username input while checking.
+*/
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 
+  If your API check fails (network error), we want to show that text
+  in red _below_ the input. We position it right under the username field.
+*/
+.checkErrorText {
+  position: absolute;
+  top: 100%; /* right below the bottom edge of the input */
+  left: 0;
+  margin-top: 4px;
+  font-size: 0.875rem; /* 14px */
+  color: #e55353; /* same red as .inputTaken */
+  font-family: cabin, sans-serif;
+}
+
+/* ——— The rest of your existing CSS for “Bio,” “Email,” etc. —— */
+/* (If you already have .textInput, .label, .container, etc. in UserField.module.css,
+   you don’t need to redefine them here.) */
