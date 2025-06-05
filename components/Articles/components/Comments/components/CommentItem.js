@@ -1,5 +1,4 @@
-// components/Articles/components/Comments/CommentItem.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './CommentItem.module.css';
 import Linkify from 'react-linkify';
 
@@ -11,6 +10,8 @@ export default function CommentItem({
   onReplyClick,
   onLikeClick,
   currentUserUsername,
+  onEditComment,    // ← new
+  onDeleteComment,  // ← new
 
   // Inline‐reply props:
   parentCommentId,
@@ -21,8 +22,7 @@ export default function CommentItem({
   avatarUrl,
   handleCancelReply,
 
-  // NEW: forceShowReplies controls whether this comment's replies
-  // should render unconditionally (no toggle) or not.
+  // forceShowReplies controls one-toggle behavior
   forceShowReplies = false,
 }) {
   const {
@@ -33,15 +33,31 @@ export default function CommentItem({
     author_username,
     author_profile_picture,
     liked_by_user,
-    replies,
+    replies = [],
   } = comment;
 
   const [isSubmittingLike, setIsSubmittingLike] = useState(false);
-
-  // Local toggle for this comment (only used when forceShowReplies === false)
   const [areRepliesVisible, setAreRepliesVisible] = useState(false);
 
-  // Format date like “4 Jun 2025, 14:22” in en‐GB:
+  // NEW: for the “⋯” menu dropdown
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Format date like “4 Jun 2025, 14:22” (en-GB)
   const formattedDate = new Date(created_at).toLocaleString('en-GB', {
     day: 'numeric',
     month: 'short',
@@ -63,34 +79,68 @@ export default function CommentItem({
     }
   };
 
-  // Are we currently replying under this exact comment?
+  // Inline reply logic
   const isReplyingHere = parentCommentId === id;
-
-  // Disable “Post Reply” if content is empty or only “@username”
   const mentionPrefix = `@${author_username}`;
   const replyTrimmed = newContent.trim();
-  const isReplyEmpty =
-    replyTrimmed === '' || replyTrimmed === mentionPrefix;
+  const isReplyEmpty = replyTrimmed === '' || replyTrimmed === mentionPrefix;
   const isReplyDisabled = submitting || isReplyEmpty;
 
-  const hasReplies = replies && replies.length > 0;
-  // If forceShowReplies === true, we always render nested replies
-  // Otherwise, render them only when areRepliesVisible === true
+  // Show/hide replies
+  const hasReplies = replies.length > 0;
   const shouldShowReplies = forceShowReplies || areRepliesVisible;
+
+  // Are we the author?
+  const isAuthor = currentUserUsername === author_username;
 
   return (
     <div className={styles.commentItem}>
-      {/* — HEADER: avatar + username + date — */}
+      {/* — HEADER: avatar + username + date on left; “⋯” on right (if author) — */}
       <div className={styles.header}>
-        <img
-          src={author_profile_picture || '/default-avatar.png'}
-          alt={`${author_username}'s avatar`}
-          className={styles.avatar}
-        />
-        <div className={styles.meta}>
-          <span className={styles.username}>{author_username}</span>
-          <span className={styles.date}>{formattedDate}</span>
+        <div className={styles.headerLeft}>
+          <img
+            src={author_profile_picture || '/default-avatar.png'}
+            alt={`${author_username}'s avatar`}
+            className={styles.avatar}
+          />
+          <div className={styles.meta}>
+            <span className={styles.username}>{author_username}</span>
+            <span className={styles.date}>{formattedDate}</span>
+          </div>
         </div>
+
+        {isAuthor && (
+          <div className={styles.menuContainer} ref={menuRef}>
+            <button
+              className={styles.menuButton}
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              ⋯
+            </button>
+            {isMenuOpen && (
+              <div className={styles.menuDropdown}>
+                <div
+                  className={styles.menuItem}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    onEditComment(id);
+                  }}
+                >
+                  Edit
+                </div>
+                <div
+                  className={styles.menuItem}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    onDeleteComment(id);
+                  }}
+                >
+                  Delete
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* — CONTENT (auto‐link URLs) — */}
@@ -98,7 +148,7 @@ export default function CommentItem({
         <Linkify>{content}</Linkify>
       </div>
 
-      {/* — FOOTER: [Reply] and [Like (N)] — */}
+      {/* — FOOTER: [Reply] + [Like (N)] — */}
       <div className={styles.footer}>
         <button
           className={styles.replyButton}
@@ -115,8 +165,7 @@ export default function CommentItem({
         </button>
       </div>
 
-      {/* — INLINE REPLY BOX WRAPPER — 
-           Collapsed unless isReplyingHere is true. */}
+      {/* — INLINE REPLY BOX (collapsed until open) — */}
       <div
         className={`${styles.replyBoxContainer} ${
           isReplyingHere ? styles.open : ''
@@ -130,10 +179,6 @@ export default function CommentItem({
             placeholder="Write a reply…"
           />
           <div className={styles.replyActions}>
-            <SubmitButton
-              onClick={handleSubmit}
-              disabled={isReplyDisabled}
-            />
             <button
               className={styles.cancelButton}
               onClick={handleCancelReply}
@@ -141,17 +186,17 @@ export default function CommentItem({
             >
               Cancel
             </button>
+            <SubmitButton
+              onClick={handleSubmit}
+              disabled={isReplyDisabled}
+            />
           </div>
         </div>
       </div>
 
-      {/* 
-        — REPLIES (either show toggle or entire subtree) — 
-        Only if this comment has children 
-      */}
+      {/* — SHOW/HIDE REPLIES TO THIS COMMENT — */}
       {hasReplies && (
         <div className={styles.repliesWrapper}>
-          {/** CASE A: forceShowReplies === false → show one toggle button */}
           {!forceShowReplies && !areRepliesVisible && (
             <button
               className={styles.toggleRepliesButton}
@@ -162,7 +207,6 @@ export default function CommentItem({
             </button>
           )}
 
-          {/** CASE B: forceShowReplies === false but areRepliesVisible === true → show “Hide” + subtree */}
           {!forceShowReplies && areRepliesVisible && (
             <>
               <button
@@ -179,6 +223,8 @@ export default function CommentItem({
                     onReplyClick={onReplyClick}
                     onLikeClick={onLikeClick}
                     currentUserUsername={currentUserUsername}
+                    onEditComment={onEditComment}
+                    onDeleteComment={onDeleteComment}
                     parentCommentId={parentCommentId}
                     newContent={newContent}
                     setNewContent={setNewContent}
@@ -186,18 +232,13 @@ export default function CommentItem({
                     submitting={submitting}
                     avatarUrl={avatarUrl}
                     handleCancelReply={handleCancelReply}
-                    forceShowReplies={true} 
-                    // ← pass down so grandchildren render unconditionally
+                    forceShowReplies={true}
                   />
                 ))}
               </div>
             </>
           )}
 
-          {/**
-            CASE C: forceShowReplies === true on this comment
-            → immediately render all replies (no buttons at this level)
-          */}
           {forceShowReplies && (
             <div className={styles.replies}>
               {replies.map((child) => (
@@ -207,6 +248,8 @@ export default function CommentItem({
                   onReplyClick={onReplyClick}
                   onLikeClick={onLikeClick}
                   currentUserUsername={currentUserUsername}
+                  onEditComment={onEditComment}
+                  onDeleteComment={onDeleteComment}
                   parentCommentId={parentCommentId}
                   newContent={newContent}
                   setNewContent={setNewContent}
@@ -214,7 +257,7 @@ export default function CommentItem({
                   submitting={submitting}
                   avatarUrl={avatarUrl}
                   handleCancelReply={handleCancelReply}
-                  forceShowReplies={true} 
+                  forceShowReplies={true}
                 />
               ))}
             </div>

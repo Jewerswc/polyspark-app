@@ -1,4 +1,3 @@
-// components/Articles/components/Comments/Comments.jsx
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './Comments.module.css';
@@ -147,7 +146,6 @@ export default function Comments() {
         payload.parent = parentCommentId;
       }
 
-      // **IMPORTANT**: verify in DevTools → Network that this payload does include `"parent": parentCommentId`
       console.log("Posting comment payload:", payload);
 
       await API.post(`articles/${slug}/comments/`, payload);
@@ -167,6 +165,30 @@ export default function Comments() {
     }
   }
 
+  // — “Cancel” button for inline reply: clear parentCommentId & newContent —
+  function handleCancelReply() {
+    setParentCommentId(null);
+    setNewContent('');
+  }
+
+  // — NEW: Called when user clicks “Edit” on one of their own comments —
+  function handleEditComment(commentId) {
+    console.log("Edit comment:", commentId);
+    // TODO: show an edit UI / modal
+  }
+
+  // — NEW: Called when user clicks “Delete” on one of their own comments —
+  async function handleDeleteComment(commentId) {
+    console.log("Delete comment:", commentId);
+    try {
+      await API.delete(`comments/${commentId}/`); // adjust endpoint as needed
+      const r2 = await API.get(`articles/${slug}/comments/`);
+      setComments(r2.data);
+    } catch (err) {
+      console.error("Error deleting comment:", err);
+    }
+  }
+
   if (loadingProfile) {
     return <div className={styles.loading}>Loading comments…</div>;
   }
@@ -182,21 +204,19 @@ export default function Comments() {
         </div>
       )}
 
-      {/* 1) If NOT replying to any existing comment, show the top‐level box here */}
-      {parentCommentId === null && (
-        <div className={styles.inputWrapper}>
-          <CommentInputAndAvatar
-            avatarUrl={avatarUrl}
-            value={newContent}
-            onChange={e => setNewContent(e.target.value)}
-            placeholder="Write a comment…"
-          />
-          <SubmitButton
-            onClick={handleSubmit}
-            disabled={!newContent.trim() || submitting}
-          />
-        </div>
-      )}
+      {/* 1) Always show the top-level input */}
+      <div className={styles.inputWrapper}>
+        <CommentInputAndAvatar
+          avatarUrl={avatarUrl}
+          value={newContent}
+          onChange={e => setNewContent(e.target.value)}
+          placeholder="Write a comment…"
+        />
+        <SubmitButton
+          onClick={handleSubmit}
+          disabled={!newContent.trim() || submitting}
+        />
+      </div>
 
       {/* 2) Show the comment tree (or a loading indicator) */}
       {loadingComments ? (
@@ -208,13 +228,18 @@ export default function Comments() {
           onLikeClick={handleLikeClick}
           currentUserUsername={currentUsername}
 
-          // Pass down for inline reply boxes:
+          // NEW: pass edit/delete handlers down
+          onEditComment={handleEditComment}
+          onDeleteComment={handleDeleteComment}
+
+          // inline‐reply props
           parentCommentId={parentCommentId}
           newContent={newContent}
           setNewContent={setNewContent}
           handleSubmit={handleSubmit}
           submitting={submitting}
           avatarUrl={avatarUrl}
+          handleCancelReply={handleCancelReply}
         />
       )}
     </div>

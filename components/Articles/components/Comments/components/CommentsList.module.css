@@ -1,0 +1,24 @@
+/* components/Articles/components/Comments/CommentList.module.css */
+
+/* 
+  Style for the “✴ X more comments…” button 
+  so it looks consistent with your existing “Show Replies” links.
+*/
+.showMoreButton {
+  background: none;
+  border: none;
+  color: #333333;           /* same blue as your other links */
+  cursor: pointer;
+  font-family: cabin;
+  font-weight: 700;
+  font-size: 13px;          /* roughly matches comment text */
+  padding: 0rem 0;       /* a bit of vertical padding */
+  line-height: 1.4;         /* match comment line‐height */
+  padding-bottom: 32px;
+  margin-left: 24px;
+}
+
+.showMoreButton:hover {
+  text-decoration: underline;
+  color: #0f3ab8; /* slightly darker on hover */
+}
