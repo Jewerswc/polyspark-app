@@ -219,6 +219,8 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
               onGoogleContinue={() => console.log('Google Continue')}
               onEmailContinue={(email) => console.log('Email submitted:', email)}
               onClose={closeSignupOverlay}
+              onLoginSuccess={closeLogin}
+              
             />
           )}
         </>

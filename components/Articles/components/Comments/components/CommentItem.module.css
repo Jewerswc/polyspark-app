@@ -1,0 +1,264 @@
+/* CommentItem.module.css */
+
+.commentItem {
+  margin-bottom: 8px;
+  gap: 0px
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.meta {
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.username {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  font-family: cabin;
+}
+
+.date {
+  color: #777;
+  font-family: cabin;
+
+}
+
+.content {
+  margin-left: 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: cabin;
+  white-space: pre-wrap;
+  /* ensure that extremely long words/URLs wrap to the next line */
+  overflow-wrap: break-word; /* (same as word-wrap: break-word) */
+}
+
+.content a {
+  /* So super‐long URLs wrap, not scroll */
+  overflow-wrap: anywhere; /* or: break-all; */
+  word-break: break-word;
+  text-decoration: underline; /* or whatever your theme uses */
+  color: #0066cc;             /* example link color */
+}
+
+.footer {
+  margin-left: 2rem;
+  margin-top: 0.25rem;
+  padding-left: 8px;
+}
+
+.replyButton {
+  background: none;
+  border: none;
+  color: #0070f3;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  font-family: cabin;
+
+}
+
+.replyButton:hover {
+  text-decoration: underline;
+}
+
+.replies {
+  margin-left: 2rem;
+  border-left: 1px solid #ececec;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+
+.commentItem {
+  margin-bottom: 24px;
+  margin-top: 8px;
+}
+
+
+
+/* The inline reply‐box under the comment */
+.replyBox {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: left;
+  gap: 16px;
+  padding-left: 40px;
+  padding-top: 16px;
+}
+.replyActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  align-self: flex-end;
+}
+
+/* Nested replies are also indented */
+.replies {
+  margin-left: 0rem;       /* further indent for each level */
+  border-left: 1px solid #ececec;
+  padding-left: 1rem;
+  margin-top: 2px;
+}
+
+/* example likeButton and replyButton styles (unchanged) */
+.likeButton {
+  background: none;
+  border: none;
+  color: #154FE3;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 8px;
+  font-family: cabin;
+}
+.likeButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.replyButton {
+  background: none;
+  border: none;
+  color: #154FE3;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+.replyButton:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* — WRAPPER FOR THE ANIMATED COLLAPSE — */
+.replyBoxContainer {
+  overflow: hidden;
+  max-height: 0;                   /* start fully collapsed */
+  transition: max-height 0.3s ease /* animate height change */;
+}
+
+/* When the reply box should be visible, bump max-height up */
+.replyBoxContainer.open {
+  /* Set this to something safely larger than your reply‐box’s height */
+  max-height: 400px; 
+}
+
+
+
+.cancelButton {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 16px;
+  cursor: pointer;
+  color: #333333;
+  font-family: cabin, sans-serif;
+  font-weight: 600;
+  line-height: 21px;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+  align-self: flex-end;
+}
+
+.cancelButton:hover {
+  background-color: #E6E6E6;
+}
+
+.cancelButton:active {
+  background-color: #CCCCCC;
+}
+
+.cancelButton:disabled {
+  background-color: #F8F8F8;
+}
+
+/* components/Articles/components/Comments/CommentItem.module.css */
+
+/* …existing rules above… */
+
+.replyBoxContainer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.replyBoxContainer.open {
+  max-height: 400px; /* ensure this is ≥ your replyBox’s height */
+}
+
+.replyBox {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.replyActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cancelButton {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0;
+}
+
+.cancelButton:hover {
+  text-decoration: underline;
+  color: #444;
+}
+
+/* New wrapper around the “Show/Hide Replies” toggle + nested replies */
+.repliesWrapper {
+  margin-top: 0.5rem;
+}
+
+/* Style for the “Show X Replies” / “Hide Replies” button */
+.toggleRepliesButton {
+  background: none;
+  border: none;
+  border-left: 2px solid #f0f0f0;
+
+  color: #0066cc;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: cabin;
+  padding: 0;
+  margin-left: 32px;
+  padding-left: 16px;
+  line-height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.toggleRepliesButton:hover {
+  text-decoration: underline;
+  color: #004999;
+}
+
+/* When replies are visible, indent them under this comment */
+.replies {
+  margin-left: 2rem;
+  border-left: 2px solid #f0f0f0;
+  padding-left: 1rem;
+}
+
+/* …any other existing rules… */

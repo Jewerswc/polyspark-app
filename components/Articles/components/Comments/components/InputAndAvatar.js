@@ -5,6 +5,8 @@ import CommentsInput from './Input/Input'
 export default function UserProfileCard({
   avatarUrl,
   name,
+  onChange,
+  value,
 
   onChatClick,
   onNameClick,
@@ -17,7 +19,10 @@ export default function UserProfileCard({
         alt={`${name} avatar`}
         className={styles.avatar}
       />
-      <CommentsInput/>
+      <CommentsInput
+      value={value}
+      onChange={onChange}
+      />
 
         
 
