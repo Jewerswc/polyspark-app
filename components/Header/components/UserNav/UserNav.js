@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import AuthButtonsRow from './AuthButtons/AuthButtons';
 import HamburgerMenu from './Hamburger/HamburgerMenu';
 import HoverDropdown from './HoverMenu/HoverMenutwo';
-import styles from './AuthControls.module.css';
+import styles from './UserNav.module.css';
 
 export default function AuthAndHamburgerRow({
   onLoginClick,
