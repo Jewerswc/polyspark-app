@@ -1,6 +1,6 @@
 // pages/articles/[slug].js
 import React, { useState, useEffect } from 'react'
-import Header from '../../components/Articles/Header'
+import Header from '../../components/Articles/components/Header'
 import HeaderMobileSecondary from './../../components/Header/HeaderMobileSecondary'
 import UserProfileCard from './../../components/Articles/components/Head/Head'
 import ArticleBody from './../../components/Articles/components/Body/Body'

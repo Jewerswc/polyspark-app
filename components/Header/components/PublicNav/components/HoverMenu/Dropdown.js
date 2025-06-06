@@ -13,14 +13,10 @@ export default function Dropdown({
 
   return (
     <div className={styles.dropdown}>
-      {/* Render your trigger (e.g. the small avatar + caret button) */}
       {clonedTrigger}
 
-      {/* ──── DROPDOWN MENU ──── */}
       <div className={styles.menu}>
 
-
-        {/* ──── MENU ITEMS ──── */}
         {Array.isArray(items) &&
           items.map((item, i) => (
             <React.Fragment key={i}>

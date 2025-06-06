@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Header.module.css'
-import AuthandHamburgerSecondary from '../../Header/components/AuthControls/AuthandHamburgerSecondary'
-import PolysparkLogo from '../../Header/components/Logo/Logo.module'
-import SignupOverlay from '../ui/LoginOverlay';
+import AuthandHamburgerSecondary from './../../Header/components/AuthControls/AuthandHamburgerSecondary'
+import PolysparkLogo from './../../Header/components/Logo/Logo.module'
+import SignupOverlay from './../../LoginOverlay/LoginOverlay';
 
 export default function Header() {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
