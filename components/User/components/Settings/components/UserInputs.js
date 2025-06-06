@@ -44,19 +44,14 @@ export default function UserInputs({
   onFieldChange,
   onSave,
 
-  // “username availability” props from ProfileSettings.jsx:
   onUsernameBlur,
   isChecking,
   isAvailable,
   checkError,
 
-  // NEW prop:
   isDirty
 }) {
-  //
-  // Decide which extra class to send into <UserField inputClassName=... />
-  // Based on your overlay CSS: .inputAvailable (green border) or .inputTaken (red border).
-  //
+
   let usernameInputClass = '';
   if (isAvailable === true) {
     usernameInputClass = styles.inputAvailable;
@@ -75,7 +70,6 @@ export default function UserInputs({
         onChange={onFieldChange}
       />
 
-      {/* ——— Username field + “inside‐input” status icon ——— */}
       <div className={styles.usernameContainer}>
         <UserField
           label="Username"
@@ -88,10 +82,6 @@ export default function UserInputs({
           inputClassName={usernameInputClass}
         />
 
-        {/* 
-          RE-USE your overlay’s .statusIcon class exactly, 
-          because that positions the spinner/check/text inside the input.
-        */}
         {isChecking && (
           <div className={styles.statusIcon}>
             <svg

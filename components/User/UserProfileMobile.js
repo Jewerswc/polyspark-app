@@ -41,14 +41,14 @@ export default function ProfileSettings() {
       const token = getAccessToken();
       if (!token) {
         clearTokens();
-        router.push('/login');
+        router.push('/');
         return;
       }
       // Ensure Axios has the header:
       if (!API.defaults.headers.common['Authorization']) {
         console.warn('Axios missing Authorization header');
         clearTokens();
-        router.push('/login');
+        router.push('/');
         return;
       }
       try {
@@ -77,13 +77,13 @@ export default function ProfileSettings() {
             });
           } catch {
             clearTokens();
-            router.push('/login');
+            router.push('/');
             return;
           }
         } else {
           console.error('Failed to load profile:', err.response || err);
           clearTokens();
-          router.push('/login');
+          router.push('/');
           return;
         }
       }
@@ -120,11 +120,11 @@ export default function ProfileSettings() {
     const token = getAccessToken();
     if (!token) {
       clearTokens();
-      return router.push('/login');
+      return router.push('/');
     }
     if (!API.defaults.headers.common['Authorization']) {
       clearTokens();
-      return router.push('/login');
+      return router.push('/');
     }
   
     try {
@@ -175,7 +175,7 @@ export default function ProfileSettings() {
           return handleSave(); // retry
         } catch {
           clearTokens();
-          return router.push('/login');
+          return router.push('/');
         }
       } else {
         console.error('Failed to update:', err.response || err);
