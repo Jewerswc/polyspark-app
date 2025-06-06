@@ -1,59 +1,39 @@
-// AvatarMenu.jsx
+
 import React from 'react';
-import ArrowWithImage from './UserNavMenu';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
+import AuthButtonsRow from './components/AuthButtons/AuthButtons';
+import HamburgerMenu from './components/Hamburger/HamburgerMenu';
+import Dropdown from './components/HoverMenu/Dropdown';
+import styles from './PublicNav.module.css';
 
-export default function AvatarMenu({
-  src,
-  username,
-  alt = '',
-  size = 32,
-  className = '',
-  onReportClick
-  
+export default function AuthAndHamburgerRow({
+  onLoginClick,
+  onSignupClick,
+  onReportClick 
 }) {
-  const router = useRouter();
-
+  const router = useRouter()
   const items = [
-    {
-      label: 'Profile',
-      onClick: () => router.push('/user'),
-    },
-    {
-      label: 'Personas',
-      onClick: () => router.push('/persona'),
-    },
-    {
-      label: 'Activity',
-      onClick: () => router.push('/Activity'),
-    },
-    {
-      label: 'Report an Issue',
-      divider: true,
-    },
-    {
-      label: 'Logout',
-      onClick: () => {
-        console.log('Log out');
-        localStorage.removeItem('accessToken');
-        // …any other cleanup…
-        router.push('/');
-      },
-    },
+    { label: 'Sign Up',           onClick: onSignupClick },
+    { label: 'Log In', divider: true, onClick: onLoginClick },
+    { label: 'Personas',        onClick: () => router.push('/persona') },  
+    { label: 'Activity',        onClick: () => router.push('/Activity') },  
+
+    { label: 'Report an Issue',   onClick: onReportClick },
+    { label: 'Privacy',           onClick: () => {} },
+    { label: 'Terms of Use',      onClick: () => {} },
   ];
 
   return (
+    <div className={styles.container}>
+      <AuthButtonsRow
+        onLoginClick={onLoginClick}
+        onSignupClick={onSignupClick}
+      />
 
-          <ArrowWithImage
-            src={src}
-            username={username}
-            alt={alt}
-            size={size}
-            className={className}
-            onReportClick={onReportClick}
-
-          />
-        
-       
+      <Dropdown
+        trigger={<HamburgerMenu />}
+        items={items}
+      />
+    </div>
   );
 }

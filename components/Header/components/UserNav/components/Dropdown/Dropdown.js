@@ -1,10 +1,12 @@
 import React from 'react'
-import styles from './HoverMenu.module.css'
+import styles from './Dropdown.module.css'
 
 export default function HoverDropdown({
   trigger = null,
   items = [],
-
+  username = '',
+  avatarSrc = '',
+  src
 }) {
   // Only clone if it's a valid React element
   const clonedTrigger = React.isValidElement(trigger)
@@ -18,7 +20,18 @@ export default function HoverDropdown({
 
       {/* ──── DROPDOWN MENU ──── */}
       <div className={styles.menu}>
+        {/* ──── HEADER: large avatar + username ──── */}
+        <div className={styles.header}>
+          <img
+            src={src}
+            alt={`${username}’s avatar`}
+            className={styles.avatarLarge}
+          />
+          <span className={styles.username}>{username}</span>
+        </div>
 
+        {/* Divider between header and items */}
+        <div className={styles.divider} />
 
         {/* ──── MENU ITEMS ──── */}
         {Array.isArray(items) &&

@@ -1,12 +1,10 @@
 import React from 'react'
-import styles from './HoverMenu.module.css'
+import styles from './Dropdown.module.css'
 
-export default function HoverDropdown({
+export default function Dropdown({
   trigger = null,
   items = [],
-  username = '',
-  avatarSrc = '',
-  src
+
 }) {
   // Only clone if it's a valid React element
   const clonedTrigger = React.isValidElement(trigger)

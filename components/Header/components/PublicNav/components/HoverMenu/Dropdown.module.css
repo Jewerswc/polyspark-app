@@ -3,7 +3,6 @@
   display: inline-block;
 }
 
-/* hide menu by default */
 .menu {
   display: none;
   position: absolute;
@@ -20,7 +19,6 @@
   padding: 8px;
 }
 
-/* when you hover anywhere over dropdown, show it */
 .dropdown:hover .menu {
   display: block;
 }
@@ -29,7 +27,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    height: 15px;      /* same as your old margin-top */
+    height: 15px;     
     width: 100%;
     background: transparent;
     pointer-events: all;
@@ -66,32 +64,3 @@
   margin: 4px 0;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px;
-  gap: 8px;
-  border-radius: 4px;
-}
-
-.header:hover {
- background-color: #E6E6E6;
-}
-
-.header:active {
-  background-color: #CCCCCC;
-}
-
-
-.avatarLarge {
-  width: 33px;
-  height: 33px
-}
-
-.username {
-  font-family: cabin;
-  font-size: 14px;
-  color: #333333;
-  font-weight: 700
-}

@@ -7,9 +7,9 @@ import PolysparkLogo from './components/Logo/Logo.module';
 import SearchInput from './components/Search/components/SearchInput/SearchInput';
 import ButtonRow from './components/PrimaryNav/PrimaryNav';
 import UserNav from './components/UserNav/UserNav';
+import PublicNav from './components/PublicNav/PublicNav';
 import TopNavbarBottomRow from './components/CategoryNav/CategoryNav';
 import ReportOverlay from '../ReportOverlay/ReportOverlay';
-import PublicNav from './components/PublicNav/PublicNav';
 
 import API from '../../lib/api';
 import {
@@ -116,7 +116,7 @@ export default function Header({
           <div className={styles.authWrapper}>
             {/* “Not logged in” controls */}
             <div className={`${styles.authControls} ${isLoggedIn ? styles.hidden : ''}`}>
-              <UserNav
+              <PublicNav
                 onSignupClick={openOverlay}
                 onLoginClick={openOverlay}
                 onReportClick={openReportOverlay}
@@ -125,7 +125,7 @@ export default function Header({
 
             {/* “Logged in” avatar menu */}
             <div className={`${styles.loggedIn} ${isLoggedIn ? '' : styles.hidden}`}>
-              <PublicNav
+              <UserNav
                 // If avatarUrl is null (first ever load), it falls back to default.
                 src={avatarUrl || '/default-avatar.png'}
                 username={username || 'User'}
