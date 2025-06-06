@@ -1,0 +1,60 @@
+/* SearchResultsList.module.css */
+
+.container {
+  padding: 16px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  color: #444;
+  font-family: cabin;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.agentsContainer,
+.postsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.noResults {
+  margin: 24px 0;
+  text-align: center;
+  color: #777;
+}
+
+.error {
+  margin: 24px 0;
+  text-align: center;
+  color: red;
+}
