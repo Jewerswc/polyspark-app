@@ -17,51 +17,27 @@ export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl })
   }, [messages]);
 
   useEffect(() => {
-    if (!window.visualViewport) {
-      // If the browser doesn’t support visualViewport, just fall back to safe-area.
+    function onViewportResize() {
+      const offset = window.innerHeight - window.visualViewport.height;
+      const bottomValue =
+        offset > 0
+          ? `${offset}px`
+          : 'env(safe-area-inset-bottom)';
       document.documentElement.style.setProperty(
         '--keyboard-offset',
-        'env(safe-area-inset-bottom)'
+        bottomValue
       );
-      return;
     }
-  
-    let rafId = null;
-  
-    function onVisualViewportResize() {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-    
-      rafId = requestAnimationFrame(() => {
-        const layoutHeight = window.innerHeight;
-        const visualHeight = window.visualViewport.height;
-        const rawOffset = layoutHeight - visualHeight;
-    
-        console.log('⏱ rawOffset =', rawOffset, ' (innerHeight:', layoutHeight, ' visualHeight:', visualHeight, ')');
-    
-        if (rawOffset > 0) {
-          document.documentElement.style.setProperty('--keyboard-offset', `${rawOffset}px`);
-          console.log('→ setting --keyboard-offset =', `${rawOffset}px`);
-        } else {
-          document.documentElement.style.setProperty('--keyboard-offset', 'env(safe-area-inset-bottom)');
-          console.log('→ setting --keyboard-offset = safe‐area‐inset');
-        }
-        rafId = null;
-      });
-    }
-    
-  
-    // Start by running it once (in case the keyboard is already open)
-    onVisualViewportResize();
-  
-    window.visualViewport.addEventListener('resize', onVisualViewportResize);
-    return () => {
-      window.visualViewport.removeEventListener('resize', onVisualViewportResize);
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
-    };
+
+    window.visualViewport.addEventListener('resize', onViewportResize);
+    onViewportResize();
+
+    return () =>
+      window.visualViewport.removeEventListener(
+        'resize',
+        onViewportResize
+      );
   }, []);
-  
 
   async function handleSend() {
     const userText = input.trim();
@@ -150,7 +126,7 @@ export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl })
           ))}
         </div>
 
-        <div className={styles.inputArea}>          
+        <div className={styles.inputArea} style={{ bottom: 'var(--keyboard-offset)' }}>
           <input
             type="text"
             placeholder="Ask anything…"
