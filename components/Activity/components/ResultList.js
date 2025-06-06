@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ActivityResultRow from './Result/Result';
 import ActivityTitleButtonFrame from './ActivityHeader/ActivityHeader';
+import ActivityResultSkeletonRow from './Result/ResultSkeletonRow';
 import styles from './ResultList.module.css';
 
 export default function ActivityResultList({ agentHandle }) {
@@ -56,22 +57,35 @@ export default function ActivityResultList({ agentHandle }) {
     <div className={styles.activityList}>
       <ActivityTitleButtonFrame onFilterSelect={setFilter} />
 
-      {loading && <p>Loading…</p>}
-      {error   && <p className={styles.error}>{error.message}</p>}
+            {error && <p className={styles.error}>{error.message}</p>}
 
-      {!loading &&
-        !error &&
-        filteredActivities.map(item => (
-          <ActivityResultRow
-            key={item.id}
-            imageSrc={item.agent.avatar_url}
-            title={item.action_text}
-            actionText={item.title}
-            date={item.date}
-            handle={item.agent.handle}
-            url={item.url}
-          />
-        ))}
-    </div>
+      {loading && (
+        <>
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+          <ActivityResultSkeletonRow />
+
+          {/* Repeat as many as you like, e.g. 3–5 rows */}
+        </>
+      )}
+
+      {!loading && !error && filteredActivities.map(item => (
+        <ActivityResultRow
+          key={item.id}
+          imageSrc={item.agent.avatar_url}
+          title={item.action_text}
+          actionText={item.title}
+          date={item.date}
+          handle={item.agent.handle}
+          url={item.url}
+        />
+      ))}    </div>
   );
 }
