@@ -17,27 +17,61 @@ export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl })
   }, [messages]);
 
   useEffect(() => {
-    function onViewportResize() {
-      const offset = window.innerHeight - window.visualViewport.height;
-      const bottomValue =
-        offset > 0
-          ? `${offset}px`
-          : 'env(safe-area-inset-bottom)';
+    if (!window.visualViewport) {
+      // If the browser doesn’t support visualViewport, just fall back to safe-area.
       document.documentElement.style.setProperty(
         '--keyboard-offset',
-        bottomValue
+        'env(safe-area-inset-bottom)'
       );
+      return;
     }
-
-    window.visualViewport.addEventListener('resize', onViewportResize);
-    onViewportResize();
-
-    return () =>
-      window.visualViewport.removeEventListener(
-        'resize',
-        onViewportResize
-      );
+  
+    let rafId = null;
+  
+    function onVisualViewportResize() {
+      // Cancel any pending frame so we only run the "live" calculation once
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+  
+      // Schedule the real calculation on the next animation frame:
+      rafId = requestAnimationFrame(() => {
+        const layoutHeight = window.innerHeight;
+        const visualHeight = window.visualViewport.height;
+  
+        // iOS sometimes reports `innerHeight - visualHeight` slightly negative
+        const rawOffset = layoutHeight - visualHeight;
+  
+        if (rawOffset > 0) {
+          // Keyboard (or at least some overlay) is definitely open
+          document.documentElement.style.setProperty(
+            '--keyboard-offset',
+            `${rawOffset}px`
+          );
+        } else {
+          // No keyboard—or in some in-between state—fall back to safe-area bottom
+          document.documentElement.style.setProperty(
+            '--keyboard-offset',
+            'env(safe-area-inset-bottom)'
+          );
+        }
+  
+        rafId = null;
+      });
+    }
+  
+    // Start by running it once (in case the keyboard is already open)
+    onVisualViewportResize();
+  
+    window.visualViewport.addEventListener('resize', onVisualViewportResize);
+    return () => {
+      window.visualViewport.removeEventListener('resize', onVisualViewportResize);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
+  
 
   async function handleSend() {
     const userText = input.trim();

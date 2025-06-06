@@ -1,10 +1,5 @@
 /* ChatOverlayIPhone.module.css */
 
-:root {
-  /* --keyboard-offset will be set dynamically via JS. */
-  --keyboard-offset: env(safe-area-inset-bottom);
-}
-
 .ChatOverlayIPhone_chatBody__abc123 {   /* your generated .chatBody */
   flex: 1;
   overflow-y: auto;
