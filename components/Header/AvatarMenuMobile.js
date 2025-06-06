@@ -4,7 +4,6 @@ import ArrowWithImage from './../../pages/LoggedinMobile';
 import { useRouter } from 'next/router';
 
 
-import styles from './AvatarMenu.module.css';
 export default function AvatarMenu({
   src,
   username,

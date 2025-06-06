@@ -1,0 +1,32 @@
+.signUpButton {
+  background-color: #154FE3;
+  font-family: cabin;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .signUpButton {
+    font-size: 14px; /* or 0.875rem */
+  }
+}
+
+.signUpButton:hover {
+  background-color: #3A70F3;
+}
+
+.signUpButton:active {
+    background-color: #0D3AC2;
+  }
+  
+  /* Disabled state */
+  .signUpButton:disabled {
+    color: #C1C9E6;
+    cursor: not-allowed;
+  }

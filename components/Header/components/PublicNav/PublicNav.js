@@ -1,10 +1,8 @@
 // AvatarMenu.jsx
 import React from 'react';
-import ArrowWithImage from './../../pages/Loggedin';
+import ArrowWithImage from './UserNavMenu';
 import { useRouter } from 'next/router';
 
-
-import styles from './AvatarMenu.module.css';
 export default function AvatarMenu({
   src,
   username,

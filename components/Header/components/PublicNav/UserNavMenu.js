@@ -1,8 +1,8 @@
 // LoggedIn.jsx
 
 import React from 'react';
-import styles from './LoggedIn.module.css';
-import HoverDropdown from './../components/Header/components/AuthControls/HoverMenu/Dropdown'
+import styles from './UserNavMenu.module.css';
+import HoverDropdown from './Dropdown'
 import { useRouter } from 'next/router';
 
 function ArrowWithImage({
