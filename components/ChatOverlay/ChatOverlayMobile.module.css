@@ -1,4 +1,39 @@
 /* ChatOverlayIPhone.module.css */
+
+:root {
+  /* --keyboard-offset will be set dynamically via JS. */
+  --keyboard-offset: env(safe-area-inset-bottom);
+}
+
+.ChatOverlayIPhone_chatBody__abc123 {   /* your generated .chatBody */
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 12px 16px;
+  /* add enough bottom‐padding so that messages don’t get hidden behind the keyboard+input */
+  padding-bottom: calc(
+    40px    /* height of your input (40px) */
+    + 16px  /* vertical padding inside .inputArea (8px top + 8px bottom) */
+    + var(--keyboard-offset)
+  );
+}
+
+.ChatOverlayIPhone_inputArea__def456 {   /* your generated .inputArea */
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--keyboard-offset);
+  width: 100%;
+  max-width: 480px;
+  padding: 8px 16px;
+  background: #fff;
+  border-top: 1px solid #ececec;
+  z-index: 9001;
+}
+
 .overlayBackground {
     position: fixed;
     inset: 0;
