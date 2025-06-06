@@ -3,65 +3,70 @@ import styles from './ChatOverlayMobile.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl }) {
-  const userImg = 'Images/Avatars.png';
-  const assistantImg = 'Images/profileimages/AlexDoe.png';
-
+  const inputRef = useRef(null);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const chatBodyRef = useRef(null);
 
-  useEffect(() => {
-    if (chatBodyRef.current) {
-      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
-    }
-  }, [messages]);
+  // (scroll-to-bottom effect omitted for brevity)
 
   useEffect(() => {
     if (!window.visualViewport) {
-      // If the browser doesn’t support visualViewport, just fall back to safe-area.
+      // If no support for visualViewport, always use safe-area
       document.documentElement.style.setProperty(
         '--keyboard-offset',
         'env(safe-area-inset-bottom)'
       );
       return;
     }
-  
+
     let rafId = null;
-  
+
     function onVisualViewportResize() {
       if (rafId !== null) cancelAnimationFrame(rafId);
-    
+
+      // Double rAF → let Safari finish both toolbar-hide AND keyboard animation
       rafId = requestAnimationFrame(() => {
-        const layoutHeight = window.innerHeight;
-        const visualHeight = window.visualViewport.height;
-        const rawOffset = layoutHeight - visualHeight;
-    
-        console.log('⏱ rawOffset =', rawOffset, ' (innerHeight:', layoutHeight, ' visualHeight:', visualHeight, ')');
-    
-        if (rawOffset > 0) {
-          document.documentElement.style.setProperty('--keyboard-offset', `${rawOffset}px`);
-          console.log('→ setting --keyboard-offset =', `${rawOffset}px`);
-        } else {
-          document.documentElement.style.setProperty('--keyboard-offset', 'env(safe-area-inset-bottom)');
-          console.log('→ setting --keyboard-offset = safe‐area‐inset');
-        }
-        rafId = null;
+        rafId = requestAnimationFrame(() => {
+          const layoutHeight = window.innerHeight;
+          const visualHeight = window.visualViewport.height;
+          const rawOffset = layoutHeight - visualHeight;
+
+          // If we see a positive offset, definitely put the input above the keyboard.
+          if (rawOffset > 0) {
+            document.documentElement.style.setProperty(
+              '--keyboard-offset',
+              `${rawOffset}px`
+            );
+          } else {
+            // rawOffset ≤ 0: only restore safe-area IF the input is NOT focused.
+            // If the input is still focused, it means the keyboard is likely still up;
+            // do NOT reset to safe-area until they actually blur/close the keyboard.
+            if (document.activeElement !== inputRef.current) {
+              document.documentElement.style.setProperty(
+                '--keyboard-offset',
+                'env(safe-area-inset-bottom)'
+              );
+            }
+          }
+          rafId = null;
+        });
       });
     }
-    
-  
-    // Start by running it once (in case the keyboard is already open)
+
+    // Run once in case keyboard is already open
     onVisualViewportResize();
-  
+
     window.visualViewport.addEventListener('resize', onVisualViewportResize);
     return () => {
-      window.visualViewport.removeEventListener('resize', onVisualViewportResize);
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
+      window.visualViewport.removeEventListener(
+        'resize',
+        onVisualViewportResize
+      );
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
-  
+
 
   async function handleSend() {
     const userText = input.trim();
