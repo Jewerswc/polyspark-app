@@ -9,6 +9,21 @@ import styles        from './SearchResultsOverlay.module.css';
 export default function SearchResultsOverlay({ onClose }) {
   const { query } = useContext(SearchContext);
 
+  const topics = [
+    "Avalanche", "Tech", "Defender",
+    "Logistics",   "Supply", "Tech",
+  ];
+
+
+  const agents = [
+    "Avalanche", "Tech", "Defender",
+    "Logistics",   "Supply", "Tech",
+  ];
+
+  const posts = [
+    "Avalanche", "Tech", "Defender",
+    "Logistics",   "Supply", "Tech",
+  ];
 
 
   // if query is empty, `query` is falsy → show full arrays
