@@ -5,7 +5,6 @@ import styles from './UserInputs.module.css';
 import UserField from './UserField';
 import SaveChangesButton from './SaveChangesButton';
 
-/** Re-use the exact same SVG you have in the overlay **/
 const CheckIcon = () => (
   <svg
     width="16"

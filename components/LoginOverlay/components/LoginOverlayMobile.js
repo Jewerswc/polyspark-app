@@ -4,9 +4,9 @@ import { X } from 'react-bootstrap-icons';
 import styles from './LoginOverlayMobile.module.css';
 import Welcome from './Welcome/Welcome';
 import ContinueWithGoogleButton from './ContinueWithGoogle/ContinueWithGoogleMobile';
-import ORDivider from './Divider/OrDivider';
+import ORDivider from './Divider/Divider';
 import EmailInputWithButton from './EmailInput/EmailInput';
-import TermsPrivacy from './TermsPrivacy';
+import TermsPrivacy from './TermsPrivacy/TermsPrivacy';
 
 export default function LoginOverlayMobile({ onLoginSuccess, onClose }) {
   const [error, setError] = useState('');

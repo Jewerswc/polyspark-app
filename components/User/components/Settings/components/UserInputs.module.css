@@ -48,11 +48,6 @@
   z-index: 2;
 }
 
-/* 
-  If you want to show the word “Taken” instead of an X, use this:
-  <span className={styles.statusText}>Taken</span>
-  Positioned exactly the same as the icon.
-*/
 .statusText {
   font-size: 12px;
   color: #e55353;

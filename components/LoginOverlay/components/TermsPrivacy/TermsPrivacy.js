@@ -1,6 +1,6 @@
 import React from 'react';
-import Terms from './terms';
-import Privacy from './privacy';
+import Terms from './components/Terms/terms';
+import Privacy from './components/Privacy/privacy';
 import styles from './TermsPrivacy.module.css';
 
 export default function TermsPrivacy({ onTermsClick, onPrivacyClick }) {

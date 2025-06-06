@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextInput from '../TextInput';
+import TextInput from './components/TextInput/TextInput';
 import ContinueButton from '../ContinueButton/ContinueButton';
 import styles from './EmailInput.module.css';
 

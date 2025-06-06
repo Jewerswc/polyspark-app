@@ -269,7 +269,6 @@ export default function ProfileSettings() {
     }
   }
 
-  if (loading) return <div>Loading profile…</div>;
 
   //
   // ─── COMPUTE “HAS CHANGES?” ───────────────────────────────────────────────

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Top from '../Category Row Mobile/Top'
-import CategoryLabelMobile from '../Category Row Mobile/CategoryLabelMobile'
-import Latest from '../Category Row Mobile/Latest'
+import Top from './Top'
+import CategoryLabelMobile from './CategoryLabelMobile'
+import Latest from './Latest'
 import styles from './CategoriesRowMobile.module.css'
 
 export default function CategoriesRowMobile({

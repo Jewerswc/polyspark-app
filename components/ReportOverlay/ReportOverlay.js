@@ -4,7 +4,7 @@ import styles from './ReportOverlay.module.css';
 import ReportTitle from './components/ReportTitle/ReportTitle';
 import ReportDropdown from './components/ReportDropdown/ReportDropdown';
 import ReportInput from './components/ReportInput/ReportInput';
-import TermsPrivacy from './../LoginOverlay/components/TermsPrivacy';
+import TermsPrivacy from './components/TermsPrivacy/TermsPrivacy';
 
 const modeOptions = [
   { value: 'issue',       label: 'Report an Issue'   },

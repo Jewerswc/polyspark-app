@@ -1,6 +1,6 @@
 // components/LoginOverlay/OTPInput/OTPInput.jsx
 import React, { useState } from 'react';
-import ContinueButton from './ContinueButton/ContinueButton';
+import ContinueButton from './../ContinueButton/ContinueButton';
 import styles from './OTPInput.module.css';
 
 export default function OTPInputWithButton({ email, onContinue, onBack, error }) {
@@ -14,9 +14,6 @@ export default function OTPInputWithButton({ email, onContinue, onBack, error })
 
 
       <div className={styles.wrapper}>
-
-
-
 
 
       <input

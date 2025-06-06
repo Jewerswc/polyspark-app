@@ -1,16 +1,15 @@
+// src/components/LoginOverlay/LoginOverlay.jsx
 import React, { useState } from 'react';
-import styles from './LoginOverlay.module.css';
-import ContinueWithGoogleButton from './components/ContinueWithGoogle/ContinueWithGoogle';
-import ORDivider from './components/Divider/OrDivider';
-import EmailInputWithButton from './components/EmailInput/EmailInput';
-import TermsPrivacy from './components/TermsPrivacy';
-import UsernameOverlay from './../../pages/UsernameOverlay';
-import OTPInputWithButton from './components/OTPinput';
+import PropTypes from 'prop-types';
 import API from './../../lib/api';
+
+import ChooseLoginMethod from './components/ChooseLoginMethod';
+import EnterOtpView from './components/EnterOtpView';
+import UsernameOverlay from './../../pages/UsernameOverlay';
 
 export default function LoginOverlay({ onLoginSuccess, onClose }) {
   const [error, setError] = useState('');
-  const [stage, setStage] = useState('choose');
+  const [stage, setStage] = useState('choose'); // 'choose' | 'otp' | 'username'
   const [email, setEmail] = useState('');
   const [isNewUser, setIsNewUser] = useState(false);
 
@@ -49,8 +48,9 @@ export default function LoginOverlay({ onLoginSuccess, onClose }) {
     }
   };
 
+  // 3) Google Login result
   const handleGoogleLogin = (payload = {}) => {
-    const is_new_user = payload.is_new_user; // safe even if payload isn’t an object
+    const is_new_user = payload.is_new_user || false;
     if (is_new_user) {
       setIsNewUser(true);
       setStage('username');
@@ -59,48 +59,46 @@ export default function LoginOverlay({ onLoginSuccess, onClose }) {
     }
   };
 
-  // 4) Username chosen: receives { username, subscribeUpdates }
+  // 4) Username chosen (new user)
   const handleUsernameChosen = ({ username, subscribeUpdates }) => {
-    // (UsernameOverlay already did the POST/PATCH)
+    // (UsernameOverlay is assumed to have already done its user-create request)
     onLoginSuccess();
   };
 
-  return (
-    <>
-      {stage === 'choose' && (
-        <div className={styles.overlay} onClick={onClose}>
-          <div className={styles.card} onClick={(e) => e.stopPropagation()}>
-            <h2 className={styles.heading}>Welcome to Polyspark</h2>
-            <ContinueWithGoogleButton onLoginSuccess={handleGoogleLogin} />
-            <ORDivider />
-            <EmailInputWithButton onContinue={handleEmailContinue} />
-            {error && <p className={styles.error}>{error}</p>}
-            <TermsPrivacy />
-          </div>
-        </div>
-      )}
 
-      {stage === 'otp' && (
-        <div className={styles.overlay} onClick={onClose}>
-          <div className={styles.card} onClick={(e) => e.stopPropagation()}>
-            <h2 className={styles.heading}>Enter the OTP</h2>
-            <OTPInputWithButton
-              email={email}
-              error={error}
-              onBack={() => {
-                setError('');
-                setStage('choose');
-              }}
-              onContinue={handleOtpContinue}
-            />
-            <TermsPrivacy />
-          </div>
-        </div>
-      )}
+  switch (stage) {
+    case 'choose':
+      return (
+        <ChooseLoginMethod
+          onEmailContinue={handleEmailContinue}
+          onGoogleLogin ={handleGoogleLogin}
+          error={error}
+          onClose={onClose}
+        />
+      );
 
-      {stage === 'username' && isNewUser && (
+    case 'otp':
+      return (
+        <EnterOtpView
+          email          ={email}
+          error          ={error}
+          onBack         ={() => { setError(''); setStage('choose'); }}
+          onOtpContinue  ={handleOtpContinue}
+          onClose        ={onClose}
+        />
+      );
+
+    case 'username':
+      return isNewUser ? (
         <UsernameOverlay onLoginSuccess={handleUsernameChosen} />
-      )}
-    </>
-  );
+      ) : null;
+
+    default:
+      return null;
+  }
 }
+
+LoginOverlay.propTypes = {
+  onLoginSuccess: PropTypes.func.isRequired,
+  onClose:        PropTypes.func.isRequired,
+};
