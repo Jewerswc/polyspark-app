@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './UsernameOverlay.module.css';
-import TermsPrivacy from './../components/LoginOverlay/components/TermsPrivacy';
+import TermsPrivacy from './../components/LoginOverlay/components/TermsPrivacy/TermsPrivacy';
 import API from './../lib/api'; 
 
 const CheckIcon = () => (
