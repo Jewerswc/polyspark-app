@@ -58,12 +58,12 @@ export default function ProfileSettings() {
       const token = getAccessToken();
       if (!token) {
         clearTokens();
-        router.push('/login');
+        router.push('/');
         return;
       }
       if (!API.defaults.headers.common['Authorization']) {
         clearTokens();
-        router.push('/login');
+        router.push('/');
         return;
       }
 
@@ -106,13 +106,13 @@ export default function ProfileSettings() {
             setIsAvailable(true);
           } catch {
             clearTokens();
-            router.push('/login');
+            router.push('/');
             return;
           }
         } else {
           console.error('Failed to load profile:', err.response || err);
           clearTokens();
-          router.push('/login');
+          router.push('/');
           return;
         }
       }
@@ -191,11 +191,11 @@ export default function ProfileSettings() {
     const token = getAccessToken();
     if (!token) {
       clearTokens();
-      return router.push('/login');
+      return router.push('/');
     }
     if (!API.defaults.headers.common['Authorization']) {
       clearTokens();
-      return router.push('/login');
+      return router.push('/');
     }
 
     try {
@@ -260,7 +260,7 @@ export default function ProfileSettings() {
           return handleSave(); // retry once
         } catch {
           clearTokens();
-          return router.push('/login');
+          return router.push('/');
         }
       } else {
         console.error('Failed to update:', err.response || err);
@@ -270,10 +270,6 @@ export default function ProfileSettings() {
   }
 
 
-  //
-  // ─── COMPUTE “HAS CHANGES?” ───────────────────────────────────────────────
-  //
-  // If ANY of these conditions are true, we consider the form “dirty,” i.e. ENABLE Save.
   const hasChanges =
     avatarFile !== null ||
     profile.email !== originalProfile.email ||
@@ -290,11 +286,7 @@ export default function ProfileSettings() {
         onFileChange={handleAvatarFileChange}
       />
 
-      {/*
-        Pass down all the props required for:
-          1) “username availability” UI
-          2) “hasChanges” → disables/enables SaveChangesButton
-      */}
+    
       <UserInputs
         email={profile.email}
         username={profile.username}
