@@ -29,36 +29,26 @@ export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl })
     let rafId = null;
   
     function onVisualViewportResize() {
-      // Cancel any pending frame so we only run the "live" calculation once
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
-  
-      // Schedule the real calculation on the next animation frame:
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    
       rafId = requestAnimationFrame(() => {
         const layoutHeight = window.innerHeight;
         const visualHeight = window.visualViewport.height;
-  
-        // iOS sometimes reports `innerHeight - visualHeight` slightly negative
         const rawOffset = layoutHeight - visualHeight;
-  
+    
+        console.log('⏱ rawOffset =', rawOffset, ' (innerHeight:', layoutHeight, ' visualHeight:', visualHeight, ')');
+    
         if (rawOffset > 0) {
-          // Keyboard (or at least some overlay) is definitely open
-          document.documentElement.style.setProperty(
-            '--keyboard-offset',
-            `${rawOffset}px`
-          );
+          document.documentElement.style.setProperty('--keyboard-offset', `${rawOffset}px`);
+          console.log('→ setting --keyboard-offset =', `${rawOffset}px`);
         } else {
-          // No keyboard—or in some in-between state—fall back to safe-area bottom
-          document.documentElement.style.setProperty(
-            '--keyboard-offset',
-            'env(safe-area-inset-bottom)'
-          );
+          document.documentElement.style.setProperty('--keyboard-offset', 'env(safe-area-inset-bottom)');
+          console.log('→ setting --keyboard-offset = safe‐area‐inset');
         }
-  
         rafId = null;
       });
     }
+    
   
     // Start by running it once (in case the keyboard is already open)
     onVisualViewportResize();
@@ -160,7 +150,7 @@ export default function ChatOverlayIPhone({ name, persona, onClose, avatarUrl })
           ))}
         </div>
 
-        <div className={styles.inputArea} style={{ bottom: 'var(--keyboard-offset)' }}>
+        <div className={styles.inputArea}>          
           <input
             type="text"
             placeholder="Ask anything…"
