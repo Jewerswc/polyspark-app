@@ -4,7 +4,7 @@ import IconButtonRow from './components/IconsRow/IconsRow';
 
 export default function Footer() {
   const infoItems = [
-    "Polyspark Inc. © 2025",
+    "Polyspark © 2025",
     "Privacy",
     "Terms",
     "Press"

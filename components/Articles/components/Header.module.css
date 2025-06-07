@@ -1,9 +1,10 @@
 /* src/components/Header/Header.module.css */
 .header {
   width: 100%;
-  padding: 16.5px 56px 16px 48px;            /* horizontal gutter */
+  padding: 16.5px 48px 16px 48px;            /* horizontal gutter */
   background-color: #ffffff;     /* black bar */
   display: flex;
+  height: 69px;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
@@ -18,4 +19,29 @@
 .logo {
   height: 40px;               /* scale so it fits nicely */
   object-fit: contain;
+}
+
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.authWrapper {
+  display: grid;
+  grid-template-areas: "auth";
+  align-items: center;
+  /* prevents it from growing too wide */
+  flex: 0 0 auto;
+  max-width: 225px;
+}
+
+/* The Public state (signup/login button + hamburger) */
+.authWrapper > div:first-child {
+  grid-area: auth;
+}
+
+/* The Logged‐in avatar/menu */
+.authWrapper > div:last-child {
+  grid-area: auth;
+  justify-self: end;    /* push avatar to the right edge */
 }

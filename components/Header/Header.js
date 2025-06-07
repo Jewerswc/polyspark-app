@@ -114,7 +114,6 @@ export default function Header({
           <ButtonRow />
 
           <div className={styles.authWrapper}>
-            {/* “Not logged in” controls */}
             <div className={`${styles.authControls} ${isLoggedIn ? styles.hidden : ''}`}>
               <PublicNav
                 onSignupClick={openOverlay}

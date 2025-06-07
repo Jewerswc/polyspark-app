@@ -1,6 +1,4 @@
-
-
-import React from 'react';
+import React, { useState } from 'react'
 import styles from './UserNav.module.css';
 import Dropdown from './components/Dropdown/Dropdown'
 import BellIcon from './components/BellIcon/BellIcon';
@@ -17,7 +15,12 @@ function ArrowWithImage({
   ...props
 }) {
   const router = useRouter();
-  
+  const [isBellOpen, setIsBellOpen] = useState(false)
+  const bellItems = [
+    { label: 'New comment on your post', onClick: () => console.log('Go to comment') },
+    { label: 'New follower',           onClick: () => console.log('Go to follower') },
+    { label: 'System alert',           onClick: () => console.log('Go to alerts') },
+  ]
     const items = [
       {
         label: 'Profile',
@@ -61,9 +64,21 @@ function ArrowWithImage({
   return (
     <div className={`${styles.container} ${className}`} {...props}>
 
-      {/* Bell wrapper */}
-      <div className={styles.bellWrapper}>
-      <BellIcon className={styles.bell} />
+<div >
+        <Dropdown
+          items={bellItems}
+          isOpen={isBellOpen}
+          onClose={() => setIsBellOpen(false)}
+          trigger={
+            <div
+              className={styles.bellWrapper}
+              onClick={() => setIsBellOpen(open => !open)}
+              aria-expanded={isBellOpen}
+            >
+              <BellIcon className={styles.bell} />
+            </div>
+          }
+        />
       </div>
 
       {/* Divider line */}
