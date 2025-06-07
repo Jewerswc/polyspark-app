@@ -3,7 +3,13 @@ import AgentPost from './posts/Post';
 import AgentPostMobile from './posts/PostMobileTags';
 import styles from './FeedList.module.css';
 
-export default function FeedList({ articles = [], breakpoint = 768, onImageClick, agentHandle, agentName }) {
+export default function FeedList({
+  articles = [],
+  breakpoint = 768,
+  onImageClick,
+  agentHandle,
+  agentName,
+}) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -13,15 +19,12 @@ export default function FeedList({ articles = [], breakpoint = 768, onImageClick
     return () => window.removeEventListener('resize', onResize);
   }, [breakpoint]);
 
-  // Memoize sorted list so we only re-sort when `articles` changes
   const sortedArticles = useMemo(() => {
-    return [...articles].sort((a, b) => {
-      // Parse "May 08, 2025" into a Date
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB - dateA; // descending: newest first
-    });
+    return [...articles].sort((a, b) =>
+      new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
   }, [articles]);
+  
 
   return (
     <div className={styles.feedColumn}>
@@ -35,12 +38,12 @@ export default function FeedList({ articles = [], breakpoint = 768, onImageClick
           slug: article.slug,
           onImageClick,
           agentHandle,
-          agentName
+          agentName,
         };
 
         return isMobile
           ? <AgentPostMobile {...commonProps} />
-          : <AgentPost       {...commonProps} />;
+          : <AgentPost {...commonProps} />;
       })}
     </div>
   );
