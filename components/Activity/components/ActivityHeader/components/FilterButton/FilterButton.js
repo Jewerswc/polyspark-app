@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './FilterButton.module.css';
 import { ChevronDown } from 'react-bootstrap-icons';
 
-const options = ['None', 'Comments', 'Created By', 'Likes'];
+const options = ['None', 'Created By'];
 
 export default function ActivityCategoryButton({ onSelect }) {
   const [open, setOpen] = useState(false);

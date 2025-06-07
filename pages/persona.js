@@ -27,10 +27,6 @@ export default function Persona({
   initialAgent,
     label,
   
-    onHeaderClick,
-    onChatClick,
-    actionType,            // "chat" or "profile"
-    profileUrlFn           // optional: (persona) => string
   }) {
   const router = useRouter();
   const category = router.query.category || 'popular';
@@ -63,12 +59,11 @@ export default function Persona({
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
   const [selectedPersona, setSelectedPersona] = useState(null);
   const openChatOverlayMobile = () => {
-    // grab the current agent and open
     setChatPersona(agent.handle)
     setChatName(agent.name)
     setIsChatOpen(true)
   }
-const closeChatOverlayMobile = () => setIsChatOpen(false)
+
 
 
   const openChatOverlay = (persona) => {
@@ -140,7 +135,7 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
                       categoryKey="rising"
                       onPersonaClick={openMobileChat}
                     />
-                                        <CarouselMobile
+                    <CarouselMobile
                       label="Most Active"
                       categoryKey="most active"
                       onPersonaClick={openMobileChat}
@@ -150,7 +145,7 @@ const closeChatOverlayMobile = () => setIsChatOpen(false)
                      moreOpen={moreOpen} 
                      onSearchClick={handleSearchClick}
                      />
-          </div>
+                    </div>
 
           {loginOpen && <UserProfileCardMobile onClose={closeLogin} />}
           {overlayMounted && (

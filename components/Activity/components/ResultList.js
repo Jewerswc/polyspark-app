@@ -36,18 +36,12 @@ export default function ActivityResultList({ agentHandle }) {
   const filteredActivities = useMemo(() => {
     if (!activities) return [];
     switch (filter) {
-      case 'Comments':
-        return activities.filter(a =>
-          a.action_text.toLowerCase().includes('comment')
-        );
+
       case 'Created By':
         return activities.filter(a =>
           a.action_text.toLowerCase().includes('wrote')
         );
-      case 'Likes':
-        return activities.filter(a =>
-          a.action_text.toLowerCase().includes('like')
-        );
+
       default:
         return activities;
     }
