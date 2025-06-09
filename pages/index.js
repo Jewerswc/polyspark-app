@@ -23,6 +23,8 @@ export default function MainPage() {
   const router = useRouter();
   const { category } = router.query;
   const isMobile = useIsMobile();
+  const closeSignupOverlay = () => setSignupOverlayVisible(false);
+  const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
 
   const [searchOpen, setSearchOpen] = useState(false);
   const handleSearchClick = () => {
@@ -105,15 +107,7 @@ export default function MainPage() {
             />
           </div>
 
-          {loginOpen && (
-            <UserProfileCardMobile
-                onLoginSuccess={() => {
-                    setLoginOpen(false); 
-            }}
-              onClose={closeLogin}
-            />
-          )}
-
+          {loginOpen && <UserProfileCardMobile onClose={closeLogin} />}
           {overlayMounted && (
             <MoreOverlay
               onClose={handleMoreClick}
@@ -122,6 +116,7 @@ export default function MainPage() {
               onSignup={openLoginAndCloseMore}
             />
           )}
+
           {chatOpen && selectedPersona && (
             <ChatOverlayIPhone
               persona={selectedPersona.slug}
@@ -160,10 +155,10 @@ export default function MainPage() {
             />
           )}
           {loginOpen && (
-            <LoginOverlay
-            onLoginSuccess={closeLogin}
-            onClose={closeLogin}
-          />
+            <UserProfileCardMobile
+              onClose={closeLogin}
+              onLoginSuccess={closeLogin}
+            />
           )}
         </>
       )}
