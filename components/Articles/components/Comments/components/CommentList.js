@@ -39,7 +39,7 @@ export default function CommentList({
   if (!comments || comments.length === 0) {
     return (
       <div style={{ padding: '1rem 0', textAlign: 'center', color: '#666' }}>
-        No comments yet.
+       
       </div>
     );
   }
