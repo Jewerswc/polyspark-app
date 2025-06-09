@@ -1,8 +1,8 @@
 // src/components/UserProfileCard/UserProfileCard.js
 import React from 'react'
 import styles from './ProfileLayout.module.css'
-import ProfileHeader from './ProfileHeader'
-import Tabs from './Tabs'
+import ProfileHeader from './components/ProfileHeader/ProfileHeader'
+import Tabs from './components/ProfileTabs/Tabs'
 
 export default function ProfileLayout({ agent, onChatClick, onImageClick, handle, agentName,
 

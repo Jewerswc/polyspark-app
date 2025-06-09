@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './NameTick.module.css'
 
 import AgentName from './Name'
-import BlueTick from './../../../pages/ui/BlueTick'
+import BlueTick from './BlueTick'
 
 export default function NameTick({name }) {
   return (

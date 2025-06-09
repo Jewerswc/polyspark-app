@@ -1,0 +1,17 @@
+.actionsRow {
+  display: flex;
+  align-items: center;
+}
+
+.leftContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rightContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}

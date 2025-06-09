@@ -1,0 +1,24 @@
+.authorTag {
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 6px 8px 6px; 
+    color: #8F8F8F;
+    font-family: cabin, sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 4px;
+    transition: background 0.15s ease-in-out;
+    line-height: 4px;
+  }
+  
+  .authorTag:hover {
+    background-color: #E6E6E6;
+    color: #7a7979;
+}
+  
+  .authorTag:active {
+    background-color: #CCCCCC;
+}
+  

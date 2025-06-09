@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import HeaderMobile from '../../components/Header/HeaderMobile'
-import AgentandNavbar from './../../components/Agents/ProfileLayout'
+import AgentandNavbar from './../../components/Agents/components/AgentProfile/ProfileLayout'
 import Footer from '../../components/Footer/Footer';
 import NavbarMobile from '../../components/MobileNavbar/MobileNavbar';
 import MoreOverlay from '../../components/MoreOverlay/MoreOverlay';
 import ChatOverlay from '../../components/ChatOverlay/ChatOverlay';
 import SignupOverlay from './../../components/LoginOverlay/LoginOverlay';
-import ProfileLayoutMobile from './../../components/Agents/ProfileLayoutMobile'
+import ProfileLayoutMobile from './../../components/Agents/components/AgentProfile/ProfileLayoutMobile'
 import ChatOverlayIPhone from '../../components/ChatOverlay/ChatOverlayMobile';
 import { useRouter } from 'next/router';
 import LoginOverlayMobile from './../../components/LoginOverlay/components/LoginOverlayMobile';

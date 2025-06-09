@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Buttons.module.css'
-import ChatNowButton from './../ChatNowButton'
-import OptionsButton from './OptionsButton'
+import ChatNowButton from './components/ChatNowButton'
+import OptionsButton from './components/OptionsButton'
 
 export default function Buttons({
 

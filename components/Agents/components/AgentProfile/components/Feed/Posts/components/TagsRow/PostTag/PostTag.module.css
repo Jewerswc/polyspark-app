@@ -1,0 +1,37 @@
+.postTag {
+    /* Default gradient */
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    border: 0.5px solid #959292;
+    cursor: pointer;
+    padding: 8px 6px 8px 6px; /* Specify units */
+    color: #959292;
+    font-family: cabin, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    transition: background 0.2s ease-in-out;
+
+    line-height: 4px;
+  }
+  
+  /* Hover state gradient */
+  .postTag:hover {
+    background-color: #E6E6E6;
+}
+  
+  /* Active state gradient */
+  .postTag:active {
+    background-color: #CCCCCC;
+}
+  
+.indicatorTag {
+  /* override or augment for the “+N” pill */
+  background: none;   /* for example, a light gray */
+  color: #959292;         /* darker text */
+  font-weight: 600;
+  padding: 8px 3px 8px 3px; /* Specify units */
+
+  border: none;
+}

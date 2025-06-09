@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './NameTickHandle.module.css'
-import AgentHandle from './Handle'
-import NameTick from './NameTick'
+import AgentHandle from './components/Handle/Handle'
+import NameTick from './components/NameTick/NameTick'
 
 
 export default function UserProfileCard({name, handle }) {

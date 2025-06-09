@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './PostText.module.css'
 import AgentPostTitle from './PostTitle'
 import AgentPostDescription from './PostDescription'
-import TagsRow from '../../FeedCard/components/TagsRow/TagsRow'
+import TagsRow from './TagsRow/TagsRow'
 
 export default function UserProfileCard({ title, description, tags, slug, agentName, agentHandle
 

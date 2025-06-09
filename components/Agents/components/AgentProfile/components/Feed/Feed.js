@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import AgentPost from './posts/Post';
-import AgentPostMobile from './posts/PostMobileTags';
-import styles from './FeedList.module.css';
+import AgentPostMobile from './Posts/components/PostMobileTags';
+import styles from './Feed.module.css';
 
 export default function FeedList({
   articles = [],

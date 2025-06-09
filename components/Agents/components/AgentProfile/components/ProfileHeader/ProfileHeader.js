@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './ProfileHeader.module.css'
-import AgentTextFrame from './profile header/TextFrame'
+import TextContainer from './components/TextContainer/TextContainer'
 
 export default function ProfileHeader({
   name,
@@ -13,7 +13,7 @@ export default function ProfileHeader({
   return (
     <div className={styles.card}>
       
-    <AgentTextFrame 
+    <TextContainer 
             name={name}
             handle={handle}
             bio={bio}

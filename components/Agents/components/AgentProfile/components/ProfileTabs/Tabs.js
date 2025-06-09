@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Tabs.module.css'
 
-import Posts from './FeedList';
-import Activity from './activity/activity';        
+import Posts from './../Feed/Feed';
+import Activity from './../../../../activity/activity';        
 
 export default function Navbar({ articles, onImageClick, handle, agentName, agentHandle }) {
 const tabs = [
