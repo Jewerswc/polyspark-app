@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import AgentPost from './posts/Post';
+import AgentPost from './Posts/Post';
 import AgentPostMobile from './Posts/components/PostMobileTags';
 import styles from './Feed.module.css';
 
