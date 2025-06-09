@@ -121,17 +121,17 @@ export default function Persona({
           <div className={styles.mainContentMobile}>
                      <FeaturedRowMobile onChatClick={openMobileChat} />
                      <CarouselMobile
-                      label="New"
+                      label="New (12)"
                       categoryKey="new"
                       onPersonaClick={openMobileChat}
                     />
                     <CarouselMobile
-                      label="Popular"
+                      label="Popular (12)"
                       categoryKey="popular"
                       onPersonaClick={openMobileChat}
                     />
                     <CarouselMobile
-                      label="Rising"
+                      label="Rising (12)"
                       categoryKey="rising"
                       onPersonaClick={openMobileChat}
                     />
