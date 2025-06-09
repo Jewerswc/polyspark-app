@@ -1,6 +1,7 @@
+// src/components/UserProfileCard/LoginOverlayMobile/ContinueWithGoogleMobile.js
 import React, { useEffect } from 'react';
-import API from './../../../../lib/api'
-import { setTokens } from './../../../../pages/api/auth'
+import API from './../../../../lib/api';
+import { setTokens } from './../../../../pages/api/auth';
 import styles from './ContinueWithGoogleMobile.module.css';
 
 export default function ContinueWithGoogleButton({ onLoginSuccess }) {
@@ -18,39 +19,43 @@ export default function ContinueWithGoogleButton({ onLoginSuccess }) {
         ux_mode: 'popup',
         callback: async (resp) => {
           if (!resp.code) {
-            console.error('No code returned from Google', resp)
-            return
+            console.error('No code returned from Google', resp);
+            return;
           }
           try {
             // 1️⃣ send the authorization code to your backend
             const { data } = await API.post('/google_auth/', {
               code: resp.code,
-            })
+            });
             // 2️⃣ save whatever tokens your server returned
-            setTokens(data)
-            // 3️⃣ let the parent know we’re logged in now
-            onLoginSuccess()
+            setTokens(data);
+            // 3️⃣ bubble up the new-user flag so parent can switch to username stage
+            onLoginSuccess({ is_new_user: data.is_new_user });
           } catch (err) {
-            console.error('Google code-flow error', err)
+            console.error('Google code-flow error', err);
           }
         },
-      })
-      window._gsiCodeInitialized = true
+      });
+      window._gsiCodeInitialized = true;
     }
-  }, [onLoginSuccess])
+  }, [onLoginSuccess]);
 
   const handleClick = () => {
     if (window._gsiCodeClient) {
-      window._gsiCodeClient.requestCode()
+      window._gsiCodeClient.requestCode();
     } else {
-      console.error('Google Identity SDK not loaded')
+      console.error('Google Identity SDK not loaded');
     }
-  }
+  };
+
   return (
-    <button className={styles.ContinueWithGoogleButton} onClick={handleClick}>
-      <img 
-        src="/Icons/GoogleVector.svg" 
-        alt="Google icon" 
+    <button
+      className={styles.ContinueWithGoogleButton}
+      onClick={handleClick}
+    >
+      <img
+        src="/Icons/GoogleVector.svg"
+        alt="Google icon"
         className={styles.googleIcon}
       />
       Continue with Google

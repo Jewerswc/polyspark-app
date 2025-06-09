@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { X } from 'react-bootstrap-icons';
 import API from './../../../lib/api';               
 import styles from './LoginOverlayMobile.module.css';
+import UsernameOverlay from './../../../pages/UsernameOverlay';
 
 import Welcome from './Welcome/Welcome';
 import ContinueWithGoogleButton from './ContinueWithGoogle/ContinueWithGoogleMobile';
@@ -58,6 +59,16 @@ export default function LoginOverlayMobile({ onLoginSuccess, onClose }) {
     onLoginSuccess({ username, subscribeUpdates });
   };
 
+    // --- new: username stage must short-circuit the rest of the mobile UI ---
+  if (stage === 'username') {
+    return (
+      // this overlay already has its own backdrop & card
+      <UsernameOverlay
+        onLoginSuccess={handleUsernameChosen}
+      />
+    );
+  }
+
   return (
     <div className={styles.overlay}>
       <div className={styles.closeContainer}>
@@ -77,14 +88,15 @@ export default function LoginOverlayMobile({ onLoginSuccess, onClose }) {
             <Welcome />
 
             <ContinueWithGoogleButton
-              onLoginSuccess={(payload) => {
-                if (payload.is_new_user) {
-                  setStage('username');
-                } else {
-                  onLoginSuccess();
-                }
-              }}
-            />
+            onLoginSuccess={(payload = {}) => {
+                  // payload now always defaults to {}
+                  if (payload.is_new_user) {
+                    setStage('username');
+                  } else {
+                    onLoginSuccess();
+                  }
+                }}
+              />
 
             <ORDivider />
 

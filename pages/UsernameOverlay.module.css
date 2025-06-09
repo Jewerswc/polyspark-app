@@ -34,6 +34,33 @@
   align-items: center;
   gap: 8px;
 }
+
+@media (max-width: 480px) {
+  .card {
+    max-width: 100%;
+    margin: 0px;          /* give a little side-padding */
+    padding: 24px;           /* tighter padding */
+    border-radius: 0;        /* flush corners */
+    height: 100%;            /* fill vertically if you want */
+    box-shadow: none;        /* remove desktop shadow, if desired */
+    justify-content: center;
+  }
+}
+
+.mobileImage {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .mobileImage {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;        /* adjust to your design */
+    margin-bottom: 8px; /* center + spacing beneath */
+  }
+}
+
 .headings {
   display: flex;            /* <-- make it a flex container */
   flex-direction: column;   /* stack its children vertically */

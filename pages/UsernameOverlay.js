@@ -71,6 +71,11 @@ export default function UsernameOverlay({ onLoginSuccess }) {
   return (
     <div className={styles.overlay}>
       <div className={styles.card} onClick={(e) => e.stopPropagation()}>
+      <img
+          src="/Images/Frame 224.png"
+          alt="Choose your username"
+          className={styles.mobileImage}
+        />
         <div className={styles.headings}>
           <h2 className={styles.heading}>Choose a username</h2>
           <h3 className={styles.headingtwo}>You can update this later.</h3>
