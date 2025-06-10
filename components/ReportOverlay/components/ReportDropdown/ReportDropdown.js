@@ -1,7 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './ReportDropdown.module.css';
 
-export default function ReportDropdown({ options = [], selected, onSelect }) {
+export default function ReportDropdown({
+  options = [],
+  selected,
+  onSelect,
+  placeholder = 'Select…',    // ← accept a placeholder prop
+}) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -27,7 +32,9 @@ export default function ReportDropdown({ options = [], selected, onSelect }) {
         aria-haspopup="true"
         aria-expanded={open}
       >
-        {selectedOption ? selectedOption.label : 'Report an Issue'}
+        {selectedOption
+          ? selectedOption.label
+          : placeholder          /* ← show placeholder when nothing’s selected */ }
       </button>
 
       {open && (
@@ -35,7 +42,6 @@ export default function ReportDropdown({ options = [], selected, onSelect }) {
           {options.map(opt => (
             <li key={opt.value}>
               <button
-                // add an “active” class if this is the current selection
                 className={[
                   styles.menuItem,
                   opt.value === selected ? styles.active : '',

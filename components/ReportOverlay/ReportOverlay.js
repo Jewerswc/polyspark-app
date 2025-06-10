@@ -20,30 +20,58 @@ const pageOptions = [
   { value: 'profile',  label: 'Profile Page'  },
 ];
 
-const handleSubmit = () => {
-  // TODO: replace with your real submit logic
-  console.log({ mode, page, text });
-  // e.g. send to your backend, then...
-  onClose();
-};
+export default function TextFrame({ onClose, userId, authToken }) {
+  // Default to "issue" so both page dropdown and issue input show immediately
+  const [mode, setMode] = useState(modeOptions[0].value);
+  const [page, setPage] = useState('');
+  const [text, setText] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-export default function TextFrame({ onClose }) {
-  const [mode, setMode]   = useState(null);
-  const [page, setPage]   = useState(null);
-  const [text, setText]   = useState('');
-
+  // Compute placeholder based only on actual mode
   const placeholder =
     mode === 'suggestion'
       ? 'Please describe your suggestion'
       : 'Please describe the issue you encountered';
 
+  const handleSubmit = async () => {
+    setLoading(true);
+    setError(null);
+
+    const payload = {
+      description: text,
+      ticket_type: mode,
+      affected_page: mode === 'issue' ? page : '',
+      created_by: userId || null,
+    };
+
+    try {
+      const res = await fetch('https://ionbackend.com/matching/api/submit-ticket/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(authToken && { Authorization: `Bearer ${authToken}` }),
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || 'Failed to submit ticket');
+      }
+
+      // success
+      onClose();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-   <div className={styles.overlay} onClick={onClose}>
-          {/* inner card: stop clicks from bubbling up */}
-          <div 
-            className={styles.container} 
-            onClick={e => e.stopPropagation()}
-          >
+    <div className={styles.overlay} onClick={onClose}>
+      <div className={styles.container} onClick={e => e.stopPropagation()}>
         <ReportTitle />
 
         {/* Mode dropdown */}
@@ -52,37 +80,41 @@ export default function TextFrame({ onClose }) {
           selected={mode}
           onSelect={val => {
             setMode(val);
-            setPage(null);
+            setPage('');
             setText('');
           }}
+          placeholder="Select a Type"
         />
 
-        {/* Page dropdown only when reporting an issue */}
+        {/* Page dropdown for 'issue' mode */}
         {mode === 'issue' && (
           <ReportDropdown
             options={pageOptions}
             selected={page}
             onSelect={setPage}
+            placeholder="Select a Page"
           />
         )}
 
-        {/* Free-form text input, placeholder varies by mode */}
+        {/* Input for issue or suggestion */}
         <ReportInput
           placeholder={placeholder}
           value={text}
           onChange={e => setText(e.target.value)}
         />
-                <button
+
+        {error && <div className={styles.error}>{error}</div>}
+
+        <button
           className={styles.submitButton}
           onClick={handleSubmit}
-          disabled={!mode || !text || (mode === 'issue' && !page)}
+          disabled={loading || !text || (mode === 'issue' && !page)}
         >
-          Submit
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
-        <TermsPrivacy />
 
+        <TermsPrivacy />
       </div>
-      
     </div>
   );
 }
