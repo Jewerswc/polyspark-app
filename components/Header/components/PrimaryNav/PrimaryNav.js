@@ -14,9 +14,8 @@ export default function PrimaryNav() {
     <div className={styles.buttonRow}>
       <TrendingButton onClick={() => router.push('/')} />
       <ActivityButton onClick={() => router.push('/Activity')} />
-      <ShuffleButton onClick={() => console.log('Shuffle button clicked')} />
       <PersonasDropdown onClick={() => router.push('/persona')} />
-      <ActionsDropdown />
+
     </div>
   );
 }

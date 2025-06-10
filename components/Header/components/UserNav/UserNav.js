@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './UserNav.module.css';
 import Dropdown from './components/Dropdown/Dropdown'
+import NotificationsDropdown from './components/Dropdown/NotificationsDropdown';
 import BellIcon from './components/BellIcon/BellIcon';
 import ArrowRightIcon from './components/ArrowRightIcon/ArrowRightIcon';
 import { useRouter } from 'next/router';
@@ -16,6 +17,18 @@ function ArrowWithImage({
 }) {
   const router = useRouter();
   const [isBellOpen, setIsBellOpen] = useState(false)
+  const dummyNotifications = [
+    {
+      id: 1,
+      title: "Alice commented on your photo",
+      time: "2h ago",
+    },
+    {
+      id: 2,
+      title: "Your subscription expires tomorrow",
+      time: "1d ago",
+    },
+  ];
   const bellItems = [
     { label: 'New comment on your post', onClick: () => console.log('Go to comment') },
     { label: 'New follower',           onClick: () => console.log('Go to follower') },
@@ -65,8 +78,9 @@ function ArrowWithImage({
     <div className={`${styles.container} ${className}`} {...props}>
 
 <div >
-        <Dropdown
+        <NotificationsDropdown
           items={bellItems}
+          notifications={dummyNotifications}
           isOpen={isBellOpen}
           onClose={() => setIsBellOpen(false)}
           trigger={

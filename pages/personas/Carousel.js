@@ -9,7 +9,7 @@ import RightButton from './carousel/Button';
 
 export default function Carousel({ label, personas = [], onHeaderClick ,onChatClick, actionType, profileUrlFn }) {
   const trackRef = useRef(null);
-  const SCROLL_AMOUNT = 239;
+  const SCROLL_AMOUNT = 231;
 
   // track whether each side can actually scroll
   const [canScrollLeft, setCanScrollLeft] = useState(false);

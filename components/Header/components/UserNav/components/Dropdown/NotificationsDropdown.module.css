@@ -1,0 +1,127 @@
+/* NotificationsDropdown.module.css */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* The dropdown menu: hidden by default */
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: -120;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 0.5px solid #E6E6E6;
+  border-radius: 12px;
+  /* width as appropriate; screenshot looks fairly wide */
+  min-width: 280px;
+  max-width: 360px;
+  margin-top: 8px;   /* small gap from trigger */
+  z-index: 1000;
+  overflow: hidden;
+  /* we split header/body padding separately */
+}
+
+/* Show menu on hover over entire dropdown wrapper */
+.dropdown:hover .menu {
+  display: block;
+}
+
+.menuHeader {
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333333;
+  font-family: cabin;
+}
+
+/* EMPTY STATE */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* give some height so it looks centered if few items */
+  padding: 32px 16px;
+  color: #666;
+  text-align: center;
+  font-weight: 500;
+  font-family: cabin;
+}
+
+.bellIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+  color: #AAA;
+}
+
+.emptyText {
+  font-size: 14px;
+}
+
+/* CONTAINER for notification items when non-empty */
+.itemsContainer {
+  /* allow scroll if many notifications */
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 8px;
+
+}
+
+/* individual notification button */
+.notificationItem {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  /* optionally flex layout if you have icon + text: */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* hover/active styles */
+.notificationItem:hover {
+  background-color: #F5F5F5;
+}
+.notificationItem:active {
+  background-color: #E0E0E0;
+}
+
+/* If you have content inside each notification: */
+.notificationContent {
+  flex: 1;
+  /* e.g. lines of text; style as desired */
+  font-size: 14px;
+  color: #333;
+}
+
+/* Optional divider between items */
+.notificationDivider {
+  height: 1px;
+  background-color: #ECECEC;
+  margin: 0;
+}
+
+/* inside your existing file, after .notificationContent */
+
+.notificationText {
+    flex: 1;
+    font-family: cabin;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .notificationTime {
+    font-size: 12px;
+    font-family: cabin;
+    color: #999;
+    margin-left: 8px;
+  }
+  

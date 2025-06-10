@@ -20,6 +20,13 @@ const pageOptions = [
   { value: 'profile',  label: 'Profile Page'  },
 ];
 
+const handleSubmit = () => {
+  // TODO: replace with your real submit logic
+  console.log({ mode, page, text });
+  // e.g. send to your backend, then...
+  onClose();
+};
+
 export default function TextFrame({ onClose }) {
   const [mode, setMode]   = useState(null);
   const [page, setPage]   = useState(null);
@@ -65,9 +72,17 @@ export default function TextFrame({ onClose }) {
           value={text}
           onChange={e => setText(e.target.value)}
         />
-
+                <button
+          className={styles.submitButton}
+          onClick={handleSubmit}
+          disabled={!mode || !text || (mode === 'issue' && !page)}
+        >
+          Submit
+        </button>
         <TermsPrivacy />
+
       </div>
+      
     </div>
   );
 }

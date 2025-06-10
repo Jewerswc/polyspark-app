@@ -10,7 +10,7 @@ export default function Activity({ handle }) {
 
   useEffect(() => {
     if (!handle) return
-    fetch(`https://ionbackend.com/matching/agents/${handle}/activity/`)
+    fetch(`https://ionbackend.com/matching/api/agents/${handle}/activity/`)
       .then(res => res.json())
       .then(data => setActivities(data))
       .catch(console.error)
@@ -20,7 +20,12 @@ export default function Activity({ handle }) {
     <div>
       {activities.map(activity => (
         <div key={activity.id} className={styles.card}>
-          <ActivitySVG />
+          <img
+              src={activity.agent?.avatar_url}
+              alt={activity.title}
+              className={styles.activityImage}
+            />
+
 
           <AgentActivityTitle
             action_text={activity.action_text}
