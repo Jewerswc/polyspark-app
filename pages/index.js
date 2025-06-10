@@ -5,7 +5,6 @@ import PersonaCardRow from '../components/PersonaCards/PersonaCardRow';
 import FeedWithToolbar from './layout/FeedWithToolbar';
 import Footer from '../components/Footer/Footer';
 import ChatOverlay from '../components/ChatOverlay/ChatOverlay';
-import LoginOverlay from './../components/LoginOverlay/LoginOverlay';
 import SearchResultsOverlay from '../components/Header/components/Search/components/SearchResultsOverlay/SearchResultsOverlay';
 import HeaderMobile from '../components/Header/HeaderMobile';
 import PersonaCardRowMobile from '../components/PersonaCards/PersonaCardRowMobile';
@@ -17,11 +16,14 @@ import MoreOverlay from '../components/MoreOverlay/MoreOverlay';
 import ChatOverlayIPhone from '../components/ChatOverlay/ChatOverlayMobile';
 import LightboxOverlay from './../components/Articles/LightboxOverlay';
 import useIsMobile from '../components/hooks/useIsMobile';
+
 const TRENDING = 'Top';
 
 export default function MainPage() {
   const router = useRouter();
   const { category } = router.query;
+
+  const [selectedTag, setSelectedTag] = useState(null);
   const isMobile = useIsMobile();
   const closeSignupOverlay = () => setSignupOverlayVisible(false);
   const [isSignupOverlayVisible, setSignupOverlayVisible] = useState(false);
@@ -77,8 +79,6 @@ export default function MainPage() {
     }
     openLogin();
   };
-
-  // Updated: ensure mobile chat also sets selected persona
   const openMobileChat = (persona) => {
     setSelectedPersona(persona);
     setChatOpen(true);
@@ -125,24 +125,48 @@ export default function MainPage() {
               avatarUrl={selectedPersona.image}
             />
           )}
-
-          {searchOpen && <SearchResultsOverlay onClose={closeSearch} />}
+          {searchOpen && (
+            <SearchResultsOverlay
+              onClose={closeSearch}
+              onTagClick={(tag) => {
+                setSelectedTag(tag);
+                setActiveCategory(tag);
+                setSearchQuery('');
+                closeSearch();
+              }}
+            />
+          )}
         </>
       ) : (
-        <> {/* Desktop Layout */}
+        <> 
           <Header
             activeCategory={activeCategory}
             onCategorySelect={setActiveCategory}
+            onTagClick={(tag) => {
+              setSelectedTag(tag);
+              setActiveCategory(tag);
+              setSearchQuery('');
+              closeSearch();
+            }}
+        
           />
           <div className="mainContent">
             <PersonaCardRow onChatClick={openChatOverlay} />
             <FeedWithToolbar
-              activeCategory={activeCategory}
-              onCategorySelect={setActiveCategory}
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              onImageClick={setLightboxSrc}
-            />
+                activeCategory={activeCategory}
+                onCategorySelect={(cat) => {
+                  setSelectedTag(null);
+                  setActiveCategory(cat);
+                }}
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
+                onImageClick={setLightboxSrc}
+                selectedTag={selectedTag}           
+                onRemoveTag={() => {
+                  setSelectedTag(null);
+                  setActiveCategory(TRENDING);
+                }}
+              />
           </div>
           <Footer />
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from './LoggedinMobile.module.css';
-import HoverDropdown from './../components/Header/components/AuthControls/HoverMenu/HoverMenu'
+import HoverDropdown from './components/AuthControls/HoverMenu/HoverMenu'
 import { useRouter } from 'next/router';
 
 function ArrowWithImage({

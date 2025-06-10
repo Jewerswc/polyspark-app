@@ -20,7 +20,8 @@ import {
 
 export default function Header({
   activeCategory,
-  onCategorySelect
+  onCategorySelect, 
+  onTagClick,
 }) {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [isChatOverlayVisible, setChatOverlayVisible] = useState(false);
@@ -109,7 +110,9 @@ export default function Header({
         <div className={styles.topRow}>
           <PolysparkLogo />
           <div className={styles.flexGrow}>
-            <SearchInput />
+            <SearchInput 
+              onTagClick={onTagClick} 
+                        />
           </div>
           <ButtonRow />
 

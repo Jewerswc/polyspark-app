@@ -20,12 +20,8 @@ import MobileNavbar from '../components/MobileNavbar/MobileNavbar'
 
 const TRENDING     = 'Trending';
 
-
-
 export default function Persona({
-
   initialAgent,
-    label,
   
   }) {
   const router = useRouter();
@@ -61,10 +57,7 @@ export default function Persona({
   const openChatOverlayMobile = () => {
     setChatPersona(agent.handle)
     setChatName(agent.name)
-    setIsChatOpen(true)
-  }
-
-
+    setIsChatOpen(true)}
 
   const openChatOverlay = (persona) => {
     setSelectedPersona(persona);
@@ -106,7 +99,6 @@ export default function Persona({
   const closeMobileChat = () => setChatOpen(false);
   const [personas, setPersonas] = useState([]);
   useEffect(() => {
-    // normalize to “popular” | “new” | “active” | “rising”
     const cat = category.toLowerCase().replace(/\W/g, '') || 'popular';
     fetch(`https://ionbackend.com/matching/personas/?category=${cat}`)
       .then(r => r.json())
@@ -116,7 +108,7 @@ export default function Persona({
   return (
     <div className={isMobile ? styles.pageWrapperMobile : styles.pageWrapper}>
       {isMobile ? (
-        <> {/* Mobile Layout */}
+        <>
           <HeaderMobile onLoginClick={openLogin} onSignupClick={openLogin} />
           <div className={styles.mainContentMobile}>
                      <FeaturedRowMobile onChatClick={openMobileChat} />
@@ -193,10 +185,10 @@ export default function Persona({
               onChatClick={openChatOverlay}
             />
             <FetchCarousel
-  label="Most Active"
-  categoryKey="most_active"
-  onChatClick={openChatOverlay}
-/>
+              label="Most Active"
+              categoryKey="most_active"
+              onChatClick={openChatOverlay}
+              />
 
           </div>
           <Footer />
@@ -215,7 +207,6 @@ export default function Persona({
               onEmailContinue={(email) => console.log('Email submitted:', email)}
               onClose={closeSignupOverlay}
               onLoginSuccess={closeLogin}
-              
             />
           )}
         </>

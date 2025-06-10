@@ -3,8 +3,8 @@ import {SearchContext}  from './../../../../../../pages/api/SearchContext';
 import styles from './SearchInput.module.css';
 import SearchResultsPlaceholder from './../SearchResultsPlaceholder/SearchResultsPlaceholder';
 
-export default function SearchInput() {
-  const { query, setQuery } = useContext(SearchContext);
+export default function SearchInput({ onTagClick }) {
+    const { query, setQuery } = useContext(SearchContext);
   const [isActive, setIsActive] = useState(false);
   const inputRef = useRef();
 
@@ -56,7 +56,10 @@ export default function SearchInput() {
       </div>
       {isActive && (
         <div className={styles.placeholderWrapper}>
-          <SearchResultsPlaceholder query={query} />
+          <SearchResultsPlaceholder query={query}
+          onTagClick={onTagClick} 
+        />
+        
         </div>
       )}
     </div>

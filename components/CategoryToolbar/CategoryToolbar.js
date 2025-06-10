@@ -11,6 +11,8 @@ const NEW      = 'New';
 export default function CategoryToolbar({
   activeCategory,
   onCategorySelect,
+  selectedTag,   
+  onRemoveTag,   
 }) {
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -58,15 +60,14 @@ export default function CategoryToolbar({
 
   return (
     <div className={styles.toolbarWrapper}>
-      {/* left “back” arrow */}
       {canScrollLeft && (
         <LeftButton
           onClick={() => scrollByAmount(-200)}
           disabled={!canScrollLeft}
-          className={styles.flipped}  // if you want to flip the SVG
+          className={styles.flipped}
         />
       )}
-            <div
+      <div
         className={`
           ${styles.scrollWrapper}
           ${canScrollLeft ? styles.hasLeftFade : ''}
@@ -77,31 +78,62 @@ export default function CategoryToolbar({
 
 
 
-        <CategoryLabelMobile
-        label="Trending"
-          onClick={() => onCategorySelect(TRENDING)}
-          isActive={activeCategory === TRENDING}
-        />
-        <CategoryButton
-          label="Latest"
-          onClick={() => onCategorySelect(NEW)}
-          isActive={activeCategory === NEW}
-        />
-        {loading ? (
-          <span className={styles.loading}></span>
-        ) : (
-          tags.map(tag => (
-            <CategoryButton
-              key={tag}
-              label={tag}
-              onClick={() => onCategorySelect(tag)}
-              isActive={activeCategory === tag}
-            />
-          ))
-        )}
+          {/* Always show Trending/New, clearing selectedTag if clicked */}
+          <CategoryLabelMobile
+            label="Trending"
+            onClick={() => {
+              if (selectedTag) onRemoveTag();
+              onCategorySelect(TRENDING);
+            }}
+            isActive={activeCategory === TRENDING && !selectedTag}
+          />
+          <CategoryButton
+            label="Latest"
+            onClick={() => {
+              if (selectedTag) onRemoveTag();
+              onCategorySelect(NEW);
+            }}
+            isActive={activeCategory === NEW && !selectedTag}
+          />
+          {/* ===== Render selectedTag pill if present ===== */}
+          {selectedTag && (
+            <button
+              className={`${styles.categoryButton} ${styles.active}`}
+              onClick={() => {
+                // maybe re-apply, but usually no-op
+              }}
+              style={{ position: 'relative', paddingRight: '24px' }} // ensure space for the ×
+            >
+              <span>{selectedTag}</span>
+              <span
+                className={styles.removeTagIcon}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onRemoveTag();
+                }}
+    
+              >
+                &times;
+              </span>
+            </button>
+          )}
+          {loading ? (
+            <span className={styles.loading}></span>
+          ) : (
+            tags.map(tag => (
+              <CategoryButton
+                key={tag}
+                label={tag}
+                onClick={() => {
+                  if (selectedTag) onRemoveTag();
+                  onCategorySelect(tag);
+                }}
+                isActive={activeCategory === tag && !selectedTag}
+              />
+            ))
+          )}
+        </div>
       </div>
-      </div>
-
       <RightButton
         onClick={() => scrollByAmount(200)}
         disabled={!canScrollRight}

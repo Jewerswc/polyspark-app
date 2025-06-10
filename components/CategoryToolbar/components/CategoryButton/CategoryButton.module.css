@@ -1,13 +1,9 @@
 .categoryButton {
-  /* prevent shrinking: */
   flex: 0 0 auto;
-
-  /* keep centering contents: */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-    height: 32px;
-  /* your existing styles */
+  height: 32px;
   border: 1.5px solid #F2F2F2;
   outline: none;
   border-radius: 8px;
@@ -39,9 +35,5 @@
     background-color: #154FE3;
     color: #FFFFFF;
     border: 1.5px solid #154FE3;
-
-  
-  
-  
   }
   

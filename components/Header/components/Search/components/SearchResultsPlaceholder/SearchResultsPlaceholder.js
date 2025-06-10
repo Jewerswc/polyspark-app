@@ -5,8 +5,8 @@ import BlogCard from './SearchResultPost/SearchResultPost';
 import styles from './SearchResultsPlaceholder.module.css';
 import { useDebounce } from './../../../../../hooks/Debounce';
 
-export default function SearchResultsPlaceholder({ query, type = 'all' }) {
-  const debouncedQuery = useDebounce(query, 200);
+export default function SearchResultsPlaceholder({ query, type = 'all', onTagClick }) {
+    const debouncedQuery = useDebounce(query, 200);
   const [results, setResults] = useState({
     tags: [],       // ← initialize tags
     articles: [],
@@ -74,15 +74,18 @@ export default function SearchResultsPlaceholder({ query, type = 'all' }) {
         <>
           <h2 className={styles.sectionTitle}>TAGS</h2>
           <div className={styles.tagsContainer}>
-                   {rawTags
-           .slice(0, 10)           // ← only take the first 5 tags
-           .map(({ tag, count }) => (
-             <Tag key={tag} text={tag} />
+            {rawTags.slice(0, 10).map(({ tag, count }) => (
+             <Tag
+               key={tag}
+               text={tag}
+               onClick={() => {
+                 if (onTagClick) onTagClick(tag);
+               }}
+             />
            ))}
           </div>
         </>
       )}
-
       {articles.length > 0 && (
         <>
           <h2 className={styles.sectionTitle}>POSTS</h2>

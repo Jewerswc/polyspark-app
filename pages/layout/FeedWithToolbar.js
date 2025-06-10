@@ -5,9 +5,16 @@ import FileOptions from './FileOptions';
 
 const FILE     = 'File';
 
-export default function FeedWithToolbar({ onImageClick, activeCategory, onCategorySelect }) {
-  
-  const [searchQuery, setSearchQuery] = useState('');
+export default function FeedWithToolbar({
+    onImageClick,
+    activeCategory,
+    onCategorySelect,
+    selectedTag,    
+    onRemoveTag,     
+    searchQuery,      
+    onSearchChange
+
+  }) {  
   const [currentSlug, setCurrentSlug] = useState(null)
 
     const showFileOptions = activeCategory === FILE;
@@ -21,18 +28,22 @@ export default function FeedWithToolbar({ onImageClick, activeCategory, onCatego
       <CategoryToolbar
         activeCategory={activeCategory}
         searchQuery={searchQuery}
+        onSearchChange={onSearchChange}   // forward if toolbar uses searchQuery
         onCategorySelect={handleCategorySelect}
-        onSearchChange={setSearchQuery}
+        selectedTag={selectedTag}
+        onRemoveTag={onRemoveTag}
       />
 
       {showFileOptions && <FileOptions />}
 
       <FeedCardsGrid
-    activeCategory={activeCategory}
-    searchQuery={searchQuery}
-    onImageClick={onImageClick}
-    slug={currentSlug} onBack={() => setCurrentSlug(null)}
-  />
+        activeCategory={activeCategory}
+        searchQuery={searchQuery}
+        onImageClick={onImageClick}
+        slug={currentSlug}
+        onBack={() => setCurrentSlug(null)}
+        selectedTag={selectedTag}
+      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // AvatarMenu.jsx
 import React from 'react';
-import ArrowWithImage from './../../pages/LoggedinMobile';
+import ArrowWithImage from './LoggedinMobile';
 import { useRouter } from 'next/router';
 
 

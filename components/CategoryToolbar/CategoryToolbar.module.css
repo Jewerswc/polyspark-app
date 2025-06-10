@@ -5,25 +5,19 @@
   padding: 0 64px 8px;
 }
 
-/* NEW: container that holds the scrolling row */
 .scrollWrapper {
-  position: relative;   /* for the pseudo-elements */
+  position: relative;
   flex: 1;
-  /* clip any overflow so the fade doesn’t show outside */
   overflow: hidden;
 }
 
-/* your existing scroll area */
 .scrollContainer {
   display: flex;
   flex-wrap: nowrap;
   gap: 8px;
-  /* allow horizontal scroll */
   overflow-x: auto;
   scroll-behavior: smooth;
-  /* prevent inner shrinking */
   min-width: 0;
-  /* hide the native scrollbar */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -31,18 +25,15 @@
   display: none;
 }
 
-/* LEFT FADE */
 .scrollWrapper::before {
   content: "";
   position: absolute;
   left: 0; top: 0; bottom: 0;
-  width: 40px;            /* adjust how wide the fade is */
-  pointer-events: none;   /* clicks go through */
-
+  width: 40px;          
+  pointer-events: none;  
   z-index: 1;
 }
 
-/* RIGHT FADE */
 .scrollWrapper::after {
   content: "";
   position: absolute;
@@ -57,12 +48,11 @@
   z-index: 1;
 }
 
-/* …and keep your .categoryButton, .active, .navButton etc. unchanged… */
 .hasLeftFade::before {
   content: "";
   position: absolute;
   left: 0; top: 0; bottom: 0;
-  width: 40px;             /* how wide your fade is */
+  width: 40px;    
   pointer-events: none;
   background: linear-gradient(
     to right,
@@ -75,3 +65,55 @@
 .flipped svg {
   transform: rotate(180deg);
 }
+
+.removeTagIcon {
+  position: absolute;
+  top: 50%;
+  right: 4px;          
+  transform: translateY(-50%);
+  font-size: 22px;       
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.removeTagIcon:hover {
+  color: #154FE3;
+}
+
+.categoryButton {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+    height: 32px;
+  border: 1.5px solid #F2F2F2;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  background-color: #F2F2F2;
+  color: #333;
+  font-family: cabin, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+  .categoryButton:hover {
+    background-color: #E6E6E6;
+    border: 1.5px solid #154FE3;
+  }
+
+  .categoryButton.active:hover {
+    color: #333333;
+  }
+
+  .active {
+    background-color: #154FE3;
+    color: #FFFFFF;
+    border: 1.5px solid #154FE3;
+
+  }
