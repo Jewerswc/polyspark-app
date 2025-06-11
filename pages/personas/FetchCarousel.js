@@ -12,7 +12,7 @@ export default function FetchCarousel({
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`https://ionbackend.com/matching/personas/?category=${categoryKey}`)
+    fetch(`https://ionbackend.com/api/content/personas/?category=${categoryKey}`)
       .then(r => r.json())
       .then(setItems)
       .catch(console.error);

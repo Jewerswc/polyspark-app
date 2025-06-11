@@ -34,25 +34,22 @@ export default function Header({
   const router = useRouter();
 
   useEffect(() => {
-    // 1) Immediately pull the last‐known avatar URL from localStorage (if any)
     const cached = window.localStorage.getItem('cachedAvatarUrl');
     if (cached) {
       setAvatarUrl(cached);
     }
 
-    // 2) Check for an access token, then fetch /me/ to get the freshest data:
     const token = getAccessToken();
     if (token) {
       setLoggedIn(true);
 
       async function fetchProfile() {
         try {
-          // Ensure your API client has the header set
           if (!API.defaults.headers.common['Authorization']) {
             API.setAuthToken(token);
           }
 
-          const res = await API.get('me/');
+          const res = await API.get('auth/me/');
           // res.data = { id, username, email, bio, avatar_url, ... }
           setAvatarUrl(res.data.avatar_url);
           setUsername(res.data.username);
@@ -67,7 +64,7 @@ export default function Header({
             try {
               const newAccess = await refreshAccessToken();
               API.setAuthToken(newAccess);
-              const retryRes = await API.get('me/');
+              const retryRes = await API.get('auth/me/');
               setAvatarUrl(retryRes.data.avatar_url);
               setUsername(retryRes.data.username);
               window.localStorage.setItem(

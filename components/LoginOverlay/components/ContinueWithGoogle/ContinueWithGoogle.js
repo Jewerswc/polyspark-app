@@ -22,7 +22,7 @@ export default function ContinueWithGoogleButton({ onLoginSuccess }) {
           }
           try {
             // 1) send Google code to backend
-            const { data } = await API.post('/google_auth/', {
+            const { data } = await API.post('auth/google/', {
               code: resp.code,
             })
 

@@ -17,7 +17,7 @@ export default function LoginOverlay({ onLoginSuccess, onClose }) {
   const handleEmailContinue = async (emailArg) => {
     setError('');
     try {
-      await API.post('send_otp/', { email: emailArg });
+      await API.post('auth/send_otp/', { email: emailArg });
       setEmail(emailArg);
       setStage('otp');
     } catch (e) {
@@ -30,7 +30,7 @@ export default function LoginOverlay({ onLoginSuccess, onClose }) {
     setError('');
     let res;
     try {
-      res = await API.post('verify_otp/', { email, otp });
+      res = await API.post('auth/verify_otp/', { email, otp });
     } catch (err) {
       console.error(err.response || err);
       return setError(err.response?.data?.error || 'Invalid or expired OTP.');

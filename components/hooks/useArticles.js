@@ -10,7 +10,7 @@ export default function useArticles({ category, search }) {
     const params = new URLSearchParams();
     if (category) params.set("category", category);
     if (search)   params.set("search",   search);
-    fetch(`https://ionbackend.com/matching/api/articles/?${params.toString()}`)
+    fetch(`https://ionbackend.com/api/content/articles/?${params.toString()}`)
       .then(res => res.json())
       .then(data => {
         // DRF paginates by default under `.results`

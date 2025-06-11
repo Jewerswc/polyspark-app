@@ -16,7 +16,7 @@ export default function ActivityResultList({ agentHandle }) {
   useEffect(() => {
     const path = agentHandle
       ? `/api/agents/${agentHandle}/activity/`
-      : `https://ionbackend.com/matching/api/activity/`;
+      : `https://ionbackend.com/api/content/activity/`;
 
     setLoading(true);
     fetch(path)
