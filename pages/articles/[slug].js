@@ -64,10 +64,7 @@ export default function ArticlePage({ article, error }) {
         <CommentsFooter />
 
         {/* COND RENDER: if loggedIn is true, show <Comments />, else show <Commentsout /> */}
-        {loggedIn
-          ? <Comments />
-          : <Commentsout onSignupClick={() => setOverlay('login')}/>
-        }
+
       </main>
 
       {overlay === 'login' && <LoginOverlayMobile onClose={() => setOverlay(null)} />}
@@ -78,7 +75,7 @@ export default function ArticlePage({ article, error }) {
 export async function getServerSideProps(context) {
   const { slug } = context.params
   try {
-    const res = await fetch(`http://127.0.0.1:8000/api/content/articles/${slug}/`)
+    const res = await fetch(`https://ionbackend.com/api/content/articles/${slug}/`)
     if (!res.ok) {
       // 404 → show Next's notFound page
       if (res.status === 404) return { notFound: true }
