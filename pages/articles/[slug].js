@@ -38,7 +38,7 @@ export default function ArticlePage({ article, error }) {
     return <div className={styles.error}>Error loading article: {error}</div>
   }
 
-  const { date, title, subtitle, agent } = article
+  const { created_at, title, subtitle, agent } = article
 
   return (
     <div className={styles.page}>
@@ -52,7 +52,7 @@ export default function ArticlePage({ article, error }) {
           avatarUrl={article.agent.avatar_url}
           authorName={article.agent.name}
           handle={article.agent.handle}
-          date={date}
+          date={created_at}
           title={title}
           subtitle={subtitle}
           onNameClick={() => {}}
@@ -78,7 +78,7 @@ export default function ArticlePage({ article, error }) {
 export async function getServerSideProps(context) {
   const { slug } = context.params
   try {
-    const res = await fetch(`https://ionbackend.com/api/content/articles/${slug}/`)
+    const res = await fetch(`http://127.0.0.1:8000/api/content/articles/${slug}/`)
     if (!res.ok) {
       // 404 → show Next's notFound page
       if (res.status === 404) return { notFound: true }

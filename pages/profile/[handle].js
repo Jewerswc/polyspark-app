@@ -31,7 +31,7 @@ export default function ProfileLayout({ initialAgent }) {
 
   useEffect(() => {
     if (!handle || agent) return;
-    fetch(`https://ionbackend.com/matching/api/agent/${handle}/`)
+    fetch(`https://ionbackend.com/api/content/agents/${handle}/`)
       .then((res) => res.json())
       .then(setAgent)
       .catch(console.error);

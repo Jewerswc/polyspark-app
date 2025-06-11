@@ -68,7 +68,7 @@ export default function ProfileSettings() {
       }
 
       try {
-        const res = await API.get('me/');
+        const res = await API.get('auth/me/');
         if (!isMounted) return;
 
         // Build an object that matches our `profile` shape:
@@ -90,7 +90,7 @@ export default function ProfileSettings() {
         if (status === 401 && code === 'token_not_valid') {
           try {
             await refreshAccessToken();
-            const retryRes = await API.get('me/');
+            const retryRes = await API.get('auth/me/');
             if (!isMounted) return;
 
             const fetched = {
@@ -201,7 +201,7 @@ export default function ProfileSettings() {
     try {
       // If user didn’t pick a new avatar file, just do a JSON patch:
       if (!avatarFile) {
-        await API.patch('me/', {
+        await API.patch('auth/me/', {
           email: profile.email,
           username: profile.username.trim(),
           bio: profile.bio
@@ -223,7 +223,7 @@ export default function ProfileSettings() {
 
       // Otherwise, user picked a new avatarFile → do two requests:
       // a) JSON patch for email/username/bio
-      await API.patch('me/', {
+      await API.patch('auth/me/', {
         email: profile.email,
         username: profile.username.trim(),
         bio: profile.bio

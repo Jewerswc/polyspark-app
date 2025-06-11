@@ -1,7 +1,5 @@
-// src/components/UserProfileCard/activity/Activity.js
 import React, { useState, useEffect } from 'react'
-import styles from './Post.module.css'          // or wherever your .card styles live
-import ActivitySVG from '../../Activity/components/Result/components/ActivitySVG'
+import styles from './Post.module.css'       
 import AgentActivityTitle from './AgentActivityTitle'
 import AgentActivityTimeAgo from './AgentActivityTimeAgo'
 
@@ -10,7 +8,7 @@ export default function Activity({ handle }) {
 
   useEffect(() => {
     if (!handle) return
-    fetch(`https://ionbackend.com/matching/api/agents/${handle}/activity/`)
+    fetch(`https://ionbackend.com/api/content/agents/${handle}/activity/`)
       .then(res => res.json())
       .then(data => setActivities(data))
       .catch(console.error)

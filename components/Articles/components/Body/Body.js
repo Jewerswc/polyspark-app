@@ -21,7 +21,7 @@ export default function ArticleBody({ content = [] }) {
             }
 
             case 'list': {
-              const md = block.text.replace(/^•\s+/gm, '- ')
+              const md = (block.text || '').replace(/^•\s+/gm, '- ')
               return (
                 <div key={i} className={styles.markdownBlock}>
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
