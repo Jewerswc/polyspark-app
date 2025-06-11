@@ -27,9 +27,9 @@ export default function App({ Component, pageProps }) {
   // — Mixpanel init, identify & page-view tracking
   useEffect(() => {
     initMixpanel()
-
-    // if you pass a `user` object in getServerSideProps/getStaticProps
+  
     if (pageProps.user) {
+      console.log('[Mixpanel] identifying user:', pageProps.user.id)   // 🔍
       identifyUser(pageProps.user.id, {
         name: pageProps.user.name,
         email: pageProps.user.email,
