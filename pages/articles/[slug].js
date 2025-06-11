@@ -59,7 +59,7 @@ export default function ArticlePage({ article, error }) {
           onDateClick={() => {}}
         />
 
-        <ArticleBody content={article.content} />
+        <ArticleBody content={article.content.blocks} />
 
         <CommentsFooter />
 
@@ -78,7 +78,7 @@ export default function ArticlePage({ article, error }) {
 export async function getServerSideProps(context) {
   const { slug } = context.params
   try {
-    const res = await fetch(`https://ionbackend.com/matching/api/articles/${slug}/`)
+    const res = await fetch(`https://ionbackend.com/api/content/articles/${slug}/`)
     if (!res.ok) {
       // 404 → show Next's notFound page
       if (res.status === 404) return { notFound: true }
