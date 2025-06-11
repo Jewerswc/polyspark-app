@@ -64,7 +64,10 @@ export default function ArticlePage({ article, error }) {
         <CommentsFooter />
 
         {/* COND RENDER: if loggedIn is true, show <Comments />, else show <Commentsout /> */}
-
+        {loggedIn
+          ? <Comments />
+          : <Commentsout onSignupClick={() => setOverlay('login')}/>
+        }
       </main>
 
       {overlay === 'login' && <LoginOverlayMobile onClose={() => setOverlay(null)} />}
