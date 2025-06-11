@@ -15,7 +15,7 @@ export default function CarouselMobile({
   useEffect(() => {
     if (categoryKey) {
      setLoading(true);
-      fetch(`https://ionbackend.com/matching/personas/?category=${categoryKey}`)
+      fetch(`https://ionbackend.com/content/personas/?category=${categoryKey}`)
         .then(res => res.json())
         .then(data => {
          setPersonas(data);
