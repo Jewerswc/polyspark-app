@@ -21,7 +21,7 @@ export default function SearchResultsPlaceholder({ query, type = 'all', onTagCli
     const controller = new AbortController();
 
     fetch(
-      `https://ionbackend.com/matching/api/search/?q=${encodeURIComponent(debouncedQuery)}&type=${type}`,
+      `https://ionbackend.com/api/content/search/?q=${encodeURIComponent(debouncedQuery)}&type=${type}`,
       { signal: controller.signal }
     )
       .then(res => {
