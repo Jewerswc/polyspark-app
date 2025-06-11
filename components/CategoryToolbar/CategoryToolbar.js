@@ -25,7 +25,7 @@ export default function CategoryToolbar({
   // fetch tags
   useEffect(() => {
     setLoading(true);
-    fetch(`https://ionbackend.com/matching/api/search/?q=&type=tags`)
+    fetch(`https://ionbackend.com/api/content/search/?q=&type=tags`)
       .then(res => {
         if (!res.ok) throw new Error(res.statusText);
         return res.json();
