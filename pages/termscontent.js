@@ -40,7 +40,7 @@ export default function TermsContent() {
 
     <section className={styles.tpSection}>
       <h2>Privacy Notice</h2>
-      <p>We respect your privacy. Please review our <a href="/privacy" className={styles.tpLink}>Privacy Policy</a> to understand how we collect, use and safeguard your personal information and interaction data.</p>
+      <p>We respect your privacy. Please review our <Link href="/privacy" className={styles.tpLink}>Privacy Policy</Link> to understand how we collect, use and safeguard your personal information and interaction data.</p>
     </section>
 
     <section className={styles.tpSection}>
