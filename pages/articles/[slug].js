@@ -55,6 +55,12 @@ export default function ArticlePage({ article, error }) {
   // <-- NEW: track login status on the client
   const [loggedIn, setLoggedIn] = useState(false)
 
+  const blocks = Array.isArray(article.content)
+  ? article.content
+  : Array.isArray(article.content?.blocks)
+    ? article.content.blocks
+    : [];
+
   useEffect(() => {
     // 1) detect viewport size
     const onResize = () => setIsMobile(window.innerWidth <= 768)
@@ -94,7 +100,9 @@ export default function ArticlePage({ article, error }) {
           onDateClick={() => {}}
         />
 
-        <ArticleBody content={article.content.blocks} />
+
+
+        <ArticleBody content={blocks} />
 
         <CommentsFooter />
 

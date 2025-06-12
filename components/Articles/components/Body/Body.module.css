@@ -1,3 +1,4 @@
+/* Body.module.css */
 .articleBody {
   max-width: 600px;
   margin: 0 auto;
@@ -6,21 +7,40 @@
 }
 
 /* Headings */
-.h1 { font-size: 2.25rem; margin: 1.5em 0 0.75em; font-family: cabin; }
-.h2 { font-size: 22px; margin: 1.25em 0 0.5em; font-weight: 700; font-family: cabin; color: rgb(47,47,47); }
-.h3 { font-size: 22px; margin: 1.25em 0 0.5em; font-weight: 700; font-family: cabin; color: rgb(47,47,47); }
+.h1 {
+  font-size: 2.25rem;
+  margin: 1.5em 0 0.75em;
+  font-family: cabin;
+}
+.h2,
+.h3 {
+  font-size: 22px;
+  margin: 1.25em 0 0.5em;
+  font-weight: 700;
+  font-family: cabin;
+  color: rgb(47,47,47);
+}
 
+/* Markdown text */
+.markdownBlock p {
+  margin-bottom: 1.25em;
+  line-height: 1.6;
+  font-family: cabin;
+}
+.markdownBlock ul {
+  margin: 0 0 1.25em 1.25em;
+  font-family: cabin;
+}
+.markdownBlock li {
+  margin-bottom: 0.5em;
+}
 
+/* Lists indentation */
 .list.level-1 { padding-inline-start: 1.5em; }
 .list.level-2 { padding-inline-start: 2.5em; }
 .list.level-3 { padding-inline-start: 3.5em; }
 
-/* Markdown container */
-.markdownBlock p { margin-bottom: 1.25em; line-height: 1.6; font-family: cabin; }
-.markdownBlock ul { margin: 0 0 1.25em 1.25em; font-family: cabin; }
-.markdownBlock li { margin-bottom: 0.5em; }
-
-/* Tables in markdown with rounded outer borders and inner column borders only on body rows */
+/* Tables */
 .tableWrapper {
   width: 100%;
   overflow-x: auto;
@@ -32,8 +52,6 @@
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border: none;
-  border-radius: 8px;
   margin: 0;
 }
 .tableWrapper th,
@@ -44,7 +62,7 @@
   font-family: cabin;
 }
 .tableWrapper td {
-  border-right: 1px solid #ddd; /* vertical border on body cells only */
+  border-right: 1px solid #ddd;
 }
 .tableWrapper td:last-child {
   border-right: none;
@@ -52,52 +70,8 @@
 .tableWrapper th {
   background: #F2F2F2;
   font-weight: 600;
-  /* no vertical borders in header */
 }
-
-/* Style bullets */
-.markdownBlock ul li::marker {
-  font-family: cabin;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #333;
-  padding-left: 20px;
-
-}
-
-/* Style numbers */
-.markdownBlock ol li::marker {
-  font-family: cabin, serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-  padding-left: 20px;
-}
-
-/* Base indent for first‐level lists */
-.markdownBlock ul,
-.markdownBlock ol {
-  margin: 0 0 1em 0;
-  padding-inline-start: 1.5em;    /* 1.5em indent for level-1 */
-  font-family: cabin, serif;
-
-}
-
-/* Second-level lists get an extra indent */
-.markdownBlock ul ul,
-.markdownBlock ol ol {
-  padding-inline-start: 2.5em;    /* 2.5em total for level-2 */
-}
-
-/* Third-level lists */
-.markdownBlock ul ul ul,
-.markdownBlock ol ol ol {
-  padding-inline-start: 3.5em;    /* 3.5em total for level-3 */
-}
-
-/* And so on… bump the number for deeper levels */
-
-/* Round outer corners */
+/* Round corners on table */
 .tableWrapper tr:first-child th:first-child {
   border-top-left-radius: 8px;
 }
@@ -111,20 +85,132 @@
   border-bottom-right-radius: 8px;
 }
 
-/* Images */
-.figure { position: relative; margin: 24px 0; text-align: center; }
-.image { display: block; max-width: 100%; cursor: zoom-in; border-radius: 4px; }
-.caption { font-size: 0.875rem; color: #666; margin-top: 0.75em; font-family: cabin; }
-.expandButton { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.5); border: none; padding: 4px; border-radius: 4px; cursor: pointer; }
-.expandIcon { width: 24px; height: 16px; }
-.lightboxOverlay { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; z-index:1000; }
-.lightboxImage { max-width:90%; max-height:90%; border-radius:4px; }
-
 /* Blockquotes */
-.blockquote { border-left:4px solid #6188E9; padding:0.5em 1em; margin:0 0 12px; color:rgb(29,0,0); font-family:cabin; }
-.blockquote p { margin:0; }
-.cite { display:block; margin-top:0.5em; text-align:right; font-size:0.9em; color:#666; }
+.blockquote {
+  border-left: 4px solid #6188E9;
+  padding: 0.5em 1em;
+  margin: 0 0 12px;
+  color: rgb(29,0,0);
+  font-family: cabin;
+}
+.blockquote p {
+  margin: 0;
+}
+.cite {
+  display: block;
+  margin-top: 0.5em;
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+}
 
-/* Code blocks */
-.codeBlock { background:#f5f5f5; padding:1em; overflow-x:auto; border-radius:4px; margin:1.5em 0; }
-.codeBlock code { font-family:'Source Code Pro', monospace; font-size:0.9rem; line-height:1.4; white-space:pre; }
+/* Images & lightbox */
+.figure {
+  position: relative;
+  margin: 24px 0;
+  text-align: center;
+}
+.image {
+  display: block;
+  max-width: 100%;
+  cursor: zoom-in;
+  border-radius: 4px;
+}
+.caption {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.75em;
+  font-family: cabin;
+}
+.expandButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.expandIcon {
+  width: 24px;
+  height: 16px;
+}
+.lightboxOverlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+.lightboxImage {
+  max-width:90%;
+  max-height:90%;
+  border-radius:4px;
+}
+
+/* Bullets & numbers */
+.markdownBlock ul li::marker {
+  font-family: cabin;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+  padding-left: 20px;
+}
+.markdownBlock ol li::marker {
+  font-family: cabin, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  padding-left: 20px;
+}
+.markdownBlock ul,
+.markdownBlock ol {
+  margin: 0 0 1em 0;
+  padding-inline-start: 1.5em;
+  font-family: cabin, serif;
+}
+.markdownBlock ul ul,
+.markdownBlock ol ol {
+  padding-inline-start: 2.5em;
+}
+.markdownBlock ul ul ul,
+.markdownBlock ol ol ol {
+  padding-inline-start: 3.5em;
+}
+
+/* ------------------------------------------------------------
+   Horizontal rule styling
+   ------------------------------------------------------------ */
+.rule {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1.5em 0;
+}
+
+/* ------------------------------------------------------------
+   Code block tweaks
+   ------------------------------------------------------------ */
+.codeBlock {
+  background: #f5f5f5;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin: 1.5em 0;
+}
+.codeBlock pre {
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre;
+}
+/* Inline code, if you want it */
+.markdownBlock code {
+  background: #eef0f1;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}

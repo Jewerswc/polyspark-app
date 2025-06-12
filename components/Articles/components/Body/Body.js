@@ -1,3 +1,4 @@
+// ArticleBody.jsx
 import React, { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -20,27 +21,36 @@ export default function ArticleBody({ content = [] }) {
               )
             }
 
-            case 'list': {
-              const md = (block.text || '').replace(/^•\s+/gm, '- ')
+            case 'paragraph':
               return (
                 <div key={i} className={styles.markdownBlock}>
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {md}
-                  </ReactMarkdown>
-                </div>
-              )
-            }
-        
-            // you can remove the old 'list_item' case once you're handling 'list'
-            case 'list_item':
-              return (
-                <div key={i} className={styles.markdownBlock}>
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {`- ${block.text}`}
+                    {block.text}
                   </ReactMarkdown>
                 </div>
               )
 
+            case 'list':
+              return (
+                <div key={i} className={styles.markdownBlock}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {block.text}
+                  </ReactMarkdown>
+                </div>
+              )
+
+            case 'hr':
+            case 'horizontal_rule':
+              return <hr key={i} className={styles.rule} />
+
+            case 'code':
+              return (
+                <div key={i} className={styles.codeBlock}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {block.text}
+                  </ReactMarkdown>
+                </div>
+              )
 
             case 'image':
               return (
@@ -71,6 +81,7 @@ export default function ArticleBody({ content = [] }) {
               )
 
             case 'blockquote':
+            case 'quote':
               return (
                 <blockquote key={i} className={styles.blockquote}>
                   <p>{block.text}</p>
@@ -78,27 +89,6 @@ export default function ArticleBody({ content = [] }) {
                     <footer className={styles.cite}>{block.cite}</footer>
                   )}
                 </blockquote>
-              )
-
-            case 'horizontal_rule':
-              return <hr key={i} className={styles.rule} />
-
-            case 'paragraph':
-              return (
-                <div key={i} className={styles.markdownBlock}>
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {block.text}
-                  </ReactMarkdown>
-                </div>
-              )
-
-            case 'list_item':
-              return (
-                <div key={i} className={styles.markdownBlock}>
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {`- ${block.text}`}
-                  </ReactMarkdown>
-                </div>
               )
 
             case 'table':
@@ -111,7 +101,23 @@ export default function ArticleBody({ content = [] }) {
               )
 
             default:
-              return null
+              // Fallback for any HTML or unknown block-types
+              return block.text ? (
+                <div key={i} className={styles.markdownBlock}>
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      html: ({ value }) => (
+                        <div
+                          dangerouslySetInnerHTML={{ __html: value }}
+                        />
+                      ),
+                    }}
+                  >
+                    {block.text}
+                  </ReactMarkdown>
+                </div>
+              ) : null
           }
         })}
       </div>
@@ -121,7 +127,11 @@ export default function ArticleBody({ content = [] }) {
           className={styles.lightboxOverlay}
           onClick={() => setLightboxSrc(null)}
         >
-          <img src={lightboxSrc} alt="" className={styles.lightboxImage} />
+          <img
+            src={lightboxSrc}
+            alt=""
+            className={styles.lightboxImage}
+          />
         </div>
       )}
     </>
