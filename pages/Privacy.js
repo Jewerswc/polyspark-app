@@ -1,5 +1,5 @@
 import TermsPrivacyLayout from './TermsPrivacyLayout';
-import PrivacyContent from './/PrivacyContent';
+import PrivacyContent from './PrivacyContent';
 
 export default function PrivacyPage() {
   return (
