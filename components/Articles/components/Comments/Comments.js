@@ -105,6 +105,7 @@ export default function Comments() {
       }
     }
 
+
     fetchComments();
     return () => {
       isMounted = false;
@@ -117,7 +118,20 @@ export default function Comments() {
     setNewContent(`@${username} `);
   }
 
- 
+   async function handleLikeClick(commentId, currentlyLiked) {
+    if (!slug) return;
+    try {
+      if (!currentlyLiked) {
+        await API.post(`comments/${commentId}/like/`);
+      } else {
+        await API.delete(`comments/${commentId}/like/`);
+      }
+      const r2 = await API.get(`articles/${slug}/comments/`);
+      setComments(r2.data);
+    } catch (err) {
+      console.error('Error liking/unliking comment:', err);
+    }
+  }
 
   // — “Post” click for either top‐level or a reply —
   async function handleSubmit() {

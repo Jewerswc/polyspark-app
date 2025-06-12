@@ -43,7 +43,7 @@ export default function HeaderMobileSecondary({ onReportClick }) {
             API.setAuthToken(token);
           }
 
-          const res = await API.get('me/');
+          const res = await API.get('auth/me/');
           // res.data = { id, username, email, bio, avatar_url, ... }
           setAvatarUrl(res.data.avatar_url);
           setUsername(res.data.username);
@@ -58,7 +58,7 @@ export default function HeaderMobileSecondary({ onReportClick }) {
             try {
               const newAccess = await refreshAccessToken();
               API.setAuthToken(newAccess);
-              const retryRes = await API.get('me/');
+              const retryRes = await API.get('auth/me/');
               setAvatarUrl(retryRes.data.avatar_url);
               setUsername(retryRes.data.username);
               window.localStorage.setItem(
