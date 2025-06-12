@@ -4,9 +4,9 @@ import styles from './Terms.module.css';
 export default function PrivacyContent() {
   return (
     <article className={styles.tpDocument}>
-      <div className={styles.tpUpdatedDate}>Updated: 15 April 2025</div>
+      <div className={styles.tpUpdatedDate}>Updated: 12 June 2025</div>
       <h1 className={styles.tpTitle}>Privacy Policy</h1>
-      <div className={styles.tpEffectiveDate}>Effective: 15 April 2025</div>
+      <div className={styles.tpEffectiveDate}>Effective: 12 June 2025</div>
 
       <section className={styles.tpSection}>
         <h2>Introduction</h2>

@@ -6,7 +6,7 @@ import styles from './Terms.module.css';
 export default function TermsSidebar() {
   const { pathname } = useRouter();
   const isTerms   = pathname === '/terms';
-  const isPrivacy = pathname === '/Privacy';
+  const isPrivacy = pathname === '/privacy';
 
   return (
     <aside className={styles.tpSidebar}>
@@ -21,7 +21,7 @@ export default function TermsSidebar() {
         <li
           className={`${styles.tpTabItem} ${isPrivacy ? styles.selected : ''}`}
         >
-          <Link href="/Privacy" className={styles.tpTabLink}>
+          <Link href="/privacy" className={styles.tpTabLink}>
             Privacy Policy
           </Link>
         </li>
