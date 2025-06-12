@@ -10,7 +10,7 @@ const defaultButtons = [
   { label: 'Personas',        href: '/persona' },
   { label: 'Get Lucky',       href: '/get-lucky' },
   { label: 'Privacy',         href: '/terms' },
-  { label: 'Terms of Use',    href: '/Privacy' },
+  { label: 'Terms of Use',    href: '/privacy' },
   { label: 'Report an Issue', href: '/report-issue' },
 ]
 
