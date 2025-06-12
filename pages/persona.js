@@ -100,7 +100,7 @@ export default function Persona({
   const [personas, setPersonas] = useState([]);
   useEffect(() => {
     const cat = category.toLowerCase().replace(/\W/g, '') || 'popular';
-    fetch(`https://ionbackend.com/matching/personas/?category=${cat}`)
+    fetch(`https://ionbackend.com/matching/personas-carousel/?category=${cat}`)
       .then(r => r.json())
       .then(data => setPersonas(data));
   }, [category]);
