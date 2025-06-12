@@ -48,7 +48,7 @@ export default function Comments() {
         API.setAuthToken(token);
       }
       try {
-        const res = await API.get('me/');
+        const res = await API.get('auth/me/');
         if (!isMounted) return;
         setAvatarUrl(res.data.avatar_url);
         setCurrentUsername(res.data.username);
@@ -59,7 +59,7 @@ export default function Comments() {
           try {
             const newAccess = await refreshAccessToken();
             API.setAuthToken(newAccess);
-            const retry = await API.get('me/');
+            const retry = await API.get('auth/me/');
             if (!isMounted) return;
             setAvatarUrl(retry.data.avatar_url);
             setCurrentUsername(retry.data.username);
@@ -94,7 +94,7 @@ export default function Comments() {
       setLoadingComments(true);
       setErrorComments(null);
       try {
-        const res = await API.get(`articles/${slug}/comments/`);
+        const res = await API.get(`content/articles/${slug}/comments/`);
         if (!isMounted) return;
         setComments(res.data);
       } catch (err) {
@@ -117,21 +117,7 @@ export default function Comments() {
     setNewContent(`@${username} `);
   }
 
-  // — Like/unlike a comment #id, then re-fetch entire tree —
-  async function handleLikeClick(commentId, currentlyLiked) {
-    if (!slug) return;
-    try {
-      if (!currentlyLiked) {
-        await API.post(`comments/${commentId}/like/`);
-      } else {
-        await API.delete(`comments/${commentId}/like/`);
-      }
-      const r2 = await API.get(`articles/${slug}/comments/`);
-      setComments(r2.data);
-    } catch (err) {
-      console.error('Error liking/unliking comment:', err);
-    }
-  }
+ 
 
   // — “Post” click for either top‐level or a reply —
   async function handleSubmit() {
@@ -148,10 +134,10 @@ export default function Comments() {
 
       console.log("Posting comment payload:", payload);
 
-      await API.post(`articles/${slug}/comments/`, payload);
+      await API.post(`content/articles/${slug}/comments/`, payload);
 
       // Re-fetch so the new reply shows up under its parent
-      const r2 = await API.get(`articles/${slug}/comments/`);
+      const r2 = await API.get(`content/articles/${slug}/comments/`);
       setComments(r2.data);
 
       // Clear the input and snap the box back to “top‐level comment” mode
@@ -159,7 +145,7 @@ export default function Comments() {
       setParentCommentId(null);
     } catch (err) {
       console.error('Error submitting comment:', err);
-      setErrorComments("Could not post comment. Please try again.");
+      setErrorComments("");
     } finally {
       setSubmitting(false);
     }
@@ -181,8 +167,8 @@ export default function Comments() {
   async function handleDeleteComment(commentId) {
     console.log("Delete comment:", commentId);
     try {
-      await API.delete(`comments/${commentId}/`); // adjust endpoint as needed
-      const r2 = await API.get(`articles/${slug}/comments/`);
+      await API.delete(`content/comments/${commentId}/`); // adjust endpoint as needed
+      const r2 = await API.get(`content/articles/${slug}/comments/`);
       setComments(r2.data);
     } catch (err) {
       console.error("Error deleting comment:", err);

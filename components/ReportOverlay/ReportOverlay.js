@@ -46,7 +46,7 @@ export default function TextFrame({ onClose, userId, authToken }) {
     };
 
     try {
-      const res = await fetch('https://ionbackend.com/api/ticketing/submit-ticket/', {
+      const res = await fetch('http://127.0.0.1:8000/api/ticketing/submit/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

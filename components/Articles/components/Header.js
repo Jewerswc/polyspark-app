@@ -31,7 +31,7 @@ export default function Header() {
     (async () => {
       try {
         API.setAuthToken(token);
-        const res = await API.get('me/');
+        const res = await API.get('auth/me/');
         setAvatarUrl(res.data.avatar_url);
         setUsername(res.data.username);
         localStorage.setItem('cachedAvatarUrl', res.data.avatar_url);
@@ -40,7 +40,7 @@ export default function Header() {
           try {
             const newToken = await refreshAccessToken();
             API.setAuthToken(newToken);
-            const retry = await API.get('me/');
+            const retry = await API.get('auth/me/');
             setAvatarUrl(retry.data.avatar_url);
             setUsername(retry.data.username);
             localStorage.setItem('cachedAvatarUrl', retry.data.avatar_url);

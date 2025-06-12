@@ -1,0 +1,185 @@
+/* Container to center page content and give top/bottom padding if desired */
+.pageWrapper {
+    /* optional: if you want a background or padding around the container */
+    background: #fff;
+  }
+  
+  /* Outer flex container: sidebar + main content */
+  .tpContainer {
+    display: flex;
+    gap: 40px;            /* space between sidebar and content */
+    max-width: 1200px;    /* limit total width */
+    margin: 0 auto;       /* center horizontally */
+    padding: 40px 20px;   /* top/bottom, left/right */
+    box-sizing: border-box;
+    align-items: flex-start;
+  }
+  
+  /* Sidebar */
+  .tpSidebar {
+    position: sticky;
+    top: 100px;           /* adjust depending on header height so sidebar sticks after header */
+    align-self: flex-start;
+    width: 200px;
+  }
+  
+  /* Tab list */
+  .tpTabList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tpTabItem {
+    padding: 16px 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: cabin;
+    color: #333;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .tpTabItem:hover {
+    background-color: #E6E6E6;
+  }
+  
+  .tpTabItem.selected {
+    background-color: #F2F2F2;
+    font-weight: 700;
+  }
+  
+  /* Link styling inside tab */
+  .tpTabLink {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  
+  /* Main content area */
+  .tpContent {
+    flex: 1;
+    max-width: 800px;
+  }
+  
+  /* Document/article wrapper */
+  .tpDocument {
+    width: 100%;
+  }
+  
+  /* “Updated” date above title, centered */
+  .tpUpdatedDate {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 8px;
+    font-family: cabin;
+  }
+  
+  /* Title, centered */
+  .tpTitle {
+    font-size: 2rem; /* approx 32px */
+    text-align: center;
+    margin: 0;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #333333;
+    font-family: cabin;
+  }
+  
+  /* “Effective:” date below title, left-aligned */
+  .tpEffectiveDate {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 24px;
+    text-align: left;
+    font-family: cabin;
+
+  }
+  
+  /* Sections */
+  .tpSection {
+    margin-bottom: 32px;
+    font-family: cabin;
+
+  }
+  
+  /* Section heading */
+  .tpSection h2 {
+    font-size: 1.25rem; /* approx 20px */
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: cabin;
+
+  }
+  
+  /* Paragraphs and lists */
+  .tpSection p,
+  .tpSection ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 12px 0;
+    font-family: cabin;
+
+  }
+  
+  /* Unordered lists */
+  .tpSection ul {
+    padding-left: 20px;
+  }
+  
+  /* List items */
+  .tpSection ul li {
+    margin-bottom: 8px;
+  }
+  
+  /* Link styling */
+  .tpLink {
+    color: #0366d6;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  .tpLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* If you use <button> for link-like behavior, ensure it looks like text */
+  .linkButton {
+    all: unset;
+    color: #0366d6;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .linkButton:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive: stack sidebar above content on small screens */
+  @media (max-width: 768px) {
+    .tpContainer {
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 66px;
+    }
+    .tpSidebar {
+      position: relative;
+      top: auto;
+      width: 100%;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .tpContent {
+      max-width: 100%;
+    }
+  }
+  
