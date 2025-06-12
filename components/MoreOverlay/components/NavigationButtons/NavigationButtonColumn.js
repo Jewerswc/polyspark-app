@@ -9,8 +9,8 @@ const defaultButtons = [
   { label: 'Latest Activity', href: '/Activity' },
   { label: 'Personas',        href: '/persona' },
   { label: 'Get Lucky',       href: '/get-lucky' },
-  { label: 'Privacy',         href: '/Terms' },
-  { label: 'Terms of Use',    href: '/Terms' },
+  { label: 'Privacy',         href: '/terms' },
+  { label: 'Terms of Use',    href: '/Privacy' },
   { label: 'Report an Issue', href: '/report-issue' },
 ]
 
