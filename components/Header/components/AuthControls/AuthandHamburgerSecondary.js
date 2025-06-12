@@ -10,6 +10,8 @@ export default function AuthButtonsContainer({ onLoginClick, onSignupClick }) {
     const items = [
       { label: 'Sign Up',           onClick: onSignupClick },
       { label: 'Log In', divider: true, onClick: onLoginClick },
+      { label: 'Trending',        onClick: () => router.push('/') },  
+
       { label: 'Personas',        onClick: () => router.push('/persona') },  
       { label: 'Activity',        onClick: () => router.push('/Activity') },  
   

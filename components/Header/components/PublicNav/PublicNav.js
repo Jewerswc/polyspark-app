@@ -15,12 +15,13 @@ export default function AuthAndHamburgerRow({
   const items = [
     { label: 'Sign Up',           onClick: onSignupClick },
     { label: 'Log In', divider: true, onClick: onLoginClick },
+    { label: 'Trending',        onClick: () => router.push('/') },  
     { label: 'Personas',        onClick: () => router.push('/persona') },  
     { label: 'Activity',        onClick: () => router.push('/Activity') },  
 
     { label: 'Report an Issue',   onClick: onReportClick },
-    { label: 'Privacy',           onClick: () => {} },
-    { label: 'Terms of Use',      onClick: () => {} },
+    { label: 'Privacy',          onClick: () => router.push('/privacy') },  
+    { label: 'Terms of Use',     onClick: () => router.push('/terms') }, 
   ];
 
   return (

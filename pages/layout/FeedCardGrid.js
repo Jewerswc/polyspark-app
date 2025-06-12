@@ -54,7 +54,7 @@ export default function FeedCardsGrid({
   }
 
   if (!articles || articles.length === 0) {
-    return <div>No results found.</div>;
+    return <div></div>;
   }
 
   return (
