@@ -1,4 +1,3 @@
-// src/components/UserProfileCard/LoginOverlayMobile.js
 import React, { useState } from 'react';
 import { X } from 'react-bootstrap-icons';
 import API from './../../../lib/api';               

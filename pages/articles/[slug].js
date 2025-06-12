@@ -1,5 +1,6 @@
 // pages/articles/[slug].js
 import React, { useState, useEffect } from 'react'
+import Router from 'next/router'
 import Header from '../../components/Articles/components/Header'
 import HeaderMobileSecondary from './../../components/Header/HeaderMobileSecondary'
 import UserProfileCard from './../../components/Articles/components/Head/Head'
@@ -14,7 +15,41 @@ import Commentsout from './../../components/Articles/components/Comments/compone
 import { isLoggedIn } from './../api/auth'
 
 export default function ArticlePage({ article, error }) {
-  const [overlay, setOverlay] = useState(null)
+  useEffect(() => {
+    const slug = article.slug
+    const endpoint = `https://ionbackend.com/api/content/record-engagement/${slug}/`
+
+    // 1) count the view immediately
+    fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'page_view', time_spent: 0 })
+    }).catch(console.error)
+
+    // 2) now start timing…
+    const start = Date.now()
+    function sendTimeSpent() {
+      const seconds = Math.round((Date.now() - start) / 1000)
+      if (!seconds) return
+
+      const payload = new URLSearchParams()
+      payload.append('action', 'time_spent')
+      payload.append('time_spent', seconds)
+
+      navigator.sendBeacon(endpoint, payload)
+    }
+
+    window.addEventListener('beforeunload', sendTimeSpent)
+    Router.events.on('routeChangeStart', sendTimeSpent)
+    return () => {
+      window.removeEventListener('beforeunload', sendTimeSpent)
+      Router.events.off('routeChangeStart', sendTimeSpent)
+    }
+  }, [article.slug])
+
+
+
+    const [overlay, setOverlay] = useState(null)
   const [isMobile, setIsMobile] = useState(false)
 
   // <-- NEW: track login status on the client
