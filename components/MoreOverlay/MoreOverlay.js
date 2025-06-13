@@ -57,7 +57,7 @@ export default function MoreOverlay({
 
         async function fetchProfile() {
           try {
-            const res = await API.get('me/')
+            const res = await API.get('auth/me/')
             setAvatarUrl(res.data.avatar_url)
             setUsername(res.data.username)
             window.localStorage.setItem(
@@ -72,7 +72,7 @@ export default function MoreOverlay({
               try {
                 const newAccess = await refreshAccessToken()
                 API.setAuthToken(newAccess)
-                const retry = await API.get('me/')
+                const retry = await API.get('auth/me/')
                 setAvatarUrl(retry.data.avatar_url)
                 setUsername(retry.data.username)
                 window.localStorage.setItem(
