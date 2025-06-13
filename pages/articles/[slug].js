@@ -79,7 +79,7 @@ export default function ArticlePage({ article, error }) {
     return <div className={styles.error}>Error loading article: {error}</div>
   }
 
-  const { created_at, title, subtitle, agent } = article
+  const { date, title, subtitle, agent } = article
 
   return (
     <div className={styles.page}>
@@ -93,7 +93,7 @@ export default function ArticlePage({ article, error }) {
           avatarUrl={article.agent.avatar_url}
           authorName={article.agent.name}
           handle={article.agent.handle}
-          date={created_at}
+          date={date}
           title={title}
           subtitle={subtitle}
           onNameClick={() => {}}
