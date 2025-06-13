@@ -52,7 +52,7 @@ export default function ProfileSettings() {
         return;
       }
       try {
-        const res = await API.get('me/'); // → GET http://.../matching/api/me/
+        const res = await API.get('auth/me/'); 
         if (!isMounted) return;
         setProfile({
           email: res.data.email,
@@ -67,7 +67,7 @@ export default function ProfileSettings() {
           try {
             const newAccess = await refreshAccessToken();
             // retry with new token
-            const retryRes = await API.get('me/');
+            const retryRes = await API.get('auth/me/');
             if (!isMounted) return;
             setProfile({
               email: retryRes.data.email,
@@ -131,7 +131,7 @@ export default function ProfileSettings() {
       // 1) If no avatarFile was selected, send a JSON patch:
       if (!avatarFile) {
         await API.patch(
-          'me/',
+          'auth/me/',
           {
             email: profile.email,
             username: profile.username,
@@ -145,7 +145,7 @@ export default function ProfileSettings() {
       // 2) If there _is_ an avatarFile, do two requests:
       //    a) First, update email/username/bio via JSON
       await API.patch(
-        'me/',
+        'auth/me/',
         {
           email: profile.email,
           username: profile.username,
